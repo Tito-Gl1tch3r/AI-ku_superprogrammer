@@ -1,22 +1,24 @@
-# DATASET CARD — AI-ku_superprogrammer (v0.1.0)
+# DATASET CARD — AI-ku_superprogrammer (v0.2.0)
 
 ## Identificación
 
 - **Nombre**: AI-ku_superprogrammer
-- **Versión**: 0.1.0 (piloto verificado)
+- **Versión**: 0.2.0 (piloto verificado; extensión MV + fix de dedup)
 - **Licencia**: MIT
 - **Datasets incluidos**: `AI-ku_superprogrammer_write`, `AI-ku_superprogrammer_understand`, `AI-ku_superprogrammer_media`, `AI-ku_superprogrammer_game_engineering`
 - **Propósito**: entrenar capacidades de programación profunda (escritura, comprensión, depuración, verificación, optimización), generación de medios por código e ingeniería de software de juegos con ingeniería inversa autorizada.
 
-## Composición (v0.1.0)
+## Composición (v0.2.0)
 
 | Dataset | Total | % verificado por ejecución | % con tests | % multi-file |
 |---|---|---|---|---|
-| write | 10.704 | 72.0% | 71.8% | 19.1% |
-| understand | 3.043 | 86.3% | 53.1% | 0% |
-| media (write+understand) | 545 | 93.2% | 92.3% | ~1% |
-| game_engineering (write+understand) | 1.441 | 96.8% | 84.9% | ~30% |
-| **Total** | **15.733** | | | |
+| write | 13.697 | 74.1% | 73.5% | 22.7% |
+| understand | 3.374 | 83.7% | 47.9% | 0% |
+| media (write 647 + understand 302) | 949 | 93.2% | 76.4% | ~8% |
+| game_engineering (write 861 + understand 618) | 1.479 | 96.2% | 73.6% | ~20% |
+| **Total** | **19.499** | | | |
+
+Incluye la extensión **MV** (v0.2.0): 407 records de motor de vídeo musical generativo (escenas, beat grid, karaoke word-synced, render offline determinista) cuyo color de señal por defecto es el turquesa Miku `#39C5BB` — identidad visual de AI-ku, nunca naranja.
 
 - Dificultad: beginner/intermediate/advanced/expert con hard holdout experto separado.
 - Procedencia: 100% sintético (generado por las familias de este repo, semilla registrada por ejemplo).
@@ -33,7 +35,7 @@ Familias parametrizadas deterministas → ejecución/compilación en sandbox (rl
 - optimización/refactor: equivalencia sobre entradas idénticas.
 - testing: puntuación de mutación real.
 - seguridad: evidencia en entorno controlado (sqlite en memoria, resolución de rutas); solo patrones defensivos.
-- media: frames Pillow comparados byte a byte; determinismo como requisito.
+- media: frames Pillow comparados byte a byte; determinismo como requisito; depuración de determinismo en el render path y razonamiento de timeline/karaoke con evidencia ejecutada.
 - game: round-trips pack→parse→compare sobre formatos sintéticos propios.
 
 ## Sesgos y limitaciones

@@ -1,255 +1,257 @@
 {
  "write": {
-  "total": 10704,
-  "pct_verified_executed": 72.0,
-  "pct_verified_static": 28.0,
-  "pct_with_tests": 71.8,
-  "pct_multi_file": 19.1,
+  "total": 13697,
+  "pct_verified_executed": 74.1,
+  "pct_verified_static": 25.9,
+  "pct_with_tests": 73.5,
+  "pct_multi_file": 22.7,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 2960,
+   "python": 3552,
+   "javascript": 1817,
    "cpp": 1808,
    "c": 1465,
+   "typescript": 1422,
    "html": 1171,
-   "typescript": 1029,
    "css": 776,
-   "javascript": 420,
+   "powershell": 405,
+   "rust": 390,
    "java": 348,
-   "rust": 211,
-   "powershell": 193,
-   "go": 156,
+   "go": 308,
    "php": 145,
+   "bash": 68,
    "sql": 22
   },
   "by_difficulty": {
-   "advanced": 4221,
-   "intermediate": 3571,
-   "expert": 1525,
-   "beginner": 1387
+   "advanced": 5337,
+   "intermediate": 4745,
+   "expert": 1961,
+   "beginner": 1654
   },
   "by_domain": {
-   "web": 2456,
-   "algorithms": 2289,
-   "engineering": 2055,
+   "algorithms": 3267,
+   "engineering": 3226,
+   "web": 2955,
    "text_processing": 1191,
-   "automation": 923,
+   "automation": 991,
    "science_math": 748,
-   "concurrency": 507,
-   "systems": 443,
+   "concurrency": 681,
+   "systems": 546,
    "data_structures": 59,
    "databases": 22,
    "security": 11
   },
   "by_split": {
-   "train": 8550,
-   "validation": 419,
-   "test": 1148,
-   "hard_holdout": 587
+   "train": 10846,
+   "validation": 915,
+   "test": 1245,
+   "hard_holdout": 691
   },
   "by_size": {
-   "300-1200c": 6958,
-   "<300c": 1379,
-   "1200-3000c": 2367
+   "<300c": 1737,
+   "300-1200c": 8456,
+   "1200-3000c": 3504
   },
   "by_task_type": {}
  },
  "understand": {
-  "total": 3043,
-  "pct_verified_executed": 86.3,
+  "total": 3374,
+  "pct_verified_executed": 83.7,
   "pct_verified_static": 0.0,
-  "pct_with_tests": 53.1,
+  "pct_with_tests": 47.9,
   "pct_multi_file": 0.0,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 1505,
-   "cpp": 435,
-   "javascript": 283,
-   "c": 275,
-   "typescript": 194,
+   "python": 1668,
+   "cpp": 444,
+   "javascript": 339,
+   "c": 281,
+   "typescript": 201,
    "sql": 103,
    "html": 80,
+   "rust": 49,
+   "powershell": 45,
    "css": 42,
    "java": 34,
-   "php": 28,
-   "powershell": 26,
-   "rust": 22,
-   "go": 15,
-   "bash": 1
+   "go": 31,
+   "bash": 29,
+   "php": 28
   },
   "by_difficulty": {
-   "intermediate": 2009,
-   "advanced": 899,
+   "intermediate": 2256,
+   "advanced": 972,
    "expert": 99,
-   "beginner": 36
+   "beginner": 47
   },
   "by_domain": {
-   "algorithms": 1885,
+   "algorithms": 1949,
    "text_processing": 526,
-   "engineering": 177,
-   "web": 155,
-   "systems": 119,
+   "engineering": 365,
+   "web": 164,
+   "systems": 135,
    "databases": 103,
-   "automation": 36,
+   "automation": 64,
+   "concurrency": 30,
    "science_math": 16,
    "security": 13,
-   "data_structures": 9,
-   "concurrency": 4
+   "data_structures": 9
   },
   "by_split": {
-   "train": 2591,
-   "validation": 153,
-   "test": 251,
+   "train": 2890,
+   "validation": 175,
+   "test": 261,
    "hard_holdout": 48
   },
   "by_size": {
-   "300-1200c": 2077,
-   "<300c": 822,
-   "1200-3000c": 144
+   "<300c": 834,
+   "300-1200c": 2333,
+   "1200-3000c": 207
   },
   "by_task_type": {
    "debugging": 1140,
+   "explanation": 490,
    "testing": 475,
    "trace": 400,
-   "explanation": 355,
    "comparison": 259,
    "optimization": 216,
-   "translation": 45,
+   "refactoring": 129,
+   "translation": 97,
+   "architecture": 50,
    "code_review": 40,
    "language_selection": 33,
-   "architecture": 29,
    "complexity": 28,
    "failure_prediction": 14,
-   "refactoring": 6,
    "security": 3
   }
  },
  "media_write": {
-  "total": 387,
-  "pct_verified_executed": 97.4,
-  "pct_verified_static": 2.6,
-  "pct_with_tests": 97.4,
-  "pct_multi_file": 1.0,
+  "total": 647,
+  "pct_verified_executed": 98.5,
+  "pct_verified_static": 1.5,
+  "pct_with_tests": 98.5,
+  "pct_multi_file": 11.6,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 373,
+   "python": 633,
    "glsl": 10,
    "typescript": 4
   },
   "by_difficulty": {
-   "advanced": 173,
-   "intermediate": 161,
+   "advanced": 300,
+   "intermediate": 253,
    "beginner": 49,
-   "expert": 4
+   "expert": 45
   },
   "by_domain": {
-   "engineering": 387
+   "engineering": 647
   },
   "by_split": {
-   "train": 383,
-   "test": 1,
+   "train": 562,
+   "validation": 20,
+   "test": 62,
    "hard_holdout": 3
   },
   "by_size": {
-   "300-1200c": 378,
+   "300-1200c": 567,
    "<300c": 5,
+   ">3000c": 71,
    "1200-3000c": 4
   },
   "by_task_type": {}
  },
  "media_understand": {
-  "total": 158,
-  "pct_verified_executed": 70.9,
+  "total": 302,
+  "pct_verified_executed": 84.8,
   "pct_verified_static": 0.0,
-  "pct_with_tests": 69.6,
-  "pct_multi_file": 0.6,
+  "pct_with_tests": 35.4,
+  "pct_multi_file": 0.0,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 146,
+   "python": 290,
    "glsl": 10,
    "typescript": 2
   },
   "by_difficulty": {
-   "intermediate": 98,
-   "advanced": 46,
+   "advanced": 161,
+   "intermediate": 130,
    "beginner": 8,
-   "expert": 6
+   "expert": 3
   },
   "by_domain": {
-   "engineering": 158
+   "engineering": 302
   },
   "by_split": {
-   "train": 106,
+   "train": 171,
    "validation": 2,
-   "test": 47,
-   "hard_holdout": 3
+   "test": 129
   },
   "by_size": {
    "<300c": 8,
-   "300-1200c": 145,
-   "1200-3000c": 5
+   "300-1200c": 290,
+   "1200-3000c": 4
   },
   "by_task_type": {}
  },
  "game_write": {
-  "total": 672,
+  "total": 861,
   "pct_verified_executed": 100.0,
   "pct_verified_static": 0.0,
   "pct_with_tests": 100.0,
-  "pct_multi_file": 38.2,
+  "pct_multi_file": 29.8,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 672
+   "python": 861
   },
   "by_difficulty": {
-   "advanced": 297,
-   "expert": 242,
-   "intermediate": 133
+   "advanced": 366,
+   "expert": 321,
+   "intermediate": 174
   },
   "by_domain": {
-   "systems": 408,
+   "systems": 597,
    "engineering": 264
   },
   "by_split": {
-   "train": 374,
+   "train": 526,
    "validation": 140,
-   "hard_holdout": 158
+   "hard_holdout": 195
   },
   "by_size": {
-   "300-1200c": 280,
+   "300-1200c": 407,
    "<300c": 134,
-   "1200-3000c": 258
+   "1200-3000c": 320
   },
   "by_task_type": {}
  },
  "game_understand": {
-  "total": 769,
-  "pct_verified_executed": 91.9,
+  "total": 618,
+  "pct_verified_executed": 90.0,
   "pct_verified_static": 0.0,
-  "pct_with_tests": 46.3,
-  "pct_multi_file": 15.2,
+  "pct_with_tests": 33.2,
+  "pct_multi_file": 0.0,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 769
+   "python": 618
   },
   "by_difficulty": {
    "advanced": 422,
-   "expert": 223,
-   "intermediate": 124
+   "intermediate": 124,
+   "expert": 72
   },
   "by_domain": {
-   "systems": 600,
-   "engineering": 169
+   "systems": 566,
+   "engineering": 52
   },
   "by_split": {
    "train": 534,
    "validation": 2,
    "test": 75,
-   "hard_holdout": 158
+   "hard_holdout": 7
   },
   "by_size": {
-   "<300c": 389,
-   "300-1200c": 173,
-   "1200-3000c": 207
+   "<300c": 396,
+   "300-1200c": 132,
+   "1200-3000c": 90
   },
   "by_task_type": {}
  }

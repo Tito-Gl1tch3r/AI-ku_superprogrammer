@@ -19,6 +19,7 @@ FAMILY_MODULES = [
     "generators.write.css_families",
     "generators.write.powershell_families",
     "generators.media.families",
+    "generators.media.video_families",
     "generators.game.families",
 ]
 
@@ -26,7 +27,9 @@ FAMILY_MODULES = [
 DATASET_FAMILIES = {
     "AI-ku_superprogrammer_media": ("media_timeline_easing", "media_frame_renderer",
                                     "media_audio_analysis", "media_ts_logic",
-                                    "media_glsl_shaders", "media_project_multifile"),
+                                    "media_glsl_shaders", "media_project_multifile",
+                                    "media_mv_scene_engine", "media_mv_karaoke",
+                                    "media_mv_project"),
     "AI-ku_superprogrammer_game_engineering": ("game_binary_formats",
                                                "game_coord_conversion",
                                                "game_sprite_atlas", "game_script_vm",

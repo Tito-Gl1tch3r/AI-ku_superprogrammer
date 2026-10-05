@@ -2,222 +2,224 @@
 
 ## write
 
-- total: **10704**
-- verified by execution: **72.0%** (static check: 28.0%)
-- with tests: 71.8% | multi-file projects: 19.1% | synthetic: 100.0%
+- total: **13697**
+- verified by execution: **74.1%** (static check: 25.9%)
+- with tests: 73.5% | multi-file projects: 22.7% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 2960 |
+| python | 3552 |
+| javascript | 1817 |
 | cpp | 1808 |
 | c | 1465 |
+| typescript | 1422 |
 | html | 1171 |
-| typescript | 1029 |
 | css | 776 |
-| javascript | 420 |
+| powershell | 405 |
+| rust | 390 |
 | java | 348 |
-| rust | 211 |
-| powershell | 193 |
-| go | 156 |
+| go | 308 |
 | php | 145 |
+| bash | 68 |
 | sql | 22 |
 
 | difficulty | count |
 |---|---|
-| advanced | 4221 |
-| intermediate | 3571 |
-| expert | 1525 |
-| beginner | 1387 |
+| advanced | 5337 |
+| intermediate | 4745 |
+| expert | 1961 |
+| beginner | 1654 |
 
 | split | count |
 |---|---|
-| train | 8550 |
-| validation | 419 |
-| test | 1148 |
-| hard_holdout | 587 |
+| train | 10846 |
+| validation | 915 |
+| test | 1245 |
+| hard_holdout | 691 |
 
 | code size | count |
 |---|---|
-| 300-1200c | 6958 |
-| <300c | 1379 |
-| 1200-3000c | 2367 |
+| <300c | 1737 |
+| 300-1200c | 8456 |
+| 1200-3000c | 3504 |
 
 ## understand
 
-- total: **3043**
-- verified by execution: **86.3%** (static check: 0.0%)
-- with tests: 53.1% | multi-file projects: 0.0% | synthetic: 100.0%
+- total: **3374**
+- verified by execution: **83.7%** (static check: 0.0%)
+- with tests: 47.9% | multi-file projects: 0.0% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 1505 |
-| cpp | 435 |
-| javascript | 283 |
-| c | 275 |
-| typescript | 194 |
+| python | 1668 |
+| cpp | 444 |
+| javascript | 339 |
+| c | 281 |
+| typescript | 201 |
 | sql | 103 |
 | html | 80 |
+| rust | 49 |
+| powershell | 45 |
 | css | 42 |
 | java | 34 |
+| go | 31 |
+| bash | 29 |
 | php | 28 |
-| powershell | 26 |
-| rust | 22 |
-| go | 15 |
-| bash | 1 |
 
 | difficulty | count |
 |---|---|
-| intermediate | 2009 |
-| advanced | 899 |
+| intermediate | 2256 |
+| advanced | 972 |
 | expert | 99 |
-| beginner | 36 |
+| beginner | 47 |
 
 | task type | count |
 |---|---|
 | debugging | 1140 |
+| explanation | 490 |
 | testing | 475 |
 | trace | 400 |
-| explanation | 355 |
 | comparison | 259 |
 | optimization | 216 |
-| translation | 45 |
+| refactoring | 129 |
+| translation | 97 |
+| architecture | 50 |
 | code_review | 40 |
 | language_selection | 33 |
-| architecture | 29 |
 | complexity | 28 |
 | failure_prediction | 14 |
-| refactoring | 6 |
 | security | 3 |
 
 | split | count |
 |---|---|
-| train | 2591 |
-| validation | 153 |
-| test | 251 |
+| train | 2890 |
+| validation | 175 |
+| test | 261 |
 | hard_holdout | 48 |
 
 | code size | count |
 |---|---|
-| 300-1200c | 2077 |
-| <300c | 822 |
-| 1200-3000c | 144 |
+| <300c | 834 |
+| 300-1200c | 2333 |
+| 1200-3000c | 207 |
 
 ## media_write
 
-- total: **387**
-- verified by execution: **97.4%** (static check: 2.6%)
-- with tests: 97.4% | multi-file projects: 1.0% | synthetic: 100.0%
+- total: **647**
+- verified by execution: **98.5%** (static check: 1.5%)
+- with tests: 98.5% | multi-file projects: 11.6% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 373 |
+| python | 633 |
 | glsl | 10 |
 | typescript | 4 |
 
 | difficulty | count |
 |---|---|
-| advanced | 173 |
-| intermediate | 161 |
+| advanced | 300 |
+| intermediate | 253 |
 | beginner | 49 |
-| expert | 4 |
+| expert | 45 |
 
 | split | count |
 |---|---|
-| train | 383 |
-| test | 1 |
+| train | 562 |
+| validation | 20 |
+| test | 62 |
 | hard_holdout | 3 |
 
 | code size | count |
 |---|---|
-| 300-1200c | 378 |
+| 300-1200c | 567 |
 | <300c | 5 |
+| >3000c | 71 |
 | 1200-3000c | 4 |
 
 ## media_understand
 
-- total: **158**
-- verified by execution: **70.9%** (static check: 0.0%)
-- with tests: 69.6% | multi-file projects: 0.6% | synthetic: 100.0%
+- total: **302**
+- verified by execution: **84.8%** (static check: 0.0%)
+- with tests: 35.4% | multi-file projects: 0.0% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 146 |
+| python | 290 |
 | glsl | 10 |
 | typescript | 2 |
 
 | difficulty | count |
 |---|---|
-| intermediate | 98 |
-| advanced | 46 |
+| advanced | 161 |
+| intermediate | 130 |
 | beginner | 8 |
-| expert | 6 |
+| expert | 3 |
 
 | split | count |
 |---|---|
-| train | 106 |
+| train | 171 |
 | validation | 2 |
-| test | 47 |
-| hard_holdout | 3 |
+| test | 129 |
 
 | code size | count |
 |---|---|
 | <300c | 8 |
-| 300-1200c | 145 |
-| 1200-3000c | 5 |
+| 300-1200c | 290 |
+| 1200-3000c | 4 |
 
 ## game_write
 
-- total: **672**
+- total: **861**
 - verified by execution: **100.0%** (static check: 0.0%)
-- with tests: 100.0% | multi-file projects: 38.2% | synthetic: 100.0%
+- with tests: 100.0% | multi-file projects: 29.8% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 672 |
+| python | 861 |
 
 | difficulty | count |
 |---|---|
-| advanced | 297 |
-| expert | 242 |
-| intermediate | 133 |
+| advanced | 366 |
+| expert | 321 |
+| intermediate | 174 |
 
 | split | count |
 |---|---|
-| train | 374 |
+| train | 526 |
 | validation | 140 |
-| hard_holdout | 158 |
+| hard_holdout | 195 |
 
 | code size | count |
 |---|---|
-| 300-1200c | 280 |
+| 300-1200c | 407 |
 | <300c | 134 |
-| 1200-3000c | 258 |
+| 1200-3000c | 320 |
 
 ## game_understand
 
-- total: **769**
-- verified by execution: **91.9%** (static check: 0.0%)
-- with tests: 46.3% | multi-file projects: 15.2% | synthetic: 100.0%
+- total: **618**
+- verified by execution: **90.0%** (static check: 0.0%)
+- with tests: 33.2% | multi-file projects: 0.0% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 769 |
+| python | 618 |
 
 | difficulty | count |
 |---|---|
 | advanced | 422 |
-| expert | 223 |
 | intermediate | 124 |
+| expert | 72 |
 
 | split | count |
 |---|---|
 | train | 534 |
 | validation | 2 |
 | test | 75 |
-| hard_holdout | 158 |
+| hard_holdout | 7 |
 
 | code size | count |
 |---|---|
-| <300c | 389 |
-| 300-1200c | 173 |
-| 1200-3000c | 207 |
+| <300c | 396 |
+| 300-1200c | 132 |
+| 1200-3000c | 90 |

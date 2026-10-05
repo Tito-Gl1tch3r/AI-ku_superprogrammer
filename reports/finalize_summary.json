@@ -18,44 +18,44 @@
   "dataset": "AI-ku_superprogrammer_game_engineering",
   "kind": "write",
   "staged": 1600,
-  "kept": 672,
-  "dupes_removed": 928,
+  "kept": 861,
+  "dupes_removed": 739,
   "family_capped": 0,
   "schema_rejected": 0,
   "splits": {
-   "train": 374,
+   "train": 526,
    "validation": 140,
    "test": 0,
-   "hard_holdout": 158
+   "hard_holdout": 195
   }
  },
  "AI-ku_superprogrammer_media|understand": {
   "dataset": "AI-ku_superprogrammer_media",
   "kind": "understand",
-  "staged": 599,
-  "kept": 155,
-  "dupes_removed": 444,
+  "staged": 846,
+  "kept": 302,
+  "dupes_removed": 544,
   "family_capped": 0,
   "schema_rejected": 0,
   "splits": {
-   "train": 106,
+   "train": 171,
    "validation": 2,
-   "test": 47,
+   "test": 129,
    "hard_holdout": 0
   }
  },
  "AI-ku_superprogrammer_media|write": {
   "dataset": "AI-ku_superprogrammer_media",
   "kind": "write",
-  "staged": 2250,
-  "kept": 387,
-  "dupes_removed": 1863,
+  "staged": 2589,
+  "kept": 647,
+  "dupes_removed": 1942,
   "family_capped": 0,
   "schema_rejected": 0,
   "splits": {
-   "train": 383,
-   "validation": 0,
-   "test": 1,
+   "train": 562,
+   "validation": 20,
+   "test": 62,
    "hard_holdout": 3
   }
  },
@@ -63,14 +63,14 @@
   "dataset": "AI-ku_superprogrammer_understand",
   "kind": "understand",
   "staged": 7948,
-  "kept": 3043,
-  "dupes_removed": 4814,
+  "kept": 3374,
+  "dupes_removed": 4483,
   "family_capped": 0,
   "schema_rejected": 91,
   "splits": {
-   "train": 2591,
-   "validation": 153,
-   "test": 251,
+   "train": 2890,
+   "validation": 175,
+   "test": 261,
    "hard_holdout": 48
   }
  },
@@ -78,15 +78,15 @@
   "dataset": "AI-ku_superprogrammer_write",
   "kind": "write",
   "staged": 23585,
-  "kept": 10704,
-  "dupes_removed": 12881,
+  "kept": 13697,
+  "dupes_removed": 9888,
   "family_capped": 0,
   "schema_rejected": 0,
   "splits": {
-   "train": 8550,
-   "validation": 419,
-   "test": 1148,
-   "hard_holdout": 587
+   "train": 10846,
+   "validation": 915,
+   "test": 1245,
+   "hard_holdout": 691
   }
  }
 }

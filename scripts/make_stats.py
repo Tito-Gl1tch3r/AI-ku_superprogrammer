@@ -24,6 +24,17 @@ DATASET_LAYOUT = {
 HOLDOUT_PREFIX = {"write": "write", "understand": "understand", "media_write": "media",
                   "media_understand": "media", "game_write": "game",
                   "game_understand": "game"}
+# hard_holdout records are attributed by their OWN (dataset, kind) fields —
+# filename prefixes are shared across kinds of the same dataset and would
+# double-count (e.g. game-write shards leaking into game_understand).
+STAGE_DS_KIND = {
+    "write": ("AI-ku_superprogrammer_write", "write"),
+    "understand": ("AI-ku_superprogrammer_understand", "understand"),
+    "media_write": ("AI-ku_superprogrammer_media", "write"),
+    "media_understand": ("AI-ku_superprogrammer_media", "understand"),
+    "game_write": ("AI-ku_superprogrammer_game_engineering", "write"),
+    "game_understand": ("AI-ku_superprogrammer_game_engineering", "understand"),
+}
 
 
 def load_stage(stage):
@@ -40,13 +51,15 @@ def load_stage(stage):
                         for line in f:
                             rows.append((split, json.loads(line)))
     hd = os.path.join(ROOT, "datasets", "hard_holdout")
-    prefix = HOLDOUT_PREFIX[stage]
+    ds_kind = STAGE_DS_KIND[stage]
     if os.path.isdir(hd):
         for name in sorted(os.listdir(hd)):
-            if name.endswith(".jsonl.gz") and name.startswith(prefix):
+            if name.endswith(".jsonl.gz"):
                 with gzip.open(os.path.join(hd, name), "rt", encoding="utf-8") as f:
                     for line in f:
-                        rows.append(("hard_holdout", json.loads(line)))
+                        rec = json.loads(line)
+                        if (rec.get("dataset"), rec.get("kind")) == ds_kind:
+                            rows.append(("hard_holdout", rec))
     return rows
 
 

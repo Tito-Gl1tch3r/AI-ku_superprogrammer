@@ -78,7 +78,10 @@ def exact_hash(cand) -> str:
 
 
 def normalize(text: str, language: str) -> str:
-    text = re.sub(r"\s+", " ", text)
+    # Strip comments FIRST, on the original multi-line text: collapsing
+    # whitespace first would erase line boundaries and turn `#[^\n]*` into
+    # "delete everything from the first '#' (e.g. a '#39C5BB' hex literal in a
+    # string) to the end of the whole blob", over-collapsing distinct records.
     for pat in _COMMENT.get(language, []):
         text = re.sub(pat, " ", text, flags=re.S)
     text = re.sub(r"\s+", " ", text).strip()

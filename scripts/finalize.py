@@ -149,14 +149,18 @@ def finalize_group(dataset, kind, recs, family_cap, schema):
             rec["id"] = f"{prefix}-{counter:07d}"
         out_dir = (os.path.join(ROOT, "datasets", "hard_holdout")
                    if split == "hard_holdout" else os.path.join(base, split))
+        # hard_holdout is SHARED across kinds of the same dataset: qualify the
+        # shard name with the kind so one group never deletes another's shards
+        shard_prefix = f"{prefix}-{kind}" if split == "hard_holdout" else prefix
         os.makedirs(out_dir, exist_ok=True)
         for old in os.listdir(out_dir):
-            if old.startswith(prefix):
+            if old.startswith(shard_prefix) or (
+                    split == "hard_holdout" and old.startswith(f"{prefix}-shard")):
                 os.remove(os.path.join(out_dir, old))
         for i in range(0, len(rows), SHARD_SIZE):
             shard = rows[i:i + SHARD_SIZE]
             n = i // SHARD_SIZE
-            path = os.path.join(out_dir, f"{prefix}-shard-{n:05d}.jsonl.gz")
+            path = os.path.join(out_dir, f"{shard_prefix}-shard-{n:05d}.jsonl.gz")
             with gzip.open(path, "wt", encoding="utf-8", compresslevel=6) as f:
                 for rec in shard:
                     rec.pop("_split_meta", None)

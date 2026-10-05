@@ -13,6 +13,7 @@ import random
 
 from ..core import Candidate
 from ..registry import family_by_name
+from ..media.video_families import LINE_POOL
 from validators.verify import verify_candidate, run_snippet_safely
 from .builder import _mk
 
@@ -21,7 +22,94 @@ GAME = "AI-ku_superprogrammer_game_engineering"
 
 
 # ---------------------------------------------------------- media determinism
+def _mv_determinism_debug(rng: random.Random):
+    """MV variant: unseeded RNG in the karaoke render path breaks reproducibility."""
+    parts = rng.choice(LINE_POOL).split(" ")
+    t = 0.0
+    timed = []
+    for w in parts:
+        dur = rng.choice([0.4, 0.5, 0.6])
+        timed.append((round(t, 2), round(t + dur, 2), w))
+        t += dur + 0.1
+    amp = rng.choice([5, 8, 12])
+    y0 = rng.choice([6, 8])
+    width = rng.choice([40, 48, 56])
+    buggy = (
+        "from PIL import Image\n"
+        "import random\n\n"
+        "SIGNAL_RGB = (57, 197, 187)  # Miku turquoise - AI-ku default signal\n"
+        f"WORDS = {timed!r}\n\n\n"
+        "def active_word(t):\n"
+        "    for i, (start, end, _text) in enumerate(WORDS):\n"
+        "        if start <= t < end:\n"
+        "            return i, (t - start) / (end - start)\n"
+        "    return None, 0.0\n\n\n"
+        f"def render_caption(t, width={width}, height=12):\n"
+        "    img = Image.new('RGB', (width, height), (10, 10, 11))\n"
+        "    px = img.load()\n"
+        "    _idx, progress = active_word(t)\n"
+        "    fill = int(width * progress)\n"
+        f"    for y in range({y0}, {y0 + 4}):\n"
+        "        for x in range(fill):\n"
+        f"            j = random.randint(-{amp}, {amp})\n"
+        f"            px[x, y] = (max(0, min(255, 57 + j)), 197, 187)\n"
+        "    return img\n")
+    jitter_block = (
+        f"            j = random.randint(-{amp}, {amp})\n"
+        f"            px[x, y] = (max(0, min(255, 57 + j)), 197, 187)\n")
+    fixed = buggy.replace("import random\n\n", "").replace(
+        jitter_block, "            px[x, y] = SIGNAL_RGB\n")
+    mid1 = round((timed[1][0] + timed[1][1]) / 2, 4)  # guaranteed inside word 1
+    probe = (buggy + "\n\n"
+             f"a = render_caption({mid1!r}).tobytes()\n"
+             f"b = render_caption({mid1!r}).tobytes()\n"
+             "print('DETERMINISTIC:', a == b)\n")
+    r = run_snippet_safely("python", probe)
+    if not r.ok or "DETERMINISTIC: True" in r.stdout:
+        return None
+    probe_fixed = (fixed + "\n\n"
+                   f"a = render_caption({mid1!r}).tobytes()\n"
+                   f"b = render_caption({mid1!r}).tobytes()\n"
+                   "print('FIXED_DETERMINISTIC:', a == b)\n")
+    rf = run_snippet_safely("python", probe_fixed)
+    if not rf.ok or "FIXED_DETERMINISTIC: True" not in rf.stdout:
+        return None
+    answer = (
+        "Observed (real execution): two renders of render_caption at the same t "
+        "produced DIFFERENT bytes - the karaoke renderer is nondeterministic.\n"
+        "Root cause: the turquoise fill loop jitters the signal channel with the "
+        "global, unseeded random module - every call samples fresh entropy, so "
+        "offline renders cannot be reproduced, diffed or regression-tested.\n"
+        "Fix (correct code): the caption must be a pure function of t. The fill is "
+        "flat SIGNAL_RGB; if texture is genuinely wanted, derive it from a PRNG "
+        "seeded INSIDE the renderer with a fixed seed (random.Random(1234)) so the "
+        "same t always yields the same bytes.\n"
+        "Verification: with the fix, two runs produce byte-identical captions "
+        "(observed FIXED_DETERMINISTIC: True).")
+    return _mk(
+        rng, "media_mv_karaoke", "python", "debugging", "engineering", "advanced",
+        question=("This karaoke renderer for a code-rendered music video must be "
+                  "reproducible for offline rendering (render twice -> identical "
+                  "bytes). The team's two renders of the same frame differ. Diagnose "
+                  "the root cause and provide the corrected, deterministic renderer.\n\n"
+                  "```python\n" + buggy + "\n```"),
+        answer=answer, code=buggy, target_code=fixed,
+        artifacts={"two_run_bytes_differ": True, "fixed_passes": True,
+                   "observed": r.stdout.strip()[:120]},
+        key_points=["global unseeded RNG breaks reproducibility",
+                    "frames must be pure functions of t",
+                    "seeded local PRNG if stochastic texture is required"],
+        verify_method="executed",
+        verify_notes={"nondeterminism_observed": True, "fixed_passes": True},
+        tags=["media", "music_video", "determinism"],
+        variant="media|mv_determinism", dataset_hint=MEDIA)
+
+
 def build_media_determinism_debug(rng: random.Random):
+    if rng.random() < 0.5:
+        out = _mv_determinism_debug(rng)
+        if out is not None:
+            return out
     fam = family_by_name("media_frame_renderer")
     cand = None
     for _ in range(8):
@@ -78,7 +166,120 @@ def build_media_determinism_debug(rng: random.Random):
 
 # ---------------------------------------------------------- media pipeline reasoning
 def build_media_pipeline_reasoning(rng: random.Random):
-    stage = rng.choice(["sync", "resolution", "pipeline"])
+    stage = rng.choice(["sync", "resolution", "pipeline",
+                        "mv_timeline", "mv_timeline", "mv_karaoke", "mv_karaoke"])
+    if stage == "mv_timeline":
+        fps = rng.choice([24, 30])
+        bpm = rng.choice([100, 120, 132])
+        length = rng.choice([48, 64])
+        names = rng.sample(["open", "pulse", "flash", "drift"], 3)
+        scenes = [(i * length, (i + 1) * length, names[i]) for i in range(3)]
+        total = 3 * length
+        probe_frame = rng.randrange(total)
+        code = (
+            f"FPS = {fps}\nBPM = {bpm}\nSCENES = {scenes!r}\n\n\n"
+            "def active_scene(frame):\n"
+            "    for start, end, name in SCENES:\n"
+            "        if start <= frame < end:\n"
+            "            return name, (frame - start) / (end - start)\n"
+            "    return None, 0.0\n\n\n"
+            "def beat_grid(total_frames, bpm=BPM, fps=FPS):\n"
+            "    step = 60.0 / bpm * fps\n"
+            "    return [round(k * step) for k in range(int(total_frames / step) + 1)]\n\n\n"
+            f"print('AT', active_scene({probe_frame}))\n"
+            f"print('CUT', active_scene({length}))\n"
+            f"print('BEATS', beat_grid({total}))\n")
+        r = run_snippet_safely("python", code)
+        if not r.ok:
+            return None
+        obs = r.stdout.strip().splitlines()
+        at_line = next((l for l in obs if l.startswith("AT ")), "").strip()
+        cut_line = next((l for l in obs if l.startswith("CUT ")), "").strip()
+        beats_line = next((l for l in obs if l.startswith("BEATS ")), "").strip()
+        beats = beats_line.replace("BEATS ", "").strip("[]").split(", ")
+        answer = (
+            f"Observed (real execution): {at_line}; at the cut frame {cut_line}; "
+            f"beat grid starts {', '.join(beats[:6])}...\n"
+            "Reasoning: scene windows are (start, end, name) with end-exclusive "
+            "membership, so the probe frame maps to its window and its progress is "
+            "(frame - start) / (end - start); the cut frame belongs to the NEXT "
+            "scene with progress 0.0, never to the ending one. Beats convert the "
+            "musical period to frames with 60/bpm*fps and round to the nearest "
+            "integer frame - one conversion point, no accumulated drift.\n"
+            "Implication for the renderer: frame indices are the single source of "
+            "truth; scenes read the schedule, they never recompute timing, which is "
+            "what keeps preview and offline export identical.")
+        return _mk(rng, "media_mv_scene_engine", "python", "architecture",
+                   "engineering", "advanced",
+                   question=("You are building the timeline of a generative music video "
+                             "(deterministic, code-rendered). Given this exact schedule "
+                             "and beat grid code, state: (1) which scene is live at "
+                             f"frame {probe_frame} and its local progress; (2) what the "
+                             f"beat grid looks like at {bpm} BPM / {fps} fps; (3) which "
+                             f"scene owns frame {length} (the first cut) and why. Show the "
+                             "end-exclusive window reasoning.\n\n```python\n" + code + "\n```"),
+                   answer=answer, code=code,
+                   artifacts={"observed": r.stdout.strip()[:200]},
+                   key_points=["end-exclusive windows: cut frame belongs to the next scene",
+                               "beats: seconds -> frames via 60/bpm*fps with round()",
+                               "timeline is pure data the renderer indexes"],
+                   verify_method="executed",
+                   verify_notes={"observed_stdout": r.stdout.strip()[:200]},
+                   tags=["media", "music_video", "timeline"],
+                   variant="media|mv_timeline", dataset_hint=MEDIA)
+    if stage == "mv_karaoke":
+        words = []
+        t = 0.0
+        for w in rng.choice(LINE_POOL).split(" "):
+            dur = rng.choice([0.4, 0.5])
+            words.append((round(t, 2), round(t + dur, 2), w))
+            t += dur + 0.1
+        code = (
+            f"WORDS = {words!r}\n\n\n"
+            "def active_word(t):\n"
+            "    for i, (start, end, _text) in enumerate(WORDS):\n"
+            "        if start <= t < end:\n"
+            "            return i, (t - start) / (end - start)\n"
+            "    return None, 0.0\n\n\n"
+            f"print('MID', active_word({round((words[1][0] + words[1][1]) / 2, 4)!r}))\n"
+            f"print('GAP', active_word({round(words[0][1] + 0.02, 2)!r}))\n"
+            f"print('START', active_word({words[1][0]!r}))\n")
+        r = run_snippet_safely("python", code)
+        if not r.ok:
+            return None
+        obs = r.stdout.strip().splitlines()
+        mid_line = next((l for l in obs if l.startswith("MID ")), "").strip()
+        gap_line = next((l for l in obs if l.startswith("GAP ")), "").strip()
+        start_line = next((l for l in obs if l.startswith("START ")), "").strip()
+        answer = (
+            f"Observed (real execution): mid-word {mid_line}; gap instant {gap_line}; "
+            f"exact start {start_line}.\n"
+            "Reasoning: word windows are end-exclusive, so a probe exactly at a "
+            "word's end (plus any inter-word gap) is a (None, 0.0) state - the "
+            "highlight must switch off there - while t equal to a start lands on "
+            "(i, 0.0). Progress normalizes the time inside the word and drives the "
+            "turquoise fill width in the caption renderer.\n"
+            "Design rule: karaoke typography must be a pure function of t so the "
+            "offline render is byte-identical to the preview; gaps are explicit "
+            "states, never errors.")
+        return _mk(rng, "media_mv_karaoke", "python", "architecture",
+                   "engineering", "intermediate",
+                   question=("This word-sync state drives the karaoke captions of a "
+                             "code-rendered music video. Given the exact WORDS timings "
+                             "and active_word below, determine: (1) the state at the "
+                             "midpoint of word 1; (2) the state just after word 0 ends "
+                             "(gap instant); (3) the state exactly at word 1's start. "
+                             "Explain how the caption renderer should treat each state.\n\n"
+                             "```python\n" + code + "\n```"),
+                   answer=answer, code=code,
+                   artifacts={"observed": r.stdout.strip()[:200]},
+                   key_points=["end-exclusive: word end + gap is an OFF state",
+                               "word start is exactly (i, 0.0)",
+                               "progress drives the turquoise fill, pure in t"],
+                   verify_method="executed",
+                   verify_notes={"observed_stdout": r.stdout.strip()[:200]},
+                   tags=["media", "music_video", "karaoke"],
+                   variant="media|mv_karaoke", dataset_hint=MEDIA)
     if stage == "sync":
         question = ("In a code-rendered music video (pdoom-video style architecture: audio "
                     "analysis -> timeline data -> frame renderer -> encoder), the visual hit "
