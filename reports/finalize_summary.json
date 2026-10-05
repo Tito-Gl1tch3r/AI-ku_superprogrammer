@@ -1,0 +1,92 @@
+{
+ "AI-ku_superprogrammer_game_engineering|understand": {
+  "dataset": "AI-ku_superprogrammer_game_engineering",
+  "kind": "understand",
+  "staged": 1500,
+  "kept": 618,
+  "dupes_removed": 882,
+  "family_capped": 0,
+  "schema_rejected": 0,
+  "splits": {
+   "train": 534,
+   "validation": 2,
+   "test": 75,
+   "hard_holdout": 7
+  }
+ },
+ "AI-ku_superprogrammer_game_engineering|write": {
+  "dataset": "AI-ku_superprogrammer_game_engineering",
+  "kind": "write",
+  "staged": 1600,
+  "kept": 672,
+  "dupes_removed": 928,
+  "family_capped": 0,
+  "schema_rejected": 0,
+  "splits": {
+   "train": 374,
+   "validation": 140,
+   "test": 0,
+   "hard_holdout": 158
+  }
+ },
+ "AI-ku_superprogrammer_media|understand": {
+  "dataset": "AI-ku_superprogrammer_media",
+  "kind": "understand",
+  "staged": 599,
+  "kept": 155,
+  "dupes_removed": 444,
+  "family_capped": 0,
+  "schema_rejected": 0,
+  "splits": {
+   "train": 106,
+   "validation": 2,
+   "test": 47,
+   "hard_holdout": 0
+  }
+ },
+ "AI-ku_superprogrammer_media|write": {
+  "dataset": "AI-ku_superprogrammer_media",
+  "kind": "write",
+  "staged": 2250,
+  "kept": 387,
+  "dupes_removed": 1863,
+  "family_capped": 0,
+  "schema_rejected": 0,
+  "splits": {
+   "train": 383,
+   "validation": 0,
+   "test": 1,
+   "hard_holdout": 3
+  }
+ },
+ "AI-ku_superprogrammer_understand|understand": {
+  "dataset": "AI-ku_superprogrammer_understand",
+  "kind": "understand",
+  "staged": 7948,
+  "kept": 3043,
+  "dupes_removed": 4814,
+  "family_capped": 0,
+  "schema_rejected": 91,
+  "splits": {
+   "train": 2591,
+   "validation": 153,
+   "test": 251,
+   "hard_holdout": 48
+  }
+ },
+ "AI-ku_superprogrammer_write|write": {
+  "dataset": "AI-ku_superprogrammer_write",
+  "kind": "write",
+  "staged": 23585,
+  "kept": 10704,
+  "dupes_removed": 12881,
+  "family_capped": 0,
+  "schema_rejected": 0,
+  "splits": {
+   "train": 8550,
+   "validation": 419,
+   "test": 1148,
+   "hard_holdout": 587
+  }
+ }
+}

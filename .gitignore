@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+datasets/_staging/
+reports/_state_*.json
+.pytest_cache/
+*.tar.gz
+.DS_Store

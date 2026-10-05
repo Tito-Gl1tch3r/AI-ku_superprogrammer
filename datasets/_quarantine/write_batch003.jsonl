@@ -1,0 +1,15 @@
+{"status": "verify_failed", "detail": {"family": "sql_query_scenarios", "language": "sql", "stage": "tests", "error": "case index_exists: answer error: index idx_events_kind already exists", "seed": 23260122}}
+{"status": "verify_failed", "detail": {"family": "sql_query_scenarios", "language": "sql", "stage": "tests", "error": "case index_exists: answer error: index idx_events_label already exists", "seed": 23260131}}
+{"status": "verify_failed", "detail": {"family": "sql_query_scenarios", "language": "sql", "stage": "tests", "error": "case index_exists: answer error: index idx_events_label already exists", "seed": 23260132}}
+{"status": "verify_failed", "detail": {"family": "sql_query_scenarios", "language": "sql", "stage": "tests", "error": "case index_exists: answer error: index idx_events_label already exists", "seed": 23260134}}
+{"status": "verify_failed", "detail": {"family": "sql_query_scenarios", "language": "sql", "stage": "tests", "error": "case index_exists: answer error: index idx_events_label already exists", "seed": 23260137}}
+{"status": "verify_failed", "detail": {"family": "sql_query_scenarios", "language": "sql", "stage": "tests", "error": "case index_exists: answer error: index idx_events_label already exists", "seed": 23260148}}
+{"status": "verify_failed", "detail": {"family": "sql_query_scenarios", "language": "sql", "stage": "tests", "error": "case index_exists: answer error: index idx_events_kind already exists", "seed": 23260173}}
+{"status": "verify_failed", "detail": {"family": "sql_query_scenarios", "language": "sql", "stage": "tests", "error": "case index_exists: answer error: index idx_events_kind already exists", "seed": 23260183}}
+{"status": "verify_failed", "detail": {"family": "sql_query_scenarios", "language": "sql", "stage": "tests", "error": "case index_exists: answer error: index idx_events_tag already exists", "seed": 23260186}}
+{"status": "verify_failed", "detail": {"family": "sql_query_scenarios", "language": "sql", "stage": "tests", "error": "case index_exists: answer error: index idx_events_label already exists", "seed": 23260196}}
+{"status": "crash", "detail": null}
+{"status": "verify_failed", "detail": {"family": "sql_query_scenarios", "language": "sql", "stage": "tests", "error": "case index_exists: answer error: index idx_events_tag already exists", "seed": 23260200}}
+{"status": "verify_failed", "detail": {"family": "sql_query_scenarios", "language": "sql", "stage": "tests", "error": "case index_exists: answer error: index idx_events_kind already exists", "seed": 23260202}}
+{"status": "verify_failed", "detail": {"family": "sql_query_scenarios", "language": "sql", "stage": "tests", "error": "case index_exists: answer error: index idx_events_label already exists", "seed": 23260215}}
+{"status": "verify_failed", "detail": {"family": "sql_query_scenarios", "language": "sql", "stage": "tests", "error": "case index_exists: answer error: index idx_events_kind already exists", "seed": 23260232}}

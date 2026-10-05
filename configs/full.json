@@ -1,0 +1,39 @@
+{
+  "name": "AI-ku_superprogrammer full",
+  "description": "Full-scale targets per the project brief: Dataset 1 = 240,000 (language distribution as specified), Dataset 2 = 360,000. Requires toolchains for full verification coverage (gcc, g++, node, go, rustc, jdk, php, pwsh) and multi-day compute; run in batches with --batch and resume via state files.",
+  "seed_base": 20260101,
+  "verify_timeout": 15,
+  "family_cap": 2600,
+  "write_targets": {
+    "python": 30000,
+    "cpp": 22000,
+    "c": 20000,
+    "javascript": 20000,
+    "sql": 20000,
+    "typescript": 18000,
+    "rust": 18000,
+    "go": 16000,
+    "bash": 15000,
+    "java": 15000,
+    "php": 12000,
+    "html": 12000,
+    "css": 12000,
+    "powershell": 10000
+  },
+  "understand_targets": {
+    "debugging": 66000,
+    "explanation": 40000,
+    "testing": 28000,
+    "trace": 26000,
+    "code_review": 26000,
+    "failure_prediction": 24000,
+    "optimization": 22000,
+    "complexity": 20000,
+    "translation": 20000,
+    "security": 18000,
+    "refactoring": 16000,
+    "comparison": 12000,
+    "language_selection": 12000,
+    "architecture": 10000
+  }
+}

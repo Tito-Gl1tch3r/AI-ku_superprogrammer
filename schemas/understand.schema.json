@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/AI-ku/AI-ku_superprogrammer/schemas/understand.schema.json",
+  "title": "AI-ku_superprogrammer_understand record",
+  "type": "object",
+  "required": [
+    "id",
+    "dataset",
+    "language",
+    "task_type",
+    "domain",
+    "difficulty",
+    "input",
+    "target",
+    "verification",
+    "provenance",
+    "license",
+    "metrics"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(understand|media|game)-[0-9]{7}$"
+    },
+    "dataset": {
+      "type": "string",
+      "enum": [
+        "AI-ku_superprogrammer_understand",
+        "AI-ku_superprogrammer_media",
+        "AI-ku_superprogrammer_game_engineering"
+      ]
+    },
+    "kind": {
+      "type": "string",
+      "const": "understand"
+    },
+    "language": {
+      "type": "string"
+    },
+    "task_type": {
+      "type": "string",
+      "enum": [
+        "debugging",
+        "trace",
+        "explanation",
+        "code_review",
+        "optimization",
+        "complexity",
+        "refactoring",
+        "translation",
+        "comparison",
+        "failure_prediction",
+        "testing",
+        "security",
+        "architecture",
+        "language_selection",
+        "format_analysis",
+        "interop_reasoning",
+        "engine_architecture"
+      ]
+    },
+    "domain": {
+      "type": "string"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced",
+        "expert"
+      ]
+    },
+    "input": {
+      "type": "object",
+      "required": [
+        "question"
+      ],
+      "properties": {
+        "context": {
+          "type": "string"
+        },
+        "code": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "files": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "object",
+            "required": [
+              "path",
+              "content"
+            ],
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "question": {
+          "type": "string",
+          "minLength": 40
+        },
+        "artifacts": {
+          "type": "object"
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "required": [
+        "answer"
+      ],
+      "properties": {
+        "answer": {
+          "type": "string",
+          "minLength": 40
+        },
+        "code": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tests": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "key_points": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "big_o": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "time": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "space": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "method"
+      ],
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": [
+            "executed",
+            "compiled_and_executed",
+            "static_check",
+            "authored_verified"
+          ]
+        },
+        "buggy_version_fails": {
+          "type": "boolean"
+        },
+        "fixed_version_passes": {
+          "type": "boolean"
+        },
+        "equivalence_checked": {
+          "type": "boolean"
+        },
+        "trace_verified_by_execution": {
+          "type": "boolean"
+        },
+        "toolchain": {
+          "type": "string"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "source",
+        "generator",
+        "seed",
+        "created_utc",
+        "pipeline_version"
+      ],
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "generator": {
+          "type": "string"
+        },
+        "generator_version": {
+          "type": "string"
+        },
+        "seed": {
+          "type": "integer"
+        },
+        "created_utc": {
+          "type": "string"
+        },
+        "pipeline_version": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        }
+      }
+    },
+    "license": {
+      "type": "string"
+    },
+    "metrics": {
+      "type": "object"
+    }
+  }
+}

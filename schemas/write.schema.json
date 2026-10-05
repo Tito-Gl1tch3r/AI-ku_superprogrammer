@@ -1,0 +1,240 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/AI-ku/AI-ku_superprogrammer/schemas/write.schema.json",
+  "title": "AI-ku_superprogrammer_write record",
+  "type": "object",
+  "required": [
+    "id",
+    "dataset",
+    "language",
+    "domain",
+    "task",
+    "expected_behavior",
+    "difficulty",
+    "verification",
+    "provenance",
+    "license",
+    "metrics"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(write|media|game)-[0-9]{7}$"
+    },
+    "dataset": {
+      "type": "string",
+      "enum": [
+        "AI-ku_superprogrammer_write",
+        "AI-ku_superprogrammer_media",
+        "AI-ku_superprogrammer_game_engineering"
+      ]
+    },
+    "kind": {
+      "type": "string",
+      "const": "write"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "python",
+        "c",
+        "cpp",
+        "javascript",
+        "typescript",
+        "html",
+        "css",
+        "java",
+        "php",
+        "bash",
+        "sql",
+        "powershell",
+        "rust",
+        "go",
+        "glsl"
+      ]
+    },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "algorithms",
+        "data_structures",
+        "systems",
+        "web",
+        "databases",
+        "automation",
+        "science_math",
+        "engineering",
+        "security",
+        "networking",
+        "concurrency",
+        "text_processing"
+      ]
+    },
+    "task": {
+      "type": "string",
+      "minLength": 40
+    },
+    "code": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "files": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "content"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "entry": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tests": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "expected_behavior": {
+      "type": "string"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced",
+        "expert"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "method",
+        "tests_passed"
+      ],
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": [
+            "executed",
+            "compiled_and_executed",
+            "static_check",
+            "authored_verified"
+          ]
+        },
+        "compiled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "executed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "tests_passed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "duration_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "timed_out": {
+          "type": "boolean"
+        },
+        "toolchain": {
+          "type": "string"
+        },
+        "error_excerpt": {
+          "type": "string"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "source",
+        "generator",
+        "seed",
+        "created_utc",
+        "pipeline_version"
+      ],
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "generator": {
+          "type": "string"
+        },
+        "generator_version": {
+          "type": "string"
+        },
+        "seed": {
+          "type": "integer"
+        },
+        "created_utc": {
+          "type": "string"
+        },
+        "pipeline_version": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        }
+      }
+    },
+    "license": {
+      "type": "string"
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "code_chars": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "code_lines": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "is_project": {
+          "type": "boolean"
+        },
+        "n_files": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}

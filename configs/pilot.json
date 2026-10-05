@@ -1,0 +1,64 @@
+{
+  "name": "AI-ku_superprogrammer pilot",
+  "description": "First verified production batch (~44k examples). Pipeline scales to full targets via configs/full.json.",
+  "seed_base": 20260101,
+  "verify_timeout": 12,
+  "family_cap": 2600,
+  "write_targets": {
+    "python": 5200,
+    "sql": 2600,
+    "cpp": 2400,
+    "javascript": 2400,
+    "c": 2200,
+    "bash": 2000,
+    "typescript": 1600,
+    "html": 1300,
+    "css": 1300,
+    "powershell": 700,
+    "java": 550,
+    "go": 450,
+    "rust": 450,
+    "php": 450
+  },
+  "understand_targets": {
+    "debugging": 1200,
+    "explanation": 750,
+    "trace": 460,
+    "testing": 550,
+    "code_review": 400,
+    "failure_prediction": 470,
+    "translation": 380,
+    "optimization": 370,
+    "complexity": 400,
+    "refactoring": 210,
+    "security": 310,
+    "comparison": 260,
+    "language_selection": 190,
+    "architecture": 90
+  },
+  "media_targets": {
+    "python": 1300,
+    "typescript": 600,
+    "glsl": 350,
+    "javascript": 250
+  },
+  "game_targets": {
+    "python": 1600
+  },
+  "media_understand_targets": {
+    "media_determinism_debug": 350,
+    "debugging": 350,
+    "explanation": 300,
+    "code_review": 150,
+    "testing": 200,
+    "media_pipeline_reasoning": 150
+  },
+  "game_understand_targets": {
+    "game_format_hypothesis": 350,
+    "debugging": 400,
+    "explanation": 250,
+    "game_interop_reasoning": 250,
+    "code_review": 120,
+    "engine_layer_reasoning": 130
+  }
+}
