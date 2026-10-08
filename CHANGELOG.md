@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## [0.5.0] — Extensión Superprogrammer (bases/permisos, oficio de maestría, git forense)
+
+### Añadido
+- **7 familias write nuevas** (todas python, ejecución real, bugs que fallan determinista; módulos 00/01 del curriculum):
+  - `py_number_bases` (`generators/write/bases_families.py`): conversión binario/hex/octal con padding canónico y prefijos, traducción chmod simbólico↔octal con setuid/setgid/sticky ('s'/'t' implican exec, 'S'/'T' no), umask como máscara (`base & ~umask`, nunca resta) y operaciones set/clear/toggle sobre palabras de permisos de 12 bits.
+  - `py_mastery_refactor` (`generators/write/craft_families.py`): 4 clases de defecto (mutable default, bare except, `+=` en bucle, función-dios) con tests que inspeccionan la solución REAL vía `ast` — el smell debe desaparecer ESTRUCTURALMENTE y el comportamiento debe sobrevivir; totalmente parametrizado (nombres, separadores, fallbacks, dominios).
+  - `py_fault_resilience` (ídem): backoff exponencial con factor 2/3, idempotencia exactly-once con retry único para fallos transitorios, circuit breaker closed/open/half-open con reset de racha por éxito; inyección de fallos determinista — el doble-cobro, el backoff plano y el breaker que nunca abre quedan demostrados por el schedule.
+  - `py_property_testing` (`generators/write/verify_families.py`): diseño de propiedades EXACTAS (subsecuencia + igualdad de conjunto + orden de primera ocurrencia) que matan 4 mutantes plantados; las tautologías se rechazan por supervivencia de mutantes; shrinking ddmin con minimalidad verificada (todo elemento es necesario).
+  - `py_numeric_robustness` (ídem): Kahan contra la batería `[1e16] + [1.0]*10000 + [-1e16]` (naive `+=` da 0.0), reparto de céntimos largest-remainder con pérdida cero, varianza de Welford contra cancelación catastrófica; ground truth por aritmética exacta (Fraction) y `statistics`. La batería de discriminación se comprueba EN la generación (si el naive no falla, el escenario se regenera).
+  - `py_timezones_unicode` (`generators/write/systems_families.py`): recurrencia semanal por reloj LOCAL cruzando DST con zoneinfo (el offset UTC cambia, la hora local no; la batería exige ≥2 offsets locales), igualdad NFC+casefold (compuestos/descompuestos, ß/ss, sigma, ligaduras) y ordenación humana estable.
+  - `py_git_forensics` (ídem): `git bisect` REAL vía subprocess sobre un repo sintético de 21 commits con fechas deterministas; presupuesto de ≤8 ejecuciones del checker (la búsqueda lineal no cabe); reset verificado a HEAD; arqueología de repo que distingue definiciones (class/def/assign) de re-exports y usos.
+- **3 builders understand nuevos** (`generators/understand/superprogrammer.py`): `iterative_repair` (bucle agéntico multi-turno: draft con traceback REAL, fix plausible que sigue fallando con salida REAL, corrección verificada), `mastery_principles` (defecto→principio→reescribir, comportamiento verificado con sonda real) y `evidence_self_audit` (escalera creator_report < source_inspection < derived_comparison < synthetic_test < real_run aplicada a los claims propios; los logs real_run se producen en el sandbox en el momento de generar).
+- Registro: `registry.py` (+4 módulos, +7 familias), `dispatch.py` (+3 builders), `schemas/understand.schema.json` (+3 enums). Validación: `scripts/validate_superprogrammer_ext.py` (16 seeds por familia: muestras verdes, bugs que fallan siempre, determinismo; builders con evidencia real).
+- `scripts/build_superprogrammer_delta.py`: batch 004 write/understand con cuotas explícitas; SEED_BASE 20260601.
+
+### Corregido
+- **Bug de metadatos del piloto (v0.1.0)**: los records `optimize_two_sum` llevaban `verification.method = "identical inputs, both executed"` (texto libre fuera del enum del schema), por lo que 91 records legítimos se rechazaban en cada finalize. Reparados en staging (method=executed + nota de equivalencia) y el builder ya no usa la clave reservada `method` en verify_notes. Neto: +69 records recuperados (22 eran duplicados normalizados de records ya conservados).
+
+### Decisiones de calidad
+- 40.195 staged → **21.160 publicados** (write 14.097 · understand 3.524 · media 1.310 · game 2.229). La extensión aportó 859 staged → 481 publicados (write 400: 71-121 por familia; understand 81) — el dedup normalizado eliminó las variantes de espacio paramétrico pequeño con honestidad. 68 familias; los 557 records con `#39C5BB` intactos.
+
 ## [Unreleased] — Docs
 
 - Nuevo `docs/ROADMAP.md`: 12 propuestas priorizadas de capacidades NUEVAS para AI-ku ("Superprogramadora") que no cubren las 61 familias actuales, auditadas contra el registro real — cada una con esquema de verificación concreto para el pipeline (P1 bucle agéntico multi-turno, P2 git/bisect/conflictos, P3 property-based testing + shrinking, P4 fault injection, P5 migraciones de esquema, P6 integración contra docs de API ficticia, P7 features a escala de repo, P8/P9 trampas numéricas/i18n, P10 optimización por perfil real, P11 doctests, P12 auto-auditoría con niveles de evidencia). Sin cambios de datos.

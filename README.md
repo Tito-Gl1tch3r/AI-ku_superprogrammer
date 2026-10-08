@@ -2,7 +2,7 @@
 
 **Dataset de entrenamiento de nivel profesional para AI-ku: PRIMERO entender el código, DESPUÉS escribirlo, AL FINAL crear vídeos y mezclas de juegos como Opus 5.5.**
 
-> TL;DR: 4 datasets organizados como plan de estudios numerado (**00 comprensión de código · 01 escritura de código · 02 vídeo generativo estilo Opus · 03 mezclas de juegos y modding**), pipeline **GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR**, verificación real por compilación/ejecución, splits anti-contaminación, quarantine para todo lo no verificado. Licencia MIT. Piloto v0.4.1: **20.610 ejemplos verificados** de 39.336 generados (el resto: duplicados semánticos eliminados por las reglas anti-basura — ver `QUALITY_REPORT.md`).
+> TL;DR: 4 datasets organizados como plan de estudios numerado (**00 comprensión de código · 01 escritura de código · 02 vídeo generativo estilo Opus · 03 mezclas de juegos y modding**), pipeline **GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR**, verificación real por compilación/ejecución, splits anti-contaminación, quarantine para todo lo no verificado. Licencia MIT. Piloto v0.5.0: **21.160 ejemplos verificados** de 40.195 generados (el resto: duplicados semánticos eliminados por las reglas anti-basura — ver `QUALITY_REPORT.md`).
 
 ---
 
@@ -23,8 +23,8 @@ Tres etapas, cuatro módulos numerados: **1º entender el código (00)** → **2
 
 | Módulo | Dataset físico | Qué entrena | Records |
 |---|---------|-------------|---------|
-| **00 · Code Comprehension** — *1º entender* | `AI-ku_superprogrammer_understand` (`datasets/understand/`) | Explicación, trazas, debugging verificado, testing con mutación real, optimización, traducción, seguridad, complejidad, revisión, predicción de fallos | 3.374 |
-| **01 · Code Writing** — *2º escribir* | `AI-ku_superprogrammer_write` (`datasets/write/`) | Especificación → código correcto y testeado en 14 lenguajes; 22.7% proyectos multi-fichero | 13.697 |
+| **00 · Code Comprehension** — *1º entender* | `AI-ku_superprogrammer_understand` (`datasets/understand/`) | Explicación, trazas, debugging verificado, testing con mutación real, optimización, traducción, seguridad, complejidad, revisión, predicción de fallos; **bucle agéntico de auto-reparación con logs reales y auto-auditoría de evidencia** | 3.524 |
+| **01 · Code Writing** — *2º escribir* | `AI-ku_superprogrammer_write` (`datasets/write/`) | Especificación → código correcto y testeado en 14 lenguajes; **bases numéricas (binario/hex/octal + permisos chmod), refactor de nivel maestro, tolerancia a fallos, property-based testing + shrinking, numéricos robustos, DST/unicode, git bisect real** | 14.097 |
 | **02 · Opus 5.5 — Generative Video** — *3º crear: vídeos* | `AI-ku_superprogrammer_media` (`datasets/media/`) | Vídeo programático: timeline, easing, render determinista por frames, análisis audio→datos→visual, shaders, pipelines offline, **motor de vídeo musical generativo** (escenas + beat grid + karaoke word-synced + post-chain + render offline con manifest de hashes) | 1.310 |
 | **03 · Opus 5.5 — Game Mixes & Modding** — *3º crear: mezclas de juegos* | `AI-ku_superprogrammer_game_engineering` (`datasets/game_engineering/`) | Formatos binarios sintéticos, serialización de saves, atlases, conversión de sistemas de coordenadas, VM de scripting, interoperabilidad entre motores, análisis con hipótesis→test→evidencia, **metodología universal de modding** (recon, labs seguros, oracles, publish-lint) y **puentes crossover entre dos juegos** | 2.229 |
 
@@ -56,6 +56,20 @@ La extensión **crossover (v0.4.0)** captura el patrón de la ola 2026 de crosso
 
 Solo objetivos **sintéticos** generados por el propio pipeline, formatos de juguete propios, superficies de modding oficialmente extensibles y patrones defensivos. **Nunca**: DRM, assets propietarios, cheats online, evasión de anti-cheat, acceso no autorizado.
 
+### Extensión Superprogrammer (v0.5.0): el oficio de superprogramadora
+
+Siete familias write nuevas y tres builders understand nuevas que cubren los huecos del roadmap (`docs/ROADMAP.md`), todas verificadas por ejecución real:
+
+- **Bases numéricas** (`py_number_bases`): conversión binario/hex/octal con padding canónico, traducción simbólico↔octal de permisos chmod **incluyendo setuid/setgid/sticky**, aritmética de umask (máscara, nunca resta) y operaciones set/clear/toggle sobre palabras de permisos. El octal de Linux, pedido explícito del currículum.
+- **Refactor de nivel maestro** (`py_mastery_refactor`): código pobre-but-funcionante → versión de producción; los tests inspeccionan la solución REAL con `ast` (ni mutable defaults, ni bare except, ni `+=` en bucles, ni funciones-dios). Destilado de los patrones de los mejores autores (incluido el estilo Opus de `docs/OPUS_STYLE.md`).
+- **Tolerancia a fallos** (`py_fault_resilience`): backoff exponencial con factor e idempotencia exactly-once y circuit breaker closed/open/half-open, verificados contra inyección de fallos determinista (el doble-cobro y el backoff plano se detectan porque el schedule los dispara).
+- **Property-based testing** (`py_property_testing`): propiedades que matan mutantes plantados (las tautologías se rechazan) y shrinking delta-debugging con criterio de minimalidad verificado.
+- **Numérica robusta** (`py_numeric_robustness`): sumación de Kahan contra la batería 1e16, reparto de céntimos con pérdida cero, varianza de Welford contra cancelación catastrófica — ground truth por aritmética exacta (Fraction/statistics).
+- **Trampas reales** (`py_timezones_unicode`): reuniones semanales cruzando DST con zoneinfo (la hora local se conserva, el offset UTC cambia), igualdad NFC+casefold y ordenación humana.
+- **Git forense** (`py_git_forensics`): `git bisect` REAL sobre un repo sintético de 21 commits con presupuesto de 8 ejecuciones del checker (la búsqueda lineal queda fuera por presupuesto) y arqueología de repo que distingue la definición real de los re-exports.
+
+Builders understand: `iterative_repair` (el bucle agéntico como record: borrador que falla con traceback REAL, intento de fix plausible que sigue fallando con salida REAL, y la corrección verificada), `mastery_principles` (defecto→principio→fix con comportamiento verificado) y `evidence_self_audit` (la escalera de evidencia aplicada a los claims propios: creator_report < source_inspection < derived_comparison < synthetic_test < real_run).
+
 ## 3. Lenguajes y cobertura
 
 | Lenguaje | Verificación | | Lenguaje | Verificación |
@@ -68,7 +82,7 @@ Solo objetivos **sintéticos** generados por el propio pipeline, formatos de jug
 
 ## 4. Metodología y verificación
 
-1. **GENERAR** — familias parametrizadas (61 familias, 14 lenguajes) con semilla registrada por ejemplo.
+1. **GENERAR** — familias parametrizadas (68 familias, 14 lenguajes) con semilla registrada por ejemplo.
 2. **EJECUTAR** — cada ejemplo pasa por el executor de su lenguaje en sandbox (subprocess + rlimits: CPU, memoria, tamaño de fichero, timeout).
 3. **COMPROBAR** — tests con asserts; el módulo 00 (understand) añade protocolos propios:
    - *debugging*: la versión con bug DEBE fallar (se registra el traceback real) y la corregida DEBE pasar;
@@ -133,7 +147,7 @@ Orden de curriculum para entrenar: **00 → 01 → 02 → 03** (etapas, mezclas 
 ## 7. Cómo ejecutar validadores / tests
 
 ```bash
-make smoke    # genera+verifica muestras de las 61 familias
+make smoke    # genera+verifica muestras de las 68 familias
 make test     # suite pytest del pipeline (13 tests)
 python3 -m generators.smoke --families py_bank_algorithms --samples 5
 ```
@@ -186,8 +200,8 @@ AI-ku_superprogrammer/
 ├── datasets/_quarantine/           # fallidos: auditoría, nunca entrenar
 ├── schemas/{write,understand}.schema.json
 ├── generators/{core,registry,smoke}.py · generators/problems/ (banco multilenguaje)
-├── generators/write/ (14 lenguajes) · generators/media/ (families + video_families) · generators/game/ (families + modding_families)
-├── generators/understand/ (22 builders de tareas)
+├── generators/write/ (14 lenguajes + bases/craft/verify/systems_families) · generators/media/ (families + video + opus) · generators/game/ (families + modding + crossover)
+├── generators/understand/ (25 builders de tareas)
 ├── validators/ (executors por lenguaje, dedup, splits, filtros, schema_check)
 ├── evaluators/ (mutation, benchmarks, metrics)
 ├── scripts/ (build_dataset, finalize, make_stats, make_quality_report, records)

@@ -16,6 +16,9 @@ from .modding import (build_mod_route_selection, build_mod_oracle_gotcha,
                       build_mod_evidence_levels)
 from .opus import (build_mv_frameidx_pitfall, build_mv_palette_propagation,
                    build_crossover_event_debug)
+from .superprogrammer import (build_iterative_repair,
+                              build_mastery_principles,
+                              build_evidence_self_audit)
 
 BUILDERS = {
     "debugging": build_debugging,
@@ -43,6 +46,9 @@ BUILDERS = {
     "mv_frameidx_pitfall": build_mv_frameidx_pitfall,
     "mv_palette_propagation": build_mv_palette_propagation,
     "crossover_event_debug": build_crossover_event_debug,
+    "iterative_repair": build_iterative_repair,
+    "mastery_principles": build_mastery_principles,
+    "evidence_self_audit": build_evidence_self_audit,
 }
 
 

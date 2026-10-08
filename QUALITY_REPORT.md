@@ -5,8 +5,8 @@
 
 ## 1. Resumen ejecutivo
 
-- **write**: 13,697 ejemplos publicados; 74.1% verificados por ejecución/compilación real, 25.9% verificación estructural (lenguajes sin toolchain local).
-- **understand**: 3,374 ejemplos publicados; 83.7% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
+- **write**: 14,097 ejemplos publicados; 74.9% verificados por ejecución/compilación real, 25.1% verificación estructural (lenguajes sin toolchain local).
+- **understand**: 3,524 ejemplos publicados; 84.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **media_write**: 877 ejemplos publicados; 98.9% verificados por ejecución/compilación real, 1.1% verificación estructural (lenguajes sin toolchain local).
 - **media_understand**: 433 ejemplos publicados; 89.4% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **game_write**: 1,397 ejemplos publicados; 100.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
@@ -69,20 +69,20 @@
 
 ### AI-ku_superprogrammer_understand|understand
 
-- staged → kept: 7,948 → **3,374**
-- duplicados eliminados (exacto+normalizado): 4,483
+- staged → kept: 8,145 → **3,524**
+- duplicados eliminados (exacto+normalizado): 4,621
 - recortados por family cap: 0
-- rechazados por schema: 91
-- splits: {"train": 2890, "validation": 175, "test": 261, "hard_holdout": 48}
+- rechazados por schema: 0
+- splits: {"train": 2957, "validation": 249, "test": 270, "hard_holdout": 48}
 - multi-file: 0 | con tests: 0
 
 ### AI-ku_superprogrammer_write|write
 
-- staged → kept: 23,585 → **13,697**
-- duplicados eliminados (exacto+normalizado): 9,888
+- staged → kept: 24,247 → **14,097**
+- duplicados eliminados (exacto+normalizado): 10,150
 - recortados por family cap: 0
 - rechazados por schema: 0
-- splits: {"train": 10846, "validation": 915, "test": 1245, "hard_holdout": 691}
+- splits: {"train": 11167, "validation": 942, "test": 1293, "hard_holdout": 695}
 - multi-file: 0 | con tests: 0
 
 ## 4. Cobertura de verificación por lenguaje

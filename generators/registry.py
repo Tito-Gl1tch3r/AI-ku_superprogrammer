@@ -5,6 +5,10 @@ import importlib
 
 FAMILY_MODULES = [
     "generators.write.python_families",
+    "generators.write.bases_families",
+    "generators.write.craft_families",
+    "generators.write.verify_families",
+    "generators.write.systems_families",
     "generators.write.sql_families",
     "generators.write.bash_families",
     "generators.write.c_families",

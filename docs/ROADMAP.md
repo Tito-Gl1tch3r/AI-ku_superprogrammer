@@ -12,7 +12,7 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 
 ## Propuestas nuevas (priorizadas)
 
-### P1 · Bucle de auto-reparación agéntica (Dataset 5 candidato) ⭐ TOP
+### P1 · Bucle de auto-reparación agéntica ✅ v0.5.0 (`iterative_repair`, logs reales multi-turno; la versión Dataset-5 completa de trayectorias largas queda abierta)
 
 **Hueco**: el dataset entrena pasos aislados (escribir X, depurar Y) pero nunca la ITERACIÓN COMPLETA: borrador → ejecutar → leer el fallo real → hipótesis → parche → re-ejecutar → repetir hasta verde.
 
@@ -24,7 +24,7 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 
 **Familias**: `agent_fix_loop` (bug plantado, k≥2 turnos), `agent_build_up` (especificación que se revela por stages: v1 compila pero falla un edge → v2 lo cubre), `agent_regression_hunt` (combinar con P2-bisect).
 
-### P2 · Git de verdad: bisect, conflictos, arqueología de repo ⭐ TOP
+### P2 · Git de verdad: bisect, conflictos, arqueología de repo ✅ parcial v0.5.0 (`py_git_forensics`: bisect con presupuesto + arqueología; merge conflicts pendientes)
 
 **Hueco**: cero VCS en el dataset. Bisectar una regresión y resolver un merge conflict son habilidades de superprogramadora diarias y 100% verificables.
 
@@ -32,7 +32,7 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 
 **Verificación**: `git_bisect_hunt` — repo sintético con historia real de commits y bug plantado en el commit N; el ground truth ES N y se comprueba ejecutando el test en cada commit del historial (el mal candidato da una secuencia de bisect imposible). `git_merge_conflict` — el merge resuelto debe compilar y pasar los tests combinados de ambas ramas; los conflictos mal resueltos (perder un lado) fallan tests que existen en el repo. `repo_archaeology` — "¿en qué fichero vive X?" con respuesta única verificable por grep sobre el repo sintético.
 
-### P3 · Testing de propiedades + shrinking ⭐ TOP
+### P3 · Testing de propiedades + shrinking ✅ v0.5.0 (`py_property_testing`)
 
 **Hueco**: el testing actual puntúa suites contra mutantes; falta el otro pilar: PROPIEDADES (invariantes que deben cumplirse para cualquier entrada) y minimización de contraejemplos.
 
@@ -42,7 +42,7 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 
 **Familias**: `prop_invariant_design` (elegir propiedades que maten mutantes), `prop_shrink_trace` (dado el contraejemplo, producir el minimal y justificar cada reducción con re-ejecución real).
 
-### P4 · Diseño tolerante a fallos con inyección de fallos ⭐ TOP
+### P4 · Diseño tolerante a fallos ✅ v0.5.0 (`py_fault_resilience`; flaky-test forensics pendiente)
 
 **Hueco**: nada de retries/backoff/idempotency-keys/circuit-breakers/timeout-budgeting como OBJETIVO de diseño. (El puente crossover usa idempotencia, pero como pieza de un dominio, no como habilidad general.)
 
@@ -76,7 +76,7 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 
 **Verificación**: el repo sintético lleva su suite completa; la feature debe pasar sus tests nuevos Y los de regresión existentes; los anti-tests penalizan atajos (p.ej. duplicar lógica en vez de extender el módulo correcto — detectable porque el módulo correcto tiene el test que deja de recibir la llamada... o más simple: prohibición estructural verificable por diff).
 
-### P8 · Trampas numéricas y de representación
+### P8 · Trampas numéricas ✅ v0.5.0 (`py_numeric_robustness`)
 
 **Hueco**: f32 aparece en el oracle de replay, pero nada general de: cancelación catastrófica, sumas de Kahan, overflow de enteros, comparación de floats, redondeo monetario.
 
@@ -84,7 +84,7 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 
 **Verificación**: entradas adversarias deterministas (p.ej. sumar 1e16 + 1 diez mil veces) donde la versión ingenua produce un resultado DEMOSTRABLEMENTE distinto del exacto (calculado con aritmética exacta del propio script de ground truth); la corrección (Kahan, Decimal para dinero, dígitos de guard) converge al valor exacto dentro de la tolerancia documentada.
 
-### P9 · Trampas de i18n: timezones, DST, unicode
+### P9 · Trampas de i18n ✅ v0.5.0 (`py_timezones_unicode`)
 
 **Hueco**: cero. Y es una de las mayores fuentes de bugs reales del mundo.
 
@@ -108,7 +108,7 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 
 **Verificación**: los bloques de ejemplo se extraen y ejecutan (doctest real); una doc que promete una salida distinta de la observada FALLA; la cobertura doc (cada API pública documentada) es comprobable por AST.
 
-### P12 · Auto-auditoría con niveles de evidencia (identidad AI-ku)
+### P12 · Auto-auditoría con niveles de evidencia ✅ v0.5.0 (`evidence_self_audit`)
 
 **Hueco**: `mod_evidence_levels` lo inicia para modding; falta generalizarlo a SU PROPIO código: AI-ku declarando "funciona" debe citar la evidencia (real_run > synthetic_test > derived_comparison > source_inspection > creator_report).
 
@@ -126,7 +126,7 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 4. **P4 tolerancia a fallos** — el código que sobrevive a fallos es la firma de un ingeniero senior.
 5. **P12 auto-auditoría** — pequeño, barato, y ata TODO el dataset con la identidad de AI-ku (evidencia antes que afirmación).
 
-P6/P7 encajan como siguiente ola (v0.6.0) junto con el escalado de volumen de los configs/full.json; P8-P11 son familias puntuales baratas de añadir a cualquier batch.
+Estado v0.5.0: P1/P3/P4/P8/P9/P12 implementados, P2 parcial (falta merge conflicts), P5/P6/P7/P10/P11 en la ola v0.6.0 junto con el escalado de volumen de los configs/full.json; P8-P11 son familias puntuales baratas de añadir a cualquier batch.
 
 ## Notas de identidad (aplican a toda extensión)
 

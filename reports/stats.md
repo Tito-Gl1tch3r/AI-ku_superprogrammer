@@ -2,13 +2,13 @@
 
 ## write
 
-- total: **13697**
-- verified by execution: **74.1%** (static check: 25.9%)
-- with tests: 73.5% | multi-file projects: 22.7% | synthetic: 100.0%
+- total: **14097**
+- verified by execution: **74.9%** (static check: 25.1%)
+- with tests: 74.2% | multi-file projects: 22.1% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 3552 |
+| python | 3952 |
 | javascript | 1817 |
 | cpp | 1808 |
 | c | 1465 |
@@ -25,33 +25,33 @@
 
 | difficulty | count |
 |---|---|
-| advanced | 5337 |
-| intermediate | 4745 |
-| expert | 1961 |
-| beginner | 1654 |
+| advanced | 5546 |
+| intermediate | 4872 |
+| expert | 1985 |
+| beginner | 1694 |
 
 | split | count |
 |---|---|
-| train | 10846 |
-| validation | 915 |
-| test | 1245 |
-| hard_holdout | 691 |
+| train | 11167 |
+| validation | 942 |
+| test | 1293 |
+| hard_holdout | 695 |
 
 | code size | count |
 |---|---|
-| <300c | 1737 |
-| 300-1200c | 8456 |
-| 1200-3000c | 3504 |
+| <300c | 1881 |
+| 300-1200c | 8636 |
+| 1200-3000c | 3580 |
 
 ## understand
 
-- total: **3374**
-- verified by execution: **83.7%** (static check: 0.0%)
-- with tests: 47.9% | multi-file projects: 0.0% | synthetic: 100.0%
+- total: **3524**
+- verified by execution: **84.0%** (static check: 0.0%)
+- with tests: 46.9% | multi-file projects: 0.0% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 1668 |
+| python | 1818 |
 | cpp | 444 |
 | javascript | 339 |
 | c | 281 |
@@ -68,8 +68,8 @@
 
 | difficulty | count |
 |---|---|
-| intermediate | 2256 |
-| advanced | 972 |
+| intermediate | 2333 |
+| advanced | 1045 |
 | expert | 99 |
 | beginner | 47 |
 
@@ -79,28 +79,31 @@
 | explanation | 490 |
 | testing | 475 |
 | trace | 400 |
+| optimization | 285 |
 | comparison | 259 |
-| optimization | 216 |
 | refactoring | 129 |
 | translation | 97 |
 | architecture | 50 |
 | code_review | 40 |
+| iterative_repair | 37 |
 | language_selection | 33 |
+| mastery_principles | 32 |
 | complexity | 28 |
 | failure_prediction | 14 |
+| evidence_self_audit | 12 |
 | security | 3 |
 
 | split | count |
 |---|---|
-| train | 2890 |
-| validation | 175 |
-| test | 261 |
+| train | 2957 |
+| validation | 249 |
+| test | 270 |
 | hard_holdout | 48 |
 
 | code size | count |
 |---|---|
-| <300c | 834 |
-| 300-1200c | 2333 |
+| <300c | 982 |
+| 300-1200c | 2335 |
 | 1200-3000c | 207 |
 
 ## media_write

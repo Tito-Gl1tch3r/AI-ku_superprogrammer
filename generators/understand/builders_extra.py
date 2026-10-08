@@ -71,7 +71,7 @@ def build_optimization(rng: random.Random):
                         "O(n^2) -> O(n) time, O(n) space"],
             big_o={"time": "O(n)", "space": "O(n)"},
             verify_method="executed",
-            verify_notes={"equivalence_checked": True, "method": "identical inputs, both executed"},
+            verify_notes={"equivalence_checked": True, "equivalence_method": "both implementations executed on identical inputs"},
             tags=["optimization", "two_sum"], variant="opt|two_sum")
     elif kind == "fibonacci":
         naive = (
