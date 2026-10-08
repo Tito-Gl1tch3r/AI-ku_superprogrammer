@@ -1,8 +1,8 @@
 # AI-ku_superprogrammer
 
-**Dataset de entrenamiento de nivel profesional para AI-ku: de "escribir código" a COMPRENDER sistemas computacionales.**
+**Dataset de entrenamiento de nivel profesional para AI-ku: PRIMERO entender el código, DESPUÉS escribirlo, AL FINAL crear vídeos y mezclas de juegos como Opus 5.5.**
 
-> TL;DR: 4 datasets (programación · razonamiento sobre código · medios generados por código · ingeniería de juegos/RE), pipeline **GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR**, verificación real por compilación/ejecución, splits anti-contaminación, quarantine para todo lo no verificado. Licencia MIT. Piloto v0.4.0: **20.610 ejemplos verificados** de 39.336 generados (el resto: duplicados semánticos eliminados por las reglas anti-basura — ver `QUALITY_REPORT.md`).
+> TL;DR: 4 datasets organizados como plan de estudios numerado (**00 comprensión de código · 01 escritura de código · 02 vídeo generativo estilo Opus · 03 mezclas de juegos y modding**), pipeline **GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR**, verificación real por compilación/ejecución, splits anti-contaminación, quarantine para todo lo no verificado. Licencia MIT. Piloto v0.4.1: **20.610 ejemplos verificados** de 39.336 generados (el resto: duplicados semánticos eliminados por las reglas anti-basura — ver `QUALITY_REPORT.md`).
 
 ---
 
@@ -17,18 +17,20 @@ OBJETIVO → REQUISITOS → RESTRICCIONES → ENTORNO → ELECCIÓN DE LENGUAJE
 
 El resultado buscado: dado *"este programa falla en X"*, AI-ku debe comprender el programa, localizar el fallo, explicar la causa, corregirlo, verificar la corrección, detectar efectos secundarios y optimizar — tratando el código como un SISTEMA que se comprende, no como texto que se imita.
 
-## 2. Los cuatro datasets
+## 2. Plan de estudios — el orden en que AI-ku aprende
 
-| # | Dataset | Qué entrena | Records |
+Tres etapas, cuatro módulos numerados: **1º entender el código (00)** → **2º escribir código (01)** → **3º crear como Opus 5.5 (02 + 03, el tocho: vídeos generativos y mezclas de juegos)**. La numeración es el orden pedagógico de entrenamiento; los nombres y paths físicos de los datasets se mantienen estables por reproducibilidad. Receta completa por etapa (mezclas, replay anti-olvido, criterios de avance) en `docs/CURRICULUM.md`.
+
+| Módulo | Dataset físico | Qué entrena | Records |
 |---|---------|-------------|---------|
-| 1 | `AI-ku_superprogrammer_write` (`datasets/write/`) | Especificación → código correcto y testeado | 13.697 |
-| 2 | `AI-ku_superprogrammer_understand` (`datasets/understand/`) | Explicación, trazas, debugging verificado, testing, optimización, traducción, seguridad, complejidad, revisión, predicción de fallos | 3.374 |
-| 3 | `AI-ku_superprogrammer_media` (`datasets/media/`) | Vídeo programático: timeline, easing, render determinista por frames, análisis audio→datos→visual, shaders, pipelines offline, **motor de vídeo musical generativo** (escenas + beat grid + karaoke word-synced + render offline con manifest de hashes) | 949 |
-| 4 | `AI-ku_superprogrammer_game_engineering` (`datasets/game_engineering/`) | Formatos binarios sintéticos, serialización de saves, atlases, conversión de sistemas de coordenadas, VM de scripting, plugins/modding, interoperabilidad entre motores, análisis con hipótesis→test→evidencia, **metodología universal de modding** (recon, labs seguros, oracles, publish-lint) | 1.968 |
+| **00 · Code Comprehension** — *1º entender* | `AI-ku_superprogrammer_understand` (`datasets/understand/`) | Explicación, trazas, debugging verificado, testing con mutación real, optimización, traducción, seguridad, complejidad, revisión, predicción de fallos | 3.374 |
+| **01 · Code Writing** — *2º escribir* | `AI-ku_superprogrammer_write` (`datasets/write/`) | Especificación → código correcto y testeado en 14 lenguajes; 22.7% proyectos multi-fichero | 13.697 |
+| **02 · Opus 5.5 — Generative Video** — *3º crear: vídeos* | `AI-ku_superprogrammer_media` (`datasets/media/`) | Vídeo programático: timeline, easing, render determinista por frames, análisis audio→datos→visual, shaders, pipelines offline, **motor de vídeo musical generativo** (escenas + beat grid + karaoke word-synced + post-chain + render offline con manifest de hashes) | 1.310 |
+| **03 · Opus 5.5 — Game Mixes & Modding** — *3º crear: mezclas de juegos* | `AI-ku_superprogrammer_game_engineering` (`datasets/game_engineering/`) | Formatos binarios sintéticos, serialización de saves, atlases, conversión de sistemas de coordenadas, VM de scripting, interoperabilidad entre motores, análisis con hipótesis→test→evidencia, **metodología universal de modding** (recon, labs seguros, oracles, publish-lint) y **puentes crossover entre dos juegos** | 2.229 |
 
 Cada dataset tiene splits `train/`, `validation/`, `test/` en shards `.jsonl.gz` de 2.000 records. Los ejemplos `expert` seleccionados por grupo viven aparte en `datasets/hard_holdout/` y **no** se usan en generación ni entrenamiento.
 
-### Referencia conceptual (Dataset 3)
+### 02 · Referencia conceptual — pdoom-video y la mente de Opus 5.5
 
 [pdoom-video](https://github.com/mexicat/pdoom-video) se estudia como **arquitectura conceptual** (frames generados por lógica de escena, relación determinista timeline↔salida, render offline): se aprende el principio general, no el proyecto. No se copia código ni assets.
 
@@ -36,7 +38,7 @@ La extensión **MV (v0.2.0)** añade 3 familias que enseñan a CONSTRUIR ese tip
 
 La extensión **Opus-mind (v0.4.0)** va un paso más allá: ingeniería inversa de cómo trabaja el propio Opus 5.5 al autore vídeos así (el repo pdoom-video es de autoría Opus; ver `docs/OPUS_STYLE.md`) y conversión de esos hábitos en familias verificadas: `media_mv_post_chain` (cadena HDR exposure → bright-pass con knee suave → blur → halation turquesa → viñeta → grano → sRGB; el ORDEN es parte del look), `media_mv_line_batch` (batching 2D determinista con orden (z, seq, seg) y suelo de hairline consciente de la escala 4K) y `media_mv_shot_reads` (timing de planos por "reads" del espectador: find → understand → hold, uno en cadena, con hold final). 557 records publicados llevan ya el `#39C5BB` en su código.
 
-### Referencia conceptual (Dataset 4): metodología Universal Modder
+### 03 · Referencia conceptual — metodología Universal Modder y crossovers
 
 [universal-modder](https://github.com/rehan-remade/universal-modder) (rehan_shei, sep 2026) se estudia como **metodología conceptual** (recon → lab seguro → leer el código real → slice vertical → oracle → publicar → field note): se aprende el método general, no el proyecto. La extensión **v0.3.0** añade 4 familias write + 3 builders understand que enseñan la cadena completa con código 100% original sobre objetivos sintéticos:
 
@@ -50,7 +52,7 @@ La extensión **crossover (v0.4.0)** captura el patrón de la ola 2026 de crosso
 
 **Las reglas de seguridad del modding quedan entrenadas DENTRO del ground truth**: la ruta `refuse-online` (anti-cheat + online) es la respuesta correcta en el dataset, el lint marca como FAIL redistribuir game files/decompilados, y los niveles de evidencia penalizan declarar "funciona" sin run real. Nunca: anti-cheat, cheats online, DRM, assets propietarios.
 
-### Límites éticos (Dataset 4)
+### Límites éticos (módulo 03)
 
 Solo objetivos **sintéticos** generados por el propio pipeline, formatos de juguete propios, superficies de modding oficialmente extensibles y patrones defensivos. **Nunca**: DRM, assets propietarios, cheats online, evasión de anti-cheat, acceso no autorizado.
 
@@ -68,7 +70,7 @@ Solo objetivos **sintéticos** generados por el propio pipeline, formatos de jug
 
 1. **GENERAR** — familias parametrizadas (61 familias, 14 lenguajes) con semilla registrada por ejemplo.
 2. **EJECUTAR** — cada ejemplo pasa por el executor de su lenguaje en sandbox (subprocess + rlimits: CPU, memoria, tamaño de fichero, timeout).
-3. **COMPROBAR** — tests con asserts; Dataset 2 añade protocolos propios:
+3. **COMPROBAR** — tests con asserts; el módulo 00 (understand) añade protocolos propios:
    - *debugging*: la versión con bug DEBE fallar (se registra el traceback real) y la corregida DEBE pasar;
    - *traducción*: ambas implementaciones se ejecutan sobre las mismas entradas y se comparan salidas;
    - *optimización/refactor*: equivalencia verificada sobre entradas idénticas;
@@ -126,7 +128,7 @@ media = rows("datasets/media/write/train/*.jsonl.gz")
 game = rows("datasets/game_engineering/write/train/*.jsonl.gz")
 ```
 
-Recomendación de mezcla para entrenamiento (ver §9): 1×write, 1.5×understand, 0.5×media, 0.5×game; curriculum beginner→expert; hard_holdout reservado para evaluación.
+Orden de curriculum para entrenar: **00 → 01 → 02 → 03** (etapas, mezclas con replay anti-olvido y criterios de avance en `docs/CURRICULUM.md`). Mezcla base sugerida dentro de cada etapa: 1×write, 1.5×understand, 0.5×media, 0.5×game; hard_holdout reservado para evaluación.
 
 ## 7. Cómo ejecutar validadores / tests
 
@@ -166,7 +168,7 @@ Limitaciones honestas: el grading de explicaciones usa ground truth autorado jun
 2. GLSL sin GPU: verificación estructural + semántica autorada.
 3. HTML/CSS no se renderizan.
 4. Varias familias cubren menos volumen del solicitado tras el dedup (ver §8); prioridad absoluta a calidad sobre cantidad.
-5. Dataset 3/4 alcanzan 1.310/2.229 records (write+understand) tras el dedup de calidad; la arquitectura de familias + builders ya soporta el escalado.
+5. Los módulos 02/03 alcanzan 1.310/2.229 records (write+understand) tras el dedup de calidad; la arquitectura de familias + builders ya soporta el escalado.
 
 ## 11. Licencia
 
@@ -177,6 +179,7 @@ MIT — ver `LICENSE`. Todos los datos son sintéticos y generados por el pipeli
 ```
 AI-ku_superprogrammer/
 ├── README.md · LICENSE · DATASET_CARD.md · QUALITY_REPORT.md · CHANGELOG.md
+├── docs/{CURRICULUM,OPUS_STYLE}.md   # plan de estudios (00→03) + estilo Opus 5.5
 ├── datasets/{write,understand}/{train,validation,test}/    # core
 ├── datasets/{media,game_engineering}/{write,understand}/{train,validation,test}/
 ├── datasets/hard_holdout/          # evaluación experta, NO usar en entrenamiento

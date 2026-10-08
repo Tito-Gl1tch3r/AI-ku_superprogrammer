@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [0.4.1] — Reordenación curricular (solo documentación, cero cambios de datos)
+
+- **README reestructurado como plan de estudios numerado** en el orden en que AI-ku aprende: **00 · Code Comprehension** (1º entender el código) → **01 · Code Writing** (2º escribir código) → **02 · Opus 5.5 Generative Video** + **03 · Opus 5.5 Game Mixes & Modding** (3º, el tocho: crear vídeos y mezclas de juegos como Opus 5.5). Las secciones de referencia conceptual (pdoom-video / Opus-mind, Universal Modder / crossovers) quedan anidadas bajo sus módulos 02 y 03.
+- **Nuevo `docs/CURRICULUM.md`**: etapas con justificación pedagógica del orden, contenido por módulo, mezclas de entrenamiento con replay anti-olvido, criterios de avance vía `hard_holdout`, y snippet funcional para construir los lotes de cada etapa filtrando shards por `dataset` + `provenance.generator` (nombres de generator auditados contra los shards reales).
+- **Corregido**: la tabla de datasets del README arrastraba los counts de v0.3.0 (media 949 / game 1.968); ahora muestra los reales de v0.4.0 (media 1.310 / game 2.229), cuadrados con `reports/stats.json` y la DATASET_CARD. Referencias internas "Dataset 2/3/4" sustituidas por la numeración de módulos.
+- Sin cambios en shards, hashes ni stats: los nombres y paths físicos de los datasets se mantienen estables por reproducibilidad; la numeración 00–03 es el orden pedagógico de presentación y entrenamiento.
+
 ## [0.4.0] — Extensión Opus-mind / crossover (ingeniería inversa de la autoría de Opus 5.5)
 
 - **Nueva referencia**: se documenta en `docs/OPUS_STYLE.md` la ingeniería inversa de cómo trabaja Opus 5.5 al construir vídeos generativos y mods crossover: el propio `mexicat/pdoom-video` (MIT) es de autoría Opus (su `docs/ENGINE.md` es la guía operativa de agentes de escena: determinismo como contrato, paleta centralizada C_*/LIN.*/rgba(), LineBatch, cadena de post, píxeles lógicos vs físicos en 4K, etiqueta multi-agente), junto con la guía de animación de `JohnHeibel/ClaudeAnimationBase` (MIT: modelo de "reads", storyboard primero, principios de animación anti-código-mecánico) y la ola 2026 de crossovers (decompilar 2 juegos + puente en tiempo real).

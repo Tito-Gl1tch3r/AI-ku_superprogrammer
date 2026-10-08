@@ -1,14 +1,14 @@
-# DATASET CARD — AI-ku_superprogrammer (v0.4.0)
+# DATASET CARD — AI-ku_superprogrammer (v0.4.1)
 
 ## Identificación
 
 - **Nombre**: AI-ku_superprogrammer
-- **Versión**: 0.4.0 (piloto verificado; extensiones Universal Modder + Opus-mind/crossover)
+- **Versión**: 0.4.1 (piloto verificado; extensiones Universal Modder + Opus-mind/crossover; v0.4.1 = reordenación curricular de la documentación, datos idénticos a 0.4.0)
 - **Licencia**: MIT
-- **Datasets incluidos**: `AI-ku_superprogrammer_write`, `AI-ku_superprogrammer_understand`, `AI-ku_superprogrammer_media`, `AI-ku_superprogrammer_game_engineering`
+- **Datasets incluidos** (numeración = orden del curriculum, ver `docs/CURRICULUM.md`): `AI-ku_superprogrammer_understand` (00 · Code Comprehension), `AI-ku_superprogrammer_write` (01 · Code Writing), `AI-ku_superprogrammer_media` (02 · Opus 5.5 Generative Video), `AI-ku_superprogrammer_game_engineering` (03 · Opus 5.5 Game Mixes & Modding)
 - **Propósito**: entrenar capacidades de programación profunda (escritura, comprensión, depuración, verificación, optimización), generación de medios por código e ingeniería de software de juegos con ingeniería inversa autorizada.
 
-## Composición (v0.4.0)
+## Composición (datos de v0.4.0, idénticos en v0.4.1)
 
 | Dataset | Total | % verificado por ejecución | % con tests | % multi-file |
 |---|---|---|---|---|
@@ -32,7 +32,7 @@ Incluye la extensión **Universal Modder** (v0.3.0): 489 records de metodología
 
 Familias parametrizadas deterministas → ejecución/compilación en sandbox (rlimits) → gates de calidad → dedup exacto+normalizado → splits agrupados por (familia, variante) → shards .jsonl.gz. Los intentos fallidos van a `datasets/_quarantine/` y jamás entrenan sin validación manual.
 
-## Verificación por protocolo (Dataset 2 y extensiones)
+## Verificación por protocolo (módulo 00 y extensiones)
 
 - debugging: buggy falla (traceback real) + corregido pasa.
 - traducción: ejecución de ambas implementaciones con salidas comparadas.
@@ -52,6 +52,7 @@ Familias parametrizadas deterministas → ejecución/compilación en sandbox (rl
 ## Usos previstos y fuera de alcance
 
 - Pretraining/fine-tuning de modelos que razonen sobre código y sistemas computacionales.
+- Curriculum de entrenamiento recomendado: **00 → 01 → 02 → 03** (primero entender, después escribir, al final crear como Opus 5.5) — etapas, mezclas con replay y criterios de avance en `docs/CURRICULUM.md`.
 - FUERA DE ALCANCE: evasión de protecciones, cheats, ataques a servicios reales, reproducción de assets propietarios.
 
 ## Trazabilidad
