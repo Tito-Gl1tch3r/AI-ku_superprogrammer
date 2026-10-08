@@ -1,24 +1,26 @@
-# DATASET CARD — AI-ku_superprogrammer (v0.3.0)
+# DATASET CARD — AI-ku_superprogrammer (v0.4.0)
 
 ## Identificación
 
 - **Nombre**: AI-ku_superprogrammer
-- **Versión**: 0.3.0 (piloto verificado; extensión Universal Modder)
+- **Versión**: 0.4.0 (piloto verificado; extensiones Universal Modder + Opus-mind/crossover)
 - **Licencia**: MIT
 - **Datasets incluidos**: `AI-ku_superprogrammer_write`, `AI-ku_superprogrammer_understand`, `AI-ku_superprogrammer_media`, `AI-ku_superprogrammer_game_engineering`
 - **Propósito**: entrenar capacidades de programación profunda (escritura, comprensión, depuración, verificación, optimización), generación de medios por código e ingeniería de software de juegos con ingeniería inversa autorizada.
 
-## Composición (v0.3.0)
+## Composición (v0.4.0)
 
 | Dataset | Total | % verificado por ejecución | % con tests | % multi-file |
 |---|---|---|---|---|
 | write | 13.697 | 74.1% | 73.5% | 22.7% |
 | understand | 3.374 | 83.7% | 47.9% | 0% |
-| media (write 647 + understand 302) | 949 | 93.2% | 76.4% | ~8% |
-| game_engineering (write 1.219 + understand 749) | 1.968 | 96.8% | 72.4% | ~13% |
-| **Total** | **19.988** | | | |
+| media (write 877 + understand 433) | 1.310 | 98.0% | 73.0% | ~8.6% (write) |
+| game_engineering (write 1.397 + understand 832) | 2.229 | 98.1% | 73.6% | ~18.4% (write) |
+| **Total** | **20.610** | | | |
 
 Incluye la extensión **MV** (v0.2.0): 407 records de motor de vídeo musical generativo (escenas, beat grid, karaoke word-synced, render offline determinista) cuyo color de señal por defecto es el turquesa Miku `#39C5BB` — identidad visual de AI-ku, nunca naranja.
+
+Incluye la extensión **Opus-mind / crossover** (v0.4.0): 622 records que convierten en tareas verificadas los hábitos de trabajo extraídos por ingeniería inversa de la autoría de Opus 5.5 (pdoom-video es de autoría Opus; guía en `docs/OPUS_STYLE.md`): cadena de post-proceso HDR con orden significativo y halation turquesa, batching 2D determinista con suelo de hairline 4K, timing de planos por "reads" del espectador, puente de eventos crossover idempotente con rate-limit que difiere, escaneo de memoria por intersección de snapshots, y razonamiento frameIdx/paleta/logs de puente. Referencias conceptuales: mexicat/pdoom-video (MIT), JohnHeibel/ClaudeAnimationBase (MIT); código 100% original.
 
 Incluye la extensión **Universal Modder** (v0.3.0): 489 records de metodología de modding verificable (recon con escalera de rutas y regla de rechazo anti-cheat+online, backup/diff/restore de saves con claims sha256, lint de publicación FAIL/WARN, oracle de trace-replay con semántica f32 y acciones t→t+1, razonamiento de rutas/gotchas de oracles/niveles de evidencia). Referencia conceptual: universal-modder de rehan_shei; código 100% original sobre objetivos sintéticos.
 

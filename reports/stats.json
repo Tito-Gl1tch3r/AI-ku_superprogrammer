@@ -125,28 +125,28 @@
   }
  },
  "media_write": {
-  "total": 647,
-  "pct_verified_executed": 98.5,
-  "pct_verified_static": 1.5,
-  "pct_with_tests": 98.5,
-  "pct_multi_file": 11.6,
+  "total": 877,
+  "pct_verified_executed": 98.9,
+  "pct_verified_static": 1.1,
+  "pct_with_tests": 98.9,
+  "pct_multi_file": 8.6,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 633,
+   "python": 863,
    "glsl": 10,
    "typescript": 4
   },
   "by_difficulty": {
-   "advanced": 300,
-   "intermediate": 253,
+   "advanced": 422,
+   "intermediate": 361,
    "beginner": 49,
    "expert": 45
   },
   "by_domain": {
-   "engineering": 647
+   "engineering": 877
   },
   "by_split": {
-   "train": 562,
+   "train": 792,
    "validation": 20,
    "test": 62,
    "hard_holdout": 3
@@ -154,66 +154,66 @@
   "by_size": {
    "300-1200c": 567,
    "<300c": 5,
-   ">3000c": 71,
-   "1200-3000c": 4
+   "1200-3000c": 153,
+   ">3000c": 152
   },
   "by_task_type": {}
  },
  "media_understand": {
-  "total": 302,
-  "pct_verified_executed": 84.8,
+  "total": 433,
+  "pct_verified_executed": 89.4,
   "pct_verified_static": 0.0,
-  "pct_with_tests": 35.4,
+  "pct_with_tests": 24.7,
   "pct_multi_file": 0.0,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 290,
+   "python": 421,
    "glsl": 10,
    "typescript": 2
   },
   "by_difficulty": {
-   "advanced": 161,
-   "intermediate": 130,
+   "advanced": 225,
+   "intermediate": 197,
    "beginner": 8,
    "expert": 3
   },
   "by_domain": {
-   "engineering": 302
+   "engineering": 433
   },
   "by_split": {
-   "train": 171,
-   "validation": 2,
-   "test": 129
+   "train": 287,
+   "validation": 9,
+   "test": 137
   },
   "by_size": {
-   "<300c": 8,
+   "<300c": 139,
    "300-1200c": 290,
    "1200-3000c": 4
   },
   "by_task_type": {}
  },
  "game_write": {
-  "total": 1219,
+  "total": 1397,
   "pct_verified_executed": 100.0,
   "pct_verified_static": 0.0,
   "pct_with_tests": 100.0,
-  "pct_multi_file": 21.1,
+  "pct_multi_file": 18.4,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 1219
+   "python": 1397
   },
   "by_difficulty": {
-   "advanced": 542,
-   "expert": 367,
-   "intermediate": 310
+   "advanced": 614,
+   "expert": 406,
+   "intermediate": 377
   },
   "by_domain": {
    "systems": 795,
-   "engineering": 347,
+   "engineering": 525,
    "security": 77
   },
   "by_split": {
-   "train": 813,
+   "train": 991,
    "validation": 181,
    "test": 26,
    "hard_holdout": 199
@@ -221,37 +221,37 @@
   "by_size": {
    "300-1200c": 407,
    "<300c": 134,
-   "1200-3000c": 678
+   "1200-3000c": 856
   },
   "by_task_type": {}
  },
  "game_understand": {
-  "total": 749,
-  "pct_verified_executed": 91.7,
+  "total": 832,
+  "pct_verified_executed": 92.5,
   "pct_verified_static": 0.0,
-  "pct_with_tests": 27.4,
+  "pct_with_tests": 24.6,
   "pct_multi_file": 0.0,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 749
+   "python": 832
   },
   "by_difficulty": {
-   "advanced": 459,
+   "advanced": 542,
    "intermediate": 218,
    "expert": 72
   },
   "by_domain": {
    "systems": 566,
-   "engineering": 183
+   "engineering": 266
   },
   "by_split": {
-   "train": 639,
+   "train": 698,
    "validation": 15,
-   "test": 88,
+   "test": 112,
    "hard_holdout": 7
   },
   "by_size": {
-   "<300c": 527,
+   "<300c": 610,
    "300-1200c": 132,
    "1200-3000c": 90
   },

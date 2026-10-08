@@ -2,28 +2,28 @@
  "AI-ku_superprogrammer_game_engineering|understand": {
   "dataset": "AI-ku_superprogrammer_game_engineering",
   "kind": "understand",
-  "staged": 1780,
-  "kept": 749,
+  "staged": 1863,
+  "kept": 832,
   "dupes_removed": 1031,
   "family_capped": 0,
   "schema_rejected": 0,
   "splits": {
-   "train": 639,
+   "train": 698,
    "validation": 15,
-   "test": 88,
+   "test": 112,
    "hard_holdout": 7
   }
  },
  "AI-ku_superprogrammer_game_engineering|write": {
   "dataset": "AI-ku_superprogrammer_game_engineering",
   "kind": "write",
-  "staged": 1964,
-  "kept": 1219,
+  "staged": 2142,
+  "kept": 1397,
   "dupes_removed": 745,
   "family_capped": 0,
   "schema_rejected": 0,
   "splits": {
-   "train": 813,
+   "train": 991,
    "validation": 181,
    "test": 26,
    "hard_holdout": 199
@@ -32,28 +32,28 @@
  "AI-ku_superprogrammer_media|understand": {
   "dataset": "AI-ku_superprogrammer_media",
   "kind": "understand",
-  "staged": 846,
-  "kept": 302,
-  "dupes_removed": 544,
+  "staged": 979,
+  "kept": 433,
+  "dupes_removed": 546,
   "family_capped": 0,
   "schema_rejected": 0,
   "splits": {
-   "train": 171,
-   "validation": 2,
-   "test": 129,
+   "train": 287,
+   "validation": 9,
+   "test": 137,
    "hard_holdout": 0
   }
  },
  "AI-ku_superprogrammer_media|write": {
   "dataset": "AI-ku_superprogrammer_media",
   "kind": "write",
-  "staged": 2589,
-  "kept": 647,
+  "staged": 2819,
+  "kept": 877,
   "dupes_removed": 1942,
   "family_capped": 0,
   "schema_rejected": 0,
   "splits": {
-   "train": 562,
+   "train": 792,
    "validation": 20,
    "test": 62,
    "hard_holdout": 3

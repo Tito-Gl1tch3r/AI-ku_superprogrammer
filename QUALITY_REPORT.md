@@ -7,10 +7,10 @@
 
 - **write**: 13,697 ejemplos publicados; 74.1% verificados por ejecución/compilación real, 25.9% verificación estructural (lenguajes sin toolchain local).
 - **understand**: 3,374 ejemplos publicados; 83.7% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
-- **media_write**: 647 ejemplos publicados; 98.5% verificados por ejecución/compilación real, 1.5% verificación estructural (lenguajes sin toolchain local).
-- **media_understand**: 302 ejemplos publicados; 84.8% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
-- **game_write**: 1,219 ejemplos publicados; 100.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
-- **game_understand**: 749 ejemplos publicados; 91.7% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
+- **media_write**: 877 ejemplos publicados; 98.9% verificados por ejecución/compilación real, 1.1% verificación estructural (lenguajes sin toolchain local).
+- **media_understand**: 433 ejemplos publicados; 89.4% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
+- **game_write**: 1,397 ejemplos publicados; 100.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
+- **game_understand**: 832 ejemplos publicados; 92.5% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 
 ## 2. Protocolo de calidad aplicado
 
@@ -33,38 +33,38 @@
 
 ### AI-ku_superprogrammer_game_engineering|understand
 
-- staged → kept: 1,780 → **749**
+- staged → kept: 1,863 → **832**
 - duplicados eliminados (exacto+normalizado): 1,031
 - recortados por family cap: 0
 - rechazados por schema: 0
-- splits: {"train": 639, "validation": 15, "test": 88, "hard_holdout": 7}
+- splits: {"train": 698, "validation": 15, "test": 112, "hard_holdout": 7}
 - multi-file: 0 | con tests: 0
 
 ### AI-ku_superprogrammer_game_engineering|write
 
-- staged → kept: 1,964 → **1,219**
+- staged → kept: 2,142 → **1,397**
 - duplicados eliminados (exacto+normalizado): 745
 - recortados por family cap: 0
 - rechazados por schema: 0
-- splits: {"train": 813, "validation": 181, "test": 26, "hard_holdout": 199}
+- splits: {"train": 991, "validation": 181, "test": 26, "hard_holdout": 199}
 - multi-file: 0 | con tests: 0
 
 ### AI-ku_superprogrammer_media|understand
 
-- staged → kept: 846 → **302**
-- duplicados eliminados (exacto+normalizado): 544
+- staged → kept: 979 → **433**
+- duplicados eliminados (exacto+normalizado): 546
 - recortados por family cap: 0
 - rechazados por schema: 0
-- splits: {"train": 171, "validation": 2, "test": 129, "hard_holdout": 0}
+- splits: {"train": 287, "validation": 9, "test": 137, "hard_holdout": 0}
 - multi-file: 0 | con tests: 0
 
 ### AI-ku_superprogrammer_media|write
 
-- staged → kept: 2,589 → **647**
+- staged → kept: 2,819 → **877**
 - duplicados eliminados (exacto+normalizado): 1,942
 - recortados por family cap: 0
 - rechazados por schema: 0
-- splits: {"train": 562, "validation": 20, "test": 62, "hard_holdout": 3}
+- splits: {"train": 792, "validation": 20, "test": 62, "hard_holdout": 3}
 - multi-file: 0 | con tests: 0
 
 ### AI-ku_superprogrammer_understand|understand

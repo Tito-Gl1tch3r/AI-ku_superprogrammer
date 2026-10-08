@@ -20,8 +20,10 @@ FAMILY_MODULES = [
     "generators.write.powershell_families",
     "generators.media.families",
     "generators.media.video_families",
+    "generators.media.opus_families",
     "generators.game.families",
     "generators.game.modding_families",
+    "generators.game.crossover_families",
 ]
 
 # Families that belong to the media / game-engineering datasets.
@@ -30,7 +32,8 @@ DATASET_FAMILIES = {
                                     "media_audio_analysis", "media_ts_logic",
                                     "media_glsl_shaders", "media_project_multifile",
                                     "media_mv_scene_engine", "media_mv_karaoke",
-                                    "media_mv_project"),
+                                    "media_mv_project", "media_mv_post_chain",
+                                    "media_mv_line_batch", "media_mv_shot_reads"),
     "AI-ku_superprogrammer_game_engineering": ("game_binary_formats",
                                                "game_coord_conversion",
                                                "game_sprite_atlas", "game_script_vm",
@@ -39,7 +42,9 @@ DATASET_FAMILIES = {
                                                "game_engine_recon",
                                                "game_save_backup",
                                                "game_publish_lint",
-                                               "game_oracle_replay"),
+                                               "game_oracle_replay",
+                                               "game_crossover_bridge",
+                                               "game_state_scan"),
 }
 
 

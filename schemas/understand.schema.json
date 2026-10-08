@@ -59,7 +59,10 @@
         "engine_architecture",
         "mod_route_selection",
         "mod_oracle_gotcha",
-        "mod_evidence_levels"
+        "mod_evidence_levels",
+        "mv_frameidx_pitfall",
+        "mv_palette_propagation",
+        "crossover_event_debug"
       ]
     },
     "domain": {

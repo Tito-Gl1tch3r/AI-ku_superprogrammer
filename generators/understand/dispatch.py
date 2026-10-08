@@ -14,6 +14,8 @@ from .media_game import (build_media_determinism_debug, build_media_pipeline_rea
                          build_engine_layer_reasoning)
 from .modding import (build_mod_route_selection, build_mod_oracle_gotcha,
                       build_mod_evidence_levels)
+from .opus import (build_mv_frameidx_pitfall, build_mv_palette_propagation,
+                   build_crossover_event_debug)
 
 BUILDERS = {
     "debugging": build_debugging,
@@ -38,6 +40,9 @@ BUILDERS = {
     "mod_route_selection": build_mod_route_selection,
     "mod_oracle_gotcha": build_mod_oracle_gotcha,
     "mod_evidence_levels": build_mod_evidence_levels,
+    "mv_frameidx_pitfall": build_mv_frameidx_pitfall,
+    "mv_palette_propagation": build_mv_palette_propagation,
+    "crossover_event_debug": build_crossover_event_debug,
 }
 
 

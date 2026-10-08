@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## [0.4.0] — Extensión Opus-mind / crossover (ingeniería inversa de la autoría de Opus 5.5)
+
+- **Nueva referencia**: se documenta en `docs/OPUS_STYLE.md` la ingeniería inversa de cómo trabaja Opus 5.5 al construir vídeos generativos y mods crossover: el propio `mexicat/pdoom-video` (MIT) es de autoría Opus (su `docs/ENGINE.md` es la guía operativa de agentes de escena: determinismo como contrato, paleta centralizada C_*/LIN.*/rgba(), LineBatch, cadena de post, píxeles lógicos vs físicos en 4K, etiqueta multi-agente), junto con la guía de animación de `JohnHeibel/ClaudeAnimationBase` (MIT: modelo de "reads", storyboard primero, principios de animación anti-código-mecánico) y la ola 2026 de crossovers (decompilar 2 juegos + puente en tiempo real).
+- **5 familias write nuevas** (todas python, verificación real, bugs que fallan determinista):
+  - `media_mv_post_chain` (`generators/media/opus_families.py`): cadena HDR exposure → bright-pass con knee suave → box blur separable → halation con tinte turquesa → viñeta → grano LCG → sRGB; bugs: blur antes del bright-pass (halo sobre todo), hard-clip del knee, grano tras cuantizar (no-op).
+  - `media_mv_line_batch`: batching 2D determinista con orden total (z, seq, seg), manifest sha256 del lote ordenado y suelo de hairline en píxeles FÍSICOS (`HAIRLINE_PX / SCALE`); bugs: clave sin seq (interleave entre líneas con mismo z), suelo lógico constante (líneas 4K gordas).
+  - `media_mv_shot_reads`: timing de planos desde "reads" del espectador (find → understand → hold, estrictamente secuenciales, hold final obligatorio, anticipación opcional); bugs: soltar el hold final, anticipación que solapa.
+  - `game_crossover_bridge` (`generators/game/crossover_families.py`): puente determinista de eventos entre dos juegos-juguete — entrega idempotente por (chan, seq), FIFO por canal, rate limit que DIFIERE el overflow (nunca lo pierde); bugs: sin idempotencia (doble entrega), cola diferida nunca drenada, drenado global por seq (reordena canales).
+  - `game_state_scan`: recon de memoria — scan little-endian de 4 bytes, intersección de dos snapshots para resolver la dirección viva (los decoys estáticos caen por el cambio), freeze con hash del imagen parcheada; bugs: unión en vez de intersección, write big-endian.
+- **3 builders understand nuevos** (`generators/understand/opus.py`, evidencia real recalculada): `mv_frameidx_pitfall` (por qué `floor(t*60)` doble-expone dos estados dentro del shutter de un frame y `frameIdx(t)` no), `mv_palette_propagation` (radio de blast de un cambio en palette.ts: qué ficheros cambian de verdad, cuáles no y cuál cambia por un hex hardcodeado), `crossover_event_debug` (primera divergencia entre el log de entrega correcto y el desplegado + delta de inventario en B).
+- Registro: `registry.py` (+2 módulos, +5 familias), `dispatch.py` (+3 task types), `schemas/understand.schema.json` (+3 enums).
+- `scripts/build_opus_delta.py`: batch media 005 (write) + game 004 (write) + media 005 / game 003 (understand) con cuotas explícitas; SEED_BASE 20260301.
+- 39.336 staged → **20.610 publicados** (write 13.697 · understand 3.374 · media 1.310 · game 2.229). Extensión publicada: 622 records (media write 230 · game write 178 · media understand 131 · game understand 83). 557 records llevan el literal `#39C5BB`. Tests 13/13; smoke FAIL=0 en las 61 familias; make_buggy de las 5 familias nuevas falla determinista (21-24/24 seeds).
+
 ## [0.3.0] — Extensión Universal Modder (metodología de modding verificable)
 
 ### Añadido
