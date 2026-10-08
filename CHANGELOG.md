@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [Unreleased] — Docs
+
+- Nuevo `docs/ROADMAP.md`: 12 propuestas priorizadas de capacidades NUEVAS para AI-ku ("Superprogramadora") que no cubren las 61 familias actuales, auditadas contra el registro real — cada una con esquema de verificación concreto para el pipeline (P1 bucle agéntico multi-turno, P2 git/bisect/conflictos, P3 property-based testing + shrinking, P4 fault injection, P5 migraciones de esquema, P6 integración contra docs de API ficticia, P7 features a escala de repo, P8/P9 trampas numéricas/i18n, P10 optimización por perfil real, P11 doctests, P12 auto-auditoría con niveles de evidencia). Sin cambios de datos.
+
 ## [0.4.1] — Reordenación curricular (solo documentación, cero cambios de datos)
 
 - **README reestructurado como plan de estudios numerado** en el orden en que AI-ku aprende: **00 · Code Comprehension** (1º entender el código) → **01 · Code Writing** (2º escribir código) → **02 · Opus 5.5 Generative Video** + **03 · Opus 5.5 Game Mixes & Modding** (3º, el tocho: crear vídeos y mezclas de juegos como Opus 5.5). Las secciones de referencia conceptual (pdoom-video / Opus-mind, Universal Modder / crossovers) quedan anidadas bajo sus módulos 02 y 03.
