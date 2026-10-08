@@ -12,6 +12,8 @@ from .builders_extra import (build_optimization, build_complexity, build_refacto
 from .media_game import (build_media_determinism_debug, build_media_pipeline_reasoning,
                          build_game_format_hypothesis, build_game_interop_reasoning,
                          build_engine_layer_reasoning)
+from .modding import (build_mod_route_selection, build_mod_oracle_gotcha,
+                      build_mod_evidence_levels)
 
 BUILDERS = {
     "debugging": build_debugging,
@@ -33,6 +35,9 @@ BUILDERS = {
     "game_format_hypothesis": build_game_format_hypothesis,
     "game_interop_reasoning": build_game_interop_reasoning,
     "engine_layer_reasoning": build_engine_layer_reasoning,
+    "mod_route_selection": build_mod_route_selection,
+    "mod_oracle_gotcha": build_mod_oracle_gotcha,
+    "mod_evidence_levels": build_mod_evidence_levels,
 }
 
 

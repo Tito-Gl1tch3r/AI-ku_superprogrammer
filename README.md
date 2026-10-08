@@ -2,7 +2,7 @@
 
 **Dataset de entrenamiento de nivel profesional para AI-ku: de "escribir código" a COMPRENDER sistemas computacionales.**
 
-> TL;DR: 4 datasets (programación · razonamiento sobre código · medios generados por código · ingeniería de juegos/RE), pipeline **GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR**, verificación real por compilación/ejecución, splits anti-contaminación, quarantine para todo lo no verificado. Licencia MIT. Piloto v0.2.0: **19.499 ejemplos verificados** de 38.068 generados (el resto: duplicados semánticos eliminados por las reglas anti-basura — ver `QUALITY_REPORT.md`).
+> TL;DR: 4 datasets (programación · razonamiento sobre código · medios generados por código · ingeniería de juegos/RE), pipeline **GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR**, verificación real por compilación/ejecución, splits anti-contaminación, quarantine para todo lo no verificado. Licencia MIT. Piloto v0.3.0: **19.988 ejemplos verificados** de 38.712 generados (el resto: duplicados semánticos eliminados por las reglas anti-basura — ver `QUALITY_REPORT.md`).
 
 ---
 
@@ -24,7 +24,7 @@ El resultado buscado: dado *"este programa falla en X"*, AI-ku debe comprender e
 | 1 | `AI-ku_superprogrammer_write` (`datasets/write/`) | Especificación → código correcto y testeado | 13.697 |
 | 2 | `AI-ku_superprogrammer_understand` (`datasets/understand/`) | Explicación, trazas, debugging verificado, testing, optimización, traducción, seguridad, complejidad, revisión, predicción de fallos | 3.374 |
 | 3 | `AI-ku_superprogrammer_media` (`datasets/media/`) | Vídeo programático: timeline, easing, render determinista por frames, análisis audio→datos→visual, shaders, pipelines offline, **motor de vídeo musical generativo** (escenas + beat grid + karaoke word-synced + render offline con manifest de hashes) | 949 |
-| 4 | `AI-ku_superprogrammer_game_engineering` (`datasets/game_engineering/`) | Formatos binarios sintéticos, serialización de saves, atlases, conversión de sistemas de coordenadas, VM de scripting, plugins/modding, interoperabilidad entre motores, análisis con hipótesis→test→evidencia | 1.479 |
+| 4 | `AI-ku_superprogrammer_game_engineering` (`datasets/game_engineering/`) | Formatos binarios sintéticos, serialización de saves, atlases, conversión de sistemas de coordenadas, VM de scripting, plugins/modding, interoperabilidad entre motores, análisis con hipótesis→test→evidencia, **metodología universal de modding** (recon, labs seguros, oracles, publish-lint) | 1.968 |
 
 Cada dataset tiene splits `train/`, `validation/`, `test/` en shards `.jsonl.gz` de 2.000 records. Los ejemplos `expert` seleccionados por grupo viven aparte en `datasets/hard_holdout/` y **no** se usan en generación ni entrenamiento.
 
@@ -33,6 +33,18 @@ Cada dataset tiene splits `train/`, `validation/`, `test/` en shards `.jsonl.gz`
 [pdoom-video](https://github.com/mexicat/pdoom-video) se estudia como **arquitectura conceptual** (frames generados por lógica de escena, relación determinista timeline↔salida, render offline): se aprende el principio general, no el proyecto. No se copia código ni assets.
 
 La extensión **MV (v0.2.0)** añade 3 familias que enseñan a CONSTRUIR ese tipo de vídeo desde cero con código original: `media_mv_scene_engine` (ventanas de escena end-exclusive, beat grid BPM→frames, rampa de calor de la señal), `media_mv_karaoke` (estado de palabra activa, tipografía karaoke renderizada con Pillow) y `media_mv_project` (proyecto multi-file: paleta + timeline + karaoke + renderer puro + `render_all()` offline con manifest sha256). **El color de señal por defecto en todas ellas es el turquesa Miku `#39C5BB`** — la identidad visual de AI-ku (nunca naranja).
+
+### Referencia conceptual (Dataset 4): metodología Universal Modder
+
+[universal-modder](https://github.com/rehan-remade/universal-modder) (rehan_shei, sep 2026) se estudia como **metodología conceptual** (recon → lab seguro → leer el código real → slice vertical → oracle → publicar → field note): se aprende el método general, no el proyecto. La extensión **v0.3.0** añade 4 familias write + 3 builders understand que enseñan la cadena completa con código 100% original sobre objetivos sintéticos:
+
+- `game_engine_recon`: fingerprinting de installs sintéticos (magias GDPC/UnityFS/pak/XNB/FORM, loaders, anti-cheat, flags online) → escalera de rutas `refuse-online > loader-api > data > managed-patch > native-hook`.
+- `game_save_backup`: snapshot/diff/restore de saves con claims sha256 y rechazo de diffs stale (el modelo `um backup`).
+- `game_publish_lint`: lint pre-release (game files por hash, claves filtradas, artefactos de decompilador, rutas absolutas) con severidad FAIL/WARN.
+- `game_oracle_replay`: oracle de trace-replay con semántica f32 y acciones t→t+1; el primer frame de divergencia localiza el bug (incluido el gotcha del buff oculto).
+- `mod_route_selection` / `mod_oracle_gotcha` / `mod_evidence_levels`: decisión de ruta con reglas duras, cadenas síntoma→causa→fix de oracles rotos (capture congelado, sweep dorado, fake-host), y niveles de evidencia (creator_report < source_inspection < synthetic_test < real_run).
+
+**Las reglas de seguridad del modding quedan entrenadas DENTRO del ground truth**: la ruta `refuse-online` (anti-cheat + online) es la respuesta correcta en el dataset, el lint marca como FAIL redistribuir game files/decompilados, y los niveles de evidencia penalizan declarar "funciona" sin run real. Nunca: anti-cheat, cheats online, DRM, assets propietarios.
 
 ### Límites éticos (Dataset 4)
 
@@ -50,7 +62,7 @@ Solo objetivos **sintéticos** generados por el propio pipeline, formatos de jug
 
 ## 4. Metodología y verificación
 
-1. **GENERAR** — familias parametrizadas (52 familias, 14 lenguajes) con semilla registrada por ejemplo.
+1. **GENERAR** — familias parametrizadas (56 familias, 14 lenguajes) con semilla registrada por ejemplo.
 2. **EJECUTAR** — cada ejemplo pasa por el executor de su lenguaje en sandbox (subprocess + rlimits: CPU, memoria, tamaño de fichero, timeout).
 3. **COMPROBAR** — tests con asserts; Dataset 2 añade protocolos propios:
    - *debugging*: la versión con bug DEBE fallar (se registra el traceback real) y la corregida DEBE pasar;
@@ -115,7 +127,7 @@ Recomendación de mezcla para entrenamiento (ver §9): 1×write, 1.5×understand
 ## 7. Cómo ejecutar validadores / tests
 
 ```bash
-make smoke    # genera+verifica muestras de las 52 familias
+make smoke    # genera+verifica muestras de las 56 familias
 make test     # suite pytest del pipeline (13 tests)
 python3 -m generators.smoke --families py_bank_algorithms --samples 5
 ```
@@ -150,7 +162,7 @@ Limitaciones honestas: el grading de explicaciones usa ground truth autorado jun
 2. GLSL sin GPU: verificación estructural + semántica autorada.
 3. HTML/CSS no se renderizan.
 4. Varias familias cubren menos volumen del solicitado tras el dedup (ver §8); prioridad absoluta a calidad sobre cantidad.
-5. Dataset 3/4 alcanzan 949/1.479 records (write+understand) tras el dedup de calidad; la arquitectura de familias + builders ya soporta el escalado.
+5. Dataset 3/4 alcanzan 949/1.968 records (write+understand) tras el dedup de calidad; la arquitectura de familias + builders ya soporta el escalado.
 
 ## 11. Licencia
 
@@ -167,8 +179,8 @@ AI-ku_superprogrammer/
 ├── datasets/_quarantine/           # fallidos: auditoría, nunca entrenar
 ├── schemas/{write,understand}.schema.json
 ├── generators/{core,registry,smoke}.py · generators/problems/ (banco multilenguaje)
-├── generators/write/ (14 lenguajes) · generators/media/ (families + video_families) · generators/game/
-├── generators/understand/ (14+ builders de tareas)
+├── generators/write/ (14 lenguajes) · generators/media/ (families + video_families) · generators/game/ (families + modding_families)
+├── generators/understand/ (22 builders de tareas)
 ├── validators/ (executors por lenguaje, dedup, splits, filtros, schema_check)
 ├── evaluators/ (mutation, benchmarks, metrics)
 ├── scripts/ (build_dataset, finalize, make_stats, make_quality_report, records)

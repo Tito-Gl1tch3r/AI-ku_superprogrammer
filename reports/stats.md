@@ -169,57 +169,58 @@
 
 ## game_write
 
-- total: **861**
+- total: **1219**
 - verified by execution: **100.0%** (static check: 0.0%)
-- with tests: 100.0% | multi-file projects: 29.8% | synthetic: 100.0%
+- with tests: 100.0% | multi-file projects: 21.1% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 861 |
+| python | 1219 |
 
 | difficulty | count |
 |---|---|
-| advanced | 366 |
-| expert | 321 |
-| intermediate | 174 |
+| advanced | 542 |
+| expert | 367 |
+| intermediate | 310 |
 
 | split | count |
 |---|---|
-| train | 526 |
-| validation | 140 |
-| hard_holdout | 195 |
+| train | 813 |
+| validation | 181 |
+| test | 26 |
+| hard_holdout | 199 |
 
 | code size | count |
 |---|---|
 | 300-1200c | 407 |
 | <300c | 134 |
-| 1200-3000c | 320 |
+| 1200-3000c | 678 |
 
 ## game_understand
 
-- total: **618**
-- verified by execution: **90.0%** (static check: 0.0%)
-- with tests: 33.2% | multi-file projects: 0.0% | synthetic: 100.0%
+- total: **749**
+- verified by execution: **91.7%** (static check: 0.0%)
+- with tests: 27.4% | multi-file projects: 0.0% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 618 |
+| python | 749 |
 
 | difficulty | count |
 |---|---|
-| advanced | 422 |
-| intermediate | 124 |
+| advanced | 459 |
+| intermediate | 218 |
 | expert | 72 |
 
 | split | count |
 |---|---|
-| train | 534 |
-| validation | 2 |
-| test | 75 |
+| train | 639 |
+| validation | 15 |
+| test | 88 |
 | hard_holdout | 7 |
 
 | code size | count |
 |---|---|
-| <300c | 396 |
+| <300c | 527 |
 | 300-1200c | 132 |
 | 1200-3000c | 90 |

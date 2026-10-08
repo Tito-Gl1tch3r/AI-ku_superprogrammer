@@ -21,6 +21,7 @@ FAMILY_MODULES = [
     "generators.media.families",
     "generators.media.video_families",
     "generators.game.families",
+    "generators.game.modding_families",
 ]
 
 # Families that belong to the media / game-engineering datasets.
@@ -34,7 +35,11 @@ DATASET_FAMILIES = {
                                                "game_coord_conversion",
                                                "game_sprite_atlas", "game_script_vm",
                                                "game_mod_plugin_system",
-                                               "game_interop_project"),
+                                               "game_interop_project",
+                                               "game_engine_recon",
+                                               "game_save_backup",
+                                               "game_publish_lint",
+                                               "game_oracle_replay"),
 }
 
 

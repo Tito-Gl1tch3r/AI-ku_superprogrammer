@@ -56,7 +56,10 @@
         "language_selection",
         "format_analysis",
         "interop_reasoning",
-        "engine_architecture"
+        "engine_architecture",
+        "mod_route_selection",
+        "mod_oracle_gotcha",
+        "mod_evidence_levels"
       ]
     },
     "domain": {

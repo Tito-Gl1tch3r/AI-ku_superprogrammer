@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## [0.3.0] — Extensión Universal Modder (metodología de modding verificable)
+
+### Añadido
+- **Extensión Universal Modder** en Dataset 4, inspirada en la metodología pública de [universal-modder](https://github.com/rehan-remade/universal-modder) (rehan_shei, sep 2026: recon → lab seguro → leer el código real → slice vertical → oracle → publicar → field note). Código 100% original, objetivos 100% sintéticos. 4 familias write nuevas (`generators/game/modding_families.py`):
+  - `game_engine_recon` (115 records): fingerprinting de installs sintéticos por magias/markers (GDPC, UnityFS, pak 0x5A6F12E1, XNB+FNA, FORM, jars, par IL2CPP) + loaders (bepinex/ue4ss/tmodloader/fabric/smapi) + anti-cheat + strings online → escalera de rutas `refuse-online > loader-api > data > managed-patch > native-hook`.
+  - `game_save_backup` (83): snapshot/diff/restore de saves con claims sha256 por operación y restauración que rechaza diffs stale (modelo `um backup`).
+  - `game_publish_lint` (77): lint pre-release de paquetes de mods — FAIL por game file byte-idéntico (hash), `.env` y claves filtradas (sk-/ghp_/AKIA); WARN por artefactos de decompilador (FUN_/DAT_/sub_), rutas absolutas y README ausente (modelo `um publish check`).
+  - `game_oracle_replay` (83): oracle trace-replay con semántica f32 cuantizada (`q32`), input polled después de física (acción en t surte efecto en t+1) y buff oculto plantado; el comparador fija `first_divergence` en orden fijo de variables.
+- 3 builders understand nuevos (`generators/understand/modding.py`): `mod_route_selection` (decisión de ruta con reglas duras: la respuesta correcta ante anti-cheat+online es NEGARSE y ofrecer offline/official tools), `mod_oracle_gotcha` (síntoma→causa→fix de oracles rotos: capture congelado con SHA idénticos y CPU quemando, oracle de frame t/t+1, fake-host sobreestimado, sweep dorado que no puede fallar, screenshots no leídos) y `mod_evidence_levels` (etiquetado creator_report < design < source_inspection < derived_comparison < synthetic_test < real_run + trampas que parecen prueba sin serlo).
+- `scripts/build_modding_delta.py` (batch 005/002 con cuotas explícitas) + registro de las familias en `registry.py`/`dispatch.py` y de los 3 nuevos `task_type` en `schemas/understand.schema.json`.
+- Reglas de seguridad entrenadas DENTRO del ground truth: `refuse-online` es la respuesta correcta del dataset, redistribuir game files/decompilados es FAIL del lint, y "funciona" sin run real se penaliza en los niveles de evidencia.
+
+### Decisiones de calidad
+- 38.712 staged → **19.988 publicados** (write 13.697 · understand 3.374 · media 949 · game 1.968). La extensión aportó 644 staged → 489 publicados (358 write + 131 understand); el dedup normalizado eliminó los duplicados semánticos de los builders de baja entropía de escenario (retención 44-75% según familia).
+- Corregidos durante el desarrollo: primer frame de divergencia del replay (el buff activo DURANTE el update hace diverger x y vx en el mismo frame → el orden fijo de variables decide el pin), escenario de backup donde remove se tragaba el change op, y reintentos en make_buggy para escenarios donde el bug no dispara (paquetes limpios en lint, muestras sin ruta data en recon).
+
 ## [0.2.0] — Extensión MV + corrección de dedup
 
 ### Añadido

@@ -1,24 +1,26 @@
-# DATASET CARD — AI-ku_superprogrammer (v0.2.0)
+# DATASET CARD — AI-ku_superprogrammer (v0.3.0)
 
 ## Identificación
 
 - **Nombre**: AI-ku_superprogrammer
-- **Versión**: 0.2.0 (piloto verificado; extensión MV + fix de dedup)
+- **Versión**: 0.3.0 (piloto verificado; extensión Universal Modder)
 - **Licencia**: MIT
 - **Datasets incluidos**: `AI-ku_superprogrammer_write`, `AI-ku_superprogrammer_understand`, `AI-ku_superprogrammer_media`, `AI-ku_superprogrammer_game_engineering`
 - **Propósito**: entrenar capacidades de programación profunda (escritura, comprensión, depuración, verificación, optimización), generación de medios por código e ingeniería de software de juegos con ingeniería inversa autorizada.
 
-## Composición (v0.2.0)
+## Composición (v0.3.0)
 
 | Dataset | Total | % verificado por ejecución | % con tests | % multi-file |
 |---|---|---|---|---|
 | write | 13.697 | 74.1% | 73.5% | 22.7% |
 | understand | 3.374 | 83.7% | 47.9% | 0% |
 | media (write 647 + understand 302) | 949 | 93.2% | 76.4% | ~8% |
-| game_engineering (write 861 + understand 618) | 1.479 | 96.2% | 73.6% | ~20% |
-| **Total** | **19.499** | | | |
+| game_engineering (write 1.219 + understand 749) | 1.968 | 96.8% | 72.4% | ~13% |
+| **Total** | **19.988** | | | |
 
 Incluye la extensión **MV** (v0.2.0): 407 records de motor de vídeo musical generativo (escenas, beat grid, karaoke word-synced, render offline determinista) cuyo color de señal por defecto es el turquesa Miku `#39C5BB` — identidad visual de AI-ku, nunca naranja.
+
+Incluye la extensión **Universal Modder** (v0.3.0): 489 records de metodología de modding verificable (recon con escalera de rutas y regla de rechazo anti-cheat+online, backup/diff/restore de saves con claims sha256, lint de publicación FAIL/WARN, oracle de trace-replay con semántica f32 y acciones t→t+1, razonamiento de rutas/gotchas de oracles/niveles de evidencia). Referencia conceptual: universal-modder de rehan_shei; código 100% original sobre objetivos sintéticos.
 
 - Dificultad: beginner/intermediate/advanced/expert con hard holdout experto separado.
 - Procedencia: 100% sintético (generado por las familias de este repo, semilla registrada por ejemplo).
