@@ -20,8 +20,15 @@
 - **finalize unificado**: la lógica de splits vive en `validators/splits.py` (hash + coverage fix-up + política de holdout por dataset); `finalize.py` ya no duplica el hashing.
 - **Métricas honestas**: README/DATASET_CARD distinguen `executed`/`compiled_and_executed` vs `static_check` vs `authored_verified` por etapa, con porcentajes exactos por dataset en la CARD (ya no se presenta un único "% verificado" agregado).
 
+### Auditoría adversarial post-build
+- Auditoría integral en copia aislada sobre d4d8b81: integridad de 23.281 records (stats == shards exactos), sweep de schema sin violaciones, 0 duplicados/near-duplicates cruzando splits, re-ejecución fresca 114/114 (write), adversarial ops 120/120 verdes + buggy-fail 120/120, render MV determinista, ISO9660 validada con parser independiente (4/4), ELF validado con parser independiente (6/6), holdout disjunto por id y hash.
+- **Tests que detectan política** (`tests/test_audit_gaps.py`, 4 tests nuevos — suite 17/17): cobertura mínima de splits, política de holdout de media, rechazo de records basura por el schema-checker y honestidad del sobreconteo de ejecución en make_stats. Demostrado con fault-injection: 4 huecos plantados ahora FALLAN los tests (antes pasaban en verde).
+- **Reproducibilidad del re-split**: `reports/re_group_map.json` (1.225 grupos exactos por generator|seed) comprometido + fallback en `scripts/resplit_v070.py` — el re-split ya no depende del staging gitignored y es reproducible desde un clon fresco (splits content-idénticos verificados).
+- `docs/VIDEO_RESEARCH.md`: pdoom-video promovido a fuente primaria para v0.8.0.
+- Documentado para v0.7.1/v0.8.0 (sin migrar): fixtures bash/sql no publicadas (re-verificación de terceros), holdout expert de re_understand (0 experts hoy), total acumulado de intentos.
+
 ### Números
-- 1.577 intentos nuevos → 1.109 staged (write 642 + understand 467; la primera pasada de understand se descartó por baja distintividad y se regeneró) → **968 publicados** en agent_ops (write 603: 39 dedup; understand 365: 102 dedup) → **23.281 total** (22.177 publicados + 1.104 holdout). 89 familias, 15 lenguajes. Tests 13/13; smoke ALL PASSED (todas las familias); `scripts/validate_ops_ext.py` GREEN.
+- 1.577 intentos nuevos → 1.109 staged (write 642 + understand 467; la primera pasada de understand se descartó por baja distintividad y se regeneró) → **968 publicados** en agent_ops (write 603: 39 dedup; understand 365: 102 dedup) → **23.281 total** (22.177 publicados + 1.104 holdout). 89 familias, 15 lenguajes. Tests 17/17 (13 + 4 de auditoría); smoke ALL PASSED (todas las familias); `scripts/validate_ops_ext.py` GREEN.
 
 ## [0.6.0] — Módulo 04 Reverse Engineering (ELF reales, binutils reales; inspirado en morluto/rea)
 
