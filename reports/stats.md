@@ -227,3 +227,55 @@
 | <300c | 610 |
 | 300-1200c | 132 |
 | 1200-3000c | 90 |
+
+## re_write
+
+- total: **690**
+- verified by execution: **100.0%** (static check: 0.0%)
+- with tests: 100.0% | multi-file projects: 0.0% | synthetic: 100.0%
+
+| language | count |
+|---|---|
+| python | 690 |
+
+| difficulty | count |
+|---|---|
+| advanced | 321 |
+| intermediate | 189 |
+| expert | 180 |
+
+| split | count |
+|---|---|
+| train | 561 |
+| test | 93 |
+| hard_holdout | 36 |
+
+| code size | count |
+|---|---|
+| <300c | 166 |
+| 300-1200c | 467 |
+| 1200-3000c | 57 |
+
+## re_understand
+
+- total: **463**
+- verified by execution: **0.0%** (static check: 0.0%)
+- with tests: 0.0% | multi-file projects: 0.0% | synthetic: 100.0%
+
+| language | count |
+|---|---|
+| python | 463 |
+
+| difficulty | count |
+|---|---|
+| advanced | 320 |
+| intermediate | 143 |
+
+| split | count |
+|---|---|
+| train | 463 |
+
+| code size | count |
+|---|---|
+| 1200-3000c | 175 |
+| <300c | 288 |

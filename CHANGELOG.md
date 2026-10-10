@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## [0.6.0] — Módulo 04 Reverse Engineering (ELF reales, binutils reales; inspirado en morluto/rea)
+
+### Añadido
+- **Nuevo dataset `AI-ku_superprogrammer_reverse_engineering`** (`datasets/reverse_engineering/{write,understand}/`), módulo 04 del curriculum: 1.153 records (write 690 + understand 463) sobre **binarios ELF x86-64 reales** compilados en el sandbox (`gcc -nostdlib -static`, build-id none, con/sin strip) con ground truth cosechado de binutils reales (readelf/nm/objdump/strings) y doble implementación (referencia vs solución) cotejada antes de aceptar cada record.
+- **5 familias write** (`generators/write/re_families.py`, todas python ejecutado, bugs que fallan determinísticamente):
+  - `re_elf_parser`: cabeceras ELF64, tabla de secciones vía .shstrtab, segmentos de programa y símbolos vía sh_link; la salida se valida contra readelf/nm reales.
+  - `re_disasm_analysis`: bloques `objdump -d` reales; calls (desde _start), immediates, jump targets y huella de código.
+  - `re_blackbox_reimpl`: transforms (rolling XOR, offset-add, keystream LCG, nibble rotation) reimplantados byte-exacto; la suite ejecuta el binario real en cada probe.
+  - `re_version_diff`: dos builds reales con un parche mínimo (key bump, máscara XOR, drop del término posicional); modelo diferencial de ambos.
+  - `re_strings_decode`: tablas XOR/rolling en .rodata; el decoder debe coincidir con el stdout REAL capturado del binario.
+- **3 builders understand** (`generators/understand/re_builders.py`, evidencia 100% real): `re_disasm_readout` (respuesta verificada por reconstrucción byte-exacta del stdout real desde el modelo por-helper), `re_evidence_conclusion` (una conclusión soportada por salidas reales de readelf/nm; distractores que contradicen campos observables) y `re_tool_selection` (comando binutils correcto, verificado ejecutándolo contra el binario).
+- Registro: `registry.py` (+1 módulo, +5 familias, DATASET_FAMILIES), `dispatch.py` (+3 builders), `records.py` (+dataset, prefix `re`), `finalize.py` (dir `reverse_engineering/` con shards prefijados `re-`), schemas write/understand (+dataset y +3 task_types), `make_stats.py` (+re_write/re_understand).
+- `scripts/build_re_delta.py` (batch 005, SEED_BASE 20260701) y `scripts/validate_re_ext.py` (12 seeds/familia: muestras verdes, buggy siempre falla, determinismo de code+tests — el binario embebido incluido; builders con evidencia real y schema).
+
+### Decisiones de calidad
+- 1.225 staged → **1.153 publicados** (write 690: 71 duplicados normalizados eliminados con honestidad; understand 463). write al **100% verificado por ejecución**; 36 records expert del módulo a `hard_holdout` (total holdout: 988). Todos los binarios son objetivos sintéticos propios: sin DRM, sin malware, sin terceros (límites éticos del módulo en el README).
+
 ## [0.5.0] — Extensión Superprogrammer (bases/permisos, oficio de maestría, git forense)
 
 ### Añadido

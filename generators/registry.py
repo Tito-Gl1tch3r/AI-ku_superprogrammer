@@ -9,6 +9,7 @@ FAMILY_MODULES = [
     "generators.write.craft_families",
     "generators.write.verify_families",
     "generators.write.systems_families",
+    "generators.write.re_families",
     "generators.write.sql_families",
     "generators.write.bash_families",
     "generators.write.c_families",
@@ -49,6 +50,9 @@ DATASET_FAMILIES = {
                                                "game_oracle_replay",
                                                "game_crossover_bridge",
                                                "game_state_scan"),
+    "AI-ku_superprogrammer_reverse_engineering": (
+        "re_elf_parser", "re_disasm_analysis", "re_blackbox_reimpl",
+        "re_version_diff", "re_strings_decode"),
 }
 
 

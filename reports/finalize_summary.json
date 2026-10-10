@@ -1,92 +1,32 @@
 {
- "AI-ku_superprogrammer_game_engineering|understand": {
-  "dataset": "AI-ku_superprogrammer_game_engineering",
+ "AI-ku_superprogrammer_reverse_engineering|understand": {
+  "dataset": "AI-ku_superprogrammer_reverse_engineering",
   "kind": "understand",
-  "staged": 1863,
-  "kept": 832,
-  "dupes_removed": 1031,
+  "staged": 464,
+  "kept": 463,
+  "dupes_removed": 1,
   "family_capped": 0,
   "schema_rejected": 0,
   "splits": {
-   "train": 698,
-   "validation": 15,
-   "test": 112,
-   "hard_holdout": 7
-  }
- },
- "AI-ku_superprogrammer_game_engineering|write": {
-  "dataset": "AI-ku_superprogrammer_game_engineering",
-  "kind": "write",
-  "staged": 2142,
-  "kept": 1397,
-  "dupes_removed": 745,
-  "family_capped": 0,
-  "schema_rejected": 0,
-  "splits": {
-   "train": 991,
-   "validation": 181,
-   "test": 26,
-   "hard_holdout": 199
-  }
- },
- "AI-ku_superprogrammer_media|understand": {
-  "dataset": "AI-ku_superprogrammer_media",
-  "kind": "understand",
-  "staged": 979,
-  "kept": 433,
-  "dupes_removed": 546,
-  "family_capped": 0,
-  "schema_rejected": 0,
-  "splits": {
-   "train": 287,
-   "validation": 9,
-   "test": 137,
+   "train": 463,
+   "validation": 0,
+   "test": 0,
    "hard_holdout": 0
   }
  },
- "AI-ku_superprogrammer_media|write": {
-  "dataset": "AI-ku_superprogrammer_media",
+ "AI-ku_superprogrammer_reverse_engineering|write": {
+  "dataset": "AI-ku_superprogrammer_reverse_engineering",
   "kind": "write",
-  "staged": 2819,
-  "kept": 877,
-  "dupes_removed": 1942,
+  "staged": 761,
+  "kept": 690,
+  "dupes_removed": 71,
   "family_capped": 0,
   "schema_rejected": 0,
   "splits": {
-   "train": 792,
-   "validation": 20,
-   "test": 62,
-   "hard_holdout": 3
-  }
- },
- "AI-ku_superprogrammer_understand|understand": {
-  "dataset": "AI-ku_superprogrammer_understand",
-  "kind": "understand",
-  "staged": 8145,
-  "kept": 3524,
-  "dupes_removed": 4621,
-  "family_capped": 0,
-  "schema_rejected": 0,
-  "splits": {
-   "train": 2957,
-   "validation": 249,
-   "test": 270,
-   "hard_holdout": 48
-  }
- },
- "AI-ku_superprogrammer_write|write": {
-  "dataset": "AI-ku_superprogrammer_write",
-  "kind": "write",
-  "staged": 24247,
-  "kept": 14097,
-  "dupes_removed": 10150,
-  "family_capped": 0,
-  "schema_rejected": 0,
-  "splits": {
-   "train": 11167,
-   "validation": 942,
-   "test": 1293,
-   "hard_holdout": 695
+   "train": 561,
+   "validation": 0,
+   "test": 93,
+   "hard_holdout": 36
   }
  }
 }

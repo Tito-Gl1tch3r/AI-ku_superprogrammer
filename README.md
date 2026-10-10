@@ -2,7 +2,7 @@
 
 **Dataset de entrenamiento de nivel profesional para AI-ku: PRIMERO entender el código, DESPUÉS escribirlo, AL FINAL crear vídeos y mezclas de juegos como Opus 5.5.**
 
-> TL;DR: 4 datasets organizados como plan de estudios numerado (**00 comprensión de código · 01 escritura de código · 02 vídeo generativo estilo Opus · 03 mezclas de juegos y modding**), pipeline **GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR**, verificación real por compilación/ejecución, splits anti-contaminación, quarantine para todo lo no verificado. Licencia MIT. Piloto v0.5.0: **21.160 ejemplos verificados** de 40.195 generados (el resto: duplicados semánticos eliminados por las reglas anti-basura — ver `QUALITY_REPORT.md`).
+> TL;DR: 5 datasets organizados como plan de estudios numerado (**00 comprensión de código · 01 escritura de código · 02 vídeo generativo estilo Opus · 03 mezclas de juegos y modding · 04 ingeniería inversa**), pipeline **GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR**, verificación real por compilación/ejecución, splits anti-contaminación, quarantine para todo lo no verificado. Licencia MIT. Piloto v0.6.0: **22.313 ejemplos verificados** de 41.420 generados (el resto: duplicados semánticos eliminados por las reglas anti-basura — ver `QUALITY_REPORT.md`).
 
 ---
 
@@ -19,7 +19,7 @@ El resultado buscado: dado *"este programa falla en X"*, AI-ku debe comprender e
 
 ## 2. Plan de estudios — el orden en que AI-ku aprende
 
-Tres etapas, cuatro módulos numerados: **1º entender el código (00)** → **2º escribir código (01)** → **3º crear como Opus 5.5 (02 + 03, el tocho: vídeos generativos y mezclas de juegos)**. La numeración es el orden pedagógico de entrenamiento; los nombres y paths físicos de los datasets se mantienen estables por reproducibilidad. Receta completa por etapa (mezclas, replay anti-olvido, criterios de avance) en `docs/CURRICULUM.md`.
+Cuatro etapas, cinco módulos numerados: **1º entender el código (00)** → **2º escribir código (01)** → **3º crear como Opus 5.5 (02 + 03, el tocho: vídeos generativos y mezclas de juegos)** → **4º leer lo compilado: ingeniería inversa (04)**. La numeración es el orden pedagógico de entrenamiento; los nombres y paths físicos de los datasets se mantienen estables por reproducibilidad. Receta completa por etapa (mezclas, replay anti-olvido, criterios de avance) en `docs/CURRICULUM.md`.
 
 | Módulo | Dataset físico | Qué entrena | Records |
 |---|---------|-------------|---------|
@@ -27,6 +27,7 @@ Tres etapas, cuatro módulos numerados: **1º entender el código (00)** → **2
 | **01 · Code Writing** — *2º escribir* | `AI-ku_superprogrammer_write` (`datasets/write/`) | Especificación → código correcto y testeado en 14 lenguajes; **bases numéricas (binario/hex/octal + permisos chmod), refactor de nivel maestro, tolerancia a fallos, property-based testing + shrinking, numéricos robustos, DST/unicode, git bisect real** | 14.097 |
 | **02 · Opus 5.5 — Generative Video** — *3º crear: vídeos* | `AI-ku_superprogrammer_media` (`datasets/media/`) | Vídeo programático: timeline, easing, render determinista por frames, análisis audio→datos→visual, shaders, pipelines offline, **motor de vídeo musical generativo** (escenas + beat grid + karaoke word-synced + post-chain + render offline con manifest de hashes) | 1.310 |
 | **03 · Opus 5.5 — Game Mixes & Modding** — *3º crear: mezclas de juegos* | `AI-ku_superprogrammer_game_engineering` (`datasets/game_engineering/`) | Formatos binarios sintéticos, serialización de saves, atlases, conversión de sistemas de coordenadas, VM de scripting, interoperabilidad entre motores, análisis con hipótesis→test→evidencia, **metodología universal de modding** (recon, labs seguros, oracles, publish-lint) y **puentes crossover entre dos juegos** | 2.229 |
+| **04 · Reverse Engineering** — *4º leer lo compilado* | `AI-ku_superprogrammer_reverse_engineering` (`datasets/reverse_engineering/`) | RE verificable sobre **binarios ELF reales compilados en el sandbox**: parsers de cabeceras/secciones/símbolos contra `readelf`/`nm`, análisis de disassembly real de `objdump`, reimplantación black-box de transforms, diff diferencial entre builds, recuperación de strings ofuscadas; understand con evidencia 100% real (readout de disassembly, conclusiones por evidencia, selección de tool) | 1.153 |
 
 Cada dataset tiene splits `train/`, `validation/`, `test/` en shards `.jsonl.gz` de 2.000 records. Los ejemplos `expert` seleccionados por grupo viven aparte en `datasets/hard_holdout/` y **no** se usan en generación ni entrenamiento.
 
@@ -69,6 +70,23 @@ Siete familias write nuevas y tres builders understand nuevas que cubren los hue
 - **Git forense** (`py_git_forensics`): `git bisect` REAL sobre un repo sintético de 21 commits con presupuesto de 8 ejecuciones del checker (la búsqueda lineal queda fuera por presupuesto) y arqueología de repo que distingue la definición real de los re-exports.
 
 Builders understand: `iterative_repair` (el bucle agéntico como record: borrador que falla con traceback REAL, intento de fix plausible que sigue fallando con salida REAL, y la corrección verificada), `mastery_principles` (defecto→principio→fix con comportamiento verificado) y `evidence_self_audit` (la escalera de evidencia aplicada a los claims propios: creator_report < source_inspection < derived_comparison < synthetic_test < real_run).
+
+### Extensión Reverse Engineering (v0.6.0): el módulo 04, leer lo compilado
+
+Nuevo dataset `AI-ku_superprogrammer_reverse_engineering` (`datasets/reverse_engineering/`), 1.153 records (write 690 al **100% verificado por ejecución** + understand 463). Todo el módulo trabaja sobre **binarios ELF reales** compilados en el propio sandbox con `gcc -nostdlib -static` y ground truth cosechado con binutils de verdad (`readelf`, `nm`, `objdump`, `strings`) — nada de pseudo-hexágonos inventados:
+
+- **Parsers ELF** (`re_elf_parser`): cabeceras, tabla de secciones vía `.shstrtab`, segmentos de programa y tabla de símbolos vía `sh_link` — la solución compite contra una implementación de referencia independiente y ambas se cotejan con la salida real de binutils antes de aceptar el record.
+- **Análisis de disassembly** (`re_disasm_analysis`): el bloque `objdump -d` REAL de funciones compiladas; contar calls, extraer immediates, targets de saltos y huella de código — ground truth parseado del dump real, no del fuente.
+- **Reimplantación black-box** (`re_blackbox_reimpl`): un binario strip-eado lee stdin, aplica un transform (rolling XOR, offset-add, keystream LCG, rotación de nibbles) y escribe stdout; la suite ejecuta el binario REAL en cada probe y exige salida idéntica byte a byte.
+- **Diff diferencial** (`re_version_diff`): dos builds reales que difieren en un parche mínimo (key bump, máscara XOR, drop del término posicional); clasificar qué cambia entre versiones ejecutando ambas.
+- **Strings ofuscadas** (`re_strings_decode`): tablas XOR/rolling en `.rodata`; el decoder debe coincidir con lo que el binario REALMENTE imprime (stdout capturado como evidencia).
+- Builders understand con evidencia real: `re_disasm_readout` (predecir el comportamiento de un helper desde su disassembly y verificar contra el stdout real capturado), `re_evidence_conclusion` (elegir la conclusión soportada por salidas reales de readelf/nm, con distractores que contradicen campos observables) y `re_tool_selection` (qué comando binutils responde cada pregunta, verificado ejecutándolo de verdad).
+
+**Inspiración**: [morluto/rea](https://github.com/morluto/rea) ("Reverse Engineer Anything", MIT) — la idea de un agente que investiga binarios con evidencia y limitaciones explícitas en cada conclusión. Los datasets son 100% sintéticos y el código del pipeline no copia nada de REA.
+
+### Límites éticos (módulo 04)
+
+Solo binarios **compilados por el propio pipeline** en el sandbox (fuentes sintéticos propios), transforms y formatos de juguete, y patrones defensivos de análisis. **Nunca**: objetivos reales de terceros, DRM, malware, evasión de protecciones ni acceso no autorizado — el módulo enseña a LEER código compilado, no a saltarse barreras ajenas.
 
 ## 3. Lenguajes y cobertura
 
@@ -182,7 +200,7 @@ Limitaciones honestas: el grading de explicaciones usa ground truth autorado jun
 2. GLSL sin GPU: verificación estructural + semántica autorada.
 3. HTML/CSS no se renderizan.
 4. Varias familias cubren menos volumen del solicitado tras el dedup (ver §8); prioridad absoluta a calidad sobre cantidad.
-5. Los módulos 02/03 alcanzan 1.310/2.229 records (write+understand) tras el dedup de calidad; la arquitectura de familias + builders ya soporta el escalado.
+5. Los módulos 02/03 alcanzan 1.310/2.229 records (write+understand) tras el dedup de calidad; la arquitectura de familias + builders ya soporta el escalado. El módulo 04 estrena en v0.6.0 con 1.153 records (write 690 al 100% ejecutado + understand 463 con evidencia real).
 
 ## 11. Licencia
 

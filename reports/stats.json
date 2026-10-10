@@ -260,5 +260,62 @@
    "1200-3000c": 90
   },
   "by_task_type": {}
+ },
+ "re_write": {
+  "total": 690,
+  "pct_verified_executed": 100.0,
+  "pct_verified_static": 0.0,
+  "pct_with_tests": 100.0,
+  "pct_multi_file": 0.0,
+  "pct_synthetic": 100.0,
+  "by_language": {
+   "python": 690
+  },
+  "by_difficulty": {
+   "advanced": 321,
+   "intermediate": 189,
+   "expert": 180
+  },
+  "by_domain": {
+   "security": 390,
+   "systems": 300
+  },
+  "by_split": {
+   "train": 561,
+   "test": 93,
+   "hard_holdout": 36
+  },
+  "by_size": {
+   "<300c": 166,
+   "300-1200c": 467,
+   "1200-3000c": 57
+  },
+  "by_task_type": {}
+ },
+ "re_understand": {
+  "total": 463,
+  "pct_verified_executed": 0.0,
+  "pct_verified_static": 0.0,
+  "pct_with_tests": 0.0,
+  "pct_multi_file": 0.0,
+  "pct_synthetic": 100.0,
+  "by_language": {
+   "python": 463
+  },
+  "by_difficulty": {
+   "advanced": 320,
+   "intermediate": 143
+  },
+  "by_domain": {
+   "systems": 463
+  },
+  "by_split": {
+   "train": 463
+  },
+  "by_size": {
+   "1200-3000c": 175,
+   "<300c": 288
+  },
+  "by_task_type": {}
  }
 }

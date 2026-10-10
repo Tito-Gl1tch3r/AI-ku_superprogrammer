@@ -20,6 +20,8 @@ DATASET_LAYOUT = {
     "media_understand": ["datasets/media/understand"],
     "game_write": ["datasets/game_engineering/write"],
     "game_understand": ["datasets/game_engineering/understand"],
+    "re_write": ["datasets/reverse_engineering/write"],
+    "re_understand": ["datasets/reverse_engineering/understand"],
 }
 HOLDOUT_PREFIX = {"write": "write", "understand": "understand", "media_write": "media",
                   "media_understand": "media", "game_write": "game",
@@ -34,6 +36,8 @@ STAGE_DS_KIND = {
     "media_understand": ("AI-ku_superprogrammer_media", "understand"),
     "game_write": ("AI-ku_superprogrammer_game_engineering", "write"),
     "game_understand": ("AI-ku_superprogrammer_game_engineering", "understand"),
+    "re_write": ("AI-ku_superprogrammer_reverse_engineering", "write"),
+    "re_understand": ("AI-ku_superprogrammer_reverse_engineering", "understand"),
 }
 
 
@@ -77,7 +81,7 @@ def pct(x, total):
 def main():
     stats = {}
     for stage in ("write", "understand", "media_write", "media_understand",
-                  "game_write", "game_understand"):
+                  "game_write", "game_understand", "re_write", "re_understand"):
         rows = load_stage(stage)
         per = {
             "total": len(rows),

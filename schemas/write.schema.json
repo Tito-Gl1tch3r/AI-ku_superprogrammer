@@ -26,7 +26,8 @@
       "enum": [
         "AI-ku_superprogrammer_write",
         "AI-ku_superprogrammer_media",
-        "AI-ku_superprogrammer_game_engineering"
+        "AI-ku_superprogrammer_game_engineering",
+    "AI-ku_superprogrammer_reverse_engineering"
       ]
     },
     "kind": {

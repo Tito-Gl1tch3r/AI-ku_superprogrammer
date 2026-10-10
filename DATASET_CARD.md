@@ -1,14 +1,14 @@
-# DATASET CARD — AI-ku_superprogrammer (v0.5.0)
+# DATASET CARD — AI-ku_superprogrammer (v0.6.0)
 
 ## Identificación
 
 - **Nombre**: AI-ku_superprogrammer
-- **Versión**: 0.5.0 (extensión Superprogrammer: bases numéricas/permisos, refactor maestro, tolerancia a fallos, property-based testing, numérica robusta, DST/unicode, git forense + bucle agéntico/maestría/auto-auditoría en understand)
+- **Versión**: 0.6.0 (módulo 04 Reverse Engineering: ELF reales compilados en sandbox + binutils reales; inspirado en morluto/rea, MIT)
 - **Licencia**: MIT
-- **Datasets incluidos** (numeración = orden del curriculum, ver `docs/CURRICULUM.md`): `AI-ku_superprogrammer_understand` (00 · Code Comprehension), `AI-ku_superprogrammer_write` (01 · Code Writing), `AI-ku_superprogrammer_media` (02 · Opus 5.5 Generative Video), `AI-ku_superprogrammer_game_engineering` (03 · Opus 5.5 Game Mixes & Modding)
-- **Propósito**: entrenar capacidades de programación profunda (escritura, comprensión, depuración, verificación, optimización), generación de medios por código e ingeniería de software de juegos con ingeniería inversa autorizada.
+- **Datasets incluidos** (numeración = orden del curriculum, ver `docs/CURRICULUM.md`): `AI-ku_superprogrammer_understand` (00 · Code Comprehension), `AI-ku_superprogrammer_write` (01 · Code Writing), `AI-ku_superprogrammer_media` (02 · Opus 5.5 Generative Video), `AI-ku_superprogrammer_game_engineering` (03 · Opus 5.5 Game Mixes & Modding), `AI-ku_superprogrammer_reverse_engineering` (04 · Reverse Engineering)
+- **Propósito**: entrenar capacidades de programación profunda (escritura, comprensión, depuración, verificación, optimización), generación de medios por código, ingeniería de software de juegos con modding autorizado y lectura de binarios (ingeniería inversa sobre objetivos propios sintéticos).
 
-## Composición (v0.5.0)
+## Composición (v0.6.0)
 
 | Dataset | Total | % verificado por ejecución | % con tests | % multi-file |
 |---|---|---|---|---|
@@ -16,7 +16,10 @@
 | understand | 3.524 | — | — | 0% |
 | media (write 877 + understand 433) | 1.310 | 98.0% | 73.0% | ~8.6% (write) |
 | game_engineering (write 1.397 + understand 832) | 2.229 | 98.1% | 73.6% | ~18.4% (write) |
-| **Total** | **21.160** | | | |
+| reverse_engineering (write 690 + understand 463) | 1.153 | 59.9% (write: 100%) | 59.9% | 0% |
+| **Total** | **22.313** | | | |
+
+Incluye la extensión **Reverse Engineering** (v0.6.0, módulo 04): 1.153 records sobre **binarios ELF reales** (compilados en el sandbox con `gcc -nostdlib -static`, 1,5-9 KB, con y sin símbolos) con ground truth cosechado de binutils reales: parsers de cabecera/secciones/símbolos verificados contra `readelf`/`nm`, análisis del disassembly real de `objdump -d` (calls, immediates, jump targets, huella), reimplantación black-box de transforms byte-exacta (la suite ejecuta el binario real en cada probe), diff diferencial entre dos builds con parche mínimo, y strings ofuscadas cuya decodificación debe coincidir con el stdout real capturado. Understand con evidencia 100% real: readout de disassembly verificado por reconstrucción byte-exacta del stdout, conclusiones seleccionadas por evidencia observada y selección de comando binutils verificada ejecutándolo. **Inspirado en [morluto/rea](https://github.com/morluto/rea) (MIT)**; datasets 100% sintéticos, cero código copiado. Solo objetivos propios: sin DRM, sin malware, sin terceros.
 
 Incluye la extensión **MV** (v0.2.0): 407 records de motor de vídeo musical generativo (escenas, beat grid, karaoke word-synced, render offline determinista) cuyo color de señal por defecto es el turquesa Miku `#39C5BB` — identidad visual de AI-ku, nunca naranja.
 

@@ -19,6 +19,8 @@ from .opus import (build_mv_frameidx_pitfall, build_mv_palette_propagation,
 from .superprogrammer import (build_iterative_repair,
                               build_mastery_principles,
                               build_evidence_self_audit)
+from .re_builders import (build_re_disasm_readout, build_re_evidence_conclusion,
+                          build_re_tool_selection)
 
 BUILDERS = {
     "debugging": build_debugging,
@@ -49,6 +51,9 @@ BUILDERS = {
     "iterative_repair": build_iterative_repair,
     "mastery_principles": build_mastery_principles,
     "evidence_self_audit": build_evidence_self_audit,
+    "re_disasm_readout": build_re_disasm_readout,
+    "re_evidence_conclusion": build_re_evidence_conclusion,
+    "re_tool_selection": build_re_tool_selection,
 }
 
 

@@ -27,7 +27,8 @@
    "enum": [
     "AI-ku_superprogrammer_understand",
     "AI-ku_superprogrammer_media",
-    "AI-ku_superprogrammer_game_engineering"
+    "AI-ku_superprogrammer_game_engineering",
+    "AI-ku_superprogrammer_reverse_engineering"
    ]
   },
   "kind": {
@@ -65,7 +66,10 @@
     "crossover_event_debug",
     "iterative_repair",
     "mastery_principles",
-    "evidence_self_audit"
+    "evidence_self_audit",
+    "re_disasm_readout",
+    "re_evidence_conclusion",
+    "re_tool_selection"
    ]
   },
   "domain": {

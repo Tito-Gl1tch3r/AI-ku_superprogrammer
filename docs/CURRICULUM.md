@@ -1,8 +1,8 @@
 # Curriculum de entrenamiento — AI-ku
 
-> El orden en que AI-ku aprende: **PRIMERO entender el código, DESPUÉS escribirlo, AL FINAL crear como Opus 5.5** (vídeos generativos y mezclas de juegos).
+> El orden en que AI-ku aprende: **PRIMERO entender el código, DESPUÉS escribirlo, AL FINAL crear como Opus 5.5** (vídeos generativos y mezclas de juegos) **y leer lo compilado** (ingeniería inversa).
 >
-> Los nombres y paths físicos de los datasets no cambian (`AI-ku_superprogrammer_understand`, `_write`, `_media`, `_game_engineering`); la numeración 00–03 es el orden pedagógico de este curriculum y así se presenta en el README.
+> Los nombres y paths físicos de los datasets no cambian (`AI-ku_superprogrammer_understand`, `_write`, `_media`, `_game_engineering`, `_reverse_engineering`); la numeración 00–04 es el orden pedagógico de este curriculum y así se presenta en el README.
 
 ## Visión general
 
@@ -12,8 +12,9 @@
 | **01** | Code Writing | `AI-ku_superprogrammer_write` | 14.097 | 2 — escribir |
 | **02** | Opus 5.5 · Generative Video | `AI-ku_superprogrammer_media` | 1.310 | 3 — crear |
 | **03** | Opus 5.5 · Game Mixes & Modding | `AI-ku_superprogrammer_game_engineering` | 2.229 | 3 — crear |
+| **04** | Reverse Engineering | `AI-ku_superprogrammer_reverse_engineering` | 1.153 | 4 — leer lo compilado |
 
-Total: **21.160 records verificados**. Los ejemplos `expert` de `datasets/hard_holdout/` quedan FUERA de las tres etapas y se reservan como gate de evaluación entre etapas.
+Total: **22.313 records verificados**. Los ejemplos `expert` de `datasets/hard_holdout/` quedan FUERA de las cuatro etapas y se reservan como gate de evaluación entre etapas.
 
 ---
 
@@ -68,6 +69,18 @@ Total: **21.160 records verificados**. Los ejemplos `expert` de `datasets/hard_h
 4. **Calidad > diversidad > cantidad**: si una etapa necesita más volumen, ampliar primero los espacios de parámetros de las familias (lección del piloto, `QUALITY_REPORT.md` §5), nunca relajar el dedup.
 5. **Honestidad**: las mezclas y criterios de esta página son heurísticas de partida razonables, no afirmaciones validadas empíricamente; el arbitraje final es la evaluación sobre `hard_holdout`.
 
+## Etapa 4 — 04 · Reverse Engineering (leer lo compilado)
+
+**Por qué va al final.** Leer binarios es la forma avanzada de la etapa 1 (comprensión): el código ya no es texto, son bytes con estructura (ELF), instrucciones (disassembly) y comportamiento observable. AI-ku llega aquí ya sabiendo leer código fuente y verificar por ejecución; ahora aprende a recuperar ESA MISMA información sin fuente: estructura del ELF, dinámica de un helper desde su disassembly, regla de un transform por black-box probing, y qué cambió entre dos builds. Es el módulo que cierra el círculo "programa = comportamiento verificable".
+
+**Contenido** (5 familias write + 3 builders understand, todo sobre ELF reales compilados en el sandbox con ground truth de binutils reales): parsers de cabecera/secciones/símbolos, análisis de bloques `objdump -d` (calls, immediates, jump targets, huella), reimplantación de transforms black-box byte-exacto, diferencial entre builds, strings ofuscadas; y en understand, readout de disassembly con stdout capturado, conclusiones por evidencia y selección de herramienta.
+
+**Mezcla sugerida**: ~15-20% módulo 04 + replay de 00/01 (el RE es comprensión avanzada, no sustituye la producción). 1-2 épocas.
+
+**Criterio de avance**: las tareas black-box y de diff exigen byte-exactitud verificada por ejecución; evaluar sobre `hard_holdout` (36 records expert del módulo ya reservados) y sobre los splits test del dataset.
+
+---
+
 ## Cómo construir los lotes de cada etapa
 
 ```python
@@ -84,6 +97,7 @@ ALL = {
     "01": rows("datasets/write/train/*.jsonl.gz"),
     "02": rows("datasets/media/*/train/*.jsonl.gz"),
     "03": rows("datasets/game_engineering/*/train/*.jsonl.gz"),
+    "04": rows("datasets/reverse_engineering/*/train/*.jsonl.gz"),
 }
 
 # Ejemplo etapa 3: módulos 02+03 + los builders understand de dominio Opus

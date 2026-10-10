@@ -4,6 +4,8 @@
 >
 > Regla de oro respetada en cada propuesta: **nada se inventa** — cada idea incluye cómo se verifica con el pipeline existente (GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR). Huecos detectados auditando el registro real de familias (v0.4.1), no adivinados.
 
+> **Estado v0.6.0**: además del camino P1-P12, el módulo 04 · Reverse Engineering (ELF reales + binutils reales, inspirado en morluto/rea MIT) ya está implementado y publicado como dataset propio `AI-ku_superprogrammer_reverse_engineering` (1.153 records). P5/P6/P7/P10/P11 siguen pendientes para v0.7+.
+
 ## Lo que YA sabe (para no proponer duplicados)
 
 Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con mutación, optimización con timing, traducción entre lenguajes, seguridad defensiva, concurrencia básica (py_concurrency, go_concurrency_patterns), proyectos multi-fichero pequeños (~3-4 ficheros), vídeos generativos deterministas con identidad turquesa, modding metodológico y puentes crossover. Lo que sigue NO está en ningún sitio del dataset.

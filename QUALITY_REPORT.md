@@ -11,6 +11,8 @@
 - **media_understand**: 433 ejemplos publicados; 89.4% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **game_write**: 1,397 ejemplos publicados; 100.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **game_understand**: 832 ejemplos publicados; 92.5% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
+- **re_write**: 690 ejemplos publicados; 100.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
+- **re_understand**: 463 ejemplos publicados; 0.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 
 ## 2. Protocolo de calidad aplicado
 
@@ -31,58 +33,22 @@
 
 ## 3. Métricas de filtrado (finalize)
 
-### AI-ku_superprogrammer_game_engineering|understand
+### AI-ku_superprogrammer_reverse_engineering|understand
 
-- staged → kept: 1,863 → **832**
-- duplicados eliminados (exacto+normalizado): 1,031
+- staged → kept: 464 → **463**
+- duplicados eliminados (exacto+normalizado): 1
 - recortados por family cap: 0
 - rechazados por schema: 0
-- splits: {"train": 698, "validation": 15, "test": 112, "hard_holdout": 7}
+- splits: {"train": 463, "validation": 0, "test": 0, "hard_holdout": 0}
 - multi-file: 0 | con tests: 0
 
-### AI-ku_superprogrammer_game_engineering|write
+### AI-ku_superprogrammer_reverse_engineering|write
 
-- staged → kept: 2,142 → **1,397**
-- duplicados eliminados (exacto+normalizado): 745
+- staged → kept: 761 → **690**
+- duplicados eliminados (exacto+normalizado): 71
 - recortados por family cap: 0
 - rechazados por schema: 0
-- splits: {"train": 991, "validation": 181, "test": 26, "hard_holdout": 199}
-- multi-file: 0 | con tests: 0
-
-### AI-ku_superprogrammer_media|understand
-
-- staged → kept: 979 → **433**
-- duplicados eliminados (exacto+normalizado): 546
-- recortados por family cap: 0
-- rechazados por schema: 0
-- splits: {"train": 287, "validation": 9, "test": 137, "hard_holdout": 0}
-- multi-file: 0 | con tests: 0
-
-### AI-ku_superprogrammer_media|write
-
-- staged → kept: 2,819 → **877**
-- duplicados eliminados (exacto+normalizado): 1,942
-- recortados por family cap: 0
-- rechazados por schema: 0
-- splits: {"train": 792, "validation": 20, "test": 62, "hard_holdout": 3}
-- multi-file: 0 | con tests: 0
-
-### AI-ku_superprogrammer_understand|understand
-
-- staged → kept: 8,145 → **3,524**
-- duplicados eliminados (exacto+normalizado): 4,621
-- recortados por family cap: 0
-- rechazados por schema: 0
-- splits: {"train": 2957, "validation": 249, "test": 270, "hard_holdout": 48}
-- multi-file: 0 | con tests: 0
-
-### AI-ku_superprogrammer_write|write
-
-- staged → kept: 24,247 → **14,097**
-- duplicados eliminados (exacto+normalizado): 10,150
-- recortados por family cap: 0
-- rechazados por schema: 0
-- splits: {"train": 11167, "validation": 942, "test": 1293, "hard_holdout": 695}
+- splits: {"train": 561, "validation": 0, "test": 93, "hard_holdout": 36}
 - multi-file: 0 | con tests: 0
 
 ## 4. Cobertura de verificación por lenguaje

@@ -91,6 +91,7 @@ DATASET_DIRS = {
     "AI-ku_superprogrammer_understand": "understand",
     "AI-ku_superprogrammer_media": "media",
     "AI-ku_superprogrammer_game_engineering": "game_engineering",
+    "AI-ku_superprogrammer_reverse_engineering": "reverse_engineering",
 }
 
 
@@ -133,12 +134,14 @@ def finalize_group(dataset, kind, recs, family_cap, schema):
     prefix = {"AI-ku_superprogrammer_write": "write",
               "AI-ku_superprogrammer_understand": "understand",
               "AI-ku_superprogrammer_media": "media",
-              "AI-ku_superprogrammer_game_engineering": "game"}[dataset]
+              "AI-ku_superprogrammer_game_engineering": "game",
+              "AI-ku_superprogrammer_reverse_engineering": "re"}[dataset]
     counter = 0
     splits_info = {}
     base = os.path.join(ROOT, "datasets", DATASET_DIRS[dataset])
     if dataset in ("AI-ku_superprogrammer_media",
-                   "AI-ku_superprogrammer_game_engineering"):
+                   "AI-ku_superprogrammer_game_engineering",
+                   "AI-ku_superprogrammer_reverse_engineering"):
         base = os.path.join(base, kind)
     for split in ("train", "validation", "test", "hard_holdout"):
         rows = buckets.get(split, [])
