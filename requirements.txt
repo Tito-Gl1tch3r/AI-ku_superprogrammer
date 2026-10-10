@@ -1,0 +1,5 @@
+# AI-ku_superprogrammer — runtime + QA dependencies
+# Python >= 3.12 recommended (pipeline developed and verified on 3.12).
+numpy>=1.26
+Pillow>=10.0
+pytest>=8.0
