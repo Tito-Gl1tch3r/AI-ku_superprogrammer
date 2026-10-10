@@ -1,0 +1,323 @@
+{
+ "purpose": "D-5 closure (v0.9.0): the generation-attempt ledger, recomputed from the pipeline's own staging and quarantine ledgers. Published records are a SUBSET of staged (finalize/publish dedup and caps removed more); the exact published-vs-staged deltas live in reports/finalize_summary.json and the publisher output of each release.",
+ "computed_with": "scripts/build_attempts_history.py",
+ "batches": [
+  {
+   "batch": "game_batch001",
+   "datasets": [
+    "game"
+   ],
+   "attempts": 0,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "game_batch002",
+   "datasets": [
+    "game"
+   ],
+   "attempts": 0,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "game_batch003",
+   "datasets": [
+    "game"
+   ],
+   "attempts": 0,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "game_batch004",
+   "datasets": [
+    "game"
+   ],
+   "attempts": 4,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 4,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "game_understand_batch001",
+   "datasets": [
+    "game_understand"
+   ],
+   "attempts": 0,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "game_understand_batch002",
+   "datasets": [
+    "game_understand"
+   ],
+   "attempts": 0,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "game_understand_batch003",
+   "datasets": [
+    "game_understand"
+   ],
+   "attempts": 0,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "media_batch001",
+   "datasets": [
+    "media"
+   ],
+   "attempts": 0,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "media_batch004",
+   "datasets": [
+    "media"
+   ],
+   "attempts": 0,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "media_batch005",
+   "datasets": [
+    "media"
+   ],
+   "attempts": 0,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "media_understand_batch001",
+   "datasets": [
+    "media_understand"
+   ],
+   "attempts": 104,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 104,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "media_understand_batch004",
+   "datasets": [
+    "media_understand"
+   ],
+   "attempts": 55,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 55,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "media_understand_batch005",
+   "datasets": [
+    "media_understand"
+   ],
+   "attempts": 0,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "understand_batch001",
+   "datasets": [
+    "understand"
+   ],
+   "attempts": 464,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 464,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "understand_batch002",
+   "datasets": [
+    "understand"
+   ],
+   "attempts": 198,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 198,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "understand_batch003",
+   "datasets": [
+    "understand"
+   ],
+   "attempts": 166,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 166,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "understand_batch004",
+   "datasets": [
+    "understand"
+   ],
+   "attempts": 23,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 23,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "understand_batch005",
+   "datasets": [
+    "understand"
+   ],
+   "attempts": 0,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "understand_batch006",
+   "datasets": [
+    "understand"
+   ],
+   "attempts": 467,
+   "kept_staged": 467,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "understand_batch007",
+   "datasets": [
+    "understand"
+   ],
+   "attempts": 308,
+   "kept_staged": 291,
+   "quarantined_or_duplicates_dropped": 17,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "understand_batch008",
+   "datasets": [
+    "understand"
+   ],
+   "attempts": 103,
+   "kept_staged": 103,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "write_batch001",
+   "datasets": [
+    "write"
+   ],
+   "attempts": 161,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 161,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "write_batch002",
+   "datasets": [
+    "write"
+   ],
+   "attempts": 179,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 179,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "write_batch003",
+   "datasets": [
+    "write"
+   ],
+   "attempts": 15,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 15,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "write_batch004",
+   "datasets": [
+    "write"
+   ],
+   "attempts": 0,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "write_batch005",
+   "datasets": [
+    "write"
+   ],
+   "attempts": 51,
+   "kept_staged": 0,
+   "quarantined_or_duplicates_dropped": 51,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "write_batch006",
+   "datasets": [
+    "write"
+   ],
+   "attempts": 643,
+   "kept_staged": 642,
+   "quarantined_or_duplicates_dropped": 1,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "write_batch007",
+   "datasets": [
+    "write"
+   ],
+   "attempts": 886,
+   "kept_staged": 657,
+   "quarantined_or_duplicates_dropped": 229,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "write_batch007_defectaudit",
+   "datasets": [
+    "write"
+   ],
+   "attempts": 45,
+   "kept_staged": 45,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  },
+  {
+   "batch": "write_batch009",
+   "datasets": [
+    "write"
+   ],
+   "attempts": 729,
+   "kept_staged": 729,
+   "quarantined_or_duplicates_dropped": 0,
+   "note": "staged = kept by the gates; quarantine = failed verification/quality/duplicates at build time"
+  }
+ ],
+ "totals": {
+  "attempts_recorded_in_ledgers": 4601,
+  "kept_staged": 2934
+ },
+ "historical_estimates": [
+  {
+   "source": "README TL;DR up to v0.8.0",
+   "figure": "~45,000 generated cumulative (all releases)",
+   "nature": "estimate quoted in the README; the surviving ledger files only cover the batches that were not cleaned after finalize, so the ledger totals are a FLOOR, not the full history"
+  },
+  {
+   "source": "CHANGELOG 0.1.0-0.4.1 era (full-rebuild finalize)",
+   "figure": "thousands of quarantined attempts per batch, ledgers rotated by later rebuilds",
+   "nature": "explanation of why the surviving ledger is a floor"
+  }
+ ],
+ "honesty_note": "attempts that crashed before reaching a ledger (worker crashes, quarantine-write failures, ledger rotation on full rebuilds) cannot be reconstructed and are NOT counted; the ledger figure is a FLOOR, never an overestimate. Future batches accumulate in the same ledgers, so re-running this script grows the picture monotonically from v0.9.0 on."
+}

@@ -24,6 +24,7 @@ FAMILY_MODULES = [
     "generators.write.html_families",
     "generators.write.css_families",
     "generators.write.powershell_families",
+    "generators.write.evolution_families",
     "generators.media.families",
     "generators.media.video_families",
     "generators.media.ts_video_families",

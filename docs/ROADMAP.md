@@ -4,7 +4,7 @@
 >
 > Regla de oro respetada en cada propuesta: **nada se inventa** — cada idea incluye cómo se verifica con el pipeline existente (GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR). Huecos detectados auditando el registro real de familias (v0.4.1), no adivinados.
 
-> **Estado v0.8.0**: **P3 (vídeo end-to-end) IMPLEMENTADO** como extensión TS del módulo 02/03 — 6 familias write en TypeScript real (theme/motion-rules/deterministic-render/beat-grid/render-verify + proyecto TS experto multi-fichero) y 3 builders understand con evidencia de renders y rejillas medidas reales; PDOOM-VIDEO sigue como referencia arquitectónica primaria. Además se cerraron D-3 (fixtures de re-verificación bash/sql) y D-4 (holdout expert de re_understand) del audit. Estado v0.7.0: el módulo 05 · Agent Persistence está implementado y publicado como `AI-ku_superprogrammer_agent_ops` (968 records) — monitorización real de jobs, objetivos compuestos con ISO9660 real, supervisión de progreso y elevación de alcance; además se cerró la **Prioridad 0 del audit externo** (splits de re_write/re_understand, holdout de media "proyectos completos no vistos", métricas con método de verificación explícito, migración de IDs duplicados) y `docs/VIDEO_RESEARCH.md` prepara el salto TS/Remotion de P3. P5/P6/P7/P10/P11 siguen pendientes para v0.8+, y P3 queda con plan propuesto.
+> **Estado v0.9.0**: **TODAS las propuestas del roadmap están implementadas.** Esta ola cerró P2-restante (`git_merge_conflict` — conflicto de `git merge` real, ambas intenciones preservadas), P4-restante (`flaky_test_forensics` — flakiness de hash-seed medida en 41 seeds reales), **P5** (`sql_schema_migration` — migración SQLite con rejects clasificados y rollback byte-exacto), **P6** (`sdk_docs_integration` — SDK ficticia con guard estricto anti-alucinación), **P7** (`repo_feature_insertion` — feature por el punto de extensión de un repo ajeno, con check estructural), **P10** (`profile_guided_optimization` — excerpt de cProfile real + valla de wall-clock medida) y **P11** (`doctest_authoring` — docstrings con salidas medidas y cobertura AST), además del **D-5** del audit (`reports/attempts_history.json`, ledger de intentos como suelo honesto). +376 records en el módulo 01 (batch 009, append byte-preservado verificado). Estado v0.8.0: P3 (vídeo end-to-end) implementado como extensión TS del módulo 02/03 — 6 familias write en TypeScript real y 3 builders understand con evidencia de renders y rejillas medidas reales; PDOOM-VIDEO sigue como referencia arquitectónica primaria. Estado v0.7.0: módulo 05 · Agent Persistence publicado (968 records) + Prioridad 0 del audit externo cerrada. La única pieza marcada abierta es la versión Dataset-5 completa de trayectorias largas del bucle agéntico (P1, opcional).
 
 ## Lo que YA sabe (para no proponer duplicados)
 
@@ -26,7 +26,7 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 
 **Familias**: `agent_fix_loop` (bug plantado, k≥2 turnos), `agent_build_up` (especificación que se revela por stages: v1 compila pero falla un edge → v2 lo cubre), `agent_regression_hunt` (combinar con P2-bisect).
 
-### P2 · Git de verdad: bisect, conflictos, arqueología de repo ✅ parcial v0.5.0 (`py_git_forensics`: bisect con presupuesto + arqueología; merge conflicts pendientes)
+### P2 · Git de verdad: bisect, conflictos, arqueología de repo ✅ v0.5.0 + v0.9.0 COMPLETO (`py_git_forensics` + `git_merge_conflict`)
 
 **Hueco**: cero VCS en el dataset. Bisectar una regresión y resolver un merge conflict son habilidades de superprogramadora diarias y 100% verificables.
 
@@ -44,7 +44,7 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 
 **Familias**: `prop_invariant_design` (elegir propiedades que maten mutantes), `prop_shrink_trace` (dado el contraejemplo, producir el minimal y justificar cada reducción con re-ejecución real).
 
-### P4 · Diseño tolerante a fallos ✅ v0.5.0 (`py_fault_resilience`; flaky-test forensics pendiente)
+### P4 · Diseño tolerante a fallos ✅ v0.5.0 + v0.9.0 COMPLETO (`py_fault_resilience` + `flaky_test_forensics`)
 
 **Hueco**: nada de retries/backoff/idempotency-keys/circuit-breakers/timeout-budgeting como OBJETIVO de diseño. (El puente crossover usa idempotencia, pero como pieza de un dominio, no como habilidad general.)
 
@@ -54,7 +54,7 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 
 **Familias**: `resil_retry_idempotent`, `resil_circuit_breaker`, `flaky_test_forensics` (detectar y arreglar un test que falla 1/N veces con seeds registradas — probado ejecutándolo N veces).
 
-### P5 · Evolución de esquemas y migraciones de datos
+### P5 · Evolución de esquemas y migraciones de datos ✅ v0.9.0 (`sql_schema_migration`)
 
 **Hueco**: SQL actual es consultoría (query_scenarios, rewrite, joins); nada de EVOLUCIONAR esquemas sin romper nada.
 
@@ -62,7 +62,7 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 
 **Verificación**: dataset sintético grande con datos "viejos" corruptos a propósito (duplicados casi-idénticos, huérfanos, zonas horarias mezcladas); la migración correcta produce el estado esperado fila a fila (comparación exacta) y rechaza/flaggea las filas inválidas de forma predecible; el round-trip migrar→roll-back restaura byte-idéntico.
 
-### P6 · Leer documentación de API ficticia e integrar
+### P6 · Leer documentación de API ficticia e integrar ✅ v0.9.0 (`sdk_docs_integration`)
 
 **Hueco**: nunca se le da a AI-ku una ESPECIFICACIÓN/DOCS de una librería que no conoce y se le pide integrarla. En la realidad eso es el 50% del trabajo.
 
@@ -70,7 +70,7 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 
 **Verificación**: cada librería ficticia viene con su implementación de referencia en el sandbox (la "SDK real"); el código integrador se ejecuta contra ella — alucinar un método lanza AttributeError real; los casos borde documentados (rate limit 429, cursor de paginación) están en el test harness.
 
-### P7 · Inserción de features a escala de repo
+### P7 · Inserción de features a escala de repo ✅ v0.9.0 (`repo_feature_insertion`)
 
 **Hueco**: los proyectos multi-fichero son de 3-4 ficheros creados de una pieza. Falta ENTRAR en un repo grande pre-existente (10-15 ficheros, 2-3k líneas) y añadir una feature tocando los contratos existentes sin romperlos.
 
@@ -94,7 +94,7 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 
 **Verificación**: 100% ejecutable — las comparaciones de strings byte a byte y los timestamps cruzando la frontera DST dan respuestas únicas y comprobables; el ground truth se calcula con `datetime`/`unicodedata` estándar.
 
-### P10 · Optimización guiada por perfil, no por intuición
+### P10 · Optimización guiada por perfil, no por intuición ✅ v0.9.0 (`profile_guided_optimization`)
 
 **Hueco**: la optimización actual compara versiones con timing; falta LEER UN PERFIL REAL y tocar el hotspot verdadero.
 
@@ -102,7 +102,7 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 
 **Verificación**: se genera el perfil REAL (cProfile en el sandbox, determinista con seeds) del programa lento; el ground truth identifica el hotspot medido; una solución que optimiza otra cosa NO reduce el tiempo total por debajo del umbral (medido de verdad) y por tanto falla; la equivalencia se verifica como en optimization actual.
 
-### P11 · Documentación viva con ejemplos ejecutables
+### P11 · Documentación viva con ejemplos ejecutables ✅ v0.9.0 (`doctest_authoring`)
 
 **Hueco**: AI-ku nunca escribe docs. Formato doctest: los ejemplos de la doc deben ejecutarse y dar la salida escrita.
 
@@ -129,6 +129,8 @@ Comprensión y escritura en 14 lenguajes, debugging con prueba real, testing con
 5. **P12 auto-auditoría** — pequeño, barato, y ata TODO el dataset con la identidad de AI-ku (evidencia antes que afirmación).
 
 Estado v0.5.0: P1/P3/P4/P8/P9/P12 implementados, P2 parcial (falta merge conflicts), P5/P6/P7/P10/P11 en la ola v0.6.0 junto con el escalado de volumen de los configs/full.json; P8-P11 son familias puntuales baratas de añadir a cualquier batch.
+
+Estado v0.9.0: P2 y P4 completos, P5/P6/P7/P10/P11 implementados como familias write ejecutadas de verdad, D-5 cerrado. Roadmap COMPLETO salvo la variante Dataset-5 de P1 (opcional).
 
 ## Notas de identidad (aplican a toda extensión)
 

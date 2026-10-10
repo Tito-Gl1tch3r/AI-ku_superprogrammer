@@ -1,13 +1,13 @@
 {
  "write": {
-  "total": 14097,
-  "pct_verified_executed": 74.9,
-  "pct_verified_static": 25.1,
-  "pct_with_tests": 74.2,
+  "total": 14473,
+  "pct_verified_executed": 75.5,
+  "pct_verified_static": 24.5,
+  "pct_with_tests": 74.9,
   "pct_multi_file": 22.1,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 3952,
+   "python": 4328,
    "javascript": 1817,
    "cpp": 1808,
    "c": 1465,
@@ -23,35 +23,36 @@
    "sql": 22
   },
   "by_difficulty": {
-   "advanced": 5546,
-   "intermediate": 4872,
-   "expert": 1985,
+   "advanced": 5819,
+   "intermediate": 4921,
+   "expert": 2039,
    "beginner": 1694
   },
   "by_domain": {
-   "engineering": 3276,
-   "algorithms": 3269,
+   "engineering": 3453,
+   "algorithms": 3350,
    "web": 2955,
-   "text_processing": 1191,
+   "text_processing": 1241,
    "automation": 991,
    "science_math": 820,
    "systems": 760,
    "concurrency": 681,
+   "databases": 90,
    "networking": 62,
    "data_structures": 59,
-   "databases": 22,
    "security": 11
   },
   "by_split": {
-   "train": 11167,
-   "validation": 942,
-   "test": 1293,
-   "hard_holdout": 695
+   "train": 11470,
+   "validation": 958,
+   "test": 1331,
+   "hard_holdout": 714
   },
   "by_size": {
-   "<300c": 1881,
-   "300-1200c": 8636,
-   "1200-3000c": 3580
+   "<300c": 1962,
+   "300-1200c": 8792,
+   "1200-3000c": 3651,
+   ">3000c": 68
   },
   "by_task_type": {}
  },
