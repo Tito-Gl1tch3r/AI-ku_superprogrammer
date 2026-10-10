@@ -15,7 +15,7 @@
 | **04** | Reverse Engineering | `AI-ku_superprogrammer_reverse_engineering` | 1.153 | 4 — leer lo compilado |
 | **05** | Agent Persistence | `AI-ku_superprogrammer_agent_ops` | 968 | 5 — terminar el trabajo |
 
-Total: **23.281 records** (22.177 publicados + 1.104 en `hard_holdout`). Los ejemplos `expert` de `datasets/hard_holdout/` quedan FUERA de las cinco etapas y se reservan como gate de evaluación entre etapas.
+Total: **24.136 records** (22.815 publicados + 1.321 en `hard_holdout`). Los ejemplos `expert` de `datasets/hard_holdout/` quedan FUERA de las cinco etapas y se reservan como gate de evaluación entre etapas.
 
 ---
 
@@ -52,6 +52,9 @@ Total: **23.281 records** (22.177 publicados + 1.104 en `hard_holdout`). Los eje
 - Motor MV: ventanas de escena end-exclusive, beat grid BPM→frames, karaoke word-synced, render offline con manifest sha256 (`media_mv_scene_engine`, `media_mv_karaoke`, `media_mv_project`).
 - Hábitos extraídos por ingeniería inversa de la autoría de Opus 5.5 (ver `docs/OPUS_STYLE.md`): cadena de post con orden significativo (`media_mv_post_chain`), batching 2D determinista con suelo de hairline 4K (`media_mv_line_batch`), timing de planos por "reads" del espectador (`media_mv_shot_reads`).
 - **Identidad visual**: turquesa Miku `#39C5BB` como color de señal por defecto en todo output — nunca naranja.
+
+
+> **v0.8.0**: los módulos 02/03 incorporan la extensión TS de vídeo end-to-end (theme/motion-rules/deterministic-render/beat-grid/render-verify + proyecto TS experto; builders video_*), con los proyectos completos en `hard_holdout`.
 
 ### 03 · Game Mixes & Modding (`game_engineering`, 2.229 records)
 

@@ -2,7 +2,7 @@
 
 **Dataset de entrenamiento de nivel profesional para AI-ku: PRIMERO entender el código, DESPUÉS escribirlo, AL FINAL crear vídeos y mezclas de juegos como Opus 5.5.**
 
-> TL;DR: 6 datasets organizados como plan de estudios numerado (**00 comprensión de código · 01 escritura de código · 02 vídeo generativo estilo Opus · 03 mezclas de juegos y modding · 04 ingeniería inversa · 05 persistencia de objetivos**), pipeline **GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR**, verificación real por compilación/ejecución, splits anti-contaminación, quarantine para todo lo no verificado. Licencia MIT. Piloto v0.7.0: **23.281 ejemplos** (22.177 publicados + 1.104 en `hard_holdout`) de 42.997 generados (el resto: duplicados semánticos eliminados por las reglas anti-basura — ver `QUALITY_REPORT.md`). "Verificado" se declara por método y dataset: `executed`/`compiled_and_executed` (ejecución/compilación real), `static_check` (solo estructural, lenguajes sin toolchain) y `authored_verified` (ground truth autorizado y cotejado); los porcentajes exactos por dataset están en `DATASET_CARD.md`.
+> TL;DR: 6 datasets organizados como plan de estudios numerado (**00 comprensión de código · 01 escritura de código · 02 vídeo generativo estilo Opus · 03 mezclas de juegos y modding · 04 ingeniería inversa · 05 persistencia de objetivos · +extensión TS de vídeo end-to-end en 02/03**), pipeline **GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR**, verificación real por compilación/ejecución, splits anti-contaminación, quarantine para todo lo no verificado. Licencia MIT. Piloto v0.8.0: **24.136 ejemplos** (22.815 publicados + 1.321 en `hard_holdout`) de ~45.000 generados acumulados (el resto: duplicados semánticos eliminados por las reglas anti-basura — ver `QUALITY_REPORT.md`; el total de intentos ya no se agrega globalmente, hueco D-5 del audit). "Verificado" se declara por método y dataset: `executed`/`compiled_and_executed` (ejecución/compilación real), `static_check` (solo estructural, lenguajes sin toolchain) y `authored_verified` (ground truth autorizado y cotejado); los porcentajes exactos por dataset están en `DATASET_CARD.md`.
 
 ---
 
@@ -98,6 +98,30 @@ Nuevo dataset `AI-ku_superprogrammer_agent_ops` (`datasets/agent_ops/`), 968 rec
 - **Supervisión de progreso** (`ops_progress_supervisor`): reloj virtual sobre un stream de eventos; checkpoints con `result ok` NO son finalización, un `done` sin su `verify` queda en `unverified`, el silencio es un stall con timestamp exacto y el deadline es absoluto.
 - **Elevación de alcance** (`ops_scope_elevation`): ante una spec mínima de juego, se entrega la versión completa: lógica pura separada de la entrada, UN mapa de input para teclado Y mando, pausa que congela la simulación, rampa de dificultad, persistencia de puntuación y las elevaciones de pulido declaradas por instancia (modo profundidad 3D, partículas, screen shake, combo) — todo simulado headless y determinista. Sin benchmarks: arquetipos genéricos (breaker, snake, pong, flyer, memoria, asteroids).
 - Builders understand: `ops_goal_decomposition` (extraer el GRAFO completo de un objetivo compuesto y su entregable final), `ops_failure_autopsy` (diagnosticar transcripts que abandonan: clase de fallo, línea decisiva, objetivo pendiente) y `ops_done_criteria` (¿se puede dar por terminado? veredicto contra el checklist con log/exit/artefacto reales).
+
+
+### Extensión vídeo end-to-end (v0.8.0): el salto TS/Remotion del módulo 02/03
+
+El módulo 02/03 aprende ahora el oficio de vídeo **en TypeScript real** (Node
+type-stripping, imports con extensión `.ts`): `media_ts_theme` (theme.ts como
+única fuente de color — un hex fuera del tema es defecto, acento único
+turquesa #39C5BB), `media_ts_motion_rules` (las reglas de motion como checks
+ejecutables: nada de easing lineal en entradas, ninguna entrada de solo
+opacidad, todo tween dentro de la composición), `media_ts_deterministic_render`
+(mulberry32 con semilla por fotograma — dos renders son byte-idénticos y un
+`Math.random()` se detecta), `media_ts_beat_grid` (la rejilla se MIDE del PCM
+real con drift de tempo: un corte anclado al BPM nominal se sale de la
+tolerancia de 3 frames), `media_render_verify` (QA sobre secuencia renderizada
+de verdad con Pillow: frames vacíos, solapes, píxel fuera de paleta, corte
+brusco) y `media_ts_mv_project` (proyecto TS multi-fichero experto cuyo
+compose(frame) debe reproducir el stream de comandos dorado calculado por el
+modelo independiente del generador; cada proyecto completo va al
+`hard_holdout`). Builders understand: `video_review_verdict`, 
+`video_timeline_readout` y `video_defect_locate`, con evidencia de renders y
+mediciones reales. Además: los 90 records bash/sql de módulo 01 llevan ahora
+`verification.fixtures` (re-verification de terceros desde el payload — hueco
+D-3 del audit) y `re_understand` estrena 103 records expert en holdout (hueco
+D-4).
 
 ### Corrección de evaluación (v0.7.0): splits y métricas del audit externo
 
@@ -221,7 +245,7 @@ Limitaciones honestas: el grading de explicaciones usa ground truth autorado jun
 2. GLSL sin GPU: verificación estructural + semántica autorada.
 3. HTML/CSS no se renderizan.
 4. Varias familias cubren menos volumen del solicitado tras el dedup (ver §8); prioridad absoluta a calidad sobre cantidad.
-5. Los módulos 02/03 alcanzan 1.310/2.229 records (write+understand) tras el dedup de calidad; la arquitectura de familias + builders ya soporta el escalado. El módulo 04 estrenó en v0.6.0 con 1.153 records y el 05 en v0.7.0 con 968 (write 603 al 100% ejecutado + understand 365 con evidencia cotejada).
+5. Los módulos 02/03 alcanzan 1.310/2.229 records (write+understand) tras el dedup de calidad; la arquitectura de familias + builders ya soporta el escalado. El módulo 04 estrenó en v0.6.0 con 1.153 records, el 05 en v0.7.0 con 968 y la extensión TS de vídeo en v0.8.0 con +638 publicados en media/re (write 100% ejecutado bajo Node/CPython + understand con evidencia real).
 
 ## 11. Licencia
 

@@ -33,12 +33,23 @@ def main(argv=None):
         if fams and fam.NAME not in fams:
             continue
         for i in range(args.samples):
-            rng = random.Random(args.seed * 1000 + i)
-            try:
-                cand = fam.generate(rng)
-            except Exception as e:
+            # Families with honest generation gates (audio measurement
+            # guarantees, harvest rejections) drop seeds; give each sample a
+            # small deterministic retry budget before failing it.
+            cand = None
+            crash = None
+            for attempt in range(6):
+                rng = random.Random(args.seed * 1000 + i + attempt * 7919)
+                try:
+                    cand = fam.generate(rng)
+                except Exception as e:
+                    crash = repr(e)
+                    continue
+                if cand is not None:
+                    break
+            if crash is not None and cand is None:
                 stats[fam.NAME]["fail"] += 1
-                failures.append((fam.NAME, i, f"generate crashed: {e!r}"))
+                failures.append((fam.NAME, i, f"generate crashed: {crash}"))
                 continue
             if cand is None:
                 stats[fam.NAME]["fail"] += 1

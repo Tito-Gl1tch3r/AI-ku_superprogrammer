@@ -117,11 +117,20 @@ def test_static_html_rejects_bad():
 
 # ---------------------------------------------------------------- generators
 def test_every_family_generates_and_validates():
-    """One sample per family; executable languages must verify, static must pass checks."""
+    """One sample per family; executable languages must verify, static must pass checks.
+
+    Families with honest generation gates (e.g. media_ts_beat_grid drops
+    seeds whose audio measurement does not meet the drift guarantees) get a
+    small deterministic retry budget instead of failing on one probe seed.
+    """
     for fam in all_families():
         base = sum(ord(c) for c in fam.NAME)  # deterministic across processes
-        rng = random.Random(base % 10_000)
-        cand = fam.generate(rng)
+        cand = None
+        for attempt in range(6):
+            rng = random.Random((base + attempt * 7919) % 10_000)
+            cand = fam.generate(rng)
+            if cand is not None:
+                break
         assert cand is not None, fam.NAME
         qok, qreason = quality_check(cand)
         assert qok, f"{fam.NAME}: {qreason}"

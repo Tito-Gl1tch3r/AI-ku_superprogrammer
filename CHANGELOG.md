@@ -1,5 +1,27 @@
 # CHANGELOG
 
+## [0.8.0] — Extensión vídeo end-to-end (TS/Remotion) + cierres D-3/D-4 del audit
+
+### Añadido
+- **6 familias write de vídeo en TypeScript real** (`generators/media/ts_video_families.py`, `ts_beat_families.py`, `ts_project_family.py`; Node 24 type-stripping, imports `.ts` explícitos, TypeScript solo con tipos borranles):
+  - `media_ts_theme`: theme.ts como única fuente de verdad visual (paleta/easings/fuentes); un hex crudo fuera del tema es defecto; ACCENTS con EXACTAMENTE un color — el turquesa Miku #39C5BB, nunca naranja. Variante accent_sweep: la regla "un acento por frame" como barrido mecanico.
+  - `media_ts_motion_rules`: las reglas de motion-craft como invariants ejecutables sobre programas de tweens (entradas sin easing lineal, ninguna entrada de solo opacidad, tweens dentro de la composición; terminar EXACTAMENTE en el último frame es legal). El ease lineal en no-entradas NO se marca.
+  - `media_ts_deterministic_render`: mulberry32 re-sembrado por frame (seed + t); los golden positions los calcula el modelo del generador Y una ejecución Node real del candidato — el record se descarta si discrepan; `Math.random()` y `Date.now()` quedan demostrados por tests de determinismo y de difference entre frames.
+  - `media_ts_beat_grid`: la rejilla se MIDE del PCM real (numpy: envolvente de energía, picos, mediana de intervalos) con drift de tempo; cortes anclados a la rejilla MEDIDA con error <= 3 frames; el bug plantado (cortar por el BPM nominal) se sale de tolerancia por el drift acumulado.
+  - `media_render_verify` (PIL): QA sobre una secuencia renderizada de verdad — frames vacíos (todo tinta), solape de cajas, píxel fuera de paleta (el naranja prohibido), corte brusco por diff medio; variante manifest_audit (fps/total_frames/duración contra el render real). make_buggy auto-verificado.
+  - `media_ts_mv_project` (experto, multi-fichero): theme + timeline (rejilla medida) + scenes puras de matemática entera + compose(frame) -> stream de comandos; los golden probes los verifica una ejecución Node real contra el modelo independiente del generador; el test ESTRUCTURAL lee los fuentes y prohibe hex fuera de theme.ts. Todo proyecto completo -> hard_holdout.
+- **3 builders understand** (`generators/understand/video_builders.py`): `video_review_verdict` (veredicto de aceptación sobre un informe con frames REALES de un render defectuoso), `video_timeline_readout` (cortes/errores/anclas sobre la rejilla medida real; distractores basados en el BPM nominal) y `video_defect_locate` (localización por umbrales sobre stats reales por frame).
+- `scripts/validate_video_ext.py`: GREEN — 6 familias con muestras verdes + buggy-fail + determinismo; builders con evidencia cotejada.
+
+### Corregido (cierres D-3 y D-4 del audit de v0.7.0)
+- **D-3 — re-verificación de terceros para bash/sql**: los 90 records bash/sql del módulo 01 llevan ahora `verification.fixtures` (`fixtures_origin: recaptured_v080`). Las semillas originales resultaron irrecuperables (scan de 5.8M semillas: 0 matches, documentado en `reports/fixture_recovery_v080.json`); las fixtures se RE-CAPTURARON ejecutando el código publicado sobre datos frescos de la forma correcta y capturando salidas/exit/rows reales como expectativas (respuestas SQL parametrizadas con `?` no re-ejecutables llevan sonda de setup). Tres tests de replay (`tests/test_fixtures_v080.py`) fijan la garantía: el payload publicado basta para re-verificar.
+- **D-4 — holdout de re_understand**: delta expert (binarios ELF de 5-7 helpers, dificultad expert real) -> 103 records nuevos en hard_holdout; re_understand deja de tener 0 records de evaluación.
+- Tests del pipeline y del smoke con presupuesto de reintentos determinista para familias con gates de generación honestos (medición de audio, harvest).
+
+### Números
+- Batch 007 (media): 612 write + 291 understand staged (+45 top-up defect_audit) -> +638 publicados tras dedup honesto (935 duplicados normalizados: las variantes cosméticas se colapsan — 24->37 render_verify, etc.). Batch 008 (re_understand expert): 103 -> 103 a holdout. **Total: 24.136** (22.815 publicados + 1.321 holdout). 95 familias. pytest 20/20 (13 base + 4 audit + 3 fixtures); smoke ALL PASSED (95 familias); validate_video_ext GREEN; `scripts/verify_counts_v080.py`: 0 ids duplicados, 0 solape holdout, stats == shards.
+
+
 ## [0.7.0] — Módulo 05 Agent Persistence + corrección de evaluación (audit externo)
 
 ### Añadido

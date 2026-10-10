@@ -23,6 +23,9 @@ from .re_builders import (build_re_disasm_readout, build_re_evidence_conclusion,
                           build_re_tool_selection)
 from .ops_builders import (build_ops_goal_decomposition,
                            build_ops_failure_autopsy, build_ops_done_criteria)
+from .video_builders import (build_video_review_verdict,
+                             build_video_timeline_readout,
+                             build_video_defect_locate)
 
 BUILDERS = {
     "debugging": build_debugging,
@@ -59,6 +62,9 @@ BUILDERS = {
     "ops_goal_decomposition": build_ops_goal_decomposition,
     "ops_failure_autopsy": build_ops_failure_autopsy,
     "ops_done_criteria": build_ops_done_criteria,
+    "video_review_verdict": build_video_review_verdict,
+    "video_timeline_readout": build_video_timeline_readout,
+    "video_defect_locate": build_video_defect_locate,
 }
 
 

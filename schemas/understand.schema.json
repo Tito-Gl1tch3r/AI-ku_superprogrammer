@@ -73,7 +73,10 @@
     "re_tool_selection",
     "ops_goal_decomposition",
     "ops_failure_autopsy",
-    "ops_done_criteria"
+    "ops_done_criteria",
+    "video_review_verdict",
+    "video_timeline_readout",
+    "video_defect_locate"
    ]
   },
   "domain": {

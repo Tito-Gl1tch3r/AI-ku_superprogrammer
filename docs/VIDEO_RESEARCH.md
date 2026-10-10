@@ -1,6 +1,6 @@
 # VIDEO RESEARCH — fuentes para el salto de vídeo end-to-end (v0.8.0)
 
-> Nota de investigación, v0.7.0. Tres repositorios de "skills de agente" para
+> Nota de investigación, v0.7.0; **IMPLEMENTADO en v0.8.0** (familias media_ts_* y media_render_verify publicadas; plan de la sección 3 ejecutado). Tres repositorios de "skills de agente" para
 > vídeo, estudiados como **referencias conceptuales** para la Prioridad 3 del
 > roadmap (convertir el módulo de vídeo en una capacidad de extremo a extremo
 > nativa TS/JS). Nada de su código se copia al dataset; los patrones que

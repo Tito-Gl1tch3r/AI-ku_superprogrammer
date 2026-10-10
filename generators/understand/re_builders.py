@@ -27,7 +27,7 @@ def _final_count(k: int, m: int) -> int:
 
 # ------------------------------------------------------------------ readout
 
-def build_re_disasm_readout(rng: random.Random):
+def build_re_disasm_readout(rng: random.Random, expert: bool = False):
     """Read one real helper's disassembly and predict its observable output.
 
     Evidence is real (objdump block + the binary's captured stdout). The
@@ -37,7 +37,8 @@ def build_re_disasm_readout(rng: random.Random):
     """
     if not (_ARCH_OK and _TOOLS_OK):
         return None
-    src, blob, names, specs, blob_vals = _build_binary(rng, rng.randrange(3, 6))
+    n_helpers = rng.randrange(5, 8) if expert else rng.randrange(3, 6)
+    src, blob, names, specs, blob_vals = _build_binary(rng, n_helpers)
     if blob is None:
         return None
     run = _run_bin(blob)
@@ -81,12 +82,13 @@ def build_re_disasm_readout(rng: random.Random):
         f"prefixes of one table and the observed byte counts line up with the "
         f"model for every helper in call order.")
     return _mk(rng, "re_disasm_readout", "python", "re_disasm_readout",
-               "systems", "advanced", question, answer,
+               "systems", "expert" if expert else "advanced", question, answer,
                code=block,
                artifacts={"objdump_block": block,
                           "binary_stdout_hex": real_out.hex(),
                           "binary_sha256": _sha256(blob),
                           "function": name,
+                          "n_helpers": len(specs),
                           "note": "stdout captured by executing the real "
                                   "binary; objdump block is its real output"},
                key_points=["parity of the initial counter picks the branch",
@@ -97,16 +99,18 @@ def build_re_disasm_readout(rng: random.Random):
                                          "binary's real stdout byte-exactly",
                              "stdout_bytes": len(real_out)},
                tags=["reverse-engineering", "disassembly", "behavioral"],
-               variant="readout", dataset_hint=_DATASET)
+               variant="readout_expert" if expert else "readout",
+               dataset_hint=_DATASET)
 
 
 # --------------------------------------------------------------- evidence
 
-def build_re_evidence_conclusion(rng: random.Random):
+def build_re_evidence_conclusion(rng: random.Random, expert: bool = False):
     """Pick the conclusion actually supported by real tool output."""
     if not (_ARCH_OK and _TOOLS_OK):
         return None
-    src, blob, names, _specs, _bv = _build_binary(rng, rng.randrange(3, 6))
+    n_helpers = rng.randrange(5, 8) if expert else rng.randrange(3, 6)
+    src, blob, names, _specs, _bv = _build_binary(rng, n_helpers)
     if blob is None:
         return None
     hdr = _ref_elf_header(blob)
@@ -161,10 +165,11 @@ def build_re_evidence_conclusion(rng: random.Random):
         f"disproves the stripped claim. Cite: the Entry point address line and "
         f"the Machine line from readelf -h, plus any symbol line from nm.")
     return _mk(rng, "re_evidence_conclusion", "python", "re_evidence_conclusion",
-               "systems", "advanced", question, answer,
+               "systems", "expert" if expert else "advanced", question, answer,
                code="",
                artifacts={"readelf_h_excerpt": rh[:1200], "nm_excerpt": nm[:1200],
                           "binary_sha256": _sha256(blob),
+                          "n_helpers": n_helpers,
                           "options": lines},
                key_points=["EXEC vs ET_DYN settles the PIE question",
                            "nm only works when .symtab survives",
@@ -176,7 +181,8 @@ def build_re_evidence_conclusion(rng: random.Random):
                                          "observable fields",
                              "correct_letter": correct_letter},
                tags=["reverse-engineering", "evidence", "triage"],
-               variant="evidence", dataset_hint=_DATASET)
+               variant="evidence_expert" if expert else "evidence",
+               dataset_hint=_DATASET)
 
 
 # ---------------------------------------------------------- tool selection
@@ -197,11 +203,12 @@ _TOOL_NEEDS = (
 )
 
 
-def build_re_tool_selection(rng: random.Random):
+def build_re_tool_selection(rng: random.Random, expert: bool = False):
     """Choose the right binutils command; verified by really running it."""
     if not (_ARCH_OK and _TOOLS_OK):
         return None
-    src, blob, names, _specs, _bv = _build_binary(rng, rng.randrange(3, 6))
+    n_helpers = rng.randrange(5, 8) if expert else rng.randrange(3, 6)
+    src, blob, names, _specs, _bv = _build_binary(rng, n_helpers)
     if blob is None:
         return None
     need, tool, expect_hint = _TOOL_NEEDS[rng.randrange(len(_TOOL_NEEDS))]
@@ -231,11 +238,12 @@ def build_re_tool_selection(rng: random.Random):
         f"readelf -h for header facts, readelf -l for the memory map, readelf -S "
         f"for sections, nm for symbols, objdump -d for code, strings for text.")
     return _mk(rng, "re_tool_selection", "python", "re_tool_selection",
-               "systems", "intermediate", question, answer,
+               "systems", "expert" if expert else "intermediate", question, answer,
                code="",
                artifacts={"binary_sha256": _sha256(blob),
                           "binary_bytes": len(blob),
-                          "info_need": need},
+                          "info_need": need,
+                          "n_helpers": n_helpers},
                key_points=["one layer of the ELF per tool",
                            "flags matter (-t x adds offsets to strings)",
                            "output shape is the fastest way to verify the "
@@ -248,4 +256,5 @@ def build_re_tool_selection(rng: random.Random):
                              "command": tool,
                              "output_head": out[:400]},
                tags=["reverse-engineering", "binutils", "tooling"],
-               variant="tool_sel", dataset_hint=_DATASET)
+               variant="tool_sel_expert" if expert else "tool_sel",
+               dataset_hint=_DATASET)

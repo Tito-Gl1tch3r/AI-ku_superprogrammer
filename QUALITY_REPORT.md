@@ -7,12 +7,12 @@
 
 - **write**: 14,097 ejemplos publicados; 74.9% verificados por ejecución/compilación real, 25.1% verificación estructural (lenguajes sin toolchain local).
 - **understand**: 3,524 ejemplos publicados; 84.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
-- **media_write**: 877 ejemplos publicados; 98.9% verificados por ejecución/compilación real, 1.1% verificación estructural (lenguajes sin toolchain local).
-- **media_understand**: 433 ejemplos publicados; 89.4% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
+- **media_write**: 1,365 ejemplos publicados; 99.3% verificados por ejecución/compilación real, 0.7% verificación estructural (lenguajes sin toolchain local).
+- **media_understand**: 710 ejemplos publicados; 54.5% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **game_write**: 1,397 ejemplos publicados; 100.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **game_understand**: 832 ejemplos publicados; 92.5% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **re_write**: 690 ejemplos publicados; 100.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
-- **re_understand**: 463 ejemplos publicados; 0.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
+- **re_understand**: 566 ejemplos publicados; 0.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **ops_write**: 603 ejemplos publicados; 100.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **ops_understand**: 365 ejemplos publicados; 0.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 

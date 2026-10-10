@@ -1,4 +1,4 @@
-# DATASET CARD — AI-ku_superprogrammer (v0.7.0)
+# DATASET CARD — AI-ku_superprogrammer (v0.8.0)
 
 ## Identificación
 
@@ -20,7 +20,7 @@ Totales por dataset INCLUYEN el `hard_holdout` de su módulo. "Verificado por ej
 | game_engineering (write 1.397 + understand 832) | 2.229 | 98,1% (write 100% / und 92,5%) | 0% | 73,6% | ~18,4% (write) |
 | reverse_engineering (write 690 + understand 463) | 1.153 | 59,9% (write: 100%) | 0% | 59,9% (write: 100%) | 0% |
 | agent_ops (write 603 + understand 365) | 968 | 62,6% (write: 100%) | 0% | 62,6% (write: 100%) | ~50,1% (write) |
-| **Total** | **23.281** | | | | |
+| **Total** | **24.136** | | | | |
 
 Splits publicados (train/validation/test/hard_holdout): write 11.167/942/1.293/695 · understand 2.957/249/270/48 · media 1.035/28/199/48 · game 1.689/196/138/206 · re 680/169/268/36 · ops 715/102/80/71. La política de holdout del módulo 02 (media) es la estricta: TODO record `expert` (proyectos MV completos) va al holdout; el resto de módulos usa la regla hash v0.6.0 (grupos expert con hold-hash < 25). El holdout preexistente de v0.6.0 está byte-idéntico en v0.7.0.
 

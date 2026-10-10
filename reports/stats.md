@@ -108,67 +108,67 @@
 
 ## media_write
 
-- total: **877**
-- verified by execution: **98.9%** (static check: 1.1%)
-- with tests: 98.9% | multi-file projects: 8.6% | synthetic: 100.0%
+- total: **1365**
+- verified by execution: **99.3%** (static check: 0.7%)
+- with tests: 99.3% | multi-file projects: 9.4% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 863 |
+| python | 900 |
+| typescript | 455 |
 | glsl | 10 |
-| typescript | 4 |
 
 | difficulty | count |
 |---|---|
-| advanced | 422 |
-| intermediate | 361 |
+| advanced | 638 |
+| intermediate | 563 |
+| expert | 115 |
 | beginner | 49 |
-| expert | 45 |
 
 | split | count |
 |---|---|
-| train | 750 |
+| train | 1059 |
 | validation | 20 |
-| test | 62 |
-| hard_holdout | 45 |
+| test | 171 |
+| hard_holdout | 115 |
 
 | code size | count |
 |---|---|
-| 300-1200c | 567 |
+| 300-1200c | 756 |
 | <300c | 5 |
-| 1200-3000c | 153 |
-| >3000c | 152 |
+| 1200-3000c | 328 |
+| >3000c | 276 |
 
 ## media_understand
 
-- total: **433**
-- verified by execution: **89.4%** (static check: 0.0%)
-- with tests: 24.7% | multi-file projects: 0.0% | synthetic: 100.0%
+- total: **710**
+- verified by execution: **54.5%** (static check: 0.0%)
+- with tests: 15.1% | multi-file projects: 0.0% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 421 |
+| python | 698 |
 | glsl | 10 |
 | typescript | 2 |
 
 | difficulty | count |
 |---|---|
-| advanced | 225 |
-| intermediate | 197 |
+| advanced | 363 |
+| intermediate | 286 |
+| expert | 53 |
 | beginner | 8 |
-| expert | 3 |
 
 | split | count |
 |---|---|
-| train | 285 |
-| validation | 8 |
+| train | 488 |
+| validation | 32 |
 | test | 137 |
-| hard_holdout | 3 |
+| hard_holdout | 53 |
 
 | code size | count |
 |---|---|
-| <300c | 139 |
-| 300-1200c | 290 |
+| <300c | 227 |
+| 300-1200c | 479 |
 | 1200-3000c | 4 |
 
 ## game_write
@@ -260,29 +260,31 @@
 
 ## re_understand
 
-- total: **463**
+- total: **566**
 - verified by execution: **0.0%** (static check: 0.0%)
 - with tests: 0.0% | multi-file projects: 0.0% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 463 |
+| python | 566 |
 
 | difficulty | count |
 |---|---|
 | advanced | 320 |
 | intermediate | 143 |
+| expert | 103 |
 
 | split | count |
 |---|---|
 | train | 145 |
 | validation | 143 |
 | test | 175 |
+| hard_holdout | 103 |
 
 | code size | count |
 |---|---|
-| <300c | 288 |
-| 1200-3000c | 175 |
+| <300c | 348 |
+| 1200-3000c | 218 |
 
 ## ops_write
 

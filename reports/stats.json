@@ -129,70 +129,70 @@
   }
  },
  "media_write": {
-  "total": 877,
-  "pct_verified_executed": 98.9,
-  "pct_verified_static": 1.1,
-  "pct_with_tests": 98.9,
-  "pct_multi_file": 8.6,
+  "total": 1365,
+  "pct_verified_executed": 99.3,
+  "pct_verified_static": 0.7,
+  "pct_with_tests": 99.3,
+  "pct_multi_file": 9.4,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 863,
-   "glsl": 10,
-   "typescript": 4
+   "python": 900,
+   "typescript": 455,
+   "glsl": 10
   },
   "by_difficulty": {
-   "advanced": 422,
-   "intermediate": 361,
-   "beginner": 49,
-   "expert": 45
+   "advanced": 638,
+   "intermediate": 563,
+   "expert": 115,
+   "beginner": 49
   },
   "by_domain": {
-   "engineering": 877
+   "engineering": 1365
   },
   "by_split": {
-   "train": 750,
+   "train": 1059,
    "validation": 20,
-   "test": 62,
-   "hard_holdout": 45
+   "test": 171,
+   "hard_holdout": 115
   },
   "by_size": {
-   "300-1200c": 567,
+   "300-1200c": 756,
    "<300c": 5,
-   "1200-3000c": 153,
-   ">3000c": 152
+   "1200-3000c": 328,
+   ">3000c": 276
   },
   "by_task_type": {}
  },
  "media_understand": {
-  "total": 433,
-  "pct_verified_executed": 89.4,
+  "total": 710,
+  "pct_verified_executed": 54.5,
   "pct_verified_static": 0.0,
-  "pct_with_tests": 24.7,
+  "pct_with_tests": 15.1,
   "pct_multi_file": 0.0,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 421,
+   "python": 698,
    "glsl": 10,
    "typescript": 2
   },
   "by_difficulty": {
-   "advanced": 225,
-   "intermediate": 197,
-   "beginner": 8,
-   "expert": 3
+   "advanced": 363,
+   "intermediate": 286,
+   "expert": 53,
+   "beginner": 8
   },
   "by_domain": {
-   "engineering": 433
+   "engineering": 710
   },
   "by_split": {
-   "train": 285,
-   "validation": 8,
+   "train": 488,
+   "validation": 32,
    "test": 137,
-   "hard_holdout": 3
+   "hard_holdout": 53
   },
   "by_size": {
-   "<300c": 139,
-   "300-1200c": 290,
+   "<300c": 227,
+   "300-1200c": 479,
    "1200-3000c": 4
   },
   "by_task_type": {}
@@ -295,30 +295,32 @@
   "by_task_type": {}
  },
  "re_understand": {
-  "total": 463,
+  "total": 566,
   "pct_verified_executed": 0.0,
   "pct_verified_static": 0.0,
   "pct_with_tests": 0.0,
   "pct_multi_file": 0.0,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 463
+   "python": 566
   },
   "by_difficulty": {
    "advanced": 320,
-   "intermediate": 143
+   "intermediate": 143,
+   "expert": 103
   },
   "by_domain": {
-   "systems": 463
+   "systems": 566
   },
   "by_split": {
    "train": 145,
    "validation": 143,
-   "test": 175
+   "test": 175,
+   "hard_holdout": 103
   },
   "by_size": {
-   "<300c": 288,
-   "1200-3000c": 175
+   "<300c": 348,
+   "1200-3000c": 218
   },
   "by_task_type": {}
  },
