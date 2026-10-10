@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## [0.9.1] — CI en verde (infra) + robustez de toolchain en py_git_forensics
+
+Sin cambios en el contenido del dataset (24.525 records, 102 familias — intactos).
+
+### Arreglado
+- **CI llevaba rojo desde 4eb54e8 (v0.7.0) sin que nadie lo viera**: el workflow iba directo a `python -m pytest` sin instalar dependencias (`No module named pytest` en el runner). Ahora `ci.yml` instala `numpy`/`Pillow`/`pytest` desde el nuevo `requirements.txt` (con caché pip) antes de la suite y el smoke. El badge del README pasa a reflejar el estado real.
+- **Runner sin TS funcional**: el Node del runner no lograba inicializar el WASM de amaro (type-stripping) bajo el `RLIMIT_AS` de 1536 MB del sandbox — la reserva es del TOOLCHAIN, no del código generado. Nuevo `run_node_ts()` en `validators/executors/base.py`: ante esa firma exacta reintenta una vez con techo de address-space elevado (tests, límites CPU/FSIZE, criterios de paso y timeout IDÉNTICOS; el reintento queda registrado en `details`). Aplicado en `verify_ts`, `run_ts_snippet` y la rama TS de `run_cli_for`. Además `ci.yml` fija Node 24 (`actions/setup-node`), el mismo major que el desarrollo local.
+- **`py_git_forensics` ahora es robusto a la redacción de git**: el reporte de `git bisect` varía entre builds — "is the first bad commit" (p.ej. 2.47.3) vs "is the first 'bad' commit" con el término entrecomillado (p.ej. el git de ubuntu-24.04 en el runner). El template del solution parsea ambas variantes; el bisect convergía bien, era el parsing el que no.
+- **Diagnóstico de smoke**: los fallos reportan stderr completo (hasta 2000 chars; antes 300, cortaba los tracebacks a mitad de frame y hacía el rojo de CI indiagnosticable desde los logs).
+
+### Nota de re-verificación de terceros (honestidad sobre lo publicado)
+Los records `py_git_forensics` ya publicados llevan el parse de UNA sola variante y re-verifican con gits cuyo reporte NO entrecomilla el término; en gits que lo entrecomillan su replay no converge. El contenido publicado NO se toca (disciplina append-only, snapshots SHA256 por id); los records generados a partir de v0.9.1 aceptan ambas. Es la primera dependencia de versión de git que se documenta — las verificaciones `executed` son siempre relativas al toolchain que las ejecutó.
+
+### Añadido
+- `requirements.txt` (numpy>=1.26, Pillow>=10.0, pytest>=8.0) y `CONTRIBUTING.md` (metodología GENERAR→EJECUTAR→COMPROBAR→FILTRAR→CONSERVAR, requisitos de una familia nueva, reglas de contenido y de publicación).
+
 ## [0.9.0] — Cierre del roadmap "superprogramadora": P2/P4 restantes + P5/P6/P7/P10/P11 + D-5
 
 ### Añadido (7 familias write en `AI-ku_superprogrammer_write`, todas con ejecución real como fuente de verdad)

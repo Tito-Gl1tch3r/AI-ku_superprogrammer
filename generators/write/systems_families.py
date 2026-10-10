@@ -323,8 +323,12 @@ def find_bad_commit(repo: str, check_path: str) -> str:
                           capture_output=True, text=True)
     output = proc.stdout + proc.stderr
     git("bisect", "reset")
+    # git's report wording varies across versions: some builds print
+    # "is the first bad commit", others quote the term ("is the first
+    # 'bad' commit") when custom bisect terms are in play. Accept both.
     for line in output.splitlines():
-        if "is the first bad commit" in line:
+        if ("is the first bad commit" in line
+                or "is the first 'bad' commit" in line):
             return line.split()[0]
     raise RuntimeError("bisect did not converge: " + output)
 '''
