@@ -8,6 +8,20 @@
 > paleta de señal por defecto del proyecto: **turquesa #39C5BB (Miku teal),
 > nunca naranja**.
 
+## 0. Fuente primaria: mexicat/pdoom-video (la que sirve para hacerlo)
+
+[pdoom-video](https://github.com/mexicat/pdoom-video) es el proyecto del que
+salió todo lo demás: es la **referencia arquitectónica primaria** del módulo 02
+desde v0.2.0 (motor de escenas → timeline determinista → render offline) y el
+objeto de la ingeniería inversa de v0.4.0 (`docs/OPUS_STYLE.md` documenta sus
+hábitos convertidos en familias verificadas). Para v0.8.0 es la **prioridad
+número uno** de las fuentes: el salto TS/Remotion debe empezar por portar SU
+arquitectura (escenas reutilizables, timeline como dato, render puro
+verificable, paleta como constante — el `SIGNAL #39C5BB` ya es herencia de esa
+línea) al ecosistema TS/Three.js del proyecto real. Orden de estudio para
+v0.8.0: (1) pdoom-video (arquitectura), (2) video-motion-craft (craft),
+(3) claude-remotion-skill (bucle de revisión), (4) remotion-dev/skills (API).
+
 ## 1. Las tres fuentes
 
 | Repo | Qué es | Licencia |

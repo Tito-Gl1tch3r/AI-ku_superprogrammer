@@ -28,7 +28,7 @@
    "re_version_diff|key_bump": "train",
    "re_version_diff|offset_drop": "train"
   },
-  "records_moved_from_train": 26
+  "records_moved_from_train": 0
  },
  "re_understand": {
   "total": 463,
@@ -44,7 +44,7 @@
    "re_evidence_conclusion|evidence": "train",
    "re_tool_selection|tool_sel": "validation"
   },
-  "records_moved_from_train": 318
+  "records_moved_from_train": 0
  },
  "media_write": {
   "total": 877,
@@ -54,50 +54,7 @@
    "train": 750,
    "validation": 20
   },
-  "experts_moved_to_holdout": [
-   "media-0000236",
-   "media-0000473",
-   "media-0000476",
-   "media-0000477",
-   "media-0000478",
-   "media-0000479",
-   "media-0000480",
-   "media-0000482",
-   "media-0000483",
-   "media-0000484",
-   "media-0000486",
-   "media-0000490",
-   "media-0000494",
-   "media-0000495",
-   "media-0000496",
-   "media-0000497",
-   "media-0000500",
-   "media-0000502",
-   "media-0000505",
-   "media-0000506",
-   "media-0000507",
-   "media-0000508",
-   "media-0000511",
-   "media-0000512",
-   "media-0000513",
-   "media-0000514",
-   "media-0000515",
-   "media-0000516",
-   "media-0000518",
-   "media-0000521",
-   "media-0000522",
-   "media-0000524",
-   "media-0000526",
-   "media-0000528",
-   "media-0000529",
-   "media-0000530",
-   "media-0000534",
-   "media-0000535",
-   "media-0000536",
-   "media-0000540",
-   "media-0000541",
-   "media-0000542"
-  ],
+  "experts_moved_to_holdout": [],
   "holdout_total": 45
  },
  "media_understand": {
@@ -108,11 +65,7 @@
    "train": 285,
    "validation": 8
   },
-  "experts_moved_to_holdout": [
-   "media-0000022",
-   "media-0000099",
-   "media-0000288"
-  ],
+  "experts_moved_to_holdout": [],
   "holdout_total": 3
  }
 }

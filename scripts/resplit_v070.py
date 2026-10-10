@@ -59,7 +59,21 @@ DATASETS = {
 
 
 def load_staging_meta(kind):
-    """{(generator, seed): {"family","variant","difficulty"}} from batch-005."""
+    """{(generator, seed): {"family","variant","difficulty"}} for batch-005.
+
+    Prefers the raw staging archive; falls back to the committed group map
+    (reports/re_group_map.json) so the split repair is reproducible from a
+    fresh clone without the (gitignored) staging files.
+    """
+    if not os.path.isfile(STAGING[kind]):
+        with open(os.path.join(ROOT, "reports", "re_group_map.json")) as f:
+            raw = json.load(f)
+        out = {}
+        for key, (family, variant, difficulty) in raw.items():
+            gen, seed = key.rsplit("|", 1)
+            out[(gen, int(seed))] = {"family": family, "variant": variant,
+                                     "difficulty": difficulty}
+        return out
     meta = {}
     with open(STAGING[kind], encoding="utf-8") as f:
         for line in f:
