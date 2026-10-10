@@ -9,7 +9,8 @@ from . import bank_ts        # noqa: F401
 from . import bank_bash      # noqa: F401
 
 # Extra executor hook for TS snippets (used by Dataset-2 builders).
-from validators.executors.base import ExecResult, run_cmd, temp_dir, write_files  # noqa: F401
+from validators.executors.base import (ExecResult, run_cmd, run_node_ts,  # noqa: F401
+                                       temp_dir, write_files)
 
 
 def run_ts_snippet(files, entry="main.ts", timeout=12.0, stdin_text=None) -> ExecResult:
@@ -17,8 +18,8 @@ def run_ts_snippet(files, entry="main.ts", timeout=12.0, stdin_text=None) -> Exe
     d = temp_dir()
     try:
         write_files(d, files)
-        return run_cmd(["node", "--experimental-strip-types", entry], d,
-                       timeout=timeout, stdin_text=stdin_text)
+        return run_node_ts(["node", "--experimental-strip-types", entry], d,
+                           timeout=timeout, stdin_text=stdin_text)
     finally:
         import os
         for fn in os.listdir(d):
@@ -62,6 +63,8 @@ def run_cli_for(language: str, code_unit, stdin_text: str, timeout=10.0) -> Exec
             cmd = ["bash", "script.sh"]
         else:
             raise ValueError(f"no CLI runner for {language}")
+        if language == "typescript":
+            return run_node_ts(cmd, d, timeout=timeout, stdin_text=stdin_text)
         return run_cmd(cmd, d, timeout=timeout, stdin_text=stdin_text)
     finally:
         import os

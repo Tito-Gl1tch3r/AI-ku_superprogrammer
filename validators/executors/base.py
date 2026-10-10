@@ -89,6 +89,32 @@ def temp_dir(prefix="aiku_"):
     return tempfile.mkdtemp(prefix=prefix)
 
 
+def _amaro_wasm_oom(stderr: str | None) -> bool:
+    """True when Node's TS type-stripper (amaro) failed to init its WASM.
+
+    Signature of the toolchain hitting the sandbox address-space cap at
+    startup -- the reservation happens before any generated code runs.
+    """
+    s = stderr or ""
+    return "WebAssembly.Instance" in s and "Out of memory" in s
+
+
+def run_node_ts(cmd, cwd, timeout=10.0, stdin_text=None, env=None, mem_mb=1536):
+    """run_cmd for Node type-stripping runs, resilient to amaro WASM OOM.
+
+    Some Node builds bundle an amaro whose WASM memory reservation exceeds
+    the sandbox default address-space cap. On that failure signature, retry
+    once with a raised RLIMIT_AS so the toolchain's own reservation fits.
+    Tests, CPU/FSIZE limits, pass criteria and timeout are unchanged; the
+    retry is recorded in details for full transparency.
+    """
+    r = run_cmd(cmd, cwd, timeout=timeout, stdin_text=stdin_text, env=env, mem_mb=mem_mb)
+    if r.exit_code != 0 and _amaro_wasm_oom(r.stderr):
+        r = run_cmd(cmd, cwd, timeout=timeout, stdin_text=stdin_text, env=env, mem_mb=4096)
+        r.details["amaro_mem_retry"] = True
+    return r
+
+
 def write_files(d, files, extra=None):
     """Write {relpath: content} (creating subdirs) plus extra {name: content}."""
     for name, content in {**(files or {}), **(extra or {})}.items():

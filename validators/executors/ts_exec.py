@@ -13,7 +13,8 @@ from __future__ import annotations
 
 import os
 
-from .base import ExecResult, run_cmd, temp_dir, write_files, probe_version
+from .base import (ExecResult, run_cmd, run_node_ts, temp_dir, write_files,
+                   probe_version)
 
 NODE = "node"
 
@@ -37,10 +38,10 @@ def verify_ts(cand, timeout=12.0) -> ExecResult:
             return res
         write_files(d, files, {"_harness.mjs": HARNESS_MJS.format(tests=cand.tests or "")})
         res.toolchain = probe_version([NODE, "--version"]) + " (type-stripping)"
-        r = run_cmd([NODE, "--experimental-strip-types", "_harness.mjs"], d, timeout=timeout)
+        r = run_node_ts([NODE, "--experimental-strip-types", "_harness.mjs"], d, timeout=timeout)
         if r.exit_code != 0 and "bad option" in (r.stderr or "").lower():
             # Older/newer Node: try without the explicit flag.
-            r = run_cmd([NODE, "_harness.mjs"], d, timeout=timeout)
+            r = run_node_ts([NODE, "_harness.mjs"], d, timeout=timeout)
         res.exit_code, res.stdout, res.stderr = r.exit_code, r.stdout, r.stderr
         res.duration_ms, res.timed_out = r.duration_ms, r.timed_out
         res.ok = r.ok and "__TESTS_PASSED__" in r.stdout
