@@ -61,7 +61,7 @@ def main(argv=None):
             else:
                 stats[fam.NAME]["fail"] += 1
                 failures.append((fam.NAME, i,
-                                 f"[{r.stage}] {(r.stderr or r.compile_stderr)[:300]}"))
+                                 f"[{r.stage}] {(r.stderr or r.compile_stderr)[:2000]}"))
     print(f"{'FAMILY':38s} OK  FAIL")
     for name in sorted(stats):
         s = stats[name]
