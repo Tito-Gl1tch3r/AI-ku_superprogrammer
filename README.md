@@ -1,5 +1,7 @@
 # AI-ku_superprogrammer
 
+[![ci](https://github.com/Tito-Gl1tch3r/AI-ku_superprogrammer/actions/workflows/ci.yml/badge.svg)](https://github.com/Tito-Gl1tch3r/AI-ku_superprogrammer/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-39C5BB.svg)](LICENSE)
+
 **Dataset de entrenamiento de nivel profesional para AI-ku: PRIMERO entender el código, DESPUÉS escribirlo, AL FINAL crear vídeos y mezclas de juegos como Opus 5.5.**
 
 > TL;DR: 6 datasets organizados como plan de estudios numerado (**00 comprensión de código · 01 escritura de código · 02 vídeo generativo estilo Opus · 03 mezclas de juegos y modding · 04 ingeniería inversa · 05 persistencia de objetivos · +extensión TS de vídeo end-to-end en 02/03**), pipeline **GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR**, verificación real por compilación/ejecución, splits anti-contaminación, quarantine para todo lo no verificado. Licencia MIT. Piloto v0.8.0: **24.136 ejemplos** (22.815 publicados + 1.321 en `hard_holdout`) de ~45.000 generados acumulados (el resto: duplicados semánticos eliminados por las reglas anti-basura — ver `QUALITY_REPORT.md`; el total de intentos ya no se agrega globalmente, hueco D-5 del audit). "Verificado" se declara por método y dataset: `executed`/`compiled_and_executed` (ejecución/compilación real), `static_check` (solo estructural, lenguajes sin toolchain) y `authored_verified` (ground truth autorizado y cotejado); los porcentajes exactos por dataset están en `DATASET_CARD.md`.
