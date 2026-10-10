@@ -4,7 +4,7 @@
 >
 > Regla de oro respetada en cada propuesta: **nada se inventa** — cada idea incluye cómo se verifica con el pipeline existente (GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR). Huecos detectados auditando el registro real de familias (v0.4.1), no adivinados.
 
-> **Estado v0.6.0**: además del camino P1-P12, el módulo 04 · Reverse Engineering (ELF reales + binutils reales, inspirado en morluto/rea MIT) ya está implementado y publicado como dataset propio `AI-ku_superprogrammer_reverse_engineering` (1.153 records). P5/P6/P7/P10/P11 siguen pendientes para v0.7+.
+> **Estado v0.7.0**: el módulo 05 · Agent Persistence está implementado y publicado como `AI-ku_superprogrammer_agent_ops` (968 records) — monitorización real de jobs, objetivos compuestos con ISO9660 real, supervisión de progreso y elevación de alcance; además se cerró la **Prioridad 0 del audit externo** (splits de re_write/re_understand, holdout de media "proyectos completos no vistos", métricas con método de verificación explícito, migración de IDs duplicados) y `docs/VIDEO_RESEARCH.md` prepara el salto TS/Remotion de P3. P5/P6/P7/P10/P11 siguen pendientes para v0.8+, y P3 queda con plan propuesto.
 
 ## Lo que YA sabe (para no proponer duplicados)
 

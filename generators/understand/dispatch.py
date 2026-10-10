@@ -21,6 +21,8 @@ from .superprogrammer import (build_iterative_repair,
                               build_evidence_self_audit)
 from .re_builders import (build_re_disasm_readout, build_re_evidence_conclusion,
                           build_re_tool_selection)
+from .ops_builders import (build_ops_goal_decomposition,
+                           build_ops_failure_autopsy, build_ops_done_criteria)
 
 BUILDERS = {
     "debugging": build_debugging,
@@ -54,6 +56,9 @@ BUILDERS = {
     "re_disasm_readout": build_re_disasm_readout,
     "re_evidence_conclusion": build_re_evidence_conclusion,
     "re_tool_selection": build_re_tool_selection,
+    "ops_goal_decomposition": build_ops_goal_decomposition,
+    "ops_failure_autopsy": build_ops_failure_autopsy,
+    "ops_done_criteria": build_ops_done_criteria,
 }
 
 

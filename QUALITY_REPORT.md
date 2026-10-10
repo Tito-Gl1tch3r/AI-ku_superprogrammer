@@ -13,6 +13,8 @@
 - **game_understand**: 832 ejemplos publicados; 92.5% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **re_write**: 690 ejemplos publicados; 100.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **re_understand**: 463 ejemplos publicados; 0.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
+- **ops_write**: 603 ejemplos publicados; 100.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
+- **ops_understand**: 365 ejemplos publicados; 0.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 
 ## 2. Protocolo de calidad aplicado
 
@@ -33,22 +35,22 @@
 
 ## 3. Métricas de filtrado (finalize)
 
-### AI-ku_superprogrammer_reverse_engineering|understand
+### AI-ku_superprogrammer_agent_ops|understand
 
-- staged → kept: 464 → **463**
-- duplicados eliminados (exacto+normalizado): 1
+- staged → kept: 467 → **365**
+- duplicados eliminados (exacto+normalizado): 102
 - recortados por family cap: 0
 - rechazados por schema: 0
-- splits: {"train": 463, "validation": 0, "test": 0, "hard_holdout": 0}
+- splits: {"train": 265, "validation": 33, "test": 42, "hard_holdout": 25}
 - multi-file: 0 | con tests: 0
 
-### AI-ku_superprogrammer_reverse_engineering|write
+### AI-ku_superprogrammer_agent_ops|write
 
-- staged → kept: 761 → **690**
-- duplicados eliminados (exacto+normalizado): 71
+- staged → kept: 642 → **603**
+- duplicados eliminados (exacto+normalizado): 39
 - recortados por family cap: 0
 - rechazados por schema: 0
-- splits: {"train": 561, "validation": 0, "test": 93, "hard_holdout": 36}
+- splits: {"train": 450, "validation": 69, "test": 38, "hard_holdout": 46}
 - multi-file: 0 | con tests: 0
 
 ## 4. Cobertura de verificación por lenguaje

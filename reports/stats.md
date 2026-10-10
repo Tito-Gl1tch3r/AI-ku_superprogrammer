@@ -127,10 +127,10 @@
 
 | split | count |
 |---|---|
-| train | 792 |
+| train | 750 |
 | validation | 20 |
 | test | 62 |
-| hard_holdout | 3 |
+| hard_holdout | 45 |
 
 | code size | count |
 |---|---|
@@ -160,9 +160,10 @@
 
 | split | count |
 |---|---|
-| train | 287 |
-| validation | 9 |
+| train | 285 |
+| validation | 8 |
 | test | 137 |
+| hard_holdout | 3 |
 
 | code size | count |
 |---|---|
@@ -246,7 +247,8 @@
 
 | split | count |
 |---|---|
-| train | 561 |
+| train | 535 |
+| validation | 26 |
 | test | 93 |
 | hard_holdout | 36 |
 
@@ -273,9 +275,65 @@
 
 | split | count |
 |---|---|
-| train | 463 |
+| train | 145 |
+| validation | 143 |
+| test | 175 |
 
 | code size | count |
 |---|---|
-| 1200-3000c | 175 |
 | <300c | 288 |
+| 1200-3000c | 175 |
+
+## ops_write
+
+- total: **603**
+- verified by execution: **100.0%** (static check: 0.0%)
+- with tests: 100.0% | multi-file projects: 50.1% | synthetic: 100.0%
+
+| language | count |
+|---|---|
+| python | 603 |
+
+| difficulty | count |
+|---|---|
+| intermediate | 236 |
+| advanced | 210 |
+| expert | 157 |
+
+| split | count |
+|---|---|
+| train | 450 |
+| validation | 69 |
+| test | 38 |
+| hard_holdout | 46 |
+
+| code size | count |
+|---|---|
+| 1200-3000c | 603 |
+
+## ops_understand
+
+- total: **365**
+- verified by execution: **0.0%** (static check: 0.0%)
+- with tests: 0.0% | multi-file projects: 0.0% | synthetic: 100.0%
+
+| language | count |
+|---|---|
+| python | 365 |
+
+| difficulty | count |
+|---|---|
+| advanced | 144 |
+| intermediate | 142 |
+| expert | 79 |
+
+| split | count |
+|---|---|
+| train | 265 |
+| validation | 33 |
+| test | 42 |
+| hard_holdout | 25 |
+
+| code size | count |
+|---|---|
+| <300c | 365 |

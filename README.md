@@ -2,7 +2,7 @@
 
 **Dataset de entrenamiento de nivel profesional para AI-ku: PRIMERO entender el código, DESPUÉS escribirlo, AL FINAL crear vídeos y mezclas de juegos como Opus 5.5.**
 
-> TL;DR: 5 datasets organizados como plan de estudios numerado (**00 comprensión de código · 01 escritura de código · 02 vídeo generativo estilo Opus · 03 mezclas de juegos y modding · 04 ingeniería inversa**), pipeline **GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR**, verificación real por compilación/ejecución, splits anti-contaminación, quarantine para todo lo no verificado. Licencia MIT. Piloto v0.6.0: **22.313 ejemplos verificados** de 41.420 generados (el resto: duplicados semánticos eliminados por las reglas anti-basura — ver `QUALITY_REPORT.md`).
+> TL;DR: 6 datasets organizados como plan de estudios numerado (**00 comprensión de código · 01 escritura de código · 02 vídeo generativo estilo Opus · 03 mezclas de juegos y modding · 04 ingeniería inversa · 05 persistencia de objetivos**), pipeline **GENERAR → EJECUTAR → COMPROBAR → FILTRAR → CONSERVAR**, verificación real por compilación/ejecución, splits anti-contaminación, quarantine para todo lo no verificado. Licencia MIT. Piloto v0.7.0: **23.281 ejemplos** (22.177 publicados + 1.104 en `hard_holdout`) de 42.997 generados (el resto: duplicados semánticos eliminados por las reglas anti-basura — ver `QUALITY_REPORT.md`). "Verificado" se declara por método y dataset: `executed`/`compiled_and_executed` (ejecución/compilación real), `static_check` (solo estructural, lenguajes sin toolchain) y `authored_verified` (ground truth autorizado y cotejado); los porcentajes exactos por dataset están en `DATASET_CARD.md`.
 
 ---
 
@@ -19,7 +19,7 @@ El resultado buscado: dado *"este programa falla en X"*, AI-ku debe comprender e
 
 ## 2. Plan de estudios — el orden en que AI-ku aprende
 
-Cuatro etapas, cinco módulos numerados: **1º entender el código (00)** → **2º escribir código (01)** → **3º crear como Opus 5.5 (02 + 03, el tocho: vídeos generativos y mezclas de juegos)** → **4º leer lo compilado: ingeniería inversa (04)**. La numeración es el orden pedagógico de entrenamiento; los nombres y paths físicos de los datasets se mantienen estables por reproducibilidad. Receta completa por etapa (mezclas, replay anti-olvido, criterios de avance) en `docs/CURRICULUM.md`.
+Cinco etapas, seis módulos numerados: **1º entender el código (00)** → **2º escribir código (01)** → **3º crear como Opus 5.5 (02 + 03, el tocho: vídeos generativos y mezclas de juegos)** → **4º leer lo compilado: ingeniería inversa (04)** → **5º terminar el trabajo: persistencia de objetivos (05)**. La numeración es el orden pedagógico de entrenamiento; los nombres y paths físicos de los datasets se mantienen estables por reproducibilidad. Receta completa por etapa (mezclas, replay anti-olvido, criterios de avance) en `docs/CURRICULUM.md`.
 
 | Módulo | Dataset físico | Qué entrena | Records |
 |---|---------|-------------|---------|
@@ -28,6 +28,7 @@ Cuatro etapas, cinco módulos numerados: **1º entender el código (00)** → **
 | **02 · Opus 5.5 — Generative Video** — *3º crear: vídeos* | `AI-ku_superprogrammer_media` (`datasets/media/`) | Vídeo programático: timeline, easing, render determinista por frames, análisis audio→datos→visual, shaders, pipelines offline, **motor de vídeo musical generativo** (escenas + beat grid + karaoke word-synced + post-chain + render offline con manifest de hashes) | 1.310 |
 | **03 · Opus 5.5 — Game Mixes & Modding** — *3º crear: mezclas de juegos* | `AI-ku_superprogrammer_game_engineering` (`datasets/game_engineering/`) | Formatos binarios sintéticos, serialización de saves, atlases, conversión de sistemas de coordenadas, VM de scripting, interoperabilidad entre motores, análisis con hipótesis→test→evidencia, **metodología universal de modding** (recon, labs seguros, oracles, publish-lint) y **puentes crossover entre dos juegos** | 2.229 |
 | **04 · Reverse Engineering** — *4º leer lo compilado* | `AI-ku_superprogrammer_reverse_engineering` (`datasets/reverse_engineering/`) | RE verificable sobre **binarios ELF reales compilados en el sandbox**: parsers de cabeceras/secciones/símbolos contra `readelf`/`nm`, análisis de disassembly real de `objdump`, reimplantación black-box de transforms, diff diferencial entre builds, recuperación de strings ofuscadas; understand con evidencia 100% real (readout de disassembly, conclusiones por evidencia, selección de tool) | 1.153 |
+| **05 · Agent Persistence** — *5º terminar el trabajo* | `AI-ku_superprogrammer_agent_ops` (`datasets/agent_ops/`) | Objetivos que no se abandonan: **monitorización de jobs reales** (poll del log, plan, nunca dar por bueno un solo signal), **objetivos compuestos** (sync → verificar → ISO → read-back con ISO9660 real), detección de stalls/timeouts en reloj virtual, **elevación de alcance** (juegos headless con input dual teclado+mando, pausa, rampa, persistencia) y understand: descomposición de objetivos, autopsia de transcripts que abandonan, criterios de finalización | 968 |
 
 Cada dataset tiene splits `train/`, `validation/`, `test/` en shards `.jsonl.gz` de 2.000 records. Los ejemplos `expert` seleccionados por grupo viven aparte en `datasets/hard_holdout/` y **no** se usan en generación ni entrenamiento.
 
@@ -88,6 +89,25 @@ Nuevo dataset `AI-ku_superprogrammer_reverse_engineering` (`datasets/reverse_eng
 
 Solo binarios **compilados por el propio pipeline** en el sandbox (fuentes sintéticos propios), transforms y formatos de juguete, y patrones defensivos de análisis. **Nunca**: objetivos reales de terceros, DRM, malware, evasión de protecciones ni acceso no autorizado — el módulo enseña a LEER código compilado, no a saltarse barreras ajenas.
 
+### Extensión Agent Persistence (v0.7.0): el módulo 05, objetivos que no se abandonan
+
+Nuevo dataset `AI-ku_superprogrammer_agent_ops` (`datasets/agent_ops/`), 968 records (write 603 al **100% verificado por ejecución** + understand 365). El módulo entrena los tres fallos clásicos de un agente ante un objetivo largo — **abandonar la monitorización**, **perder el objetivo final** y **dar por terminado antes de tiempo** — con ejecución real en sandbox:
+
+- **Monitorización real** (`ops_monitor_watchdog`): el job corre de verdad como subprocess y escribe su log; el monitor debe lanzarlo, hacer polling, parsear el PLAN y reportar `completed` SOLO con exit 0 + marcador DONE + todos los pasos del plan. El impostor de éxito (DONE con log corto), el crash a mitad y la línea FATAL se detectan y se reportan con su causa.
+- **Objetivo compuesto de dos fases** (`ops_two_stage_orchestrator`): sincronizar un directorio contra un manifest sha256, VERIFICAR cada byte, y solo entonces construir la **ISO de la unidad actualizada con un escritor ISO9660 real** (Python puro, PVD "CD001", tablas de ruta, read-back con parser independiente). Si el sync falla, la ISO no se construye — la fase 1 es prerrequisito, no la meta.
+- **Supervisión de progreso** (`ops_progress_supervisor`): reloj virtual sobre un stream de eventos; checkpoints con `result ok` NO son finalización, un `done` sin su `verify` queda en `unverified`, el silencio es un stall con timestamp exacto y el deadline es absoluto.
+- **Elevación de alcance** (`ops_scope_elevation`): ante una spec mínima de juego, se entrega la versión completa: lógica pura separada de la entrada, UN mapa de input para teclado Y mando, pausa que congela la simulación, rampa de dificultad, persistencia de puntuación y las elevaciones de pulido declaradas por instancia (modo profundidad 3D, partículas, screen shake, combo) — todo simulado headless y determinista. Sin benchmarks: arquetipos genéricos (breaker, snake, pong, flyer, memoria, asteroids).
+- Builders understand: `ops_goal_decomposition` (extraer el GRAFO completo de un objetivo compuesto y su entregable final), `ops_failure_autopsy` (diagnosticar transcripts que abandonan: clase de fallo, línea decisiva, objetivo pendiente) y `ops_done_criteria` (¿se puede dar por terminado? veredicto contra el checklist con log/exit/artefacto reales).
+
+### Corrección de evaluación (v0.7.0): splits y métricas del audit externo
+
+- **`re_understand` ya no es 100% train**: los grupos `(family|variant)` exactos se recuperaron por join con el staging del batch 005 y se reasignaron train/validation/test con garantía de cobertura (145/143/175).
+- **`re_write` gana validation** (26 records; el grupo `re_version_diff|xor_mask_tweak` permanece íntegro en holdout).
+- **Política de holdout de media**: TODO record `expert` de media va a `datasets/hard_holdout` — los proyectos MV completos son el conjunto de evaluación "proyectos no vistos": media_write 3→45, media_understand 0→3.
+- **El holdout preexistente no se toca**: los 695+48+199+7+36 records anteriores están byte-idénticos (verificado contra HEAD).
+- **Migración de IDs**: los ids de media/game/re/ops colisionaban entre write y understand desde v0.1.0 (el contador se reiniciaba por kind); ahora hay UN espacio de ids por dataset (`media-0000001..media-001310`, etc.) en orden determinista (kind, language, family, seed).
+- **Investigación de vídeo (P3)**: `docs/VIDEO_RESEARCH.md` estudia remotion-dev/skills, video-motion-craft y claude-remotion-skill como referencias de patrones para el salto TS/Remotion de v0.8.0 (paleta de señal por defecto: turquesa `#39C5BB`).
+
 ## 3. Lenguajes y cobertura
 
 | Lenguaje | Verificación | | Lenguaje | Verificación |
@@ -100,7 +120,7 @@ Solo binarios **compilados por el propio pipeline** en el sandbox (fuentes sint�
 
 ## 4. Metodología y verificación
 
-1. **GENERAR** — familias parametrizadas (68 familias, 14 lenguajes) con semilla registrada por ejemplo.
+1. **GENERAR** — familias parametrizadas (89 familias, 15 lenguajes) con semilla registrada por ejemplo.
 2. **EJECUTAR** — cada ejemplo pasa por el executor de su lenguaje en sandbox (subprocess + rlimits: CPU, memoria, tamaño de fichero, timeout).
 3. **COMPROBAR** — tests con asserts; el módulo 00 (understand) añade protocolos propios:
    - *debugging*: la versión con bug DEBE fallar (se registra el traceback real) y la corregida DEBE pasar;
@@ -109,7 +129,8 @@ Solo binarios **compilados por el propio pipeline** en el sandbox (fuentes sint�
    - *testing*: puntuación de mutación real (`evaluators/mutation.py`);
    - *seguridad*: impacto demostrado en entorno controlado (sqlite en memoria, resolución de rutas) — nunca contra objetivos reales;
    - *media*: frames renderizados con Pillow y comparados byte a byte (determinismo); los builders MV añaden depuración de determinismo en el render path y razonamiento de timeline/karaoke con evidencia ejecutada;
-   - *game*: round-trips pack→parse→compare sobre blobs sintéticos.
+   - *game*: round-trips pack→parse→compare sobre blobs sintéticos;
+   - *agent_ops*: jobs que corren de verdad como subprocesses (poll del log, plan, impostores de éxito), sincronía + ISO9660 real con read-back, reloj virtual de stalls, y simulación headless determinista de juegos con input dual y pausa.
 4. **FILTRAR** — gates de calidad (longitud mínima, tokens prohibidos, dominio/dificultad válidos) + deduplicación **exacta y normalizada** (identificadores mapeados a tokens posicionales: la variante "renombrar variables" colapsa).
 5. **CONSERVAR** — solo lo verificado entra en train/val/test. Todo lo fallido va a `datasets/_quarantine/` y **nunca** entra en entrenamiento sin validación manual/reproducible.
 
@@ -200,7 +221,7 @@ Limitaciones honestas: el grading de explicaciones usa ground truth autorado jun
 2. GLSL sin GPU: verificación estructural + semántica autorada.
 3. HTML/CSS no se renderizan.
 4. Varias familias cubren menos volumen del solicitado tras el dedup (ver §8); prioridad absoluta a calidad sobre cantidad.
-5. Los módulos 02/03 alcanzan 1.310/2.229 records (write+understand) tras el dedup de calidad; la arquitectura de familias + builders ya soporta el escalado. El módulo 04 estrena en v0.6.0 con 1.153 records (write 690 al 100% ejecutado + understand 463 con evidencia real).
+5. Los módulos 02/03 alcanzan 1.310/2.229 records (write+understand) tras el dedup de calidad; la arquitectura de familias + builders ya soporta el escalado. El módulo 04 estrenó en v0.6.0 con 1.153 records y el 05 en v0.7.0 con 968 (write 603 al 100% ejecutado + understand 365 con evidencia cotejada).
 
 ## 11. Licencia
 
@@ -211,17 +232,17 @@ MIT — ver `LICENSE`. Todos los datos son sintéticos y generados por el pipeli
 ```
 AI-ku_superprogrammer/
 ├── README.md · LICENSE · DATASET_CARD.md · QUALITY_REPORT.md · CHANGELOG.md
-├── docs/{CURRICULUM,OPUS_STYLE}.md   # plan de estudios (00→03) + estilo Opus 5.5
+├── docs/{CURRICULUM,OPUS_STYLE,ROADMAP,VIDEO_RESEARCH}.md
 ├── datasets/{write,understand}/{train,validation,test}/    # core
-├── datasets/{media,game_engineering}/{write,understand}/{train,validation,test}/
+├── datasets/{media,game_engineering,reverse_engineering,agent_ops}/{write,understand}/{train,validation,test}/
 ├── datasets/hard_holdout/          # evaluación experta, NO usar en entrenamiento
 ├── datasets/_quarantine/           # fallidos: auditoría, nunca entrenar
 ├── schemas/{write,understand}.schema.json
 ├── generators/{core,registry,smoke}.py · generators/problems/ (banco multilenguaje)
-├── generators/write/ (14 lenguajes + bases/craft/verify/systems_families) · generators/media/ (families + video + opus) · generators/game/ (families + modding + crossover)
-├── generators/understand/ (25 builders de tareas)
+├── generators/write/ (15 lenguajes + bases/craft/verify/systems/re/ops_families) · generators/media/ (families + video + opus) · generators/game/ (families + modding + crossover)
+├── generators/understand/ (34 builders de tareas)
 ├── validators/ (executors por lenguaje, dedup, splits, filtros, schema_check)
 ├── evaluators/ (mutation, benchmarks, metrics)
-├── scripts/ (build_dataset, finalize, make_stats, make_quality_report, records)
+├── scripts/ (build_dataset, finalize, make_stats, make_quality_report, records, build_*_delta, validate_*_ext, resplit_v070, fix_ids_v070)
 ├── configs/{pilot,full}.json · tests/ · reports/ · .github/workflows/ci.yml
 ```

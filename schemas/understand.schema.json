@@ -28,7 +28,8 @@
     "AI-ku_superprogrammer_understand",
     "AI-ku_superprogrammer_media",
     "AI-ku_superprogrammer_game_engineering",
-    "AI-ku_superprogrammer_reverse_engineering"
+    "AI-ku_superprogrammer_reverse_engineering",
+    "AI-ku_superprogrammer_agent_ops"
    ]
   },
   "kind": {
@@ -69,7 +70,10 @@
     "evidence_self_audit",
     "re_disasm_readout",
     "re_evidence_conclusion",
-    "re_tool_selection"
+    "re_tool_selection",
+    "ops_goal_decomposition",
+    "ops_failure_autopsy",
+    "ops_done_criteria"
    ]
   },
   "domain": {

@@ -1,0 +1,118 @@
+{
+ "re_write": {
+  "total": 690,
+  "splits": {
+   "hard_holdout": 36,
+   "test": 93,
+   "train": 535,
+   "validation": 26
+  },
+  "groups_total": 16,
+  "holdout_groups": [
+   "re_version_diff|xor_mask_tweak"
+  ],
+  "assignment": {
+   "re_blackbox_reimpl|lcg_stream": "test",
+   "re_blackbox_reimpl|nibble_rot": "train",
+   "re_blackbox_reimpl|offset_add": "train",
+   "re_blackbox_reimpl|rolling_xor": "train",
+   "re_disasm_analysis|count_calls": "validation",
+   "re_disasm_analysis|function_span": "train",
+   "re_disasm_analysis|immediates": "train",
+   "re_disasm_analysis|jump_targets": "train",
+   "re_elf_parser|header_magic": "train",
+   "re_elf_parser|program_headers": "train",
+   "re_elf_parser|symbol_table": "test",
+   "re_strings_decode|rolling_xor": "train",
+   "re_strings_decode|xor_key": "train",
+   "re_version_diff|key_bump": "train",
+   "re_version_diff|offset_drop": "train"
+  },
+  "records_moved_from_train": 26
+ },
+ "re_understand": {
+  "total": 463,
+  "splits": {
+   "test": 175,
+   "train": 145,
+   "validation": 143
+  },
+  "groups_total": 3,
+  "holdout_groups": [],
+  "assignment": {
+   "re_disasm_readout|readout": "test",
+   "re_evidence_conclusion|evidence": "train",
+   "re_tool_selection|tool_sel": "validation"
+  },
+  "records_moved_from_train": 318
+ },
+ "media_write": {
+  "total": 877,
+  "splits": {
+   "hard_holdout": 45,
+   "test": 62,
+   "train": 750,
+   "validation": 20
+  },
+  "experts_moved_to_holdout": [
+   "media-0000236",
+   "media-0000473",
+   "media-0000476",
+   "media-0000477",
+   "media-0000478",
+   "media-0000479",
+   "media-0000480",
+   "media-0000482",
+   "media-0000483",
+   "media-0000484",
+   "media-0000486",
+   "media-0000490",
+   "media-0000494",
+   "media-0000495",
+   "media-0000496",
+   "media-0000497",
+   "media-0000500",
+   "media-0000502",
+   "media-0000505",
+   "media-0000506",
+   "media-0000507",
+   "media-0000508",
+   "media-0000511",
+   "media-0000512",
+   "media-0000513",
+   "media-0000514",
+   "media-0000515",
+   "media-0000516",
+   "media-0000518",
+   "media-0000521",
+   "media-0000522",
+   "media-0000524",
+   "media-0000526",
+   "media-0000528",
+   "media-0000529",
+   "media-0000530",
+   "media-0000534",
+   "media-0000535",
+   "media-0000536",
+   "media-0000540",
+   "media-0000541",
+   "media-0000542"
+  ],
+  "holdout_total": 45
+ },
+ "media_understand": {
+  "total": 433,
+  "splits": {
+   "hard_holdout": 3,
+   "test": 137,
+   "train": 285,
+   "validation": 8
+  },
+  "experts_moved_to_holdout": [
+   "media-0000022",
+   "media-0000099",
+   "media-0000288"
+  ],
+  "holdout_total": 3
+ }
+}

@@ -22,10 +22,13 @@ DATASET_LAYOUT = {
     "game_understand": ["datasets/game_engineering/understand"],
     "re_write": ["datasets/reverse_engineering/write"],
     "re_understand": ["datasets/reverse_engineering/understand"],
+    "ops_write": ["datasets/agent_ops/write"],
+    "ops_understand": ["datasets/agent_ops/understand"],
 }
 HOLDOUT_PREFIX = {"write": "write", "understand": "understand", "media_write": "media",
                   "media_understand": "media", "game_write": "game",
-                  "game_understand": "game"}
+                  "game_understand": "game", "ops_write": "ops",
+                  "ops_understand": "ops"}
 # hard_holdout records are attributed by their OWN (dataset, kind) fields —
 # filename prefixes are shared across kinds of the same dataset and would
 # double-count (e.g. game-write shards leaking into game_understand).
@@ -38,6 +41,8 @@ STAGE_DS_KIND = {
     "game_understand": ("AI-ku_superprogrammer_game_engineering", "understand"),
     "re_write": ("AI-ku_superprogrammer_reverse_engineering", "write"),
     "re_understand": ("AI-ku_superprogrammer_reverse_engineering", "understand"),
+    "ops_write": ("AI-ku_superprogrammer_agent_ops", "write"),
+    "ops_understand": ("AI-ku_superprogrammer_agent_ops", "understand"),
 }
 
 
@@ -81,7 +86,8 @@ def pct(x, total):
 def main():
     stats = {}
     for stage in ("write", "understand", "media_write", "media_understand",
-                  "game_write", "game_understand", "re_write", "re_understand"):
+                  "game_write", "game_understand", "re_write", "re_understand",
+                  "ops_write", "ops_understand"):
         rows = load_stage(stage)
         per = {
             "total": len(rows),

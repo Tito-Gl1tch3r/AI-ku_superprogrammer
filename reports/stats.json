@@ -150,10 +150,10 @@
    "engineering": 877
   },
   "by_split": {
-   "train": 792,
+   "train": 750,
    "validation": 20,
    "test": 62,
-   "hard_holdout": 3
+   "hard_holdout": 45
   },
   "by_size": {
    "300-1200c": 567,
@@ -185,9 +185,10 @@
    "engineering": 433
   },
   "by_split": {
-   "train": 287,
-   "validation": 9,
-   "test": 137
+   "train": 285,
+   "validation": 8,
+   "test": 137,
+   "hard_holdout": 3
   },
   "by_size": {
    "<300c": 139,
@@ -281,7 +282,8 @@
    "systems": 300
   },
   "by_split": {
-   "train": 561,
+   "train": 535,
+   "validation": 26,
    "test": 93,
    "hard_holdout": 36
   },
@@ -310,11 +312,72 @@
    "systems": 463
   },
   "by_split": {
-   "train": 463
+   "train": 145,
+   "validation": 143,
+   "test": 175
   },
   "by_size": {
-   "1200-3000c": 175,
-   "<300c": 288
+   "<300c": 288,
+   "1200-3000c": 175
+  },
+  "by_task_type": {}
+ },
+ "ops_write": {
+  "total": 603,
+  "pct_verified_executed": 100.0,
+  "pct_verified_static": 0.0,
+  "pct_with_tests": 100.0,
+  "pct_multi_file": 50.1,
+  "pct_synthetic": 100.0,
+  "by_language": {
+   "python": 603
+  },
+  "by_difficulty": {
+   "intermediate": 236,
+   "advanced": 210,
+   "expert": 157
+  },
+  "by_domain": {
+   "automation": 446,
+   "engineering": 157
+  },
+  "by_split": {
+   "train": 450,
+   "validation": 69,
+   "test": 38,
+   "hard_holdout": 46
+  },
+  "by_size": {
+   "1200-3000c": 603
+  },
+  "by_task_type": {}
+ },
+ "ops_understand": {
+  "total": 365,
+  "pct_verified_executed": 0.0,
+  "pct_verified_static": 0.0,
+  "pct_with_tests": 0.0,
+  "pct_multi_file": 0.0,
+  "pct_synthetic": 100.0,
+  "by_language": {
+   "python": 365
+  },
+  "by_difficulty": {
+   "advanced": 144,
+   "intermediate": 142,
+   "expert": 79
+  },
+  "by_domain": {
+   "automation": 365
+  },
+  "by_split": {
+   "train": 265,
+   "validation": 33,
+   "test": 42,
+   "hard_holdout": 25
+  },
+  "by_size": {
+   "<300c": 365
   },
   "by_task_type": {}
  }

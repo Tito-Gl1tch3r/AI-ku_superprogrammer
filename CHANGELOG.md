@@ -1,5 +1,28 @@
 # CHANGELOG
 
+## [0.7.0] — Módulo 05 Agent Persistence + corrección de evaluación (audit externo)
+
+### Añadido
+- **Nuevo dataset `AI-ku_superprogrammer_agent_ops`** (`datasets/agent_ops/{write,understand}/`), módulo 05 del curriculum: 968 records (write 603 al 100% verificado por ejecución + understand 365 con evidencia cotejada) que entrenan a NO abandonar: monitorizar jobs largos hasta el final, no perder el entregable final de un objetivo compuesto y no declarar la victoria sin verificación.
+- **4 familias write** (`generators/write/ops_families.py`, todas python ejecutado, bugs que fallan determinísticamente):
+  - `ops_monitor_watchdog`: job subprocess REAL con log de progreso (PLAN N, steps, DONE, FATAL); el monitor hace polling y solo reporta `completed` con exit 0 + DONE + todos los pasos; detecta el impostor de éxito (DONE con log corto), crashes y FATAL con su causa.
+  - `ops_two_stage_orchestrator`: objetivo compuesto real — sync contra manifest sha256 con verificación de cada byte, y SOLO entonces **ISO9660 real** (escritor en Python puro: PVD "CD001" en LBA 16, tablas de ruta L/M, registros de directorio, datos) verificada por read-back con parser independiente; un sync fallido nunca produce ISO (la fase 1 es prerrequisito, no la meta).
+  - `ops_progress_supervisor`: reloj virtual sobre streams de eventos — checkpoints con result ok NO son finalización, done sin verify queda `unverified`, silencio > stall_after es stall con timestamp exacto, deadline absoluto; escenarios limpios/stall/timeout/done_error/done_no_verify/checkpoint-trap/stall-mid.
+  - `ops_scope_elevation`: ante una spec mínima de juego, entrega la versión completa — lógica pura separada, UN mapa de input para teclado Y mando, pausa que congela, rampa de dificultad, persistencia de score y elevaciones declaradas por instancia (modo 3D, partículas, screen shake, combo); 6 arquetipos headless deterministas (breaker, snake, pong, flyer, memoria, asteroids). Sin benchmarks: arquetipos genéricos.
+- **3 builders understand** (`generators/understand/ops_builders.py`): `ops_goal_decomposition` (grafo completo de objetivos compuestos con entregable FINAL), `ops_failure_autopsy` (clase de fallo + línea decisiva + objetivo pendiente de transcripts que abandonan: abandono de monitorización / objetivo perdido / finalización prematura) y `ops_done_criteria` (veredicto YES/NO contra checklist log/exit/artefacto). Variación estructural por seed (nº de etapas, gates, contadores de plan, estados de artefacto) para sobrevivir al dedup normalizado.
+- **Validador dedicado** `scripts/validate_ops_ext.py`: GREEN — 4 familias write con muestras verdes + buggy-fail 12/12 por familia + determinismo; 3 builders con 36/36 evidencia cotejada y schema.
+- **`docs/VIDEO_RESEARCH.md`**: estudio de remotion-dev/skills, video-motion-craft (Apache-2.0) y claude-remotion-skill (MIT) como referencias de patrones para el salto TS/Remotion de P3 en v0.8.0 (reglas de motion, beat-sync aceptado antes del storyboard, bucle render→inspección→fix; paleta de señal por defecto #39C5BB).
+
+### Corregido (Prioridad 0 del audit externo)
+- **Splits con cobertura garantizada**: `assign_split` pasa a asignación por grupo `(family|variant)` con coverage fix-up determinista (≥1 grupo en validation y test por dataset). `re_understand` deja de ser 100% train (145/143/175) y `re_write` gana validation (26). Los grupos exactos se recuperaron por join con el staging del batch 005 (`scripts/resplit_v070.py`); `hard_holdout` intacto.
+- **Política de holdout de media**: TODO record expert de media va a `datasets/hard_holdout` — los proyectos MV completos son el conjunto "proyectos no vistos": media_write 3→45, media_understand 0→3. El holdout preexistente (695+48+199+7+36) está byte-idéntico (verificado contra HEAD).
+- **IDs duplicados entre kinds (desde v0.1.0)**: el contador de finalize se reiniciaba por (dataset, kind), así que media/game/re/ops tenían ids idénticos con contenido distinto entre write y understand (2.093 colisiones). Migración determinista a UN espacio de ids por dataset (`scripts/fix_ids_v070.py`, orden kind/language/family/seed).
+- **finalize unificado**: la lógica de splits vive en `validators/splits.py` (hash + coverage fix-up + política de holdout por dataset); `finalize.py` ya no duplica el hashing.
+- **Métricas honestas**: README/DATASET_CARD distinguen `executed`/`compiled_and_executed` vs `static_check` vs `authored_verified` por etapa, con porcentajes exactos por dataset en la CARD (ya no se presenta un único "% verificado" agregado).
+
+### Números
+- 1.577 intentos nuevos → 1.109 staged (write 642 + understand 467; la primera pasada de understand se descartó por baja distintividad y se regeneró) → **968 publicados** en agent_ops (write 603: 39 dedup; understand 365: 102 dedup) → **23.281 total** (22.177 publicados + 1.104 holdout). 89 familias, 15 lenguajes. Tests 13/13; smoke ALL PASSED (todas las familias); `scripts/validate_ops_ext.py` GREEN.
+
 ## [0.6.0] — Módulo 04 Reverse Engineering (ELF reales, binutils reales; inspirado en morluto/rea)
 
 ### Añadido

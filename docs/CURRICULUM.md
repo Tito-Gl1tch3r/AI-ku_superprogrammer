@@ -13,8 +13,9 @@
 | **02** | Opus 5.5 · Generative Video | `AI-ku_superprogrammer_media` | 1.310 | 3 — crear |
 | **03** | Opus 5.5 · Game Mixes & Modding | `AI-ku_superprogrammer_game_engineering` | 2.229 | 3 — crear |
 | **04** | Reverse Engineering | `AI-ku_superprogrammer_reverse_engineering` | 1.153 | 4 — leer lo compilado |
+| **05** | Agent Persistence | `AI-ku_superprogrammer_agent_ops` | 968 | 5 — terminar el trabajo |
 
-Total: **22.313 records verificados**. Los ejemplos `expert` de `datasets/hard_holdout/` quedan FUERA de las cuatro etapas y se reservan como gate de evaluación entre etapas.
+Total: **23.281 records** (22.177 publicados + 1.104 en `hard_holdout`). Los ejemplos `expert` de `datasets/hard_holdout/` quedan FUERA de las cinco etapas y se reservan como gate de evaluación entre etapas.
 
 ---
 
@@ -79,6 +80,19 @@ Total: **22.313 records verificados**. Los ejemplos `expert` de `datasets/hard_h
 
 **Criterio de avance**: las tareas black-box y de diff exigen byte-exactitud verificada por ejecución; evaluar sobre `hard_holdout` (36 records expert del módulo ya reservados) y sobre los splits test del dataset.
 
+
+---
+
+## Etapa 5 — 05 · Agent Persistence (terminar el trabajo)
+
+**Por qué es el último módulo.** Todo lo anterior enseña a HACER bien una tarea unitaria; esta etapa enseña a CARGAR con un objetivo completo hasta el final: monitorizar jobs de larga duración en vez de dejarlos solos, recordar que la fase 1 es prerrequisito y no la meta, y no declarar la victoria sin verificación. Es el módulo que convierte "escribe buen código" en "entrega el objetivo".
+
+**Contenido** (4 familias write + 3 builders understand, todo con ejecución real): monitor de jobs subprocess con poll/plan/impostores de éxito (`ops_monitor_watchdog`), orquestación de objetivo compuesto sync→verificar→ISO con ISO9660 real y read-back (`ops_two_stage_orchestrator`), supervisión de stalls/timeouts en reloj virtual (`ops_progress_supervisor`), elevación de alcance en juegos headless con input dual teclado+mando, pausa, rampa y persistencia (`ops_scope_elevation`); understand: descomposición de objetivos compuestos con entregable final, autopsia de transcripts que abandonan y criterios de finalización.
+
+**Mezcla sugerida**: ~10-15% módulo 05 + replay de 01 (los jobs reales ejercitan verificación ya aprendida). 1 época.
+
+**Criterio de avance**: los impostores de éxito (DONE con log corto, exit 0 sin plan completo, checkpoint ≠ done) se detectan el 100% de las veces; evaluar sobre `hard_holdout` (71 records expert del módulo) y los splits test.
+
 ---
 
 ## Cómo construir los lotes de cada etapa
@@ -98,6 +112,7 @@ ALL = {
     "02": rows("datasets/media/*/train/*.jsonl.gz"),
     "03": rows("datasets/game_engineering/*/train/*.jsonl.gz"),
     "04": rows("datasets/reverse_engineering/*/train/*.jsonl.gz"),
+    "05": rows("datasets/agent_ops/*/train/*.jsonl.gz"),
 }
 
 # Ejemplo etapa 3: módulos 02+03 + los builders understand de dominio Opus

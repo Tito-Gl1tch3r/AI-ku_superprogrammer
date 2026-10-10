@@ -1,6 +1,8 @@
 __pycache__/
 *.pyc
 datasets/_staging/
+datasets/_staging_archive/
+datasets/_quarantine/
 reports/_state_*.json
 .pytest_cache/
 *.tar.gz

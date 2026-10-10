@@ -23,8 +23,15 @@ sys.path.insert(0, ROOT)
 
 from validators.dedup import DedupIndex, exact_hash, normalize  # noqa: E402
 from validators.schema_check import validate  # noqa: E402
+from validators.splits import coverage_fixup, holdout_hash, split_hash  # noqa: E402
 
 SHARD_SIZE = 2000
+
+# v0.7.0 holdout policy: every expert record of the media datasets goes to
+# datasets/hard_holdout (complete mv projects are the "unseen projects"
+# evaluation set). All other datasets keep the v0.6.0 rule: expert groups
+# with hold-hash < 25.
+MEDIA_DATASETS = ("AI-ku_superprogrammer_media",)
 
 
 def _record_body(rec):
@@ -71,19 +78,25 @@ def _exact_hash_record(rec):
     return hashlib.sha256(_record_body(rec).encode()).hexdigest()
 
 
-def assign_split(rec):
+def assign_split(rec, dataset="AI-ku_superprogrammer_write"):
     meta = rec["_split_meta"]
     group = f"{meta['family']}|{meta['variant']}"
     if meta.get("difficulty") == "expert":
-        h = int(hashlib.sha1(("hold|" + group).encode()).hexdigest()[:12], 16) % 100
-        if h < 25:
+        if dataset in MEDIA_DATASETS:
             return "hard_holdout"
-    x = int(hashlib.sha1(("split|" + group).encode()).hexdigest()[:12], 16) % 10000
+        if holdout_hash(*group.split("|", 1)) < 25:
+            return "hard_holdout"
+    x = split_hash(*group.split("|", 1))
     if x < 8000:
         return "train"
     if x < 9000:
         return "validation"
     return "test"
+
+
+def assign_group_splits(dataset, groups_x):
+    """Group-level train/validation/test assignment with coverage guarantee."""
+    return coverage_fixup(groups_x)
 
 
 DATASET_DIRS = {
@@ -92,6 +105,7 @@ DATASET_DIRS = {
     "AI-ku_superprogrammer_media": "media",
     "AI-ku_superprogrammer_game_engineering": "game_engineering",
     "AI-ku_superprogrammer_reverse_engineering": "reverse_engineering",
+    "AI-ku_superprogrammer_agent_ops": "agent_ops",
 }
 
 
@@ -128,20 +142,36 @@ def finalize_group(dataset, kind, recs, family_cap, schema):
           f"capped={capped} schema_rejected={bad_schema}")
 
     buckets = defaultdict(list)
+    # v0.7.0: group-level assignment with guaranteed validation/test coverage
+    group_meta = {}
+    holdout_records = []
     for rec in kept:
-        buckets[assign_split(rec)].append(rec)
+        meta = rec["_split_meta"]
+        group = f"{meta['family']}|{meta['variant']}"
+        if meta.get("difficulty") == "expert" and (
+                dataset in MEDIA_DATASETS or holdout_hash(*group.split("|", 1)) < 25):
+            buckets["hard_holdout"].append(rec)
+        else:
+            group_meta.setdefault(group, split_hash(*group.split("|", 1)))
+            holdout_records.append(rec)
+    group_assign = coverage_fixup(group_meta)
+    for rec in holdout_records:
+        meta = rec["_split_meta"]
+        buckets[group_assign[f"{meta['family']}|{meta['variant']}"]].append(rec)
 
     prefix = {"AI-ku_superprogrammer_write": "write",
               "AI-ku_superprogrammer_understand": "understand",
               "AI-ku_superprogrammer_media": "media",
               "AI-ku_superprogrammer_game_engineering": "game",
-              "AI-ku_superprogrammer_reverse_engineering": "re"}[dataset]
+              "AI-ku_superprogrammer_reverse_engineering": "re",
+              "AI-ku_superprogrammer_agent_ops": "ops"}[dataset]
     counter = 0
     splits_info = {}
     base = os.path.join(ROOT, "datasets", DATASET_DIRS[dataset])
     if dataset in ("AI-ku_superprogrammer_media",
                    "AI-ku_superprogrammer_game_engineering",
-                   "AI-ku_superprogrammer_reverse_engineering"):
+                   "AI-ku_superprogrammer_reverse_engineering",
+                   "AI-ku_superprogrammer_agent_ops"):
         base = os.path.join(base, kind)
     for split in ("train", "validation", "test", "hard_holdout"):
         rows = buckets.get(split, [])

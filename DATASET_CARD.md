@@ -1,23 +1,30 @@
-# DATASET CARD — AI-ku_superprogrammer (v0.6.0)
+# DATASET CARD — AI-ku_superprogrammer (v0.7.0)
 
 ## Identificación
 
 - **Nombre**: AI-ku_superprogrammer
-- **Versión**: 0.6.0 (módulo 04 Reverse Engineering: ELF reales compilados en sandbox + binutils reales; inspirado en morluto/rea, MIT)
+- **Versión**: 0.7.0 (módulo 05 Agent Persistence: monitorización real de jobs, objetivos compuestos con ISO9660 real, supervisión de progreso, elevación de alcance; + corrección de splits/holdout del audit externo y migración de IDs)
 - **Licencia**: MIT
-- **Datasets incluidos** (numeración = orden del curriculum, ver `docs/CURRICULUM.md`): `AI-ku_superprogrammer_understand` (00 · Code Comprehension), `AI-ku_superprogrammer_write` (01 · Code Writing), `AI-ku_superprogrammer_media` (02 · Opus 5.5 Generative Video), `AI-ku_superprogrammer_game_engineering` (03 · Opus 5.5 Game Mixes & Modding), `AI-ku_superprogrammer_reverse_engineering` (04 · Reverse Engineering)
-- **Propósito**: entrenar capacidades de programación profunda (escritura, comprensión, depuración, verificación, optimización), generación de medios por código, ingeniería de software de juegos con modding autorizado y lectura de binarios (ingeniería inversa sobre objetivos propios sintéticos).
+- **Datasets incluidos** (numeración = orden del curriculum, ver `docs/CURRICULUM.md`): `AI-ku_superprogrammer_understand` (00 · Code Comprehension), `AI-ku_superprogrammer_write` (01 · Code Writing), `AI-ku_superprogrammer_media` (02 · Opus 5.5 Generative Video), `AI-ku_superprogrammer_game_engineering` (03 · Opus 5.5 Game Mixes & Modding), `AI-ku_superprogrammer_reverse_engineering` (04 · Reverse Engineering), `AI-ku_superprogrammer_agent_ops` (05 · Agent Persistence)
+- **Propósito**: entrenar capacidades de programación profunda (escritura, comprensión, depuración, verificación, optimización), generación de medios por código, ingeniería de software de juegos con modding autorizado, lectura de binarios (ingeniería inversa sobre objetivos propios sintéticos) y **disciplina de objetivos agénticos** (monitorizar hasta el final, verificar antes de dar por terminado, no perder el entregable final).
 
-## Composición (v0.6.0)
+## Composición (v0.7.0)
 
-| Dataset | Total | % verificado por ejecución | % con tests | % multi-file |
-|---|---|---|---|---|
-| write | 14.097 | — | — | — |
-| understand | 3.524 | — | — | 0% |
-| media (write 877 + understand 433) | 1.310 | 98.0% | 73.0% | ~8.6% (write) |
-| game_engineering (write 1.397 + understand 832) | 2.229 | 98.1% | 73.6% | ~18.4% (write) |
-| reverse_engineering (write 690 + understand 463) | 1.153 | 59.9% (write: 100%) | 59.9% | 0% |
-| **Total** | **22.313** | | | |
+Totales por dataset INCLUYEN el `hard_holdout` de su módulo. "Verificado por ejecución" = `verification.method ∈ {executed, compiled_and_executed}` (código/tests realmente ejecutados o compilados y ejecutados en sandbox); `static_check` = validación estructural (lenguajes sin toolchain local); `authored_verified` = ground truth autorizado junto al ejemplo y cotejado (típico en understand). Los porcentajes se declaran por etapa — nunca como un único "% verificado" agregado.
+
+| Dataset | Total | % ejecución real | % static check | % con tests | % multi-file |
+|---|---|---|---|---|---|
+| write (módulo 01) | 14.097 | 74,9% | 25,1% | 74,2% | 22,1% |
+| understand (módulo 00) | 3.524 | 84,0% | 0% | 46,9% | 0% |
+| media (write 877 + understand 433) | 1.310 | 98,0% (write 98,9% / und 89,4%) | 0,7% | 73,0% | ~8,6% (write) |
+| game_engineering (write 1.397 + understand 832) | 2.229 | 98,1% (write 100% / und 92,5%) | 0% | 73,6% | ~18,4% (write) |
+| reverse_engineering (write 690 + understand 463) | 1.153 | 59,9% (write: 100%) | 0% | 59,9% (write: 100%) | 0% |
+| agent_ops (write 603 + understand 365) | 968 | 62,6% (write: 100%) | 0% | 62,6% (write: 100%) | ~50,1% (write) |
+| **Total** | **23.281** | | | | |
+
+Splits publicados (train/validation/test/hard_holdout): write 11.167/942/1.293/695 · understand 2.957/249/270/48 · media 1.035/28/199/48 · game 1.689/196/138/206 · re 680/169/268/36 · ops 715/102/80/71. La política de holdout del módulo 02 (media) es la estricta: TODO record `expert` (proyectos MV completos) va al holdout; el resto de módulos usa la regla hash v0.6.0 (grupos expert con hold-hash < 25). El holdout preexistente de v0.6.0 está byte-idéntico en v0.7.0.
+
+Incluye la extensión **Agent Persistence** (v0.7.0, módulo 05): 968 records (write 603 al **100% verificado por ejecución** + understand 365) que entrenan la disciplina de objetivos agénticos con ejecución real: monitor de jobs subprocess (poll + plan + nunca confiar en un solo signal, con impostores de éxito, crashes y FATAL reales), orquestador de objetivo compuesto (sync verificado por manifest sha256 → **ISO9660 real** escrita en Python puro y read-back con parser independiente; si el sync falla, la ISO no se construye), supervisor de progreso con reloj virtual (checkpoints ≠ finalización, done sin verify = unverified, stalls y timeouts con timestamp exacto) y elevación de alcance (juegos headless deterministas con UN mapa de input para teclado y mando, pausa, rampa de dificultad, persistencia de score y elevaciones declaradas: modo 3D, partículas, screen shake, combo). Understand: descomposición del grafo completo de objetivos compuestos (con el entregable FINAL identificado), autopsia de transcripts que abandonan (monitorización, objetivo perdido, finalización prematura) y criterios de finalización verificados contra log/exit/artefacto. Sin benchmarks: arquetipos de juego genéricos.
 
 Incluye la extensión **Reverse Engineering** (v0.6.0, módulo 04): 1.153 records sobre **binarios ELF reales** (compilados en el sandbox con `gcc -nostdlib -static`, 1,5-9 KB, con y sin símbolos) con ground truth cosechado de binutils reales: parsers de cabecera/secciones/símbolos verificados contra `readelf`/`nm`, análisis del disassembly real de `objdump -d` (calls, immediates, jump targets, huella), reimplantación black-box de transforms byte-exacta (la suite ejecuta el binario real en cada probe), diff diferencial entre dos builds con parche mínimo, y strings ofuscadas cuya decodificación debe coincidir con el stdout real capturado. Understand con evidencia 100% real: readout de disassembly verificado por reconstrucción byte-exacta del stdout, conclusiones seleccionadas por evidencia observada y selección de comando binutils verificada ejecutándolo. **Inspirado en [morluto/rea](https://github.com/morluto/rea) (MIT)**; datasets 100% sintéticos, cero código copiado. Solo objetivos propios: sin DRM, sin malware, sin terceros.
 

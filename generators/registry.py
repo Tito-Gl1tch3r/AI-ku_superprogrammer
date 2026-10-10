@@ -10,6 +10,7 @@ FAMILY_MODULES = [
     "generators.write.verify_families",
     "generators.write.systems_families",
     "generators.write.re_families",
+    "generators.write.ops_families",
     "generators.write.sql_families",
     "generators.write.bash_families",
     "generators.write.c_families",
@@ -53,6 +54,11 @@ DATASET_FAMILIES = {
     "AI-ku_superprogrammer_reverse_engineering": (
         "re_elf_parser", "re_disasm_analysis", "re_blackbox_reimpl",
         "re_version_diff", "re_strings_decode"),
+    "AI-ku_superprogrammer_agent_ops": (
+        "ops_monitor_watchdog", "ops_two_stage_orchestrator",
+        "ops_progress_supervisor", "ops_scope_elevation",
+        "ops_goal_decomposition", "ops_failure_autopsy",
+        "ops_done_criteria"),
 }
 
 

@@ -9,12 +9,14 @@ GENERATOR_VERSION = "0.1.0"
 
 DATASET_NAMES = ("AI-ku_superprogrammer_write", "AI-ku_superprogrammer_understand",
                  "AI-ku_superprogrammer_media", "AI-ku_superprogrammer_game_engineering",
-                 "AI-ku_superprogrammer_reverse_engineering")
+                 "AI-ku_superprogrammer_reverse_engineering",
+                 "AI-ku_superprogrammer_agent_ops")
 ID_PREFIX = {"AI-ku_superprogrammer_write": "write",
              "AI-ku_superprogrammer_understand": "understand",
              "AI-ku_superprogrammer_media": "media",
              "AI-ku_superprogrammer_game_engineering": "game",
-             "AI-ku_superprogrammer_reverse_engineering": "re"}
+             "AI-ku_superprogrammer_reverse_engineering": "re",
+             "AI-ku_superprogrammer_agent_ops": "ops"}
 
 
 def _now():
