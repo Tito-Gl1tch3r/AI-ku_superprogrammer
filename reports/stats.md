@@ -2,16 +2,16 @@
 
 ## write
 
-- total: **14864**
-- verified by execution: **76.2%** (static check: 23.8%)
-- with tests: 75.6% | multi-file projects: 24.2% | synthetic: 100.0%
+- total: **15245**
+- verified by execution: **74.3%** (static check: 23.2%)
+- with tests: 76.2% | multi-file projects: 26.1% | synthetic: 100.0%
 
 | language | count |
 |---|---|
 | python | 4719 |
+| c | 1846 |
 | javascript | 1817 |
 | cpp | 1808 |
-| c | 1465 |
 | typescript | 1422 |
 | html | 1171 |
 | css | 776 |
@@ -25,22 +25,22 @@
 
 | difficulty | count |
 |---|---|
-| advanced | 6077 |
-| intermediate | 5054 |
+| advanced | 6409 |
+| intermediate | 5103 |
 | expert | 2039 |
 | beginner | 1694 |
 
 | split | count |
 |---|---|
-| train | 11801 |
-| validation | 992 |
-| test | 1357 |
+| train | 12058 |
+| validation | 1066 |
+| test | 1407 |
 | hard_holdout | 714 |
 
 | code size | count |
 |---|---|
 | <300c | 1962 |
-| 300-1200c | 8883 |
+| 300-1200c | 9264 |
 | 1200-3000c | 3833 |
 | >3000c | 186 |
 

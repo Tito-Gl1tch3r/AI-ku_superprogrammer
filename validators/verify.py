@@ -25,7 +25,14 @@ def verify_candidate(cand, timeout=None):
     """Return (ok: bool, ExecResult, verification_dict). Never raises."""
     fn = _LANG2FN.get(cand.language)
     try:
-        if fn is not None and cand.verify_method in ("executed", "compiled_and_executed"):
+        if cand.verify_method == "build_executed":
+            # Build-craft records: the standalone python harness itself runs
+            # the real build pipeline (make / gcc) and then probes the built
+            # artifact. Honesty note: the gate fails whenever the build
+            # toolchain is absent, so `executed` semantics are preserved.
+            from .executors.python_exec import verify_python
+            fn = verify_python
+        if fn is not None and cand.verify_method in ("executed", "compiled_and_executed", "build_executed"):
             r = fn(cand, timeout=timeout) if timeout else fn(cand)
         else:
             r = verify_static(cand)

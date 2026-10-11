@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## [1.1.0] — Módulo 07: Build Systems & Compiler Diagnostics
+
+Tres familias write cuya verdad de terreno es un pipeline de build REAL (make/gcc ejecutados dentro del harness). Nuevo método de verificación `build_executed`: el harness standalone compila de verdad y sonda el binario construido; sin toolchain, el gate FALLA (honestidad de entorno preservada).
+
+### Añadido
+- **`c_makefile_repair`**: reparar un Makefile roto (objeto sin enlazar, `-o` olvidado, regla ausente — el síntoma REAL medido va en el task). El gate exige: `make` construye ./prog, las sondas de comportamiento pasan, TOCAR util.c dispara recompilación real (detección por mtime + eco de receta; los atajos unity-build sin dependencia de util.c quedan atrapados), `make clean` limpia y rebuild funciona.
+- **`c_warning_gate`**: hacer el build limpio bajo `-Wall -Wextra -Werror` SIN cambiar comportamiento. Los warnings plantados son de comportamiento definido (unused var/static/but-set, sign-compare en el bucle de copia) y el task los muestra tal y como gcc los escribió. La sonda mide el binario construido.
+- **`c_header_guards`**: reparar la estructura de includes (struct definido dos veces por doble inclusión; includes circulares que desbordan la profundidad). La reparación real es guards + grafo acíclico — los guards solos NO arreglan la circularidad, y el gate -Werror lo demuestra.
+- **make_buggy auto-verificante en las 3**: Makefile con dependencia rancio (build pasa sondas pero tocar util.c no recompila), warning reintroducido (una función estática sin usar vuelve) y guard con nombres divergentes entre #ifndef/#define deben FALLAR su gate antes de publicarse.
+
+### Números
+- Batch 011: 635 staged → 376 duplicados honestos (los espacios estrechos colapsan bajo dedup normalizado — lección v0.9.0; el ensanchamiento estructural con formatos de salida y sondas aleatorias elevó guards de 2 a 103) → **381 publicados** (train 185 · validation 37 · test 37). Por familia: makefile 87, warning_gate 191, header_guards 103.
+- **Total: 25.297** (23.951 publicados + 1.346 `hard_holdout`). **109 familias**. pytest 48/48 (8 tests nuevos: shape ×3, replay desde shards ~10%, floors honestos, determinismo ×3); smoke ALL PASSED (109 familias); `scripts/validate_v110_ext.py` GREEN; conteo independiente: 0 ids duplicados, 0 solape holdout, stats == shards.
+- Integridad del append: snapshot SHA256 por id (`scripts/verify_append_v110.py`) — los 14.864 records write previos BYTE-IDÉNTICOS, splits estables.
+- Infra: `generators/write/build_craft.py` (3 familias + helpers de build medido), método `build_executed` en `validators/verify.py` + `quality_filters`, `scripts/build_v110_delta.py`, `scripts/publish_py_v110.py`, `scripts/verify_append_v110.py`, `scripts/validate_v110_ext.py`, `tests/test_build_v110.py`.
+
+### Requisito de entorno (honesto)
+Los records `build_executed` exigen `make` y `gcc` en el PATH de verificación (presentes localmente y en el runner de CI ubuntu-latest); sin ellos el gate falla por diseño.
+
+
 ## [1.0.0] — Curriculum 1.0: módulo 06 Verification & Testing Craft
 
 El hito 1.0.0 marca el curriculum completo: seis módulos (00-05) más un módulo 06 transversal de oficio de verificación. Sin cambios en records previos (append-only, verificado byte a byte).

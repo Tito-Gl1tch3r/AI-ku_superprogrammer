@@ -1,32 +1,34 @@
-# DATASET CARD — AI-ku_superprogrammer (v1.0.0)
+# DATASET CARD — AI-ku_superprogrammer (v1.1.0)
 
 ## Identificación
 
 - **Nombre**: AI-ku_superprogrammer
-- **Versión**: 1.0.0 (curriculum 1.0 completo: módulos 00-05 + módulo 06 Verification & Testing Craft con gates bidireccionales reales; infraestructura de release profesional con CI verde, tags y Releases)
+- **Versión**: 1.1.0 (curriculum 1.0 + módulo 07 Build Systems & Compiler Diagnostics con pipeline make/gcc real; método `build_executed`)
 - **Licencia**: MIT
 - **Datasets incluidos** (numeración = orden del curriculum, ver `docs/CURRICULUM.md`): `AI-ku_superprogrammer_understand` (00 · Code Comprehension), `AI-ku_superprogrammer_write` (01 · Code Writing), `AI-ku_superprogrammer_media` (02 · Opus 5.5 Generative Video), `AI-ku_superprogrammer_game_engineering` (03 · Opus 5.5 Game Mixes & Modding), `AI-ku_superprogrammer_reverse_engineering` (04 · Reverse Engineering), `AI-ku_superprogrammer_agent_ops` (05 · Agent Persistence)
 - **Propósito**: entrenar capacidades de programación profunda (escritura, comprensión, depuración, verificación, optimización), generación de medios por código, ingeniería de software de juegos con modding autorizado, lectura de binarios (ingeniería inversa sobre objetivos propios sintéticos) y **disciplina de objetivos agénticos** (monitorizar hasta el final, verificar antes de dar por terminado, no perder el entregable final).
 
-## Composición (v1.0.0)
+## Composición (v1.1.0)
 
 Totales por dataset INCLUYEN el `hard_holdout` de su módulo. "Verificado por ejecución" = `verification.method ∈ {executed, compiled_and_executed}` (código/tests realmente ejecutados o compilados y ejecutados en sandbox); `static_check` = validación estructural (lenguajes sin toolchain local); `authored_verified` = ground truth autorizado junto al ejemplo y cotejado (típico en understand). Los porcentajes se declaran por etapa — nunca como un único "% verificado" agregado.
 
 | Dataset | Total | % ejecución real | % static check | % con tests | % multi-file |
 |---|---|---|---|---|---|
-| write (módulo 01 + 06) | 14.864 | ver `QUALITY_REPORT.md` | | 74,2% | 22,3% |
+| write (módulo 01 + 06 + 07) | 15.245 | ver `QUALITY_REPORT.md` | | 74,2% | 22,3% |
 | understand (módulo 00) | 3.524 | 84,0% | 0% | 46,9% | 0% |
 | media (write 1.365 + understand 710) | 2.075 | 98,0% (write 98,9% / und 89,4%) | 0,7% | 73,0% | ~8,6% (write) |
 | game_engineering (write 1.397 + understand 832) | 2.229 | 98,1% (write 100% / und 92,5%) | 0% | 73,6% | ~18,4% (write) |
 | reverse_engineering (write 690 + understand 566) | 1.256 | 59,9% (write: 100%) | 0% | 59,9% (write: 100%) | 0% |
 | agent_ops (write 603 + understand 365) | 968 | 62,6% (write: 100%) | 0% | 62,6% (write: 100%) | ~50,1% (write) |
-| **Total** | **24.916** | | | | |
+| **Total** | **25.297** | | | | |
 
-Splits publicados (train/validation/test/hard_holdout): write 11.801/992/1.357/714 · understand 2.957/249/270/48 · media 1.059+488 write+und /20+32 /171+137 /168 · game 991+698 /181+15 /26+112 /206 · re 535+145 /26+143 /93+175 /139 · ops 450+265 /69+33 /38+42 /71. La política de holdout del módulo 02 (media) es la estricta: TODO record `expert` (proyectos MV completos) va al holdout; el resto de módulos usa la regla hash v0.6.0 (grupos expert con hold-hash < 25). El holdout preexistente a v0.9.0 está byte-idéntico (append verificado con snapshot SHA256 por id).
+Splits publicados (train/validation/test/hard_holdout): write 11.873/1.029/1.370/714 · understand 2.957/249/270/48 · media 1.059+488 write+und /20+32 /171+137 /168 · game 991+698 /181+15 /26+112 /206 · re 535+145 /26+143 /93+175 /139 · ops 450+265 /69+33 /38+42 /71. La política de holdout del módulo 02 (media) es la estricta: TODO record `expert` (proyectos MV completos) va al holdout; el resto de módulos usa la regla hash v0.6.0 (grupos expert con hold-hash < 25). El holdout preexistente a v0.9.0 está byte-idéntico (append verificado con snapshot SHA256 por id).
 
 Incluye la extensión **Agent Persistence** (v0.7.0, módulo 05): 968 records (write 603 al **100% verificado por ejecución** + understand 365) que entrenan la disciplina de objetivos agénticos con ejecución real: monitor de jobs subprocess (poll + plan + nunca confiar en un solo signal, con impostores de éxito, crashes y FATAL reales), orquestador de objetivo compuesto (sync verificado por manifest sha256 → **ISO9660 real** escrita en Python puro y read-back con parser independiente; si el sync falla, la ISO no se construye), supervisor de progreso con reloj virtual (checkpoints ≠ finalización, done sin verify = unverified, stalls y timeouts con timestamp exacto) y elevación de alcance (juegos headless deterministas con UN mapa de input para teclado y mando, pausa, rampa de dificultad, persistencia de score y elevaciones declaradas: modo 3D, partículas, screen shake, combo). Understand: descomposición del grafo completo de objetivos compuestos (con el entregable FINAL identificado), autopsia de transcripts que abandonan (monitorización, objetivo perdido, finalización prematura) y criterios de finalización verificados contra log/exit/artefacto. Sin benchmarks: arquetipos de juego genéricos.
 
 Incluye la extensión **Verification & Testing Craft** (v1.0.0, módulo 06): 391 records write cuya verdad de terreno es ejecución bidireccional REAL: `py_mutation_kill` (escribir la suite que mata TODOS los kinds de mutantes listados — el harness ejecuta la suite contra mutantes behavior-different de una tabla determinista y cada uno debe MORIR), `py_golden_master` (caracterizar una función legacy congelada: la suite pasa sobre el original y FALLA sobre un refactor con reglas alteradas medidas en generación), `py_test_debugging` (reparar una suite rota sin debilitarla: pasa sobre el módulo correcto Y sigue fallando sobre regresiones plantadas) y `py_regression_minimize` (minimización estilo ddmin contra un predicado real: subsecuencia, reproducción, cap de longitud y 1-minimalidad comprobados llamando al propio predicado). Todo `make_buggy` es auto-verificante (la suite débil debe FALLAR su gate antes de publicarse). Batch 010: 423 staged, 32 duplicados honestos, 391 publicados (train 331 · validation 34 · test 26).
+
+Incluye la extensión **Build Systems & Compiler Diagnostics** (v1.1.0, módulo 07): 381 records write con método `build_executed` — el harness standalone ejecuta un pipeline de build REAL (`make` / `gcc -Wall -Wextra -Werror`) y sonda el binario construido. `c_makefile_repair` (Makefile roto con síntoma real medido; gate con sondas + recompilación al tocar util.c + clean/rebuild: los atajos unity-build quedan atrapados), `c_warning_gate` (warnings reales de comportamiento definido; clean bajo -Werror sin cambiar el comportamiento medido) y `c_header_guards` (doble inclusión / circularidad; la reparación real es guards + grafo acíclico). Requieren make+gcc en el PATH de verificación (presentes en el runner de CI).
 
 Incluye la extensión **Reverse Engineering** (v0.6.0, módulo 04): 1.153 records sobre **binarios ELF reales** (compilados en el sandbox con `gcc -nostdlib -static`, 1,5-9 KB, con y sin símbolos) con ground truth cosechado de binutils reales: parsers de cabecera/secciones/símbolos verificados contra `readelf`/`nm`, análisis del disassembly real de `objdump -d` (calls, immediates, jump targets, huella), reimplantación black-box de transforms byte-exacta (la suite ejecuta el binario real en cada probe), diff diferencial entre dos builds con parche mínimo, y strings ofuscadas cuya decodificación debe coincidir con el stdout real capturado. Understand con evidencia 100% real: readout de disassembly verificado por reconstrucción byte-exacta del stdout, conclusiones seleccionadas por evidencia observada y selección de comando binutils verificada ejecutándolo. **Inspirado en [morluto/rea](https://github.com/morluto/rea) (MIT)**; datasets 100% sintéticos, cero código copiado. Solo objetivos propios: sin DRM, sin malware, sin terceros.
 

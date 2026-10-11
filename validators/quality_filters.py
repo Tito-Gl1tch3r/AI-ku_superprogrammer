@@ -38,6 +38,6 @@ def quality_check(cand) -> tuple:
         return False, f"bad difficulty: {cand.difficulty}"
     if cand.language == "html" and "<html" not in low and "<!doctype" not in low and "<div" not in low and "<form" not in low and "<table" not in low:
         return False, "html fragment without meaningful structure"
-    if cand.verify_method not in ("executed", "compiled_and_executed", "static_check", "authored_verified"):
+    if cand.verify_method not in ("executed", "compiled_and_executed", "static_check", "authored_verified", "build_executed"):
         return False, f"bad verify_method: {cand.verify_method}"
     return True, ""
