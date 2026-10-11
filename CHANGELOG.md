@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## [2.1.0] — Curación por objetivo: borrar lo que no sirve (calidad > cantidad)
+
+Primera release que ELIMINA records, por mandato expreso del propietario: "espero que lo que hayas añadido sirva para [el objetivo super-programadora]; si no, borra lo que no sirva". Con tres protecciónes explícitas declaradas por el propietario: la creación de vídeo mediante código, la ingeniería inversa y la comprensión de código (`understand`) SON importantes y no se tocan.
+
+### Auditoría (evidencia)
+- `reports/goal_audit_inventory_pre_v210.json`: inventario por familia×dataset de los 25.491 records — método de verificación, tasa de ejecución, sustancia de código y VARIACIÓN REAL (sha256 del código normalizado). Hallazgo central: familias plantilla con redundancia extrema — `ts_project_multifile` 541 records con 3 códigos distintos (180:1), `py_files_logs` 730·8, `py_data_statistics` 748·10, `cpp_parsing` 478·2, `c_pointers_memory` 443·4; en holdout, `py_concurrency` 262 casos con la misma solución. El `static_check` (go/rust/java/php/css/html/powershell) es un validador estructural real y honesto (`validators/executors/static_check.py`, nunca se declara como ejecutado) — NO es motivo de eliminación.
+
+### Eliminado (−6.561 records; manifiesto id-a-id con motivo en `reports/curation_v210.json`)
+- **R1 · cap de redundancia**: por familia × split × payload de código se conservan 15 escenarios (el resto se borra). Aplicado a `write`, `agent_ops` y `game_engineering` publicados Y a sus shards de `hard_holdout` (un eval con 262 casos idénticos mide encaje de plantilla, no habilidad). 6.555 records.
+- **R2 · stubs**: familias write con <4 records (`c_bitops`, `cpp_raii_classes`, `py_property_testing`) — no pueden enseñar una capacidad. 6 records.
+- **Exentos por contrato**: `flaky_test_forensics`, `sql_schema_migration`, `sdk_docs_integration` quedan intactas (variantes deterministas estrechas POR DISEÑO, floors de tests).
+- **Protegidos e intactos (byte-idénticos, verificado)**: `media`, `reverse_engineering`, todo `understand`.
+
+### Integridad (`scripts/verify_curation_v210.py` — RESULT: OK)
+- Reescritura a NIVEL DE LÍNEA: los 18.930 supervivientes son byte-idénticos al estado v2.0.0; los ids eliminados coinciden exactamente con el manifiesto; 0 ids duplicados; 0 solapamiento holdout/splits; floors de tests en verde. `verify_counts` OK (17.808 publicados + 1.122 holdout); pytest 56/56 (umbral agregado del pool de replay v200 ajustado 150→120 con comentario justificativo; los floors por familia NO cambian); smoke ALL PASSED.
+
+### Añadido
+- **`TRAINING_RECIPES.md`**: recetas por objetivo desde la versión ACTUAL (sin retroceder de versión) — A "Código + Agentic" 13.350 publicados (`write`+`understand`+`agent_ops`), B +inversa 14.467, C +vídeo 16.374, D completo 17.808; loader de ejemplo y prefijos de holdout por módulo.
+- Documentación actualizada: README (TL;DR y tabla de módulos con números exactos post-curación), `DATASET_CARD.md` (tabla, splits y nueva sección "Curación v2.1.0"), `docs/CURRICULUM.md`, `CITATION.cff` 2.1.0.
+
 ## [2.0.0] — Curriculum 2.0: capstone de integración (módulo 08, experto)
 
 El hito 2.0.0 corona el curriculum: a los seis módulos base y los módulos 06-07 de oficio se suma el módulo 08 — proyectos de integración de nivel EXPERTO donde el candidato entra en un sistema dado por sus seams y el gate es COMPUESTO: sondas unitarias + CLI real por subprocesso byte-exacto + checks estructurales AST. Todo expert → hard_holdout según la política vigente.

@@ -2,19 +2,19 @@
 
 ## write
 
-- total: **15439**
-- verified by execution: **74.6%** (static check: 22.9%)
-- with tests: 76.5% | multi-file projects: 26.6% | synthetic: 100.0%
+- total: **9834**
+- verified by execution: **60.1%** (static check: 36.0%)
+- with tests: 63.1% | multi-file projects: 35.8% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 4849 |
-| c | 1846 |
-| javascript | 1817 |
-| cpp | 1808 |
-| typescript | 1486 |
+| python | 2766 |
 | html | 1171 |
+| javascript | 1126 |
+| c | 976 |
 | css | 776 |
+| cpp | 739 |
+| typescript | 594 |
 | powershell | 405 |
 | rust | 390 |
 | java | 348 |
@@ -25,23 +25,23 @@
 
 | difficulty | count |
 |---|---|
-| advanced | 6409 |
-| intermediate | 5103 |
-| expert | 2233 |
-| beginner | 1694 |
+| advanced | 4159 |
+| intermediate | 3093 |
+| expert | 1590 |
+| beginner | 992 |
 
 | split | count |
 |---|---|
-| train | 12165 |
-| validation | 1071 |
-| test | 1426 |
-| hard_holdout | 777 |
+| train | 7505 |
+| validation | 958 |
+| test | 831 |
+| hard_holdout | 540 |
 
 | code size | count |
 |---|---|
-| <300c | 1962 |
-| 300-1200c | 9328 |
-| 1200-3000c | 3963 |
+| <300c | 762 |
+| 300-1200c | 5519 |
+| 1200-3000c | 3367 |
 | >3000c | 186 |
 
 ## understand
@@ -174,32 +174,32 @@
 
 ## game_write
 
-- total: **1397**
+- total: **760**
 - verified by execution: **100.0%** (static check: 0.0%)
-- with tests: 100.0% | multi-file projects: 18.4% | synthetic: 100.0%
+- with tests: 100.0% | multi-file projects: 33.8% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 1397 |
+| python | 760 |
 
 | difficulty | count |
 |---|---|
-| advanced | 614 |
-| expert | 406 |
-| intermediate | 377 |
+| advanced | 345 |
+| expert | 242 |
+| intermediate | 173 |
 
 | split | count |
 |---|---|
-| train | 991 |
+| train | 402 |
 | validation | 181 |
 | test | 26 |
-| hard_holdout | 199 |
+| hard_holdout | 151 |
 
 | code size | count |
 |---|---|
-| 300-1200c | 407 |
-| <300c | 134 |
-| 1200-3000c | 856 |
+| 300-1200c | 149 |
+| <300c | 15 |
+| 1200-3000c | 596 |
 
 ## game_understand
 
@@ -289,30 +289,30 @@
 
 ## ops_write
 
-- total: **603**
+- total: **284**
 - verified by execution: **100.0%** (static check: 0.0%)
-- with tests: 100.0% | multi-file projects: 50.1% | synthetic: 100.0%
+- with tests: 100.0% | multi-file projects: 71.8% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 603 |
+| python | 284 |
 
 | difficulty | count |
 |---|---|
-| intermediate | 236 |
-| advanced | 210 |
-| expert | 157 |
+| intermediate | 104 |
+| advanced | 91 |
+| expert | 89 |
 
 | split | count |
 |---|---|
-| train | 450 |
-| validation | 69 |
+| train | 156 |
+| validation | 46 |
 | test | 38 |
-| hard_holdout | 46 |
+| hard_holdout | 44 |
 
 | code size | count |
 |---|---|
-| 1200-3000c | 603 |
+| 1200-3000c | 284 |
 
 ## ops_understand
 

@@ -5,15 +5,15 @@
 
 ## 1. Resumen ejecutivo
 
-- **write**: 15,439 ejemplos publicados; 74.6% verificados por ejecución/compilación real, 22.9% verificación estructural (lenguajes sin toolchain local).
+- **write**: 9,834 ejemplos publicados; 60.1% verificados por ejecución/compilación real, 36.0% verificación estructural (lenguajes sin toolchain local).
 - **understand**: 3,524 ejemplos publicados; 84.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **media_write**: 1,365 ejemplos publicados; 99.3% verificados por ejecución/compilación real, 0.7% verificación estructural (lenguajes sin toolchain local).
 - **media_understand**: 710 ejemplos publicados; 54.5% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
-- **game_write**: 1,397 ejemplos publicados; 100.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
+- **game_write**: 760 ejemplos publicados; 100.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **game_understand**: 832 ejemplos publicados; 92.5% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **re_write**: 690 ejemplos publicados; 100.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **re_understand**: 566 ejemplos publicados; 0.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
-- **ops_write**: 603 ejemplos publicados; 100.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
+- **ops_write**: 284 ejemplos publicados; 100.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **ops_understand**: 365 ejemplos publicados; 0.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 
 ## 2. Protocolo de calidad aplicado

@@ -90,7 +90,10 @@ def test_published_v200_records_replay():
     """Third-party replay: every published v1.0.0 record must pass its own
     harness through the standard executor, straight from the shards."""
     recs = _write_records()
-    assert len(recs) >= 150, f"expected >=150 published v200 records, got {len(recs)}"
+    # v2.1.0 curation cap15 (quality over quantity) reduced the v200 pool
+    # from 179 to 134; per-family floors (>=25) still hold, so the replay
+    # pool guard follows the corpus down to 120.
+    assert len(recs) >= 120, f"expected >=120 published v200 records, got {len(recs)}"
     seen = {}
     for rec in recs:
         seen.setdefault(rec["provenance"]["generator"], []).append(rec)

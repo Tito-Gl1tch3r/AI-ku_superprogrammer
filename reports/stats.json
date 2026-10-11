@@ -1,19 +1,19 @@
 {
  "write": {
-  "total": 15439,
-  "pct_verified_executed": 74.6,
-  "pct_verified_static": 22.9,
-  "pct_with_tests": 76.5,
-  "pct_multi_file": 26.6,
+  "total": 9834,
+  "pct_verified_executed": 60.1,
+  "pct_verified_static": 36.0,
+  "pct_with_tests": 63.1,
+  "pct_multi_file": 35.8,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 4849,
-   "c": 1846,
-   "javascript": 1817,
-   "cpp": 1808,
-   "typescript": 1486,
+   "python": 2766,
    "html": 1171,
+   "javascript": 1126,
+   "c": 976,
    "css": 776,
+   "cpp": 739,
+   "typescript": 594,
    "powershell": 405,
    "rust": 390,
    "java": 348,
@@ -23,35 +23,35 @@
    "sql": 22
   },
   "by_difficulty": {
-   "advanced": 6409,
-   "intermediate": 5103,
-   "expert": 2233,
-   "beginner": 1694
+   "advanced": 4159,
+   "intermediate": 3093,
+   "expert": 1590,
+   "beginner": 992
   },
   "by_domain": {
-   "engineering": 3737,
-   "algorithms": 3457,
-   "web": 2955,
-   "text_processing": 1241,
-   "systems": 1206,
-   "automation": 1120,
-   "science_math": 820,
-   "concurrency": 681,
+   "engineering": 3238,
+   "web": 2488,
+   "algorithms": 1801,
+   "systems": 751,
+   "automation": 475,
+   "text_processing": 409,
+   "concurrency": 267,
+   "science_math": 201,
    "databases": 90,
-   "networking": 62,
-   "data_structures": 59,
+   "networking": 56,
+   "data_structures": 47,
    "security": 11
   },
   "by_split": {
-   "train": 12165,
-   "validation": 1071,
-   "test": 1426,
-   "hard_holdout": 777
+   "train": 7505,
+   "validation": 958,
+   "test": 831,
+   "hard_holdout": 540
   },
   "by_size": {
-   "<300c": 1962,
-   "300-1200c": 9328,
-   "1200-3000c": 3963,
+   "<300c": 762,
+   "300-1200c": 5519,
+   "1200-3000c": 3367,
    ">3000c": 186
   },
   "by_task_type": {}
@@ -199,35 +199,35 @@
   "by_task_type": {}
  },
  "game_write": {
-  "total": 1397,
+  "total": 760,
   "pct_verified_executed": 100.0,
   "pct_verified_static": 0.0,
   "pct_with_tests": 100.0,
-  "pct_multi_file": 18.4,
+  "pct_multi_file": 33.8,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 1397
+   "python": 760
   },
   "by_difficulty": {
-   "advanced": 614,
-   "expert": 406,
-   "intermediate": 377
+   "advanced": 345,
+   "expert": 242,
+   "intermediate": 173
   },
   "by_domain": {
-   "systems": 795,
-   "engineering": 525,
-   "security": 77
+   "engineering": 475,
+   "systems": 257,
+   "security": 28
   },
   "by_split": {
-   "train": 991,
+   "train": 402,
    "validation": 181,
    "test": 26,
-   "hard_holdout": 199
+   "hard_holdout": 151
   },
   "by_size": {
-   "300-1200c": 407,
-   "<300c": 134,
-   "1200-3000c": 856
+   "300-1200c": 149,
+   "<300c": 15,
+   "1200-3000c": 596
   },
   "by_task_type": {}
  },
@@ -326,32 +326,32 @@
   "by_task_type": {}
  },
  "ops_write": {
-  "total": 603,
+  "total": 284,
   "pct_verified_executed": 100.0,
   "pct_verified_static": 0.0,
   "pct_with_tests": 100.0,
-  "pct_multi_file": 50.1,
+  "pct_multi_file": 71.8,
   "pct_synthetic": 100.0,
   "by_language": {
-   "python": 603
+   "python": 284
   },
   "by_difficulty": {
-   "intermediate": 236,
-   "advanced": 210,
-   "expert": 157
+   "intermediate": 104,
+   "advanced": 91,
+   "expert": 89
   },
   "by_domain": {
-   "automation": 446,
-   "engineering": 157
+   "engineering": 157,
+   "automation": 127
   },
   "by_split": {
-   "train": 450,
-   "validation": 69,
+   "train": 156,
+   "validation": 46,
    "test": 38,
-   "hard_holdout": 46
+   "hard_holdout": 44
   },
   "by_size": {
-   "1200-3000c": 603
+   "1200-3000c": 284
   },
   "by_task_type": {}
  },

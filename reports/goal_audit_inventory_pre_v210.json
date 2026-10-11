@@ -1,0 +1,5777 @@
+{
+ "families": {
+  "agent_ops.understand::ops_done_criteria": {
+   "avg_chars": 1417.6,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 67,
+    "intermediate": 66
+   },
+   "distinct_norm": 133,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 133
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 133
+   },
+   "min_lines": 0,
+   "n": 133,
+   "splits": {
+    "test": 15,
+    "train": 114,
+    "validation": 4
+   }
+  },
+  "agent_ops.understand::ops_failure_autopsy": {
+   "avg_chars": 2686.2,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 46,
+    "expert": 33,
+    "intermediate": 49
+   },
+   "distinct_norm": 128,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 128
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 128
+   },
+   "min_lines": 0,
+   "n": 128,
+   "splits": {
+    "test": 18,
+    "train": 98,
+    "validation": 12
+   }
+  },
+  "agent_ops.understand::ops_goal_decomposition": {
+   "avg_chars": 2191.8,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 31,
+    "expert": 21,
+    "intermediate": 27
+   },
+   "distinct_norm": 79,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 79
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 79
+   },
+   "min_lines": 0,
+   "n": 79,
+   "splits": {
+    "test": 9,
+    "train": 53,
+    "validation": 17
+   }
+  },
+  "agent_ops.write::ops_monitor_watchdog": {
+   "avg_chars": 2529.0,
+   "avg_lines": 69.0,
+   "diffs": {
+    "advanced": 56,
+    "intermediate": 62
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 118
+   },
+   "max_lines": 69,
+   "methods": {
+    "executed": 118
+   },
+   "min_lines": 69,
+   "n": 118,
+   "splits": {
+    "test": 12,
+    "train": 98,
+    "validation": 8
+   }
+  },
+  "agent_ops.write::ops_progress_supervisor": {
+   "avg_chars": 1777.0,
+   "avg_lines": 44.0,
+   "diffs": {
+    "advanced": 58,
+    "expert": 49,
+    "intermediate": 59
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 166
+   },
+   "max_lines": 44,
+   "methods": {
+    "executed": 166
+   },
+   "min_lines": 44,
+   "n": 166,
+   "splits": {
+    "train": 128,
+    "validation": 38
+   }
+  },
+  "agent_ops.write::ops_scope_elevation": {
+   "avg_chars": 2350.7,
+   "avg_lines": 84.7,
+   "diffs": {
+    "advanced": 43,
+    "expert": 29,
+    "intermediate": 63
+   },
+   "distinct_norm": 57,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 135
+   },
+   "max_lines": 99,
+   "methods": {
+    "executed": 135
+   },
+   "min_lines": 70,
+   "n": 135,
+   "splits": {
+    "test": 12,
+    "train": 111,
+    "validation": 12
+   }
+  },
+  "agent_ops.write::ops_two_stage_orchestrator": {
+   "avg_chars": 2312.0,
+   "avg_lines": 62.0,
+   "diffs": {
+    "advanced": 53,
+    "expert": 33,
+    "intermediate": 52
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 138
+   },
+   "max_lines": 62,
+   "methods": {
+    "executed": 138
+   },
+   "min_lines": 62,
+   "n": 138,
+   "splits": {
+    "test": 14,
+    "train": 113,
+    "validation": 11
+   }
+  },
+  "game_engineering.understand::crossover_event_debug": {
+   "avg_chars": 2209.5,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 83
+   },
+   "distinct_norm": 83,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 83
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 83
+   },
+   "min_lines": 0,
+   "n": 83,
+   "splits": {
+    "test": 24,
+    "train": 59
+   }
+  },
+  "game_engineering.understand::engine_layer_reasoning": {
+   "avg_chars": 1641.5,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 2
+   },
+   "distinct_norm": 2,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 2
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 2
+   },
+   "min_lines": 0,
+   "n": 2,
+   "splits": {
+    "train": 1,
+    "validation": 1
+   }
+  },
+  "game_engineering.understand::game_binary_formats": {
+   "avg_chars": 4833.0,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 20,
+    "expert": 27,
+    "intermediate": 28
+   },
+   "distinct_norm": 75,
+   "exec_rate": 0.0267,
+   "langs": {
+    "python": 75
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 2,
+    "executed": 73
+   },
+   "min_lines": 0,
+   "n": 75,
+   "splits": {
+    "test": 73,
+    "train": 2
+   }
+  },
+  "game_engineering.understand::game_coord_conversion": {
+   "avg_chars": 4054.0,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 29,
+    "expert": 13,
+    "intermediate": 35
+   },
+   "distinct_norm": 77,
+   "exec_rate": 0.026,
+   "langs": {
+    "python": 77
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 2,
+    "executed": 75
+   },
+   "min_lines": 0,
+   "n": 77,
+   "splits": {
+    "test": 2,
+    "train": 75
+   }
+  },
+  "game_engineering.understand::game_format_hypothesis": {
+   "avg_chars": 2009.4,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 350
+   },
+   "distinct_norm": 350,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 350
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 350
+   },
+   "min_lines": 0,
+   "n": 350,
+   "splits": {
+    "train": 350
+   }
+  },
+  "game_engineering.understand::game_interop_project": {
+   "avg_chars": 4770.0,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 49
+   },
+   "distinct_norm": 49,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 49
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 49
+   },
+   "min_lines": 0,
+   "n": 49,
+   "splits": {
+    "train": 49
+   }
+  },
+  "game_engineering.understand::game_interop_reasoning": {
+   "avg_chars": 1703.5,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 1,
+    "expert": 1
+   },
+   "distinct_norm": 2,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 2
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 2
+   },
+   "min_lines": 0,
+   "n": 2,
+   "splits": {
+    "train": 2
+   }
+  },
+  "game_engineering.understand::game_mod_plugin_system": {
+   "avg_chars": 3445.0,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 3
+   },
+   "distinct_norm": 3,
+   "exec_rate": 0.3333,
+   "langs": {
+    "python": 3
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 1,
+    "executed": 2
+   },
+   "min_lines": 0,
+   "n": 3,
+   "splits": {
+    "train": 2,
+    "validation": 1
+   }
+  },
+  "game_engineering.understand::game_script_vm": {
+   "avg_chars": 7166.0,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 16,
+    "expert": 24,
+    "intermediate": 1
+   },
+   "distinct_norm": 41,
+   "exec_rate": 0.0244,
+   "langs": {
+    "python": 41
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 1,
+    "executed": 40
+   },
+   "min_lines": 0,
+   "n": 41,
+   "splits": {
+    "train": 41
+   }
+  },
+  "game_engineering.understand::game_sprite_atlas": {
+   "avg_chars": 3726.1,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 4,
+    "intermediate": 8
+   },
+   "distinct_norm": 12,
+   "exec_rate": 0.25,
+   "langs": {
+    "python": 12
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 3,
+    "executed": 9
+   },
+   "min_lines": 0,
+   "n": 12,
+   "splits": {
+    "train": 12
+   }
+  },
+  "game_engineering.understand::mod_evidence_levels": {
+   "avg_chars": 1859.0,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 85
+   },
+   "distinct_norm": 85,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 85
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 85
+   },
+   "min_lines": 0,
+   "n": 85,
+   "splits": {
+    "test": 11,
+    "train": 63,
+    "validation": 11
+   }
+  },
+  "game_engineering.understand::mod_oracle_gotcha": {
+   "avg_chars": 1715.3,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 37
+   },
+   "distinct_norm": 37,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 37
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 37
+   },
+   "min_lines": 0,
+   "n": 37,
+   "splits": {
+    "train": 37
+   }
+  },
+  "game_engineering.understand::mod_route_selection": {
+   "avg_chars": 1671.1,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 9
+   },
+   "distinct_norm": 9,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 9
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 9
+   },
+   "min_lines": 0,
+   "n": 9,
+   "splits": {
+    "test": 2,
+    "train": 5,
+    "validation": 2
+   }
+  },
+  "game_engineering.write::game_binary_formats": {
+   "avg_chars": 569.0,
+   "avg_lines": 18.0,
+   "diffs": {
+    "advanced": 91,
+    "expert": 84,
+    "intermediate": 83
+   },
+   "distinct_norm": 7,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 258
+   },
+   "max_lines": 19,
+   "methods": {
+    "executed": 258
+   },
+   "min_lines": 17,
+   "n": 258,
+   "splits": {
+    "train": 258
+   }
+  },
+  "game_engineering.write::game_coord_conversion": {
+   "avg_chars": 443.3,
+   "avg_lines": 14.1,
+   "diffs": {
+    "advanced": 99,
+    "expert": 42,
+    "intermediate": 85
+   },
+   "distinct_norm": 2,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 226
+   },
+   "max_lines": 20,
+   "methods": {
+    "executed": 226
+   },
+   "min_lines": 10,
+   "n": 226,
+   "splits": {
+    "train": 226
+   }
+  },
+  "game_engineering.write::game_crossover_bridge": {
+   "avg_chars": 2008.9,
+   "avg_lines": 46.0,
+   "diffs": {
+    "advanced": 32,
+    "expert": 39,
+    "intermediate": 26
+   },
+   "distinct_norm": 97,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 97
+   },
+   "max_lines": 46,
+   "methods": {
+    "executed": 97
+   },
+   "min_lines": 46,
+   "n": 97,
+   "splits": {
+    "train": 97
+   }
+  },
+  "game_engineering.write::game_engine_recon": {
+   "avg_chars": 2589.0,
+   "avg_lines": 63.0,
+   "diffs": {
+    "advanced": 66,
+    "intermediate": 49
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 115
+   },
+   "max_lines": 63,
+   "methods": {
+    "executed": 115
+   },
+   "min_lines": 63,
+   "n": 115,
+   "splits": {
+    "test": 14,
+    "train": 87,
+    "validation": 14
+   }
+  },
+  "game_engineering.write::game_interop_project": {
+   "avg_chars": 1610.1,
+   "avg_lines": 66.0,
+   "diffs": {
+    "advanced": 140
+   },
+   "distinct_norm": 140,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 140
+   },
+   "max_lines": 66,
+   "methods": {
+    "executed": 140
+   },
+   "min_lines": 66,
+   "n": 140,
+   "splits": {
+    "validation": 140
+   }
+  },
+  "game_engineering.write::game_mod_plugin_system": {
+   "avg_chars": 708.0,
+   "avg_lines": 22.0,
+   "diffs": {
+    "advanced": 3,
+    "intermediate": 4
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 7
+   },
+   "max_lines": 22,
+   "methods": {
+    "executed": 7
+   },
+   "min_lines": 22,
+   "n": 7,
+   "splits": {
+    "train": 7
+   }
+  },
+  "game_engineering.write::game_oracle_replay": {
+   "avg_chars": 1833.0,
+   "avg_lines": 55.0,
+   "diffs": {
+    "advanced": 37,
+    "expert": 42
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 79
+   },
+   "max_lines": 55,
+   "methods": {
+    "executed": 79
+   },
+   "min_lines": 55,
+   "n": 79,
+   "splits": {
+    "test": 8,
+    "train": 71
+   }
+  },
+  "game_engineering.write::game_publish_lint": {
+   "avg_chars": 1444.0,
+   "avg_lines": 40.0,
+   "diffs": {
+    "advanced": 36,
+    "intermediate": 41
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 77
+   },
+   "max_lines": 40,
+   "methods": {
+    "executed": 77
+   },
+   "min_lines": 40,
+   "n": 77,
+   "splits": {
+    "train": 64,
+    "validation": 13
+   }
+  },
+  "game_engineering.write::game_save_backup": {
+   "avg_chars": 1987.0,
+   "avg_lines": 57.0,
+   "diffs": {
+    "advanced": 37,
+    "intermediate": 46
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 83
+   },
+   "max_lines": 57,
+   "methods": {
+    "executed": 83
+   },
+   "min_lines": 57,
+   "n": 83,
+   "splits": {
+    "test": 4,
+    "train": 65,
+    "validation": 14
+   }
+  },
+  "game_engineering.write::game_script_vm": {
+   "avg_chars": 1442.0,
+   "avg_lines": 52.0,
+   "diffs": {
+    "advanced": 26
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 26
+   },
+   "max_lines": 52,
+   "methods": {
+    "executed": 26
+   },
+   "min_lines": 52,
+   "n": 26,
+   "splits": {
+    "train": 26
+   }
+  },
+  "game_engineering.write::game_sprite_atlas": {
+   "avg_chars": 544.0,
+   "avg_lines": 20.0,
+   "diffs": {
+    "advanced": 7,
+    "intermediate": 2
+   },
+   "distinct_norm": 3,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 9
+   },
+   "max_lines": 20,
+   "methods": {
+    "executed": 9
+   },
+   "min_lines": 20,
+   "n": 9,
+   "splits": {
+    "train": 9
+   }
+  },
+  "game_engineering.write::game_state_scan": {
+   "avg_chars": 1336.1,
+   "avg_lines": 29.0,
+   "diffs": {
+    "advanced": 40,
+    "intermediate": 41
+   },
+   "distinct_norm": 81,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 81
+   },
+   "max_lines": 29,
+   "methods": {
+    "executed": 81
+   },
+   "min_lines": 29,
+   "n": 81,
+   "splits": {
+    "train": 81
+   }
+  },
+  "hard_holdout::c_pointers_memory": {
+   "avg_chars": 4900.6,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 27
+   },
+   "distinct_norm": 27,
+   "exec_rate": 0.0,
+   "langs": {
+    "c": 27
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 27
+   },
+   "min_lines": 0,
+   "n": 27,
+   "splits": {
+    "holdout": 27
+   }
+  },
+  "hard_holdout::c_project_multifile": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 214
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "c": 214
+   },
+   "max_lines": 0,
+   "methods": {
+    "compiled_and_executed": 214
+   },
+   "min_lines": 0,
+   "n": 214,
+   "splits": {
+    "holdout": 214
+   }
+  },
+  "hard_holdout::cpp_raii_classes": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 1
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "cpp": 1
+   },
+   "max_lines": 0,
+   "methods": {
+    "compiled_and_executed": 1
+   },
+   "min_lines": 0,
+   "n": 1,
+   "splits": {
+    "holdout": 1
+   }
+  },
+  "hard_holdout::cpp_stl_containers": {
+   "avg_chars": 637.5,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 86
+   },
+   "distinct_norm": 22,
+   "exec_rate": 0.0,
+   "langs": {
+    "cpp": 86
+   },
+   "max_lines": 0,
+   "methods": {
+    "compiled_and_executed": 65,
+    "executed": 21
+   },
+   "min_lines": 0,
+   "n": 86,
+   "splits": {
+    "holdout": 86
+   }
+  },
+  "hard_holdout::game_coord_conversion": {
+   "avg_chars": 509.8,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 48
+   },
+   "distinct_norm": 8,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 48
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 48
+   },
+   "min_lines": 0,
+   "n": 48,
+   "splits": {
+    "holdout": 48
+   }
+  },
+  "hard_holdout::game_interop_project": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 117
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 117
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 117
+   },
+   "min_lines": 0,
+   "n": 117,
+   "splits": {
+    "holdout": 117
+   }
+  },
+  "hard_holdout::game_oracle_replay": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 4
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 4
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 4
+   },
+   "min_lines": 0,
+   "n": 4,
+   "splits": {
+    "holdout": 4
+   }
+  },
+  "hard_holdout::game_script_vm": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 37
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 37
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 37
+   },
+   "min_lines": 0,
+   "n": 37,
+   "splits": {
+    "holdout": 37
+   }
+  },
+  "hard_holdout::go_errors_interfaces": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 16
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "go": 16
+   },
+   "max_lines": 0,
+   "methods": {
+    "static_check": 16
+   },
+   "min_lines": 0,
+   "n": 16,
+   "splits": {
+    "holdout": 16
+   }
+  },
+  "hard_holdout::media_frame_renderer": {
+   "avg_chars": 1628.4,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 5
+   },
+   "distinct_norm": 3,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 5
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 5
+   },
+   "min_lines": 0,
+   "n": 5,
+   "splits": {
+    "holdout": 5
+   }
+  },
+  "hard_holdout::media_mv_project": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 41
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 41
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 41
+   },
+   "min_lines": 0,
+   "n": 41,
+   "splits": {
+    "holdout": 41
+   }
+  },
+  "hard_holdout::media_pipeline_reasoning": {
+   "avg_chars": 1418.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 1
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 1
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 1
+   },
+   "min_lines": 0,
+   "n": 1,
+   "splits": {
+    "holdout": 1
+   }
+  },
+  "hard_holdout::media_project_multifile": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 1
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 1
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 1
+   },
+   "min_lines": 0,
+   "n": 1,
+   "splits": {
+    "holdout": 1
+   }
+  },
+  "hard_holdout::media_render_verify": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 17
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 17
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 17
+   },
+   "min_lines": 0,
+   "n": 17,
+   "splits": {
+    "holdout": 17
+   }
+  },
+  "hard_holdout::media_ts_mv_project": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 53
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "typescript": 53
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 53
+   },
+   "min_lines": 0,
+   "n": 53,
+   "splits": {
+    "holdout": 53
+   }
+  },
+  "hard_holdout::ops_failure_autopsy": {
+   "avg_chars": 2722.9,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 19
+   },
+   "distinct_norm": 19,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 19
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 19
+   },
+   "min_lines": 0,
+   "n": 19,
+   "splits": {
+    "holdout": 19
+   }
+  },
+  "hard_holdout::ops_goal_decomposition": {
+   "avg_chars": 2102.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 6
+   },
+   "distinct_norm": 6,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 6
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 6
+   },
+   "min_lines": 0,
+   "n": 6,
+   "splits": {
+    "holdout": 6
+   }
+  },
+  "hard_holdout::ops_progress_supervisor": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 17
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 17
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 17
+   },
+   "min_lines": 0,
+   "n": 17,
+   "splits": {
+    "holdout": 17
+   }
+  },
+  "hard_holdout::ops_scope_elevation": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 22
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 22
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 22
+   },
+   "min_lines": 0,
+   "n": 22,
+   "splits": {
+    "holdout": 22
+   }
+  },
+  "hard_holdout::ops_two_stage_orchestrator": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 7
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 7
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 7
+   },
+   "min_lines": 0,
+   "n": 7,
+   "splits": {
+    "holdout": 7
+   }
+  },
+  "hard_holdout::php_project_multifile": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 21
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "php": 21
+   },
+   "max_lines": 0,
+   "methods": {
+    "static_check": 21
+   },
+   "min_lines": 0,
+   "n": 21,
+   "splits": {
+    "holdout": 21
+   }
+  },
+  "hard_holdout::profile_guided_optimization": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 14
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 14
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 14
+   },
+   "min_lines": 0,
+   "n": 14,
+   "splits": {
+    "holdout": 14
+   }
+  },
+  "hard_holdout::ps_file_admin": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 22
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "powershell": 22
+   },
+   "max_lines": 0,
+   "methods": {
+    "static_check": 22
+   },
+   "min_lines": 0,
+   "n": 22,
+   "splits": {
+    "holdout": 22
+   }
+  },
+  "hard_holdout::ps_module_project": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 70
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "powershell": 70
+   },
+   "max_lines": 0,
+   "methods": {
+    "static_check": 70
+   },
+   "min_lines": 0,
+   "n": 70,
+   "splits": {
+    "holdout": 70
+   }
+  },
+  "hard_holdout::py_concurrency": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 262
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 262
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 262
+   },
+   "min_lines": 0,
+   "n": 262,
+   "splits": {
+    "holdout": 262
+   }
+  },
+  "hard_holdout::py_inventory_ops": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 15
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 15
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 15
+   },
+   "min_lines": 0,
+   "n": 15,
+   "splits": {
+    "holdout": 15
+   }
+  },
+  "hard_holdout::py_log_pipeline": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 48
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 48
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 48
+   },
+   "min_lines": 0,
+   "n": 48,
+   "splits": {
+    "holdout": 48
+   }
+  },
+  "hard_holdout::py_mastery_refactor": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 4
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 4
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 4
+   },
+   "min_lines": 0,
+   "n": 4,
+   "splits": {
+    "holdout": 4
+   }
+  },
+  "hard_holdout::py_project_multifile": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 11
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 11
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 11
+   },
+   "min_lines": 0,
+   "n": 11,
+   "splits": {
+    "holdout": 11
+   }
+  },
+  "hard_holdout::re_disasm_readout": {
+   "avg_chars": 4533.6,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 43
+   },
+   "distinct_norm": 43,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 43
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 43
+   },
+   "min_lines": 0,
+   "n": 43,
+   "splits": {
+    "holdout": 43
+   }
+  },
+  "hard_holdout::re_evidence_conclusion": {
+   "avg_chars": 3240.3,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 30
+   },
+   "distinct_norm": 30,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 30
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 30
+   },
+   "min_lines": 0,
+   "n": 30,
+   "splits": {
+    "holdout": 30
+   }
+  },
+  "hard_holdout::re_tool_selection": {
+   "avg_chars": 1496.3,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 30
+   },
+   "distinct_norm": 30,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 30
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 30
+   },
+   "min_lines": 0,
+   "n": 30,
+   "splits": {
+    "holdout": 30
+   }
+  },
+  "hard_holdout::re_version_diff": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 36
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 36
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 36
+   },
+   "min_lines": 0,
+   "n": 36,
+   "splits": {
+    "holdout": 36
+   }
+  },
+  "hard_holdout::repo_feature_insertion": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 5
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 5
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 5
+   },
+   "min_lines": 0,
+   "n": 5,
+   "splits": {
+    "holdout": 5
+   }
+  },
+  "hard_holdout::rust_ownership_basics": {
+   "avg_chars": 4.0,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 9
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "rust": 9
+   },
+   "max_lines": 0,
+   "methods": {
+    "static_check": 9
+   },
+   "min_lines": 0,
+   "n": 9,
+   "splits": {
+    "holdout": 9
+   }
+  },
+  "hard_holdout::video_defect_locate": {
+   "avg_chars": 2727.9,
+   "avg_lines": 0,
+   "diffs": {
+    "expert": 50
+   },
+   "distinct_norm": 50,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 50
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 50
+   },
+   "min_lines": 0,
+   "n": 50,
+   "splits": {
+    "holdout": 50
+   }
+  },
+  "media.understand::media_audio_analysis": {
+   "avg_chars": 3613.0,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 26,
+    "intermediate": 30
+   },
+   "distinct_norm": 56,
+   "exec_rate": 0.0536,
+   "langs": {
+    "python": 56
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 3,
+    "executed": 53
+   },
+   "min_lines": 0,
+   "n": 56,
+   "splits": {
+    "test": 46,
+    "train": 10
+   }
+  },
+  "media.understand::media_determinism": {
+   "avg_chars": 2864.0,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 1
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 1
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 1
+   },
+   "min_lines": 0,
+   "n": 1,
+   "splits": {
+    "train": 1
+   }
+  },
+  "media.understand::media_frame_renderer": {
+   "avg_chars": 2689.0,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 2,
+    "intermediate": 10
+   },
+   "distinct_norm": 12,
+   "exec_rate": 0.6667,
+   "langs": {
+    "python": 12
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 8,
+    "executed": 4
+   },
+   "min_lines": 0,
+   "n": 12,
+   "splits": {
+    "test": 1,
+    "train": 10,
+    "validation": 1
+   }
+  },
+  "media.understand::media_glsl_shaders": {
+   "avg_chars": 1861.2,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 9
+   },
+   "distinct_norm": 9,
+   "exec_rate": 0.0,
+   "langs": {
+    "glsl": 9
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 9
+   },
+   "min_lines": 0,
+   "n": 9,
+   "splits": {
+    "train": 9
+   }
+  },
+  "media.understand::media_mv_karaoke": {
+   "avg_chars": 3221.8,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 82,
+    "intermediate": 32
+   },
+   "distinct_norm": 114,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 114
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 114
+   },
+   "min_lines": 0,
+   "n": 114,
+   "splits": {
+    "test": 82,
+    "train": 32
+   }
+  },
+  "media.understand::media_mv_scene_engine": {
+   "avg_chars": 2577.6,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 33
+   },
+   "distinct_norm": 33,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 33
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 33
+   },
+   "min_lines": 0,
+   "n": 33,
+   "splits": {
+    "train": 33
+   }
+  },
+  "media.understand::media_pipeline_reasoning": {
+   "avg_chars": 1351.0,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 2
+   },
+   "distinct_norm": 2,
+   "exec_rate": 0.0,
+   "langs": {
+    "glsl": 1,
+    "python": 1
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 2
+   },
+   "min_lines": 0,
+   "n": 2,
+   "splits": {
+    "train": 2
+   }
+  },
+  "media.understand::media_project_multifile": {
+   "avg_chars": 5835.0,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 4
+   },
+   "distinct_norm": 4,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 4
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 4
+   },
+   "min_lines": 0,
+   "n": 4,
+   "splits": {
+    "train": 4
+   }
+  },
+  "media.understand::media_timeline_easing": {
+   "avg_chars": 3306.6,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 15,
+    "beginner": 8,
+    "intermediate": 43
+   },
+   "distinct_norm": 66,
+   "exec_rate": 0.2576,
+   "langs": {
+    "python": 66
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 17,
+    "executed": 49
+   },
+   "min_lines": 0,
+   "n": 66,
+   "splits": {
+    "train": 66
+   }
+  },
+  "media.understand::media_ts_logic": {
+   "avg_chars": 2546.0,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 2
+   },
+   "distinct_norm": 2,
+   "exec_rate": 1.0,
+   "langs": {
+    "typescript": 2
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 2
+   },
+   "min_lines": 0,
+   "n": 2,
+   "splits": {
+    "train": 2
+   }
+  },
+  "media.understand::mv_frameidx_pitfall": {
+   "avg_chars": 1639.9,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 64
+   },
+   "distinct_norm": 64,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 64
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 64
+   },
+   "min_lines": 0,
+   "n": 64,
+   "splits": {
+    "test": 8,
+    "train": 49,
+    "validation": 7
+   }
+  },
+  "media.understand::mv_palette_propagation": {
+   "avg_chars": 2595.7,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 67
+   },
+   "distinct_norm": 67,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 67
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 67
+   },
+   "min_lines": 0,
+   "n": 67,
+   "splits": {
+    "train": 67
+   }
+  },
+  "media.understand::video_defect_locate": {
+   "avg_chars": 2726.6,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 45
+   },
+   "distinct_norm": 45,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 45
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 45
+   },
+   "min_lines": 0,
+   "n": 45,
+   "splits": {
+    "train": 45
+   }
+  },
+  "media.understand::video_review_verdict": {
+   "avg_chars": 1892.7,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 47,
+    "intermediate": 47
+   },
+   "distinct_norm": 94,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 94
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 94
+   },
+   "min_lines": 0,
+   "n": 94,
+   "splits": {
+    "train": 70,
+    "validation": 24
+   }
+  },
+  "media.understand::video_timeline_readout": {
+   "avg_chars": 1520.0,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 46,
+    "intermediate": 42
+   },
+   "distinct_norm": 88,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 88
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 88
+   },
+   "min_lines": 0,
+   "n": 88,
+   "splits": {
+    "train": 88
+   }
+  },
+  "media.write::media_audio_analysis": {
+   "avg_chars": 425.9,
+   "avg_lines": 15.4,
+   "diffs": {
+    "advanced": 113,
+    "intermediate": 105
+   },
+   "distinct_norm": 3,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 218
+   },
+   "max_lines": 17,
+   "methods": {
+    "executed": 218
+   },
+   "min_lines": 12,
+   "n": 218,
+   "splits": {
+    "train": 218
+   }
+  },
+  "media.write::media_frame_renderer": {
+   "avg_chars": 481.2,
+   "avg_lines": 15.9,
+   "diffs": {
+    "advanced": 4,
+    "intermediate": 5
+   },
+   "distinct_norm": 8,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 9
+   },
+   "max_lines": 17,
+   "methods": {
+    "executed": 9
+   },
+   "min_lines": 14,
+   "n": 9,
+   "splits": {
+    "train": 9
+   }
+  },
+  "media.write::media_glsl_shaders": {
+   "avg_chars": 341.5,
+   "avg_lines": 16.2,
+   "diffs": {
+    "advanced": 5,
+    "intermediate": 5
+   },
+   "distinct_norm": 10,
+   "exec_rate": 0.0,
+   "langs": {
+    "glsl": 10
+   },
+   "max_lines": 17,
+   "methods": {
+    "static_check": 10
+   },
+   "min_lines": 15,
+   "n": 10,
+   "splits": {
+    "test": 1,
+    "train": 9
+   }
+  },
+  "media.write::media_mv_karaoke": {
+   "avg_chars": 859.9,
+   "avg_lines": 25.9,
+   "diffs": {
+    "advanced": 74,
+    "intermediate": 59
+   },
+   "distinct_norm": 133,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 133
+   },
+   "max_lines": 36,
+   "methods": {
+    "executed": 133
+   },
+   "min_lines": 14,
+   "n": 133,
+   "splits": {
+    "test": 61,
+    "train": 72
+   }
+  },
+  "media.write::media_mv_line_batch": {
+   "avg_chars": 1597.6,
+   "avg_lines": 34.0,
+   "diffs": {
+    "advanced": 51,
+    "intermediate": 31
+   },
+   "distinct_norm": 82,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 82
+   },
+   "max_lines": 34,
+   "methods": {
+    "executed": 82
+   },
+   "min_lines": 34,
+   "n": 82,
+   "splits": {
+    "train": 82
+   }
+  },
+  "media.write::media_mv_post_chain": {
+   "avg_chars": 3100.5,
+   "avg_lines": 105.0,
+   "diffs": {
+    "advanced": 38,
+    "intermediate": 43
+   },
+   "distinct_norm": 81,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 81
+   },
+   "max_lines": 105,
+   "methods": {
+    "executed": 81
+   },
+   "min_lines": 105,
+   "n": 81,
+   "splits": {
+    "train": 81
+   }
+  },
+  "media.write::media_mv_project": {
+   "avg_chars": 4723.4,
+   "avg_lines": 168.0,
+   "diffs": {
+    "advanced": 30
+   },
+   "distinct_norm": 30,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 30
+   },
+   "max_lines": 168,
+   "methods": {
+    "executed": 30
+   },
+   "min_lines": 168,
+   "n": 30,
+   "splits": {
+    "train": 30
+   }
+  },
+  "media.write::media_mv_scene_engine": {
+   "avg_chars": 477.4,
+   "avg_lines": 17.3,
+   "diffs": {
+    "advanced": 23,
+    "intermediate": 33
+   },
+   "distinct_norm": 44,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 56
+   },
+   "max_lines": 29,
+   "methods": {
+    "executed": 56
+   },
+   "min_lines": 15,
+   "n": 56,
+   "splits": {
+    "train": 36,
+    "validation": 20
+   }
+  },
+  "media.write::media_mv_shot_reads": {
+   "avg_chars": 1538.2,
+   "avg_lines": 39.0,
+   "diffs": {
+    "advanced": 33,
+    "intermediate": 34
+   },
+   "distinct_norm": 67,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 67
+   },
+   "max_lines": 39,
+   "methods": {
+    "executed": 67
+   },
+   "min_lines": 39,
+   "n": 67,
+   "splits": {
+    "train": 67
+   }
+  },
+  "media.write::media_project_multifile": {
+   "avg_chars": 2116.0,
+   "avg_lines": 90.3,
+   "diffs": {
+    "advanced": 3
+   },
+   "distinct_norm": 3,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 3
+   },
+   "max_lines": 91,
+   "methods": {
+    "executed": 3
+   },
+   "min_lines": 90,
+   "n": 3,
+   "splits": {
+    "train": 3
+   }
+  },
+  "media.write::media_render_verify": {
+   "avg_chars": 2992.2,
+   "avg_lines": 38.5,
+   "diffs": {
+    "advanced": 20
+   },
+   "distinct_norm": 20,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 20
+   },
+   "max_lines": 69,
+   "methods": {
+    "executed": 20
+   },
+   "min_lines": 22,
+   "n": 20,
+   "splits": {
+    "train": 20
+   }
+  },
+  "media.write::media_timeline_easing": {
+   "avg_chars": 438.1,
+   "avg_lines": 14.8,
+   "diffs": {
+    "advanced": 45,
+    "beginner": 49,
+    "intermediate": 45
+   },
+   "distinct_norm": 122,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 139
+   },
+   "max_lines": 19,
+   "methods": {
+    "executed": 139
+   },
+   "min_lines": 14,
+   "n": 139,
+   "splits": {
+    "train": 139
+   }
+  },
+  "media.write::media_ts_beat_grid": {
+   "avg_chars": 1173.8,
+   "avg_lines": 35.9,
+   "diffs": {
+    "advanced": 29,
+    "intermediate": 54
+   },
+   "distinct_norm": 43,
+   "exec_rate": 1.0,
+   "langs": {
+    "typescript": 83
+   },
+   "max_lines": 36,
+   "methods": {
+    "executed": 83
+   },
+   "min_lines": 35,
+   "n": 83,
+   "splits": {
+    "train": 83
+   }
+  },
+  "media.write::media_ts_deterministic_render": {
+   "avg_chars": 1163.1,
+   "avg_lines": 36.5,
+   "diffs": {
+    "advanced": 51,
+    "intermediate": 58
+   },
+   "distinct_norm": 6,
+   "exec_rate": 1.0,
+   "langs": {
+    "typescript": 109
+   },
+   "max_lines": 41,
+   "methods": {
+    "executed": 109
+   },
+   "min_lines": 32,
+   "n": 109,
+   "splits": {
+    "train": 109
+   }
+  },
+  "media.write::media_ts_logic": {
+   "avg_chars": 802.2,
+   "avg_lines": 29.5,
+   "diffs": {
+    "advanced": 3,
+    "intermediate": 1
+   },
+   "distinct_norm": 2,
+   "exec_rate": 1.0,
+   "langs": {
+    "typescript": 4
+   },
+   "max_lines": 33,
+   "methods": {
+    "executed": 4
+   },
+   "min_lines": 19,
+   "n": 4,
+   "splits": {
+    "train": 4
+   }
+  },
+  "media.write::media_ts_motion_rules": {
+   "avg_chars": 2376.3,
+   "avg_lines": 38.0,
+   "diffs": {
+    "advanced": 59,
+    "intermediate": 50
+   },
+   "distinct_norm": 109,
+   "exec_rate": 1.0,
+   "langs": {
+    "typescript": 109
+   },
+   "max_lines": 38,
+   "methods": {
+    "executed": 109
+   },
+   "min_lines": 38,
+   "n": 109,
+   "splits": {
+    "test": 109
+   }
+  },
+  "media.write::media_ts_theme": {
+   "avg_chars": 3748.9,
+   "avg_lines": 24.6,
+   "diffs": {
+    "advanced": 57,
+    "intermediate": 40
+   },
+   "distinct_norm": 97,
+   "exec_rate": 1.0,
+   "langs": {
+    "typescript": 97
+   },
+   "max_lines": 30,
+   "methods": {
+    "executed": 97
+   },
+   "min_lines": 21,
+   "n": 97,
+   "splits": {
+    "train": 97
+   }
+  },
+  "reverse_engineering.understand::re_disasm_readout": {
+   "avg_chars": 4491.3,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 175
+   },
+   "distinct_norm": 175,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 175
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 175
+   },
+   "min_lines": 0,
+   "n": 175,
+   "splits": {
+    "test": 175
+   }
+  },
+  "reverse_engineering.understand::re_evidence_conclusion": {
+   "avg_chars": 3161.8,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 145
+   },
+   "distinct_norm": 145,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 145
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 145
+   },
+   "min_lines": 0,
+   "n": 145,
+   "splits": {
+    "train": 145
+   }
+  },
+  "reverse_engineering.understand::re_tool_selection": {
+   "avg_chars": 1464.7,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 143
+   },
+   "distinct_norm": 143,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 143
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 143
+   },
+   "min_lines": 0,
+   "n": 143,
+   "splits": {
+    "validation": 143
+   }
+  },
+  "reverse_engineering.write::re_blackbox_reimpl": {
+   "avg_chars": 268.6,
+   "avg_lines": 9.5,
+   "diffs": {
+    "advanced": 55,
+    "expert": 90
+   },
+   "distinct_norm": 138,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 145
+   },
+   "max_lines": 12,
+   "methods": {
+    "executed": 145
+   },
+   "min_lines": 8,
+   "n": 145,
+   "splits": {
+    "test": 36,
+    "train": 109
+   }
+  },
+  "reverse_engineering.write::re_disasm_analysis": {
+   "avg_chars": 661.1,
+   "avg_lines": 23.0,
+   "diffs": {
+    "advanced": 38,
+    "intermediate": 63
+   },
+   "distinct_norm": 4,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 101
+   },
+   "max_lines": 26,
+   "methods": {
+    "executed": 101
+   },
+   "min_lines": 20,
+   "n": 101,
+   "splits": {
+    "train": 75,
+    "validation": 26
+   }
+  },
+  "reverse_engineering.write::re_elf_parser": {
+   "avg_chars": 1136.6,
+   "avg_lines": 27.6,
+   "diffs": {
+    "advanced": 129,
+    "intermediate": 70
+   },
+   "distinct_norm": 3,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 199
+   },
+   "max_lines": 39,
+   "methods": {
+    "executed": 199
+   },
+   "min_lines": 22,
+   "n": 199,
+   "splits": {
+    "test": 57,
+    "train": 142
+   }
+  },
+  "reverse_engineering.write::re_strings_decode": {
+   "avg_chars": 311.7,
+   "avg_lines": 10.7,
+   "diffs": {
+    "advanced": 67,
+    "intermediate": 56
+   },
+   "distinct_norm": 108,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 123
+   },
+   "max_lines": 13,
+   "methods": {
+    "executed": 123
+   },
+   "min_lines": 8,
+   "n": 123,
+   "splits": {
+    "train": 123
+   }
+  },
+  "reverse_engineering.write::re_version_diff": {
+   "avg_chars": 332.3,
+   "avg_lines": 10.5,
+   "diffs": {
+    "advanced": 32,
+    "expert": 54
+   },
+   "distinct_norm": 84,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 86
+   },
+   "max_lines": 11,
+   "methods": {
+    "executed": 86
+   },
+   "min_lines": 10,
+   "n": 86,
+   "splits": {
+    "train": 86
+   }
+  },
+  "understand::arch_projects": {
+   "avg_chars": 4705.5,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 50
+   },
+   "distinct_norm": 50,
+   "exec_rate": 0.0,
+   "langs": {
+    "bash": 11,
+    "c": 5,
+    "cpp": 15,
+    "javascript": 13,
+    "python": 3,
+    "typescript": 3
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 50
+   },
+   "min_lines": 0,
+   "n": 50,
+   "splits": {
+    "test": 26,
+    "train": 6,
+    "validation": 18
+   }
+  },
+  "understand::bash_ops_scripts": {
+   "avg_chars": 1425.7,
+   "avg_lines": 0,
+   "diffs": {
+    "beginner": 5,
+    "intermediate": 4
+   },
+   "distinct_norm": 9,
+   "exec_rate": 1.0,
+   "langs": {
+    "bash": 9
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 9
+   },
+   "min_lines": 0,
+   "n": 9,
+   "splits": {
+    "train": 9
+   }
+  },
+  "understand::bash_project_multifile": {
+   "avg_chars": 2736.1,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 9
+   },
+   "distinct_norm": 9,
+   "exec_rate": 1.0,
+   "langs": {
+    "bash": 9
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 9
+   },
+   "min_lines": 0,
+   "n": 9,
+   "splits": {
+    "validation": 9
+   }
+  },
+  "understand::c_bank_wrappers": {
+   "avg_chars": 5168.8,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 40,
+    "beginner": 1,
+    "intermediate": 86
+   },
+   "distinct_norm": 127,
+   "exec_rate": 0.0157,
+   "langs": {
+    "c": 127
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 2,
+    "executed": 125
+   },
+   "min_lines": 0,
+   "n": 127,
+   "splits": {
+    "train": 127
+   }
+  },
+  "understand::c_bitops": {
+   "avg_chars": 1404.0,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 1
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "c": 1
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 1
+   },
+   "min_lines": 0,
+   "n": 1,
+   "splits": {
+    "test": 1
+   }
+  },
+  "understand::c_pointers_memory": {
+   "avg_chars": 4723.7,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 33,
+    "expert": 19,
+    "intermediate": 39
+   },
+   "distinct_norm": 91,
+   "exec_rate": 0.033,
+   "langs": {
+    "c": 91
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 3,
+    "executed": 88
+   },
+   "min_lines": 0,
+   "n": 91,
+   "splits": {
+    "train": 88,
+    "validation": 3
+   }
+  },
+  "understand::c_project_multifile": {
+   "avg_chars": 2663.9,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 14
+   },
+   "distinct_norm": 14,
+   "exec_rate": 1.0,
+   "langs": {
+    "c": 14
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 14
+   },
+   "min_lines": 0,
+   "n": 14,
+   "splits": {
+    "validation": 14
+   }
+  },
+  "understand::c_strings": {
+   "avg_chars": 1303.7,
+   "avg_lines": 0,
+   "diffs": {
+    "beginner": 2,
+    "intermediate": 1
+   },
+   "distinct_norm": 3,
+   "exec_rate": 1.0,
+   "langs": {
+    "c": 3
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 3
+   },
+   "min_lines": 0,
+   "n": 3,
+   "splits": {
+    "train": 3
+   }
+  },
+  "understand::compare_binsearch": {
+   "avg_chars": 1970.6,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 148
+   },
+   "distinct_norm": 148,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 148
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 148
+   },
+   "min_lines": 0,
+   "n": 148,
+   "splits": {
+    "train": 148
+   }
+  },
+  "understand::compare_two_sum": {
+   "avg_chars": 2216.2,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 111
+   },
+   "distinct_norm": 111,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 111
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 111
+   },
+   "min_lines": 0,
+   "n": 111,
+   "splits": {
+    "train": 111
+   }
+  },
+  "understand::complexity_bank": {
+   "avg_chars": 1732.8,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 8,
+    "intermediate": 20
+   },
+   "distinct_norm": 28,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 28
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 28
+   },
+   "min_lines": 0,
+   "n": 28,
+   "splits": {
+    "test": 2,
+    "train": 22,
+    "validation": 4
+   }
+  },
+  "understand::cpp_bank_wrappers": {
+   "avg_chars": 4361.7,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 21,
+    "intermediate": 40
+   },
+   "distinct_norm": 61,
+   "exec_rate": 0.0492,
+   "langs": {
+    "cpp": 61
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 3,
+    "executed": 58
+   },
+   "min_lines": 0,
+   "n": 61,
+   "splits": {
+    "train": 61
+   }
+  },
+  "understand::cpp_parsing": {
+   "avg_chars": 3374.7,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 90,
+    "intermediate": 90
+   },
+   "distinct_norm": 180,
+   "exec_rate": 0.0056,
+   "langs": {
+    "cpp": 180
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 1,
+    "executed": 179
+   },
+   "min_lines": 0,
+   "n": 180,
+   "splits": {
+    "test": 179,
+    "train": 1
+   }
+  },
+  "understand::cpp_project_multifile": {
+   "avg_chars": 3981.4,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 19
+   },
+   "distinct_norm": 19,
+   "exec_rate": 1.0,
+   "langs": {
+    "cpp": 19
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 19
+   },
+   "min_lines": 0,
+   "n": 19,
+   "splits": {
+    "train": 19
+   }
+  },
+  "understand::cpp_raii_classes": {
+   "avg_chars": 2630.0,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 1
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "cpp": 1
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 1
+   },
+   "min_lines": 0,
+   "n": 1,
+   "splits": {
+    "train": 1
+   }
+  },
+  "understand::cpp_stl_containers": {
+   "avg_chars": 2867.6,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 44,
+    "expert": 32,
+    "intermediate": 46
+   },
+   "distinct_norm": 122,
+   "exec_rate": 0.0246,
+   "langs": {
+    "cpp": 122
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 3,
+    "executed": 119
+   },
+   "min_lines": 0,
+   "n": 122,
+   "splits": {
+    "test": 3,
+    "train": 119
+   }
+  },
+  "understand::css_animations_states": {
+   "avg_chars": 3781.8,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 20
+   },
+   "distinct_norm": 20,
+   "exec_rate": 0.0,
+   "langs": {
+    "css": 20
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 16,
+    "executed": 4
+   },
+   "min_lines": 0,
+   "n": 20,
+   "splits": {
+    "train": 4,
+    "validation": 16
+   }
+  },
+  "understand::css_layout_flexgrid": {
+   "avg_chars": 3947.7,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 15
+   },
+   "distinct_norm": 15,
+   "exec_rate": 0.0,
+   "langs": {
+    "css": 15
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 15
+   },
+   "min_lines": 0,
+   "n": 15,
+   "splits": {
+    "validation": 15
+   }
+  },
+  "understand::css_responsive_themes": {
+   "avg_chars": 4047.3,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 7
+   },
+   "distinct_norm": 7,
+   "exec_rate": 0.0,
+   "langs": {
+    "css": 7
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 7
+   },
+   "min_lines": 0,
+   "n": 7,
+   "splits": {
+    "train": 7
+   }
+  },
+  "understand::evidence_self_audit": {
+   "avg_chars": 1554.7,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 4,
+    "intermediate": 8
+   },
+   "distinct_norm": 12,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 12
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 12
+   },
+   "min_lines": 0,
+   "n": 12,
+   "splits": {
+    "test": 1,
+    "train": 9,
+    "validation": 2
+   }
+  },
+  "understand::failpred_bank": {
+   "avg_chars": 1496.0,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 14
+   },
+   "distinct_norm": 14,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 14
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 14
+   },
+   "min_lines": 0,
+   "n": 14,
+   "splits": {
+    "train": 14
+   }
+  },
+  "understand::go_concurrency_patterns": {
+   "avg_chars": 4425.4,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 13
+   },
+   "distinct_norm": 13,
+   "exec_rate": 0.0,
+   "langs": {
+    "go": 13
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 13
+   },
+   "min_lines": 0,
+   "n": 13,
+   "splits": {
+    "train": 13
+   }
+  },
+  "understand::go_errors_interfaces": {
+   "avg_chars": 4889.8,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 6
+   },
+   "distinct_norm": 6,
+   "exec_rate": 0.0,
+   "langs": {
+    "go": 6
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 6
+   },
+   "min_lines": 0,
+   "n": 6,
+   "splits": {
+    "train": 6
+   }
+  },
+  "understand::go_project_multifile": {
+   "avg_chars": 7290.0,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 12
+   },
+   "distinct_norm": 12,
+   "exec_rate": 0.0,
+   "langs": {
+    "go": 12
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 12
+   },
+   "min_lines": 0,
+   "n": 12,
+   "splits": {
+    "train": 12
+   }
+  },
+  "understand::html_data_tables": {
+   "avg_chars": 4396.9,
+   "avg_lines": 0,
+   "diffs": {
+    "beginner": 5,
+    "intermediate": 9
+   },
+   "distinct_norm": 14,
+   "exec_rate": 0.0,
+   "langs": {
+    "html": 14
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 14
+   },
+   "min_lines": 0,
+   "n": 14,
+   "splits": {
+    "train": 14
+   }
+  },
+  "understand::html_forms_a11y": {
+   "avg_chars": 4189.2,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 46
+   },
+   "distinct_norm": 46,
+   "exec_rate": 0.0,
+   "langs": {
+    "html": 46
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 13,
+    "executed": 33
+   },
+   "min_lines": 0,
+   "n": 46,
+   "splits": {
+    "train": 33,
+    "validation": 13
+   }
+  },
+  "understand::html_semantic_pages": {
+   "avg_chars": 5542.4,
+   "avg_lines": 0,
+   "diffs": {
+    "beginner": 13,
+    "intermediate": 7
+   },
+   "distinct_norm": 20,
+   "exec_rate": 0.0,
+   "langs": {
+    "html": 20
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 20
+   },
+   "min_lines": 0,
+   "n": 20,
+   "splits": {
+    "train": 20
+   }
+  },
+  "understand::iterative_repair": {
+   "avg_chars": 2949.8,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 37
+   },
+   "distinct_norm": 37,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 37
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 37
+   },
+   "min_lines": 0,
+   "n": 37,
+   "splits": {
+    "test": 5,
+    "train": 30,
+    "validation": 2
+   }
+  },
+  "understand::java_collections": {
+   "avg_chars": 2308.5,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 4
+   },
+   "distinct_norm": 4,
+   "exec_rate": 0.0,
+   "langs": {
+    "java": 4
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 4
+   },
+   "min_lines": 0,
+   "n": 4,
+   "splits": {
+    "train": 4
+   }
+  },
+  "understand::java_oop": {
+   "avg_chars": 2666.4,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 14
+   },
+   "distinct_norm": 14,
+   "exec_rate": 0.0,
+   "langs": {
+    "java": 14
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 14
+   },
+   "min_lines": 0,
+   "n": 14,
+   "splits": {
+    "test": 14
+   }
+  },
+  "understand::java_project_multifile": {
+   "avg_chars": 2776.2,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 16
+   },
+   "distinct_norm": 16,
+   "exec_rate": 0.0,
+   "langs": {
+    "java": 16
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 16
+   },
+   "min_lines": 0,
+   "n": 16,
+   "splits": {
+    "train": 16
+   }
+  },
+  "understand::js_array_transforms": {
+   "avg_chars": 4405.7,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 194
+   },
+   "distinct_norm": 194,
+   "exec_rate": 0.0464,
+   "langs": {
+    "javascript": 194
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 9,
+    "executed": 185
+   },
+   "min_lines": 0,
+   "n": 194,
+   "splits": {
+    "train": 174,
+    "validation": 20
+   }
+  },
+  "understand::js_async_patterns": {
+   "avg_chars": 2562.8,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 13
+   },
+   "distinct_norm": 13,
+   "exec_rate": 1.0,
+   "langs": {
+    "javascript": 13
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 13
+   },
+   "min_lines": 0,
+   "n": 13,
+   "splits": {
+    "train": 13
+   }
+  },
+  "understand::js_bank_wrappers": {
+   "avg_chars": 5803.0,
+   "avg_lines": 0,
+   "diffs": {
+    "beginner": 1,
+    "intermediate": 86
+   },
+   "distinct_norm": 87,
+   "exec_rate": 0.0575,
+   "langs": {
+    "javascript": 87
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 5,
+    "executed": 82
+   },
+   "min_lines": 0,
+   "n": 87,
+   "splits": {
+    "test": 12,
+    "train": 75
+   }
+  },
+  "understand::js_project_multifile": {
+   "avg_chars": 5453.0,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 13
+   },
+   "distinct_norm": 13,
+   "exec_rate": 1.0,
+   "langs": {
+    "javascript": 13
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 13
+   },
+   "min_lines": 0,
+   "n": 13,
+   "splits": {
+    "train": 13
+   }
+  },
+  "understand::js_web_http": {
+   "avg_chars": 3792.2,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 9
+   },
+   "distinct_norm": 9,
+   "exec_rate": 1.0,
+   "langs": {
+    "javascript": 9
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 9
+   },
+   "min_lines": 0,
+   "n": 9,
+   "splits": {
+    "train": 9
+   }
+  },
+  "understand::language_selection": {
+   "avg_chars": 1284.4,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 33
+   },
+   "distinct_norm": 33,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 33
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 33
+   },
+   "min_lines": 0,
+   "n": 33,
+   "splits": {
+    "test": 9,
+    "train": 24
+   }
+  },
+  "understand::mastery_principles": {
+   "avg_chars": 2316.2,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 32
+   },
+   "distinct_norm": 32,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 32
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 32
+   },
+   "min_lines": 0,
+   "n": 32,
+   "splits": {
+    "test": 3,
+    "train": 28,
+    "validation": 1
+   }
+  },
+  "understand::optimize_fibonacci": {
+   "avg_chars": 1514.0,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 44
+   },
+   "distinct_norm": 44,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 44
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 44
+   },
+   "min_lines": 0,
+   "n": 44,
+   "splits": {
+    "train": 44
+   }
+  },
+  "understand::optimize_sql_correlated": {
+   "avg_chars": 2144.3,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 90
+   },
+   "distinct_norm": 90,
+   "exec_rate": 0.0,
+   "langs": {
+    "sql": 90
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 90
+   },
+   "min_lines": 0,
+   "n": 90,
+   "splits": {
+    "train": 90
+   }
+  },
+  "understand::optimize_two_sum": {
+   "avg_chars": 1890.5,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 69
+   },
+   "distinct_norm": 69,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 69
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 69
+   },
+   "min_lines": 0,
+   "n": 69,
+   "splits": {
+    "validation": 69
+   }
+  },
+  "understand::optimize_word_freq": {
+   "avg_chars": 1777.9,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 82
+   },
+   "distinct_norm": 82,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 82
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 82
+   },
+   "min_lines": 0,
+   "n": 82,
+   "splits": {
+    "train": 82
+   }
+  },
+  "understand::php_arrays_strings": {
+   "avg_chars": 2774.7,
+   "avg_lines": 0,
+   "diffs": {
+    "beginner": 3,
+    "intermediate": 3
+   },
+   "distinct_norm": 6,
+   "exec_rate": 0.0,
+   "langs": {
+    "php": 6
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 5,
+    "executed": 1
+   },
+   "min_lines": 0,
+   "n": 6,
+   "splits": {
+    "train": 6
+   }
+  },
+  "understand::php_pdo_defensive": {
+   "avg_chars": 3535.2,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 6
+   },
+   "distinct_norm": 6,
+   "exec_rate": 0.0,
+   "langs": {
+    "php": 6
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 5,
+    "executed": 1
+   },
+   "min_lines": 0,
+   "n": 6,
+   "splits": {
+    "train": 6
+   }
+  },
+  "understand::php_project_multifile": {
+   "avg_chars": 6879.2,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 16
+   },
+   "distinct_norm": 16,
+   "exec_rate": 0.0,
+   "langs": {
+    "php": 16
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 16
+   },
+   "min_lines": 0,
+   "n": 16,
+   "splits": {
+    "train": 16
+   }
+  },
+  "understand::ps_file_admin": {
+   "avg_chars": 3679.8,
+   "avg_lines": 0,
+   "diffs": {
+    "beginner": 2,
+    "intermediate": 11
+   },
+   "distinct_norm": 13,
+   "exec_rate": 0.0,
+   "langs": {
+    "powershell": 13
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 13
+   },
+   "min_lines": 0,
+   "n": 13,
+   "splits": {
+    "train": 13
+   }
+  },
+  "understand::ps_json_reporting": {
+   "avg_chars": 3806.6,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 13
+   },
+   "distinct_norm": 13,
+   "exec_rate": 0.0,
+   "langs": {
+    "powershell": 13
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 13
+   },
+   "min_lines": 0,
+   "n": 13,
+   "splits": {
+    "validation": 13
+   }
+  },
+  "understand::ps_module_project": {
+   "avg_chars": 7585.5,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 19
+   },
+   "distinct_norm": 19,
+   "exec_rate": 0.0,
+   "langs": {
+    "powershell": 19
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 19
+   },
+   "min_lines": 0,
+   "n": 19,
+   "splits": {
+    "train": 19
+   }
+  },
+  "understand::py_bank_algorithms": {
+   "avg_chars": 4514.0,
+   "avg_lines": 0,
+   "diffs": {
+    "beginner": 2,
+    "intermediate": 99
+   },
+   "distinct_norm": 101,
+   "exec_rate": 0.0396,
+   "langs": {
+    "python": 101
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 5,
+    "executed": 96
+   },
+   "min_lines": 0,
+   "n": 101,
+   "splits": {
+    "test": 11,
+    "train": 77,
+    "validation": 13
+   }
+  },
+  "understand::py_concurrency": {
+   "avg_chars": 2164.0,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 4
+   },
+   "distinct_norm": 4,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 4
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 4
+   },
+   "min_lines": 0,
+   "n": 4,
+   "splits": {
+    "validation": 4
+   }
+  },
+  "understand::py_data_statistics": {
+   "avg_chars": 1697.8,
+   "avg_lines": 0,
+   "diffs": {
+    "beginner": 4,
+    "intermediate": 12
+   },
+   "distinct_norm": 16,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 16
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 16
+   },
+   "min_lines": 0,
+   "n": 16,
+   "splits": {
+    "train": 16
+   }
+  },
+  "understand::py_files_logs": {
+   "avg_chars": 1481.9,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 9
+   },
+   "distinct_norm": 9,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 9
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 9
+   },
+   "min_lines": 0,
+   "n": 9,
+   "splits": {
+    "train": 9
+   }
+  },
+  "understand::py_project_multifile": {
+   "avg_chars": 5180.2,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 13
+   },
+   "distinct_norm": 13,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 13
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 13
+   },
+   "min_lines": 0,
+   "n": 13,
+   "splits": {
+    "train": 13
+   }
+  },
+  "understand::py_security_defensive": {
+   "avg_chars": 1928.5,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 4
+   },
+   "distinct_norm": 4,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 4
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 4
+   },
+   "min_lines": 0,
+   "n": 4,
+   "splits": {
+    "train": 4
+   }
+  },
+  "understand::py_text_processing": {
+   "avg_chars": 1476.9,
+   "avg_lines": 0,
+   "diffs": {
+    "beginner": 1,
+    "intermediate": 10
+   },
+   "distinct_norm": 11,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 11
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 11
+   },
+   "min_lines": 0,
+   "n": 11,
+   "splits": {
+    "validation": 11
+   }
+  },
+  "understand::refactor_decompose": {
+   "avg_chars": 2078.3,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 124
+   },
+   "distinct_norm": 124,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 124
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 124
+   },
+   "min_lines": 0,
+   "n": 124,
+   "splits": {
+    "train": 124
+   }
+  },
+  "understand::refactor_sql_join": {
+   "avg_chars": 1373.8,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 5
+   },
+   "distinct_norm": 5,
+   "exec_rate": 0.0,
+   "langs": {
+    "sql": 5
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 5
+   },
+   "min_lines": 0,
+   "n": 5,
+   "splits": {
+    "train": 5
+   }
+  },
+  "understand::rust_error_handling": {
+   "avg_chars": 5446.7,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 16
+   },
+   "distinct_norm": 16,
+   "exec_rate": 0.0,
+   "langs": {
+    "rust": 16
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 16
+   },
+   "min_lines": 0,
+   "n": 16,
+   "splits": {
+    "train": 16
+   }
+  },
+  "understand::rust_ownership_basics": {
+   "avg_chars": 3370.4,
+   "avg_lines": 0,
+   "diffs": {
+    "beginner": 6,
+    "intermediate": 11
+   },
+   "distinct_norm": 17,
+   "exec_rate": 0.0,
+   "langs": {
+    "rust": 17
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 17
+   },
+   "min_lines": 0,
+   "n": 17,
+   "splits": {
+    "train": 17
+   }
+  },
+  "understand::rust_project_multifile": {
+   "avg_chars": 6585.9,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 16
+   },
+   "distinct_norm": 16,
+   "exec_rate": 0.0,
+   "langs": {
+    "rust": 16
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 16
+   },
+   "min_lines": 0,
+   "n": 16,
+   "splits": {
+    "train": 16
+   }
+  },
+  "understand::security_sqli": {
+   "avg_chars": 1657.0,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 1
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 1
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 1
+   },
+   "min_lines": 0,
+   "n": 1,
+   "splits": {
+    "train": 1
+   }
+  },
+  "understand::security_traversal": {
+   "avg_chars": 1852.0,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 1
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 1
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 1
+   },
+   "min_lines": 0,
+   "n": 1,
+   "splits": {
+    "train": 1
+   }
+  },
+  "understand::security_weak_hash": {
+   "avg_chars": 1502.0,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 1
+   },
+   "distinct_norm": 1,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 1
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 1
+   },
+   "min_lines": 0,
+   "n": 1,
+   "splits": {
+    "test": 1
+   }
+  },
+  "understand::sql_query_scenarios": {
+   "avg_chars": 1134.8,
+   "avg_lines": 0,
+   "diffs": {
+    "beginner": 2,
+    "intermediate": 6
+   },
+   "distinct_norm": 8,
+   "exec_rate": 0.0,
+   "langs": {
+    "sql": 8
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 8
+   },
+   "min_lines": 0,
+   "n": 8,
+   "splits": {
+    "train": 8
+   }
+  },
+  "understand::testing_bank": {
+   "avg_chars": 4649.6,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 475
+   },
+   "distinct_norm": 475,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 475
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 475
+   },
+   "min_lines": 0,
+   "n": 475,
+   "splits": {
+    "train": 475
+   }
+  },
+  "understand::trace_bank": {
+   "avg_chars": 2199.3,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 309,
+    "intermediate": 91
+   },
+   "distinct_norm": 400,
+   "exec_rate": 0.0,
+   "langs": {
+    "python": 400
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 400
+   },
+   "min_lines": 0,
+   "n": 400,
+   "splits": {
+    "train": 400
+   }
+  },
+  "understand::translate_bank": {
+   "avg_chars": 3104.6,
+   "avg_lines": 0,
+   "diffs": {
+    "advanced": 97
+   },
+   "distinct_norm": 97,
+   "exec_rate": 0.0,
+   "langs": {
+    "c": 13,
+    "cpp": 25,
+    "javascript": 10,
+    "python": 45,
+    "typescript": 4
+   },
+   "max_lines": 0,
+   "methods": {
+    "executed": 97
+   },
+   "min_lines": 0,
+   "n": 97,
+   "splits": {
+    "test": 3,
+    "train": 87,
+    "validation": 7
+   }
+  },
+  "understand::ts_model_validation": {
+   "avg_chars": 2946.6,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 17
+   },
+   "distinct_norm": 17,
+   "exec_rate": 1.0,
+   "langs": {
+    "typescript": 17
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 17
+   },
+   "min_lines": 0,
+   "n": 17,
+   "splits": {
+    "train": 17
+   }
+  },
+  "understand::ts_project_multifile": {
+   "avg_chars": 4472.1,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 10
+   },
+   "distinct_norm": 10,
+   "exec_rate": 1.0,
+   "langs": {
+    "typescript": 10
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 10
+   },
+   "min_lines": 0,
+   "n": 10,
+   "splits": {
+    "train": 10
+   }
+  },
+  "understand::ts_typed_utilities": {
+   "avg_chars": 4829.8,
+   "avg_lines": 0,
+   "diffs": {
+    "intermediate": 167
+   },
+   "distinct_norm": 167,
+   "exec_rate": 0.0359,
+   "langs": {
+    "typescript": 167
+   },
+   "max_lines": 0,
+   "methods": {
+    "authored_verified": 6,
+    "executed": 161
+   },
+   "min_lines": 0,
+   "n": 167,
+   "splits": {
+    "train": 152,
+    "validation": 15
+   }
+  },
+  "write::bash_ops_scripts": {
+   "avg_chars": 199.5,
+   "avg_lines": 6.1,
+   "diffs": {
+    "advanced": 16,
+    "beginner": 23,
+    "intermediate": 14
+   },
+   "distinct_norm": 53,
+   "exec_rate": 1.0,
+   "langs": {
+    "bash": 53
+   },
+   "max_lines": 11,
+   "methods": {
+    "executed": 53
+   },
+   "min_lines": 5,
+   "n": 53,
+   "splits": {
+    "train": 52,
+    "validation": 1
+   }
+  },
+  "write::bash_project_multifile": {
+   "avg_chars": 737.3,
+   "avg_lines": 32.0,
+   "diffs": {
+    "advanced": 7,
+    "expert": 8
+   },
+   "distinct_norm": 15,
+   "exec_rate": 1.0,
+   "langs": {
+    "bash": 15
+   },
+   "max_lines": 32,
+   "methods": {
+    "executed": 15
+   },
+   "min_lines": 32,
+   "n": 15,
+   "splits": {
+    "test": 3,
+    "train": 12
+   }
+  },
+  "write::c_bank_wrappers": {
+   "avg_chars": 413.1,
+   "avg_lines": 15.9,
+   "diffs": {
+    "advanced": 144,
+    "beginner": 126,
+    "intermediate": 164
+   },
+   "distinct_norm": 5,
+   "exec_rate": 1.0,
+   "langs": {
+    "c": 434
+   },
+   "max_lines": 18,
+   "methods": {
+    "compiled_and_executed": 434
+   },
+   "min_lines": 14,
+   "n": 434,
+   "splits": {
+    "train": 434
+   }
+  },
+  "write::c_bitops": {
+   "avg_chars": 180.0,
+   "avg_lines": 11.0,
+   "diffs": {
+    "intermediate": 1
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "c": 1
+   },
+   "max_lines": 11,
+   "methods": {
+    "compiled_and_executed": 1
+   },
+   "min_lines": 11,
+   "n": 1,
+   "splits": {
+    "train": 1
+   }
+  },
+  "write::c_header_guards": {
+   "avg_chars": 789.1,
+   "avg_lines": 58.0,
+   "diffs": {
+    "advanced": 54,
+    "intermediate": 49
+   },
+   "distinct_norm": 103,
+   "exec_rate": 1.0,
+   "langs": {
+    "c": 103
+   },
+   "max_lines": 58,
+   "methods": {
+    "build_executed": 103
+   },
+   "min_lines": 58,
+   "n": 103,
+   "splits": {
+    "train": 103
+   }
+  },
+  "write::c_makefile_repair": {
+   "avg_chars": 1140.7,
+   "avg_lines": 68.0,
+   "diffs": {
+    "advanced": 87
+   },
+   "distinct_norm": 63,
+   "exec_rate": 1.0,
+   "langs": {
+    "c": 87
+   },
+   "max_lines": 69,
+   "methods": {
+    "build_executed": 87
+   },
+   "min_lines": 67,
+   "n": 87,
+   "splits": {
+    "test": 50,
+    "train": 37
+   }
+  },
+  "write::c_pointers_memory": {
+   "avg_chars": 667.5,
+   "avg_lines": 33.8,
+   "diffs": {
+    "advanced": 151,
+    "expert": 159,
+    "intermediate": 133
+   },
+   "distinct_norm": 4,
+   "exec_rate": 1.0,
+   "langs": {
+    "c": 443
+   },
+   "max_lines": 45,
+   "methods": {
+    "compiled_and_executed": 443
+   },
+   "min_lines": 22,
+   "n": 443,
+   "splits": {
+    "test": 154,
+    "train": 289
+   }
+  },
+  "write::c_project_multifile": {
+   "avg_chars": 703.7,
+   "avg_lines": 40.6,
+   "diffs": {
+    "advanced": 214
+   },
+   "distinct_norm": 214,
+   "exec_rate": 1.0,
+   "langs": {
+    "c": 214
+   },
+   "max_lines": 43,
+   "methods": {
+    "compiled_and_executed": 214
+   },
+   "min_lines": 39,
+   "n": 214,
+   "splits": {
+    "validation": 214
+   }
+  },
+  "write::c_strings": {
+   "avg_chars": 221.3,
+   "avg_lines": 10.0,
+   "diffs": {
+    "advanced": 51,
+    "beginner": 58,
+    "intermediate": 50
+   },
+   "distinct_norm": 4,
+   "exec_rate": 1.0,
+   "langs": {
+    "c": 159
+   },
+   "max_lines": 10,
+   "methods": {
+    "compiled_and_executed": 159
+   },
+   "min_lines": 5,
+   "n": 159,
+   "splits": {
+    "train": 159
+   }
+  },
+  "write::c_warning_gate": {
+   "avg_chars": 913.4,
+   "avg_lines": 50.1,
+   "diffs": {
+    "advanced": 191
+   },
+   "distinct_norm": 103,
+   "exec_rate": 1.0,
+   "langs": {
+    "c": 191
+   },
+   "max_lines": 51,
+   "methods": {
+    "build_executed": 191
+   },
+   "min_lines": 49,
+   "n": 191,
+   "splits": {
+    "train": 117,
+    "validation": 74
+   }
+  },
+  "write::cpp_bank_wrappers": {
+   "avg_chars": 427.6,
+   "avg_lines": 14.3,
+   "diffs": {
+    "advanced": 164,
+    "beginner": 162,
+    "intermediate": 163
+   },
+   "distinct_norm": 8,
+   "exec_rate": 1.0,
+   "langs": {
+    "cpp": 489
+   },
+   "max_lines": 15,
+   "methods": {
+    "compiled_and_executed": 489
+   },
+   "min_lines": 13,
+   "n": 489,
+   "splits": {
+    "train": 489
+   }
+  },
+  "write::cpp_parsing": {
+   "avg_chars": 391.6,
+   "avg_lines": 17.0,
+   "diffs": {
+    "advanced": 241,
+    "intermediate": 237
+   },
+   "distinct_norm": 2,
+   "exec_rate": 1.0,
+   "langs": {
+    "cpp": 478
+   },
+   "max_lines": 17,
+   "methods": {
+    "compiled_and_executed": 478
+   },
+   "min_lines": 17,
+   "n": 478,
+   "splits": {
+    "train": 478
+   }
+  },
+  "write::cpp_project_multifile": {
+   "avg_chars": 1353.0,
+   "avg_lines": 43.0,
+   "diffs": {
+    "advanced": 214,
+    "expert": 239
+   },
+   "distinct_norm": 453,
+   "exec_rate": 1.0,
+   "langs": {
+    "cpp": 453
+   },
+   "max_lines": 43,
+   "methods": {
+    "compiled_and_executed": 453
+   },
+   "min_lines": 43,
+   "n": 453,
+   "splits": {
+    "train": 453
+   }
+  },
+  "write::cpp_raii_classes": {
+   "avg_chars": 653.5,
+   "avg_lines": 29.0,
+   "diffs": {
+    "advanced": 2
+   },
+   "distinct_norm": 2,
+   "exec_rate": 1.0,
+   "langs": {
+    "cpp": 2
+   },
+   "max_lines": 29,
+   "methods": {
+    "compiled_and_executed": 2
+   },
+   "min_lines": 29,
+   "n": 2,
+   "splits": {
+    "train": 2
+   }
+  },
+  "write::cpp_stl_containers": {
+   "avg_chars": 293.7,
+   "avg_lines": 10.7,
+   "diffs": {
+    "advanced": 115,
+    "expert": 55,
+    "intermediate": 150
+   },
+   "distinct_norm": 6,
+   "exec_rate": 1.0,
+   "langs": {
+    "cpp": 320
+   },
+   "max_lines": 13,
+   "methods": {
+    "compiled_and_executed": 320
+   },
+   "min_lines": 9,
+   "n": 320,
+   "splits": {
+    "train": 320
+   }
+  },
+  "write::css_animations_states": {
+   "avg_chars": 794.4,
+   "avg_lines": 49.0,
+   "diffs": {
+    "advanced": 182,
+    "intermediate": 202
+   },
+   "distinct_norm": 384,
+   "exec_rate": 0.0,
+   "langs": {
+    "css": 384
+   },
+   "max_lines": 49,
+   "methods": {
+    "static_check": 384
+   },
+   "min_lines": 49,
+   "n": 384,
+   "splits": {
+    "train": 384
+   }
+  },
+  "write::css_layout_flexgrid": {
+   "avg_chars": 850.0,
+   "avg_lines": 56.0,
+   "diffs": {
+    "advanced": 118,
+    "intermediate": 141
+   },
+   "distinct_norm": 259,
+   "exec_rate": 0.0,
+   "langs": {
+    "css": 259
+   },
+   "max_lines": 56,
+   "methods": {
+    "static_check": 259
+   },
+   "min_lines": 56,
+   "n": 259,
+   "splits": {
+    "train": 259
+   }
+  },
+  "write::css_responsive_themes": {
+   "avg_chars": 821.5,
+   "avg_lines": 53.0,
+   "diffs": {
+    "advanced": 74,
+    "intermediate": 59
+   },
+   "distinct_norm": 133,
+   "exec_rate": 0.0,
+   "langs": {
+    "css": 133
+   },
+   "max_lines": 53,
+   "methods": {
+    "static_check": 133
+   },
+   "min_lines": 53,
+   "n": 133,
+   "splits": {
+    "train": 133
+   }
+  },
+  "write::doctest_authoring": {
+   "avg_chars": 1010.4,
+   "avg_lines": 39.7,
+   "diffs": {
+    "advanced": 31,
+    "intermediate": 19
+   },
+   "distinct_norm": 50,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 50
+   },
+   "max_lines": 45,
+   "methods": {
+    "executed": 50
+   },
+   "min_lines": 35,
+   "n": 50,
+   "splits": {
+    "test": 4,
+    "train": 36,
+    "validation": 10
+   }
+  },
+  "write::flaky_test_forensics": {
+   "avg_chars": 382.4,
+   "avg_lines": 10.0,
+   "diffs": {
+    "advanced": 68
+   },
+   "distinct_norm": 2,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 68
+   },
+   "max_lines": 10,
+   "methods": {
+    "executed": 68
+   },
+   "min_lines": 10,
+   "n": 68,
+   "splits": {
+    "train": 62,
+    "validation": 6
+   }
+  },
+  "write::git_merge_conflict": {
+   "avg_chars": 360.3,
+   "avg_lines": 18.0,
+   "diffs": {
+    "advanced": 21
+   },
+   "distinct_norm": 21,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 21
+   },
+   "max_lines": 20,
+   "methods": {
+    "executed": 21
+   },
+   "min_lines": 16,
+   "n": 21,
+   "splits": {
+    "test": 3,
+    "train": 18
+   }
+  },
+  "write::go_concurrency_patterns": {
+   "avg_chars": 1149.4,
+   "avg_lines": 54.5,
+   "diffs": {
+    "advanced": 31,
+    "expert": 39,
+    "intermediate": 39
+   },
+   "distinct_norm": 109,
+   "exec_rate": 0.0,
+   "langs": {
+    "go": 109
+   },
+   "max_lines": 62,
+   "methods": {
+    "static_check": 109
+   },
+   "min_lines": 34,
+   "n": 109,
+   "splits": {
+    "train": 56,
+    "validation": 53
+   }
+  },
+  "write::go_errors_interfaces": {
+   "avg_chars": 1126.3,
+   "avg_lines": 60.1,
+   "diffs": {
+    "advanced": 15,
+    "expert": 2,
+    "intermediate": 13
+   },
+   "distinct_norm": 30,
+   "exec_rate": 0.0,
+   "langs": {
+    "go": 30
+   },
+   "max_lines": 61,
+   "methods": {
+    "static_check": 30
+   },
+   "min_lines": 60,
+   "n": 30,
+   "splits": {
+    "train": 30
+   }
+  },
+  "write::go_project_multifile": {
+   "avg_chars": 2248.9,
+   "avg_lines": 86.0,
+   "diffs": {
+    "advanced": 54,
+    "expert": 63,
+    "intermediate": 36
+   },
+   "distinct_norm": 153,
+   "exec_rate": 0.0,
+   "langs": {
+    "go": 153
+   },
+   "max_lines": 86,
+   "methods": {
+    "static_check": 153
+   },
+   "min_lines": 86,
+   "n": 153,
+   "splits": {
+    "train": 153
+   }
+  },
+  "write::html_data_tables": {
+   "avg_chars": 1130.6,
+   "avg_lines": 49.8,
+   "diffs": {
+    "advanced": 149,
+    "beginner": 141,
+    "intermediate": 140
+   },
+   "distinct_norm": 430,
+   "exec_rate": 0.0,
+   "langs": {
+    "html": 430
+   },
+   "max_lines": 53,
+   "methods": {
+    "static_check": 430
+   },
+   "min_lines": 44,
+   "n": 430,
+   "splits": {
+    "test": 127,
+    "train": 303
+   }
+  },
+  "write::html_forms_a11y": {
+   "avg_chars": 2381.3,
+   "avg_lines": 64.2,
+   "diffs": {
+    "advanced": 208,
+    "intermediate": 237
+   },
+   "distinct_norm": 445,
+   "exec_rate": 0.0,
+   "langs": {
+    "html": 445
+   },
+   "max_lines": 68,
+   "methods": {
+    "static_check": 445
+   },
+   "min_lines": 60,
+   "n": 445,
+   "splits": {
+    "test": 112,
+    "train": 333
+   }
+  },
+  "write::html_semantic_pages": {
+   "avg_chars": 1599.4,
+   "avg_lines": 49.4,
+   "diffs": {
+    "beginner": 148,
+    "intermediate": 148
+   },
+   "distinct_norm": 296,
+   "exec_rate": 0.0,
+   "langs": {
+    "html": 296
+   },
+   "max_lines": 52,
+   "methods": {
+    "static_check": 296
+   },
+   "min_lines": 47,
+   "n": 296,
+   "splits": {
+    "train": 296
+   }
+  },
+  "write::java_collections": {
+   "avg_chars": 537.0,
+   "avg_lines": 15.0,
+   "diffs": {
+    "advanced": 58,
+    "intermediate": 31
+   },
+   "distinct_norm": 89,
+   "exec_rate": 0.0,
+   "langs": {
+    "java": 89
+   },
+   "max_lines": 18,
+   "methods": {
+    "static_check": 89
+   },
+   "min_lines": 15,
+   "n": 89,
+   "splits": {
+    "train": 89
+   }
+  },
+  "write::java_oop": {
+   "avg_chars": 802.8,
+   "avg_lines": 28.0,
+   "diffs": {
+    "advanced": 43,
+    "intermediate": 42
+   },
+   "distinct_norm": 85,
+   "exec_rate": 0.0,
+   "langs": {
+    "java": 85
+   },
+   "max_lines": 28,
+   "methods": {
+    "static_check": 85
+   },
+   "min_lines": 24,
+   "n": 85,
+   "splits": {
+    "train": 85
+   }
+  },
+  "write::java_project_multifile": {
+   "avg_chars": 797.8,
+   "avg_lines": 35.1,
+   "diffs": {
+    "advanced": 81,
+    "expert": 93
+   },
+   "distinct_norm": 174,
+   "exec_rate": 0.0,
+   "langs": {
+    "java": 174
+   },
+   "max_lines": 36,
+   "methods": {
+    "static_check": 174
+   },
+   "min_lines": 34,
+   "n": 174,
+   "splits": {
+    "train": 108,
+    "validation": 66
+   }
+  },
+  "write::js_array_transforms": {
+   "avg_chars": 303.3,
+   "avg_lines": 12.6,
+   "diffs": {
+    "advanced": 142,
+    "beginner": 148,
+    "intermediate": 145
+   },
+   "distinct_norm": 33,
+   "exec_rate": 1.0,
+   "langs": {
+    "javascript": 435
+   },
+   "max_lines": 15,
+   "methods": {
+    "executed": 435
+   },
+   "min_lines": 10,
+   "n": 435,
+   "splits": {
+    "train": 435
+   }
+  },
+  "write::js_async_patterns": {
+   "avg_chars": 491.9,
+   "avg_lines": 18.6,
+   "diffs": {
+    "advanced": 33,
+    "intermediate": 34
+   },
+   "distinct_norm": 9,
+   "exec_rate": 1.0,
+   "langs": {
+    "javascript": 67
+   },
+   "max_lines": 24,
+   "methods": {
+    "executed": 67
+   },
+   "min_lines": 13,
+   "n": 67,
+   "splits": {
+    "train": 40,
+    "validation": 27
+   }
+  },
+  "write::js_bank_wrappers": {
+   "avg_chars": 390.3,
+   "avg_lines": 15.3,
+   "diffs": {
+    "advanced": 184,
+    "beginner": 168,
+    "intermediate": 159
+   },
+   "distinct_norm": 40,
+   "exec_rate": 1.0,
+   "langs": {
+    "javascript": 511
+   },
+   "max_lines": 18,
+   "methods": {
+    "executed": 511
+   },
+   "min_lines": 13,
+   "n": 511,
+   "splits": {
+    "test": 95,
+    "train": 416
+   }
+  },
+  "write::js_project_multifile": {
+   "avg_chars": 1798.5,
+   "avg_lines": 75.0,
+   "diffs": {
+    "advanced": 105,
+    "expert": 89,
+    "intermediate": 111
+   },
+   "distinct_norm": 305,
+   "exec_rate": 1.0,
+   "langs": {
+    "javascript": 305
+   },
+   "max_lines": 82,
+   "methods": {
+    "executed": 305
+   },
+   "min_lines": 69,
+   "n": 305,
+   "splits": {
+    "train": 305
+   }
+  },
+  "write::js_web_http": {
+   "avg_chars": 954.7,
+   "avg_lines": 30.6,
+   "diffs": {
+    "advanced": 237,
+    "intermediate": 262
+   },
+   "distinct_norm": 9,
+   "exec_rate": 1.0,
+   "langs": {
+    "javascript": 499
+   },
+   "max_lines": 33,
+   "methods": {
+    "executed": 499
+   },
+   "min_lines": 26,
+   "n": 499,
+   "splits": {
+    "train": 350,
+    "validation": 149
+   }
+  },
+  "write::php_arrays_strings": {
+   "avg_chars": 558.3,
+   "avg_lines": 21.7,
+   "diffs": {
+    "advanced": 2,
+    "beginner": 2,
+    "intermediate": 2
+   },
+   "distinct_norm": 6,
+   "exec_rate": 0.0,
+   "langs": {
+    "php": 6
+   },
+   "max_lines": 22,
+   "methods": {
+    "static_check": 6
+   },
+   "min_lines": 20,
+   "n": 6,
+   "splits": {
+    "train": 6
+   }
+  },
+  "write::php_pdo_defensive": {
+   "avg_chars": 873.4,
+   "avg_lines": 27.6,
+   "diffs": {
+    "advanced": 2,
+    "intermediate": 3
+   },
+   "distinct_norm": 5,
+   "exec_rate": 0.0,
+   "langs": {
+    "php": 5
+   },
+   "max_lines": 29,
+   "methods": {
+    "static_check": 5
+   },
+   "min_lines": 22,
+   "n": 5,
+   "splits": {
+    "test": 1,
+    "train": 4
+   }
+  },
+  "write::php_project_multifile": {
+   "avg_chars": 2444.5,
+   "avg_lines": 89.4,
+   "diffs": {
+    "advanced": 38,
+    "expert": 30,
+    "intermediate": 45
+   },
+   "distinct_norm": 113,
+   "exec_rate": 0.0,
+   "langs": {
+    "php": 113
+   },
+   "max_lines": 90,
+   "methods": {
+    "static_check": 113
+   },
+   "min_lines": 89,
+   "n": 113,
+   "splits": {
+    "train": 113
+   }
+  },
+  "write::profile_guided_optimization": {
+   "avg_chars": 211.7,
+   "avg_lines": 8.0,
+   "diffs": {
+    "advanced": 47,
+    "expert": 20
+   },
+   "distinct_norm": 2,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 67
+   },
+   "max_lines": 8,
+   "methods": {
+    "executed": 67
+   },
+   "min_lines": 8,
+   "n": 67,
+   "splits": {
+    "test": 11,
+    "train": 56
+   }
+  },
+  "write::ps_file_admin": {
+   "avg_chars": 632.7,
+   "avg_lines": 22.1,
+   "diffs": {
+    "advanced": 31,
+    "beginner": 17,
+    "expert": 1,
+    "intermediate": 38
+   },
+   "distinct_norm": 87,
+   "exec_rate": 0.0,
+   "langs": {
+    "powershell": 87
+   },
+   "max_lines": 27,
+   "methods": {
+    "static_check": 87
+   },
+   "min_lines": 18,
+   "n": 87,
+   "splits": {
+    "train": 87
+   }
+  },
+  "write::ps_json_reporting": {
+   "avg_chars": 693.1,
+   "avg_lines": 21.7,
+   "diffs": {
+    "advanced": 25,
+    "expert": 27,
+    "intermediate": 32
+   },
+   "distinct_norm": 84,
+   "exec_rate": 0.0,
+   "langs": {
+    "powershell": 84
+   },
+   "max_lines": 30,
+   "methods": {
+    "static_check": 84
+   },
+   "min_lines": 21,
+   "n": 84,
+   "splits": {
+    "train": 84
+   }
+  },
+  "write::ps_module_project": {
+   "avg_chars": 2835.5,
+   "avg_lines": 96.0,
+   "diffs": {
+    "advanced": 65,
+    "intermediate": 77
+   },
+   "distinct_norm": 142,
+   "exec_rate": 0.0,
+   "langs": {
+    "powershell": 142
+   },
+   "max_lines": 99,
+   "methods": {
+    "static_check": 142
+   },
+   "min_lines": 93,
+   "n": 142,
+   "splits": {
+    "train": 142
+   }
+  },
+  "write::py_bank_algorithms": {
+   "avg_chars": 407.7,
+   "avg_lines": 14.7,
+   "diffs": {
+    "advanced": 217,
+    "beginner": 241,
+    "intermediate": 222
+   },
+   "distinct_norm": 106,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 680
+   },
+   "max_lines": 25,
+   "methods": {
+    "executed": 680
+   },
+   "min_lines": 8,
+   "n": 680,
+   "splits": {
+    "test": 179,
+    "train": 365,
+    "validation": 136
+   }
+  },
+  "write::py_concurrency": {
+   "avg_chars": 549.3,
+   "avg_lines": 20.2,
+   "diffs": {
+    "advanced": 242,
+    "expert": 1
+   },
+   "distinct_norm": 4,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 243
+   },
+   "max_lines": 32,
+   "methods": {
+    "executed": 243
+   },
+   "min_lines": 8,
+   "n": 243,
+   "splits": {
+    "test": 120,
+    "train": 123
+   }
+  },
+  "write::py_data_statistics": {
+   "avg_chars": 386.9,
+   "avg_lines": 10.8,
+   "diffs": {
+    "advanced": 247,
+    "beginner": 254,
+    "intermediate": 247
+   },
+   "distinct_norm": 10,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 748
+   },
+   "max_lines": 13,
+   "methods": {
+    "executed": 748
+   },
+   "min_lines": 7,
+   "n": 748,
+   "splits": {
+    "train": 748
+   }
+  },
+  "write::py_fault_resilience": {
+   "avg_chars": 531.0,
+   "avg_lines": 16.8,
+   "diffs": {
+    "advanced": 62
+   },
+   "distinct_norm": 4,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 62
+   },
+   "max_lines": 45,
+   "methods": {
+    "executed": 62
+   },
+   "min_lines": 12,
+   "n": 62,
+   "splits": {
+    "test": 8,
+    "train": 47,
+    "validation": 7
+   }
+  },
+  "write::py_files_logs": {
+   "avg_chars": 280.8,
+   "avg_lines": 10.3,
+   "diffs": {
+    "advanced": 359,
+    "intermediate": 371
+   },
+   "distinct_norm": 8,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 730
+   },
+   "max_lines": 14,
+   "methods": {
+    "executed": 730
+   },
+   "min_lines": 4,
+   "n": 730,
+   "splits": {
+    "test": 198,
+    "train": 532
+   }
+  },
+  "write::py_git_forensics": {
+   "avg_chars": 1072.2,
+   "avg_lines": 23.7,
+   "diffs": {
+    "advanced": 27
+   },
+   "distinct_norm": 2,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 27
+   },
+   "max_lines": 33,
+   "methods": {
+    "executed": 27
+   },
+   "min_lines": 21,
+   "n": 27,
+   "splits": {
+    "test": 2,
+    "train": 22,
+    "validation": 3
+   }
+  },
+  "write::py_golden_master": {
+   "avg_chars": 1041.2,
+   "avg_lines": 30.2,
+   "diffs": {
+    "advanced": 50,
+    "intermediate": 41
+   },
+   "distinct_norm": 87,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 91
+   },
+   "max_lines": 35,
+   "methods": {
+    "executed": 91
+   },
+   "min_lines": 26,
+   "n": 91,
+   "splits": {
+    "test": 6,
+    "train": 70,
+    "validation": 15
+   }
+  },
+  "write::py_inventory_ops": {
+   "avg_chars": 2407.0,
+   "avg_lines": 101.0,
+   "diffs": {
+    "expert": 50
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 50
+   },
+   "max_lines": 101,
+   "methods": {
+    "executed": 50
+   },
+   "min_lines": 101,
+   "n": 50,
+   "splits": {
+    "test": 5,
+    "train": 40,
+    "validation": 5
+   }
+  },
+  "write::py_log_pipeline": {
+   "avg_chars": 1887.6,
+   "avg_lines": 73.1,
+   "diffs": {
+    "expert": 17
+   },
+   "distinct_norm": 17,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 17
+   },
+   "max_lines": 74,
+   "methods": {
+    "executed": 17
+   },
+   "min_lines": 72,
+   "n": 17,
+   "splits": {
+    "train": 17
+   }
+  },
+  "write::py_mastery_refactor": {
+   "avg_chars": 236.9,
+   "avg_lines": 6.6,
+   "diffs": {
+    "advanced": 26,
+    "expert": 20
+   },
+   "distinct_norm": 25,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 46
+   },
+   "max_lines": 27,
+   "methods": {
+    "executed": 46
+   },
+   "min_lines": 5,
+   "n": 46,
+   "splits": {
+    "test": 6,
+    "train": 36,
+    "validation": 4
+   }
+  },
+  "write::py_mutation_kill": {
+   "avg_chars": 3204.9,
+   "avg_lines": 96.1,
+   "diffs": {
+    "advanced": 101
+   },
+   "distinct_norm": 92,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 101
+   },
+   "max_lines": 242,
+   "methods": {
+    "executed": 101
+   },
+   "min_lines": 51,
+   "n": 101,
+   "splits": {
+    "test": 10,
+    "train": 84,
+    "validation": 7
+   }
+  },
+  "write::py_number_bases": {
+   "avg_chars": 981.9,
+   "avg_lines": 28.0,
+   "diffs": {
+    "advanced": 12,
+    "beginner": 40,
+    "intermediate": 58
+   },
+   "distinct_norm": 4,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 110
+   },
+   "max_lines": 43,
+   "methods": {
+    "executed": 110
+   },
+   "min_lines": 12,
+   "n": 110,
+   "splits": {
+    "test": 19,
+    "train": 85,
+    "validation": 6
+   }
+  },
+  "write::py_numeric_robustness": {
+   "avg_chars": 356.6,
+   "avg_lines": 12.4,
+   "diffs": {
+    "advanced": 61,
+    "intermediate": 11
+   },
+   "distinct_norm": 3,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 72
+   },
+   "max_lines": 14,
+   "methods": {
+    "executed": 72
+   },
+   "min_lines": 11,
+   "n": 72,
+   "splits": {
+    "test": 5,
+    "train": 65,
+    "validation": 2
+   }
+  },
+  "write::py_project_multifile": {
+   "avg_chars": 1922.1,
+   "avg_lines": 72.6,
+   "diffs": {
+    "advanced": 177,
+    "expert": 152,
+    "intermediate": 199
+   },
+   "distinct_norm": 528,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 528
+   },
+   "max_lines": 79,
+   "methods": {
+    "executed": 528
+   },
+   "min_lines": 68,
+   "n": 528,
+   "splits": {
+    "train": 260,
+    "validation": 268
+   }
+  },
+  "write::py_property_testing": {
+   "avg_chars": 704.5,
+   "avg_lines": 19.5,
+   "diffs": {
+    "advanced": 2
+   },
+   "distinct_norm": 2,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 2
+   },
+   "max_lines": 25,
+   "methods": {
+    "executed": 2
+   },
+   "min_lines": 14,
+   "n": 2,
+   "splits": {
+    "train": 2
+   }
+  },
+  "write::py_regression_minimize": {
+   "avg_chars": 1359.0,
+   "avg_lines": 49.0,
+   "diffs": {
+    "advanced": 107
+   },
+   "distinct_norm": 3,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 107
+   },
+   "max_lines": 49,
+   "methods": {
+    "executed": 107
+   },
+   "min_lines": 49,
+   "n": 107,
+   "splits": {
+    "train": 102,
+    "validation": 5
+   }
+  },
+  "write::py_security_defensive": {
+   "avg_chars": 501.0,
+   "avg_lines": 16.8,
+   "diffs": {
+    "advanced": 4,
+    "expert": 1,
+    "intermediate": 1
+   },
+   "distinct_norm": 4,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 6
+   },
+   "max_lines": 20,
+   "methods": {
+    "executed": 6
+   },
+   "min_lines": 11,
+   "n": 6,
+   "splits": {
+    "train": 6
+   }
+  },
+  "write::py_test_debugging": {
+   "avg_chars": 5334.8,
+   "avg_lines": 153.2,
+   "diffs": {
+    "intermediate": 92
+   },
+   "distinct_norm": 92,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 92
+   },
+   "max_lines": 292,
+   "methods": {
+    "executed": 92
+   },
+   "min_lines": 91,
+   "n": 92,
+   "splits": {
+    "test": 10,
+    "train": 75,
+    "validation": 7
+   }
+  },
+  "write::py_text_processing": {
+   "avg_chars": 448.4,
+   "avg_lines": 14.6,
+   "diffs": {
+    "advanced": 125,
+    "beginner": 119,
+    "intermediate": 100
+   },
+   "distinct_norm": 22,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 344
+   },
+   "max_lines": 22,
+   "methods": {
+    "executed": 344
+   },
+   "min_lines": 5,
+   "n": 344,
+   "splits": {
+    "train": 344
+   }
+  },
+  "write::py_timezones_unicode": {
+   "avg_chars": 346.8,
+   "avg_lines": 11.1,
+   "diffs": {
+    "advanced": 19,
+    "intermediate": 58
+   },
+   "distinct_norm": 3,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 77
+   },
+   "max_lines": 19,
+   "methods": {
+    "executed": 77
+   },
+   "min_lines": 8,
+   "n": 77,
+   "splits": {
+    "test": 8,
+    "train": 64,
+    "validation": 5
+   }
+  },
+  "write::repo_feature_insertion": {
+   "avg_chars": 464.1,
+   "avg_lines": 20.0,
+   "diffs": {
+    "expert": 15
+   },
+   "distinct_norm": 3,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 15
+   },
+   "max_lines": 20,
+   "methods": {
+    "executed": 15
+   },
+   "min_lines": 20,
+   "n": 15,
+   "splits": {
+    "test": 5,
+    "train": 10
+   }
+  },
+  "write::rust_error_handling": {
+   "avg_chars": 1248.9,
+   "avg_lines": 38.7,
+   "diffs": {
+    "advanced": 42,
+    "expert": 47,
+    "intermediate": 40
+   },
+   "distinct_norm": 129,
+   "exec_rate": 0.0,
+   "langs": {
+    "rust": 129
+   },
+   "max_lines": 55,
+   "methods": {
+    "static_check": 129
+   },
+   "min_lines": 22,
+   "n": 129,
+   "splits": {
+    "train": 129
+   }
+  },
+  "write::rust_ownership_basics": {
+   "avg_chars": 601.3,
+   "avg_lines": 21.2,
+   "diffs": {
+    "advanced": 29,
+    "beginner": 35,
+    "expert": 12,
+    "intermediate": 18
+   },
+   "distinct_norm": 94,
+   "exec_rate": 0.0,
+   "langs": {
+    "rust": 94
+   },
+   "max_lines": 25,
+   "methods": {
+    "static_check": 94
+   },
+   "min_lines": 19,
+   "n": 94,
+   "splits": {
+    "train": 94
+   }
+  },
+  "write::rust_project_multifile": {
+   "avg_chars": 2102.3,
+   "avg_lines": 70.3,
+   "diffs": {
+    "advanced": 46,
+    "expert": 66,
+    "intermediate": 46
+   },
+   "distinct_norm": 158,
+   "exec_rate": 0.0,
+   "langs": {
+    "rust": 158
+   },
+   "max_lines": 71,
+   "methods": {
+    "static_check": 158
+   },
+   "min_lines": 70,
+   "n": 158,
+   "splits": {
+    "test": 58,
+    "train": 100
+   }
+  },
+  "write::sdk_docs_integration": {
+   "avg_chars": 3911.0,
+   "avg_lines": 127.0,
+   "diffs": {
+    "advanced": 38,
+    "intermediate": 30
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 68
+   },
+   "max_lines": 127,
+   "methods": {
+    "executed": 68
+   },
+   "min_lines": 127,
+   "n": 68,
+   "splits": {
+    "test": 15,
+    "train": 53
+   }
+  },
+  "write::sql_query_scenarios": {
+   "avg_chars": 115.4,
+   "avg_lines": 4.1,
+   "diffs": {
+    "advanced": 3,
+    "beginner": 12,
+    "expert": 2,
+    "intermediate": 5
+   },
+   "distinct_norm": 22,
+   "exec_rate": 1.0,
+   "langs": {
+    "sql": 22
+   },
+   "max_lines": 5,
+   "methods": {
+    "executed": 22
+   },
+   "min_lines": 2,
+   "n": 22,
+   "splits": {
+    "test": 1,
+    "train": 20,
+    "validation": 1
+   }
+  },
+  "write::sql_schema_migration": {
+   "avg_chars": 2976.0,
+   "avg_lines": 78.0,
+   "diffs": {
+    "advanced": 68
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "python": 68
+   },
+   "max_lines": 78,
+   "methods": {
+    "executed": 68
+   },
+   "min_lines": 78,
+   "n": 68,
+   "splits": {
+    "train": 68
+   }
+  },
+  "write::ts_jsonl_pipeline": {
+   "avg_chars": 1020.0,
+   "avg_lines": 42.0,
+   "diffs": {
+    "expert": 64
+   },
+   "distinct_norm": 1,
+   "exec_rate": 1.0,
+   "langs": {
+    "typescript": 64
+   },
+   "max_lines": 42,
+   "methods": {
+    "executed": 64
+   },
+   "min_lines": 42,
+   "n": 64,
+   "splits": {
+    "test": 14,
+    "train": 50
+   }
+  },
+  "write::ts_model_validation": {
+   "avg_chars": 762.2,
+   "avg_lines": 28.4,
+   "diffs": {
+    "advanced": 189,
+    "intermediate": 186
+   },
+   "distinct_norm": 33,
+   "exec_rate": 1.0,
+   "langs": {
+    "typescript": 375
+   },
+   "max_lines": 32,
+   "methods": {
+    "executed": 375
+   },
+   "min_lines": 23,
+   "n": 375,
+   "splits": {
+    "train": 375
+   }
+  },
+  "write::ts_project_multifile": {
+   "avg_chars": 1304.9,
+   "avg_lines": 49.5,
+   "diffs": {
+    "advanced": 193,
+    "expert": 184,
+    "intermediate": 164
+   },
+   "distinct_norm": 3,
+   "exec_rate": 1.0,
+   "langs": {
+    "typescript": 541
+   },
+   "max_lines": 53,
+   "methods": {
+    "executed": 541
+   },
+   "min_lines": 47,
+   "n": 541,
+   "splits": {
+    "test": 197,
+    "train": 344
+   }
+  },
+  "write::ts_typed_utilities": {
+   "avg_chars": 356.3,
+   "avg_lines": 13.6,
+   "diffs": {
+    "advanced": 268,
+    "intermediate": 238
+   },
+   "distinct_norm": 36,
+   "exec_rate": 1.0,
+   "langs": {
+    "typescript": 506
+   },
+   "max_lines": 18,
+   "methods": {
+    "executed": 506
+   },
+   "min_lines": 8,
+   "n": 506,
+   "splits": {
+    "train": 506
+   }
+  }
+ },
+ "total_families": 251,
+ "total_records": 25491,
+ "verification_key_union": {
+  "agent_ops.understand": [
+   "class",
+   "evidence",
+   "method",
+   "scenario",
+   "situation",
+   "stages"
+  ],
+  "agent_ops.write": [
+   "compiled",
+   "duration_ms",
+   "error_excerpt",
+   "executed",
+   "method",
+   "tests_passed",
+   "timed_out",
+   "toolchain"
+  ],
+  "game_engineering.understand": [
+   "bad_len",
+   "bridge_sim_recomputed",
+   "bug",
+   "buggy_version_fails",
+   "captures_identical",
+   "code_runs",
+   "crc32_matches",
+   "evidence_level_table_check",
+   "first_divergence",
+   "fixed_version_passes",
+   "good_len",
+   "gotcha_table_check",
+   "kind",
+   "method",
+   "observed_stage",
+   "planted_issues",
+   "reference_route",
+   "route_ladder_check",
+   "source",
+   "spot_check",
+   "synthetic_target",
+   "vocabulary"
+  ],
+  "game_engineering.write": [
+   "compiled",
+   "duration_ms",
+   "error_excerpt",
+   "executed",
+   "method",
+   "tests_passed",
+   "timed_out",
+   "toolchain"
+  ],
+  "hard_holdout": [
+   "buggy_version_fails",
+   "class",
+   "command",
+   "compiled",
+   "correct_letter",
+   "defect_frames",
+   "duration_ms",
+   "error_excerpt",
+   "evidence",
+   "executed",
+   "fixed_version_passes",
+   "method",
+   "observed_stage",
+   "output_head",
+   "recompute",
+   "scenario",
+   "source",
+   "stages",
+   "stdout_bytes",
+   "tests_passed",
+   "timed_out",
+   "toolchain"
+  ],
+  "media.understand": [
+   "buggy_version_fails",
+   "case",
+   "changed_count",
+   "code_runs",
+   "cut_error_max",
+   "defect_frames",
+   "evidence",
+   "finding_frames",
+   "fixed_passes",
+   "fixed_version_passes",
+   "floor_states",
+   "hardcoded_present",
+   "measured_bpm",
+   "method",
+   "nondeterminism_observed",
+   "observed_stage",
+   "observed_stdout",
+   "palette_table_check",
+   "planted_issues",
+   "recompute",
+   "sampling_recomputed",
+   "source",
+   "spot_check",
+   "state_counts",
+   "untouched_count",
+   "verdict"
+  ],
+  "media.write": [
+   "compiled",
+   "duration_ms",
+   "error_excerpt",
+   "executed",
+   "method",
+   "tests_passed",
+   "timed_out",
+   "toolchain"
+  ],
+  "reverse_engineering.understand": [
+   "command",
+   "correct_letter",
+   "evidence",
+   "method",
+   "output_head",
+   "stdout_bytes"
+  ],
+  "reverse_engineering.write": [
+   "compiled",
+   "duration_ms",
+   "error_excerpt",
+   "executed",
+   "method",
+   "tests_passed",
+   "timed_out",
+   "toolchain"
+  ],
+  "understand": [
+   "all_real",
+   "attempt1",
+   "both_executed",
+   "buggy_version_fails",
+   "code_runs",
+   "draft0",
+   "engine",
+   "environment",
+   "equivalence_checked",
+   "equivalence_note",
+   "escapes_base",
+   "final",
+   "final_output",
+   "fixed_version_passes",
+   "labels_validated_against_ladder",
+   "md5_deterministic",
+   "method",
+   "mutation",
+   "observed_output",
+   "observed_stage",
+   "outputs_compared",
+   "planted_issues",
+   "project_tests_pass",
+   "real",
+   "real_run_log",
+   "scenario_level",
+   "source",
+   "source_executed",
+   "spot_check",
+   "suite_passes",
+   "target_executed",
+   "target_run",
+   "timed",
+   "trace_verified_by_execution",
+   "vuln_demonstrated_rows"
+  ],
+  "write": [
+   "compiled",
+   "duration_ms",
+   "error_excerpt",
+   "executed",
+   "fixtures",
+   "fixtures_origin",
+   "fixtures_seed",
+   "method",
+   "tests_passed",
+   "timed_out",
+   "toolchain"
+  ]
+ }
+}

@@ -9,13 +9,13 @@
 | # | Módulo | Dataset físico | Records | Etapa |
 |---|--------|----------------|---------|-------|
 | **00** | Code Comprehension | `AI-ku_superprogrammer_understand` | 3.524 | 1 — entender |
-| **01** | Code Writing (+ módulos 06 Verification, 07 Build Systems y 08 Capstone) | `AI-ku_superprogrammer_write` | 15.439 | 2 — escribir |
+| **01** | Code Writing (+ módulos 06 Verification, 07 Build Systems y 08 Capstone) | `AI-ku_superprogrammer_write` | 9.834 | 2 — escribir |
 | **02** | Opus 5.5 · Generative Video | `AI-ku_superprogrammer_media` | 2.075 | 3 — crear |
-| **03** | Opus 5.5 · Game Mixes & Modding | `AI-ku_superprogrammer_game_engineering` | 2.229 | 3 — crear |
+| **03** | Opus 5.5 · Game Mixes & Modding | `AI-ku_superprogrammer_game_engineering` | 1.592 | 3 — crear |
 | **04** | Reverse Engineering | `AI-ku_superprogrammer_reverse_engineering` | 1.256 | 4 — leer lo compilado |
-| **05** | Agent Persistence | `AI-ku_superprogrammer_agent_ops` | 968 | 5 — terminar el trabajo |
+| **05** | Agent Persistence | `AI-ku_superprogrammer_agent_ops` | 649 | 5 — terminar el trabajo |
 
-Total: **25.491 records** (24.082 publicados + 1.409 en `hard_holdout`). Los ejemplos `expert` de `datasets/hard_holdout/` quedan FUERA de las cinco etapas y se reservan como gate de evaluación entre etapas.
+Total: **18.930 records** (17.808 publicados + 1.122 en `hard_holdout`, tras la curación v2.1.0 — ver `DATASET_CARD.md`). Los ejemplos `expert` de `datasets/hard_holdout/` quedan FUERA de las cinco etapas y se reservan como gate de evaluación entre etapas.
 
 ---
 
@@ -47,7 +47,7 @@ Total: **25.491 records** (24.082 publicados + 1.409 en `hard_holdout`). Los eje
 
 **Por qué va al final.** Crear vídeos generativos y mezclas de juegos COMBINA las dos etapas anteriores: hay que leer código de motor (escenas, shaders, timelines) Y escribir escenas nuevas que encajen en una arquitectura determinista, añadiendo el conocimiento de dominio propio de cada módulo. Es la etapa más dependiente: sin las etapas 1–2, el modelo imita la forma sin entender el contrato de determinismo que la sostiene.
 
-### 02 · Generative Video (`media`, 1.310 records)
+### 02 · Generative Video (`media`, 2.075 records)
 
 - Motor MV: ventanas de escena end-exclusive, beat grid BPM→frames, karaoke word-synced, render offline con manifest sha256 (`media_mv_scene_engine`, `media_mv_karaoke`, `media_mv_project`).
 - Hábitos extraídos por ingeniería inversa de la autoría de Opus 5.5 (ver `docs/OPUS_STYLE.md`): cadena de post con orden significativo (`media_mv_post_chain`), batching 2D determinista con suelo de hairline 4K (`media_mv_line_batch`), timing de planos por "reads" del espectador (`media_mv_shot_reads`).
@@ -56,7 +56,7 @@ Total: **25.491 records** (24.082 publicados + 1.409 en `hard_holdout`). Los eje
 
 > **v0.8.0**: los módulos 02/03 incorporan la extensión TS de vídeo end-to-end (theme/motion-rules/deterministic-render/beat-grid/render-verify + proyecto TS experto; builders video_*), con los proyectos completos en `hard_holdout`.
 
-### 03 · Game Mixes & Modding (`game_engineering`, 2.229 records)
+### 03 · Game Mixes & Modding (`game_engineering`, 1.592 records)
 
 - Metodología universal de modding (recon → lab seguro → backup → oracle → publish-lint) con las reglas de seguridad dentro del ground truth: `refuse-online` es la respuesta correcta, redistribuir game files es FAIL, "funciona" sin run real se penaliza.
 - Mezclas de juegos (crossovers): puentes de eventos deterministas entre dos juegos (`game_crossover_bridge`), recon de memoria por intersección de snapshots (`game_state_scan`), debugging de la primera divergencia (`crossover_event_debug`).

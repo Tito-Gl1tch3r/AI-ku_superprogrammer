@@ -14,15 +14,28 @@ Totales por dataset INCLUYEN el `hard_holdout` de su módulo. "Verificado por ej
 
 | Dataset | Total | % ejecución real | % static check | % con tests | % multi-file |
 |---|---|---|---|---|---|
-| write (módulo 01 + 06 + 07 + 08) | 15.439 | ver `QUALITY_REPORT.md` | | 74,2% | 22,3% |
+| write (módulo 01 + 06 + 07 + 08) | 9.834 | 64,0% | 36,0% | 62,4% | 33,8% |
 | understand (módulo 00) | 3.524 | 84,0% | 0% | 46,9% | 0% |
 | media (write 1.365 + understand 710) | 2.075 | 98,0% (write 98,9% / und 89,4%) | 0,7% | 73,0% | ~8,6% (write) |
-| game_engineering (write 1.397 + understand 832) | 2.229 | 98,1% (write 100% / und 92,5%) | 0% | 73,6% | ~18,4% (write) |
+| game_engineering (write 760 + understand 832) | 1.592 | 98,1% (write 100% / und 92,5%) | 0% | 73,6% | ~18,4% (write) |
 | reverse_engineering (write 690 + understand 566) | 1.256 | 59,9% (write: 100%) | 0% | 59,9% (write: 100%) | 0% |
-| agent_ops (write 603 + understand 365) | 968 | 62,6% (write: 100%) | 0% | 62,6% (write: 100%) | ~50,1% (write) |
-| **Total** | **25.491** | | | | |
+| agent_ops (write 284 + understand 365) | 649 | 62,6% (write: 100%) | 0% | 62,6% (write: 100%) | ~50,1% (write) |
+| **Total** | **18.930** | | | | |
 
-Splits publicados (train/validation/test/hard_holdout): write 11.980/1.034/1.389/714 · v2.0: +107/+5/+19/+63 · understand 2.957/249/270/48 · media 1.059+488 write+und /20+32 /171+137 /168 · game 991+698 /181+15 /26+112 /206 · re 535+145 /26+143 /93+175 /139 · ops 450+265 /69+33 /38+42 /71. La política de holdout del módulo 02 (media) es la estricta: TODO record `expert` (proyectos MV completos) va al holdout; el resto de módulos usa la regla hash v0.6.0 (grupos expert con hold-hash < 25). El holdout preexistente a v0.9.0 está byte-idéntico (append verificado con snapshot SHA256 por id).
+Splits publicados (train/validation/test/hard_holdout): write 7.505/958/831/540 · understand 2.957/249/270/48 · media (write+und) 1.250+657 publicados, holdout 115+53 · game (write+und) 609+825 publicados, holdout 151+7 · re (write+und) 654+463 publicados, holdout 36+103 · ops (write+und) 240+340 publicados, holdout 44+25. La política de holdout del módulo 02 (media) es la estricta: TODO record `expert` (proyectos MV completos) va al holdout; el resto de módulos usa la regla hash v0.6.0 (grupos expert con hold-hash < 25). El holdout preexistente a v0.9.0 está byte-idéntico (append verificado con snapshot SHA256 por id); en v2.1.0 la curación aplicó el cap de redundancia también al holdout (mismos límites, ver sección siguiente).
+
+## Curación v2.1.0 — por qué el corpus baja de 25.491 a 18.930
+
+v2.1.0 es la primera release que ELIMINA records, por mandato expreso del propietario del dataset ("si algo no sirve para el objetivo super-programadora, bórralo; calidad > cantidad"). La auditoría midió la variación real por familia (`reports/goal_audit_inventory_pre_v210.json`) y encontró familias plantilla con hasta 180 escenarios por cada código solución distinto (p. ej. `ts_project_multifile`: 541 records · 3 códigos; `py_files_logs`: 730 · 8): a partir de ~12-15 escenarios por solución el valor marginal de entrenamiento es despreciable y el exceso sesga hacia memorizar plantillas.
+
+Reglas aplicadas (deterministas, en orden de id, script `scripts/curate_v210.py`):
+
+1. **Cap de redundancia (R1)**: por familia × split × payload de código (sha256 del código normalizado) se conservan los 15 primeros records; el resto se elimina. El cap se aplicó también al `hard_holdout` (un eval con 262 casos de la misma solución mide encaje de plantilla, no habilidad).
+2. **Exención por contrato (floors)**: `flaky_test_forensics`, `sql_schema_migration` y `sdk_docs_integration` quedan INTACTAS — sus espacios de variantes deterministas son estrechos por diseño, están clavados por floors de tests y violarlos rompería el contrato documentado.
+3. **Stubs (R2)**: familias write con <4 records en total se retiran (`c_bitops`, `cpp_raii_classes`, `py_property_testing`) — un puñado de ejemplos no puede enseñar una capacidad.
+4. **Protegidos (mandato del propietario)**: `media` (vídeo vía código), `reverse_engineering` y TODO `understand` no se tocaron (byte-idénticos, verificado).
+
+Resultado: −6.561 records (6.555 por cap + 6 stubs), 18.930 restantes. Verificación de integridad (`scripts/verify_curation_v210.py`): TODOS los supervivientes son byte-idénticos al estado v2.0.0 (reescritura a nivel de línea), los eliminados coinciden exactamente con el manifiesto `reports/curation_v210.json` (id + motivo), 0 ids duplicados, 0 solapamiento holdout/splits y todos los floors de tests se mantienen (el umbral agregado del pool de replay v200 se ajustó 150→120 con comentario justificativo). Los porcentajes de verificación de `write` cambian porque el cap golpeó sobre todo a familias plantilla `executed`: 64,0% ejecutado / 36,0% static_check post-curation.
 
 Incluye la extensión **Agent Persistence** (v0.7.0, módulo 05): 968 records (write 603 al **100% verificado por ejecución** + understand 365) que entrenan la disciplina de objetivos agénticos con ejecución real: monitor de jobs subprocess (poll + plan + nunca confiar en un solo signal, con impostores de éxito, crashes y FATAL reales), orquestador de objetivo compuesto (sync verificado por manifest sha256 → **ISO9660 real** escrita en Python puro y read-back con parser independiente; si el sync falla, la ISO no se construye), supervisor de progreso con reloj virtual (checkpoints ≠ finalización, done sin verify = unverified, stalls y timeouts con timestamp exacto) y elevación de alcance (juegos headless deterministas con UN mapa de input para teclado y mando, pausa, rampa de dificultad, persistencia de score y elevaciones declaradas: modo 3D, partículas, screen shake, combo). Understand: descomposición del grafo completo de objetivos compuestos (con el entregable FINAL identificado), autopsia de transcripts que abandonan (monitorización, objetivo perdido, finalización prematura) y criterios de finalización verificados contra log/exit/artefacto. Sin benchmarks: arquetipos de juego genéricos.
 
