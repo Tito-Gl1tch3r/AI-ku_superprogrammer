@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## [1.0.0] — Curriculum 1.0: módulo 06 Verification & Testing Craft
+
+El hito 1.0.0 marca el curriculum completo: seis módulos (00-05) más un módulo 06 transversal de oficio de verificación. Sin cambios en records previos (append-only, verificado byte a byte).
+
+### Añadido (4 familias write en `AI-ku_superprogrammer_write`, verdad de terreno = ejecución bidireccional real)
+- **`py_mutation_kill`**: escribir la suite que mata TODOS los kinds de mutantes listados. El harness reconstruye mutantes behavior-different con una tabla determinista de 10 kinds (comparaciones, +- , and/or, 0/1), selecciona por kind la PRIMERA mutación de línea que cambia comportamiento sobre una batería medida, y exige que la suite del candidato muera en cada uno y pase sobre el original. La suite dorada se mide en generación: si un kind sobrevive, la semilla se descarta (gate honesto).
+- **`py_golden_master`**: caracterizar una función legacy congelada (normalizador de identificadores, formateador de duraciones, constructor de ids de referencia, slugifier) cuyo refactor altera reglas medidas en generación. La suite del candidato pasa sobre el original y FALLA sobre el refactor. Expected values = outputs observados ejecutando, nunca intenciones.
+- **`py_test_debugging`**: el módulo es correcto, la suite está rota (expectativas mal, operadores mal, argumentos intercambiados). Reparar los TESTS sin debilitar: pasa sobre el módulo correcto Y sigue fallando sobre dos variantes de regresión plantadas y medidas.
+- **`py_regression_minimize`**: minimización estilo ddmin contra un predicado real (`is_repro` con estados login/set/inc/flush/rollback/commit). El gate comprueba por ejecución: subsecuencia del original, reproducción, cap de longitud y 1-minimalidad (quitar CUALQUIER elemento rompe la reproducción).
+- **make_buggy auto-verificante en las 4**: la suite débil (reducida a un caso ciego MEDIDO donde original y variante coinciden), la minimización no-mínima o el resultado que no es subsecuencia deben FALLAR su gate antes de publicarse.
+
+### Números
+- Batch 010: 423 attempts staged → 32 duplicados honestos → **391 publicados** (train 331 · validation 34 · test 26). Por familia: mutation_kill 106, golden_master 118, test_debugging 92, regression_minimize 107 staged.
+- **Total: 24.916** (23.570 publicados + 1.346 `hard_holdout`). **106 familias**. pytest 40/40 (30 previos + 10 nuevos: shape ×4, replay de terceros desde shards, volúmenes honestos, determinismo ×4); smoke ALL PASSED (106 familias); `scripts/validate_v100_ext.py` GREEN; conteo independiente: 0 ids duplicados, 0 solape holdout, stats == shards.
+- Integridad del append: snapshot SHA256 por id (`scripts/verify_append_v100.py`) — los 14.473 records write previos quedaron BYTE-IDÉNTICOS, splits estables.
+- Infra: `generators/write/verification_craft.py` (4 familias + tabla de mutantes + templates legacy), `scripts/build_v100_delta.py` (reanudable), `scripts/publish_py_v100.py`, `scripts/verify_append_v100.py`, `scripts/validate_v100_ext.py`, `tests/test_verification_v100.py`.
+
+### Nota de diseño
+Las 4 familias comparten una convención nueva de harness standalone (project-mode con `module.py` + `solution.py`): el harness es un script autónomo que ejecuta los DOS lados del gate. Los placeholders se instancian con repr() — nunca str.format sobre código — para que regexes y escapes sobrevivan intactos. Es la base del "testing craft" que faltaba en el curriculum: AI-ku no solo escribe código, escribe las pruebas que lo condenan o lo salvan.
+
+
 ## [0.9.1] — CI en verde (infra) + robustez de toolchain en py_git_forensics
 
 Sin cambios en el contenido del dataset (24.525 records, 102 familias — intactos).
