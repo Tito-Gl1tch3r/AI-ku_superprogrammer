@@ -5,7 +5,7 @@
 
 ## 1. Resumen ejecutivo
 
-- **write**: 15,245 ejemplos publicados; 74.3% verificados por ejecución/compilación real, 23.2% verificación estructural (lenguajes sin toolchain local).
+- **write**: 15,439 ejemplos publicados; 74.6% verificados por ejecución/compilación real, 22.9% verificación estructural (lenguajes sin toolchain local).
 - **understand**: 3,524 ejemplos publicados; 84.0% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).
 - **media_write**: 1,365 ejemplos publicados; 99.3% verificados por ejecución/compilación real, 0.7% verificación estructural (lenguajes sin toolchain local).
 - **media_understand**: 710 ejemplos publicados; 54.5% verificados por ejecución/compilación real, 0.0% verificación estructural (lenguajes sin toolchain local).

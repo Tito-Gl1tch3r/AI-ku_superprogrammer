@@ -2,17 +2,17 @@
 
 ## write
 
-- total: **15245**
-- verified by execution: **74.3%** (static check: 23.2%)
-- with tests: 76.2% | multi-file projects: 26.1% | synthetic: 100.0%
+- total: **15439**
+- verified by execution: **74.6%** (static check: 22.9%)
+- with tests: 76.5% | multi-file projects: 26.6% | synthetic: 100.0%
 
 | language | count |
 |---|---|
-| python | 4719 |
+| python | 4849 |
 | c | 1846 |
 | javascript | 1817 |
 | cpp | 1808 |
-| typescript | 1422 |
+| typescript | 1486 |
 | html | 1171 |
 | css | 776 |
 | powershell | 405 |
@@ -27,21 +27,21 @@
 |---|---|
 | advanced | 6409 |
 | intermediate | 5103 |
-| expert | 2039 |
+| expert | 2233 |
 | beginner | 1694 |
 
 | split | count |
 |---|---|
-| train | 12058 |
-| validation | 1066 |
-| test | 1407 |
-| hard_holdout | 714 |
+| train | 12165 |
+| validation | 1071 |
+| test | 1426 |
+| hard_holdout | 777 |
 
 | code size | count |
 |---|---|
 | <300c | 1962 |
-| 300-1200c | 9264 |
-| 1200-3000c | 3833 |
+| 300-1200c | 9328 |
+| 1200-3000c | 3963 |
 | >3000c | 186 |
 
 ## understand

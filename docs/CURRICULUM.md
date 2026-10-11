@@ -9,13 +9,13 @@
 | # | Módulo | Dataset físico | Records | Etapa |
 |---|--------|----------------|---------|-------|
 | **00** | Code Comprehension | `AI-ku_superprogrammer_understand` | 3.524 | 1 — entender |
-| **01** | Code Writing (+ módulos 06 Verification Craft y 07 Build Systems) | `AI-ku_superprogrammer_write` | 15.245 | 2 — escribir |
+| **01** | Code Writing (+ módulos 06 Verification, 07 Build Systems y 08 Capstone) | `AI-ku_superprogrammer_write` | 15.439 | 2 — escribir |
 | **02** | Opus 5.5 · Generative Video | `AI-ku_superprogrammer_media` | 2.075 | 3 — crear |
 | **03** | Opus 5.5 · Game Mixes & Modding | `AI-ku_superprogrammer_game_engineering` | 2.229 | 3 — crear |
 | **04** | Reverse Engineering | `AI-ku_superprogrammer_reverse_engineering` | 1.256 | 4 — leer lo compilado |
 | **05** | Agent Persistence | `AI-ku_superprogrammer_agent_ops` | 968 | 5 — terminar el trabajo |
 
-Total: **25.297 records** (23.951 publicados + 1.346 en `hard_holdout`). Los ejemplos `expert` de `datasets/hard_holdout/` quedan FUERA de las cinco etapas y se reservan como gate de evaluación entre etapas.
+Total: **25.491 records** (24.082 publicados + 1.409 en `hard_holdout`). Los ejemplos `expert` de `datasets/hard_holdout/` quedan FUERA de las cinco etapas y se reservan como gate de evaluación entre etapas.
 
 ---
 

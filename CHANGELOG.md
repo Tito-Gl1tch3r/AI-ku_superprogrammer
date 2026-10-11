@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## [2.0.0] — Curriculum 2.0: capstone de integración (módulo 08, experto)
+
+El hito 2.0.0 corona el curriculum: a los seis módulos base y los módulos 06-07 de oficio se suma el módulo 08 — proyectos de integración de nivel EXPERTO donde el candidato entra en un sistema dado por sus seams y el gate es COMPUESTO: sondas unitarias + CLI real por subprocesso byte-exacto + checks estructurales AST. Todo expert → hard_holdout según la política vigente.
+
+### Añadido (3 familias write en `AI-ku_superprogrammer_write`)
+- **`py_inventory_ops`**: sistema dado (store.py JSON con saves atómicos + main.py CLI congelado + store.json). El candidato implementa ops.py: checkout/restock con códigos de rechazo (-2/-3/-1) y SEMÁNTICA ATÓMICA (un rechazo no toca el fichero). Gate: sondas unitarias contra un Store real (comprueba el JSON en disco tras cada llamada), CLI real por subprocesso con stdout byte-exacto + estado del store después, checks AST (docstrings reales, imports prohibidos).
+- **`py_log_pipeline`**: pipeline.py (classify/aggregate/filter_lines) detrás de un CLI congelado (report/filter). El invariant: aggregate SIEMPRE cubre las tres claves OK/WARN/ERR — buggy = claves cero ausentes → el reporte diverge → atrapado. Gate idéntico (unit + CLI byte-exacto + AST).
+- **`ts_jsonl_pipeline`**: TypeScript con contrato DUAL: como módulo exporta aggregate(rows)→Summary con claves INSERTADAS EN ORDEN ORDENADO (el JSON byte-exacto depende de ello); como CLI (node --experimental-strip-types solution.ts < input.jsonl) escribe exactamente una línea JSON. El harness .mjs ejecuta sondas unitarias, el CLI REAL dos veces (determinismo) y checks estructurales (sin any, sin Date.now/Math.random, doc comment). make_buggy: claves en orden de inserción → la sonda byte-exacta lo caza.
+- **make_buggy auto-verificante en las 3**: atomicidad rota (mutar-antes-de-comprobar), claves cero ausentes y orden de claves sin ordenar deben FALLAR su gate antes de publicarse.
+
+### Números
+- Batch 012: 194 staged → 0 duplicados → **194 publicados** (train 107 · validation 5 · test 19 · **hard_holdout 63** por la regla expert-hash). Por familia: inventory 65, log 65, ts 64.
+- **Total: 25.491** (24.082 publicados + 1.409 `hard_holdout`). **112 familias**. pytest 56/56; smoke ALL PASSED (112 familias); `scripts/validate_v200_ext.py` GREEN; auditoría final: TODOS los validadores de extensión GREEN (v100, v110, v200, superprogrammer, ops, re, video, evolution); conteo independiente: 0 ids duplicados, 0 solape holdout, stats == shards.
+- Integridad del append: snapshot SHA256 por id (`scripts/verify_append_v200.py`) — los 15.245 records write previos BYTE-IDÉNTICOS, splits estables.
+- Infra: `generators/write/capstone_projects.py` (3 familias), `scripts/build_v200_delta.py`, `scripts/publish_py_v200.py`, `scripts/verify_append_v200.py`, `scripts/validate_v200_ext.py`, `tests/test_capstone_v200.py`.
+
+### Por qué 2.0.0
+El salto mayor marca un curriculum cerrado de principio a fin: comprender (00) → escribir (01-02) → crear medios (02-03) → leer binarios (04) → persistir objetivos (05) → oficio de verificación (06) → builds reales (07) → integración experta (08). El holdout experto llega a 1.409 records como gate de evaluación entre etapas. CI verde, releases profesionales y append-only verificado byte a byte en cada ola desde v0.9.1.
+
+
 ## [1.1.0] — Módulo 07: Build Systems & Compiler Diagnostics
 
 Tres familias write cuya verdad de terreno es un pipeline de build REAL (make/gcc ejecutados dentro del harness). Nuevo método de verificación `build_executed`: el harness standalone compila de verdad y sonda el binario construido; sin toolchain, el gate FALLA (honestidad de entorno preservada).

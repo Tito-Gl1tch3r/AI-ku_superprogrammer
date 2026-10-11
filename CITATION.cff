@@ -5,13 +5,13 @@ message: >-
   If you use this dataset, please cite it using the metadata from this file.
 authors:
   - alias: Tito-Gl1tch3r
-version: 1.1.0
+version: 2.0.0
 date-released: "2026-10-11"
 license: MIT
 repository-code: "https://github.com/Tito-Gl1tch3r/AI-ku_superprogrammer"
 abstract: >-
   A fully synthetic, execution-verified training curriculum for code-generating
-  LLMs. 25,297 records across 109 families and six datasets: code comprehension
+  LLMs. 25,491 records across 112 families and six datasets: code comprehension
   and writing (14 languages), generative TypeScript video (Three.js/Remotion
   style, deterministic renders), games and modding mixes, reverse engineering
   on real ELF binaries, and agent persistence over real long-running jobs.

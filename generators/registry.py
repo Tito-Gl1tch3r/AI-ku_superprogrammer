@@ -27,6 +27,7 @@ FAMILY_MODULES = [
     "generators.write.evolution_families",
     "generators.write.verification_craft",
     "generators.write.build_craft",
+    "generators.write.capstone_projects",
     "generators.media.families",
     "generators.media.video_families",
     "generators.media.ts_video_families",
